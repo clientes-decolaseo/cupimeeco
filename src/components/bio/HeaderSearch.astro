@@ -1,0 +1,91 @@
+---
+---
+
+<button
+	type="button"
+	class="bio-search-trigger"
+	aria-label="Abrir busca no site"
+	aria-controls="site-search-dialog"
+	aria-expanded="false"
+	data-search-open
+>
+	<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+		<circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle>
+		<path d="M20 20L16.5 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+	</svg>
+	<span class="bio-search-trigger-label">Buscar</span>
+</button>
+
+<dialog class="bio-search-dialog" id="site-search-dialog" aria-labelledby="site-search-title">
+	<div class="bio-search-dialog-inner">
+		<h2 id="site-search-title" class="bio-search-dialog-title">Buscar no site</h2>
+		<form method="get" action="/busca/" class="bio-search-form" role="search">
+			<label for="site-search-input" class="visually-hidden">Termo de busca</label>
+			<input
+				type="search"
+				id="site-search-input"
+				name="q"
+				class="bio-search-input"
+				placeholder="Ex.: cupins, dedetização, Osasco…"
+				autocomplete="off"
+				required
+				minlength="2"
+				maxlength="80"
+			/>
+			<div class="bio-search-form-actions">
+				<button type="submit" class="bio-search-submit">Buscar</button>
+				<button type="button" class="bio-search-close" data-search-close>Fechar</button>
+			</div>
+		</form>
+	</div>
+</dialog>
+
+<script>
+	const dialog = document.getElementById('site-search-dialog') as HTMLDialogElement | null;
+	const input = document.getElementById('site-search-input') as HTMLInputElement | null;
+
+	if (dialog && input) {
+		const openButtons = document.querySelectorAll<HTMLButtonElement>('[data-search-open]');
+		const closeButtons = document.querySelectorAll<HTMLButtonElement>('[data-search-close]');
+
+		const setExpanded = (expanded: boolean) => {
+			for (const button of openButtons) {
+				button.setAttribute('aria-expanded', String(expanded));
+			}
+		};
+
+		const openDialog = () => {
+			if (dialog.open) return;
+			dialog.showModal();
+			setExpanded(true);
+			input.value = '';
+			requestAnimationFrame(() => input.focus());
+		};
+
+		const closeDialog = () => {
+			dialog.close();
+			setExpanded(false);
+		};
+
+		for (const button of openButtons) {
+			button.addEventListener('click', openDialog);
+		}
+
+		for (const button of closeButtons) {
+			button.addEventListener('click', closeDialog);
+		}
+
+		dialog.addEventListener('close', () => setExpanded(false));
+
+		dialog.addEventListener('click', (event) => {
+			if (event.target === dialog) closeDialog();
+		});
+
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape' && dialog.open) {
+				event.preventDefault();
+				closeDialog();
+			}
+		});
+	}
+</script>

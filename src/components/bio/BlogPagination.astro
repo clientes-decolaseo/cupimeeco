@@ -1,0 +1,51 @@
+---
+import { blogPagePath } from '../../lib/blog-pagination';
+
+interface Props {
+	currentPage: number;
+	totalPages: number;
+}
+
+const { currentPage, totalPages } = Astro.props;
+
+if (totalPages <= 1) return null;
+---
+
+<nav class="bio-blog-pagination" aria-label="Paginação do blog">
+	{
+		currentPage > 1 && (
+			<a class="bio-blog-pagination__nav" href={blogPagePath(currentPage - 1)} rel="prev">
+				← Artigos anteriores
+			</a>
+		)
+	}
+
+	<ol class="bio-blog-pagination__pages">
+		{
+			Array.from({ length: totalPages }, (_, index) => {
+				const page = index + 1;
+				const isCurrent = page === currentPage;
+
+				return (
+					<li>
+						{isCurrent ? (
+							<span class="bio-blog-pagination__current" aria-current="page">
+								{page}
+							</span>
+						) : (
+							<a href={blogPagePath(page)}>{page}</a>
+						)}
+					</li>
+				);
+			})
+		}
+	</ol>
+
+	{
+		currentPage < totalPages && (
+			<a class="bio-blog-pagination__nav" href={blogPagePath(currentPage + 1)} rel="next">
+				Próximos artigos →
+			</a>
+		)
+	}
+</nav>

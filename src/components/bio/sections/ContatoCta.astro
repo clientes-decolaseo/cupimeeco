@@ -1,0 +1,32 @@
+---
+import site from '../../../data/site.json';
+
+const whatsappUrl = site.contato.whatsappUrl;
+---
+
+<section id="contato" class="bio-section" aria-labelledby="cta-titulo">
+	<div class="bio-section-inner">
+		<div class="bio-cta-box">
+			<div>
+				<h2 class="bio-cta-titulo" id="cta-titulo">
+					Pronto para resolver<br />de uma vez por todas?
+				</h2>
+				<p class="bio-cta-desc">
+					Entre em contato agora e receba um orçamento personalizado sem compromisso. Atendemos
+					toda a Grande São Paulo.
+				</p>
+			</div>
+
+			<div class="bio-cta-acoes">
+				<div>
+					<p class="bio-cta-numero">{site.contato.telefoneGratis}</p>
+					<p class="bio-cta-gratis-tag">Ligação gratuita</p>
+				</div>
+				<a href={site.contato.telefoneGratisHref} class="bio-btn-ligar">Ligar agora</a>
+				<a href={whatsappUrl} class="bio-btn-whatsapp" target="_blank" rel="noopener noreferrer">
+					WhatsApp
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

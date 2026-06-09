@@ -1,0 +1,189 @@
+---
+import '../styles/bio-solucoes.css';
+import SiteFooter from '../components/bio/SiteFooter.astro';
+import SiteHeader from '../components/bio/SiteHeader.astro';
+import WhatsAppFloat from '../components/bio/WhatsAppFloat.astro';
+import site from '../data/site.json';
+import { normalizeSiteUrl } from '../lib/wp-urls';
+
+interface Props {
+	title?: string;
+	description?: string;
+	ogImage?: string;
+	ogImageAlt?: string;
+	ogType?: 'website' | 'article';
+	canonical?: string;
+	paginationPrev?: string;
+	paginationNext?: string;
+	noindex?: boolean;
+	jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+	variant?: 'home' | 'content';
+}
+
+const TITLE_MAX = 60;
+const DESCRIPTION_MAX = 160;
+
+function truncate(text: string, max: number): string {
+	const normalized = text.trim().replace(/\s+/g, ' ');
+	if (normalized.length <= max) return normalized;
+
+	const slice = normalized.slice(0, max - 1);
+	const lastSpace = slice.lastIndexOf(' ');
+
+	return `${(lastSpace > max * 0.6 ? slice.slice(0, lastSpace) : slice).trim()}…`;
+}
+
+function resolveAbsoluteUrl(path: string, base: URL): string {
+	return new URL(path, base).href;
+}
+
+function resolveCanonicalUrl(url: URL, override?: string): string {
+	if (override) {
+		const normalized = normalizeSiteUrl(override);
+		const absolute = normalized.startsWith('http')
+			? new URL(normalized)
+			: new URL(normalized.startsWith('/') ? normalized : `/${normalized}`, url.origin);
+		const path =
+			absolute.pathname === '/' ? '/' : absolute.pathname.replace(/\/+$/, '');
+
+		return `${absolute.origin}${path}/`;
+	}
+
+	const pathname =
+		url.pathname === '/' ? '/' : url.pathname.replace(/\/+$/, '');
+
+	return `${url.origin}${pathname}/`;
+}
+
+const defaultTitle = `${site.marca.nome} — Controle de Pragas e Dedetização | ${site.contato.telefoneGratis}`;
+const defaultDescription =
+	'Empresa especializada em controle de pragas, dedetização, descupinização, deratização e sanitização. Atendimento 24h. Ligue grátis: 0800 111 7272.';
+
+const {
+	title: rawTitle = defaultTitle,
+	description: rawDescription = defaultDescription,
+	ogImage = site.marca.ogImage,
+	ogImageAlt,
+	canonical,
+	paginationPrev,
+	paginationNext,
+	noindex = false,
+	jsonLd,
+	variant = 'content',
+	ogType = 'website',
+} = Astro.props;
+
+const isHomeVariant = variant === 'home';
+
+const siteBase = Astro.site ? new URL(Astro.site) : Astro.url;
+
+const pageTitle = truncate(rawTitle, TITLE_MAX);
+const metaDescription = truncate(rawDescription, DESCRIPTION_MAX);
+const canonicalUrl = resolveCanonicalUrl(Astro.url, canonical);
+const ogImageUrl = resolveAbsoluteUrl(ogImage, siteBase);
+const ogImageAltText = ogImageAlt ?? pageTitle;
+
+const defaultJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'PestControlService',
+	name: site.marca.nome,
+	description: defaultDescription,
+	telephone: site.contato.telefoneGratis,
+	priceRange: '$$',
+	openingHours: 'Mo-Su 00:00-24:00',
+	areaServed: [
+		{ '@type': 'State', name: 'São Paulo' },
+		{ '@type': 'AdministrativeArea', name: 'Região Metropolitana de Campinas' },
+		{ '@type': 'AdministrativeArea', name: 'Região Metropolitana de Sorocaba' },
+		{ '@type': 'AdministrativeArea', name: 'Baixada Santista' },
+		{ '@type': 'AdministrativeArea', name: 'Vale do Paraíba' },
+	],
+	url: site.marca.siteUrl,
+	hasOfferCatalog: {
+		'@type': 'OfferCatalog',
+		name: 'Serviços de Controle de Pragas',
+		itemListElement: site.servicos.map((servico) => ({
+			'@type': 'Offer',
+			itemOffered: { '@type': 'Service', name: servico.nome },
+		})),
+	},
+};
+
+const structuredData = jsonLd
+	? Array.isArray(jsonLd)
+		? jsonLd
+		: [jsonLd]
+	: [defaultJsonLd];
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="color-scheme" content={isHomeVariant ? 'dark' : 'light dark'} />
+		<meta name="theme-color" content={isHomeVariant ? '#0a0a0a' : '#f5f7f5'} />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonicalUrl} />
+		{paginationPrev && <link rel="prev" href={paginationPrev} />}
+		{paginationNext && <link rel="next" href={paginationNext} />}
+
+		<title>{pageTitle}</title>
+		<meta name="description" content={metaDescription} />
+		<meta
+			name="robots"
+			content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}
+		/>
+
+		<meta property="og:type" content={ogType} />
+		<meta property="og:locale" content="pt_BR" />
+		<meta property="og:site_name" content={site.marca.nome} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={metaDescription} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:secure_url" content={ogImageUrl} />
+		<meta property="og:image:alt" content={ogImageAltText} />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={metaDescription} />
+		<meta name="twitter:image" content={ogImageUrl} />
+		<meta name="twitter:image:alt" content={ogImageAltText} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+
+		{
+			structuredData.map((schema) => (
+				<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+			))
+		}
+	</head>
+	<body class:list={['bio-body', { 'bio-body--content': !isHomeVariant }]}>
+		<a class="bio-skip-link" href="#conteudo-principal">Ir para o conteúdo principal</a>
+
+		<SiteHeader />
+
+		<main id="conteudo-principal" class:list={['bio-main', { 'bio-main--content': !isHomeVariant }]}>
+			{
+				isHomeVariant ? (
+					<slot />
+				) : (
+					<div class="bio-content-shell">
+						<slot />
+					</div>
+				)
+			}
+		</main>
+
+		<SiteFooter />
+		<WhatsAppFloat />
+	</body>
+</html>

@@ -1,0 +1,118 @@
+---
+import type { ClusterConfig, ClusterManifestEntry } from '../../types/cluster';
+import Breadcrumbs from './Breadcrumbs.astro';
+import { breadcrumbsForClusterHub, getClusterPosts } from '../../lib/clusters';
+import { groupCitiesByRegion, groupPagesByCity } from '../../lib/cluster-regions';
+import { postUrl } from '../../lib/wordpress';
+
+interface Props {
+	cluster: ClusterConfig;
+	pages: ClusterManifestEntry[];
+}
+
+const { cluster, pages } = Astro.props;
+const breadcrumbs = breadcrumbsForClusterHub(cluster);
+const blogPosts = getClusterPosts(cluster.id);
+const cities = groupPagesByCity(pages);
+const regions = groupCitiesByRegion(cities);
+const cityCount = cities.length;
+---
+
+<section class="bio-cluster-hub">
+	<Breadcrumbs items={breadcrumbs} />
+
+	<header class="bio-cluster-hub__header">
+		<p class="bio-section-label">{cluster.nome}</p>
+		<h1 class="bio-cluster-hub__titulo">Regiões atendidas — {cluster.nome}</h1>
+		<p class="bio-cluster-hub__descricao">
+			Atendemos {cityCount} cidades na Região de São Paulo, Baixada Santista, Campinas, Sorocaba,
+			Jundiaí e Vale do Paraíba. Escolha sua localidade ou fale com nossa central 24h.
+		</p>
+		<p class="bio-cluster-hub__total">
+			{pages.length} páginas em {cityCount} {cityCount === 1 ? 'cidade' : 'cidades'}
+		</p>
+		<div class="bio-cluster-hub__acoes">
+			<a href={cluster.pilar} class="bio-btn-primario">
+				Sobre o serviço de {cluster.nome.toLowerCase()}
+			</a>
+			{
+				blogPosts.length > 0 && (
+					<a href={cluster.blogHub} class="bio-btn-secundario">
+						Artigos no blog
+					</a>
+				)
+			}
+		</div>
+	</header>
+
+	{
+		cities.length > 0 ? (
+			<nav class="bio-cluster-hub__indice" aria-label="Índice de cidades">
+				<h2 class="bio-cluster-hub__indice-titulo">Ir para a cidade</h2>
+				{regions.map((region) => (
+					<div class="bio-cluster-hub__indice-regiao">
+						<p class="bio-cluster-hub__indice-regiao-label">{region.regiaoLabel}</p>
+						<ul>
+							{region.cities.map((city) => (
+								<li>
+									<a href={`#cidade-${city.id}`}>
+										{city.nome}
+										<span class="bio-cluster-hub__indice-count">{city.pages.length}</span>
+									</a>
+								</li>
+							))}
+						</ul>
+					</div>
+				))}
+			</nav>
+		) : null
+	}
+
+	{
+		cities.length > 0 ? (
+			<div class="bio-cluster-hub__cidades">
+				{regions.map((region) => (
+					<section
+						class="bio-cluster-hub__regiao"
+						aria-labelledby={`regiao-${region.regiaoId}`}
+					>
+						<h2 class="bio-cluster-hub__regiao-titulo" id={`regiao-${region.regiaoId}`}>
+							{region.regiaoLabel}
+						</h2>
+						{region.regiaoIntro && (
+							<p class="bio-cluster-hub__regiao-intro">{region.regiaoIntro}</p>
+						)}
+
+						{region.cities.map((city) => (
+							<section
+								class="bio-cluster-hub__cidade"
+								id={`cidade-${city.id}`}
+								aria-labelledby={`cidade-titulo-${city.id}`}
+							>
+								<h3 class="bio-cluster-hub__cidade-titulo" id={`cidade-titulo-${city.id}`}>
+									{city.nome}
+									<span class="bio-cluster-hub__cidade-count">
+										{city.pages.length}{' '}
+										{city.pages.length === 1 ? 'página' : 'páginas'}
+									</span>
+								</h3>
+
+								<ul class="bio-cluster-hub__lista">
+									{city.pages.map((page) => (
+										<li>
+											<a href={postUrl(page.path)} class="bio-cluster-hub__link">
+												{page.title}
+											</a>
+										</li>
+									))}
+								</ul>
+							</section>
+						))}
+					</section>
+				))}
+			</div>
+		) : (
+			<p class="bio-cluster-hub__vazio">Nenhuma página regional encontrada neste cluster.</p>
+		)
+	}
+</section>

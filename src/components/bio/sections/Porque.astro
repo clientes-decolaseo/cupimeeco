@@ -1,0 +1,65 @@
+---
+import site from '../../../data/site.json';
+---
+
+<section id="porque" class="bio-section" aria-labelledby="porque-titulo">
+	<div class="bio-section-inner">
+		<div class="bio-porque-grid">
+			<div>
+				<p class="bio-section-label">Diferenciais</p>
+				<h2 class="bio-section-titulo" id="porque-titulo">
+					Por que <span>nos escolher?</span>
+				</h2>
+				<p class="bio-section-desc">
+					Combinamos tecnologia, experiência e responsabilidade ambiental para oferecer o melhor
+					serviço de controle de pragas.
+				</p>
+
+				<div class="bio-porque-lista">
+					{
+						site.diferenciais.map((item, index) => (
+							<div class="bio-porque-item">
+								<span class="bio-porque-num" aria-hidden="true">
+									{String(index + 1).padStart(2, '0')}
+								</span>
+								<div>
+									<h3 class="bio-porque-titulo">{item.titulo}</h3>
+									<p class="bio-porque-texto">{item.texto}</p>
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+
+			<aside class="bio-porque-destaque" aria-label="Certificações e selos">
+				<h3 class="bio-porque-destaque-titulo">Empresa registrada e certificada</h3>
+				<p class="bio-porque-destaque-desc">
+					Atuamos com todas as exigências legais e ambientais. Emitimos laudos e certificados para
+					sua documentação.
+				</p>
+				<ul class="bio-porque-selos">
+					{
+						site.selos.map((selo) => (
+							<li class="bio-porque-selo">
+								<span aria-hidden="true">✓</span>
+								{selo}
+							</li>
+						))
+					}
+				</ul>
+			</aside>
+		</div>
+	</div>
+</section>
+
+<style>
+	.bio-porque-lista {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.bio-porque-selos {
+		list-style: none;
+	}
+</style>

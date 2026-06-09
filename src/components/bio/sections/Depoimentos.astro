@@ -1,0 +1,41 @@
+---
+import site from '../../../data/site.json';
+---
+
+<section id="depoimentos" class="bio-section" aria-labelledby="depoimentos-titulo">
+	<div class="bio-section-inner">
+		<p class="bio-section-label">Quem nos recomenda</p>
+		<h2 class="bio-section-titulo" id="depoimentos-titulo">
+			O que dizem nossos <span>clientes</span>
+		</h2>
+		<p class="bio-section-desc">Mais de 5.000 clientes atendidos em toda a região.</p>
+
+		<div class="bio-depoimentos-grid">
+			{
+				site.depoimentos.map((depoimento) => (
+					<article class="bio-depoimento-card">
+						<p class="bio-depoimento-estrelas" aria-label="5 estrelas">★★★★★</p>
+						<blockquote>
+							<p class="bio-depoimento-texto">"{depoimento.texto}"</p>
+						</blockquote>
+						<footer class="bio-depoimento-autor">
+							<div class="bio-depoimento-avatar" aria-hidden="true">
+								{depoimento.iniciais}
+							</div>
+							<div>
+								<cite class="bio-depoimento-nome">{depoimento.nome}</cite>
+								<p class="bio-depoimento-local">{depoimento.local}</p>
+							</div>
+						</footer>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	cite {
+		font-style: normal;
+	}
+</style>

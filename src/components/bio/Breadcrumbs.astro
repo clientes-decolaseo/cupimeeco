@@ -1,0 +1,50 @@
+---
+import type { BreadcrumbItem } from '../../types/cluster';
+
+interface Props {
+	items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+const siteBase = Astro.site ? new URL(Astro.site) : Astro.url;
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: items.map((item, index) => {
+		const entry: Record<string, unknown> = {
+			'@type': 'ListItem',
+			position: index + 1,
+			name: item.label,
+		};
+
+		if (item.href) {
+			entry.item = new URL(item.href, siteBase).href;
+		}
+
+		return entry;
+	}),
+};
+---
+
+<nav class="bio-breadcrumbs" aria-label="Navegação estrutural">
+	<ol>
+		{
+			items.map((item, index) => (
+				<li>
+					{index > 0 && <span class="bio-breadcrumbs__sep" aria-hidden="true">/</span>}
+					{item.href && index < items.length - 1 ? (
+						<a href={item.href}>{item.label}</a>
+					) : (
+						<span aria-current={index === items.length - 1 ? 'page' : undefined}>
+							{item.label}
+						</span>
+					)}
+				</li>
+			))
+		}
+	</ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

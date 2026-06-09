@@ -1,0 +1,19 @@
+---
+import BioLayout from '../../layouts/BioLayout.astro';
+import ClusterRegioesHub from '../../components/bio/ClusterRegioesHub.astro';
+import ContatoCta from '../../components/bio/sections/ContatoCta.astro';
+import { getClusterById, getClusterPages } from '../../lib/clusters';
+import { groupPagesByCity } from '../../lib/cluster-regions';
+
+const cluster = getClusterById('sanitizacao')!;
+const pages = getClusterPages('sanitizacao');
+const cities = groupPagesByCity(pages);
+
+const pageTitle = `Sanitização por região | Grande São Paulo | Cupim Eco`;
+const pageDescription = `Sanitização e desinfecção em ${cities.length} cidades atendidas. Produtos certificados e atendimento 24h. Ligue 0800 111 7272.`;
+---
+
+<BioLayout variant="content" title={pageTitle} description={pageDescription}>
+	<ClusterRegioesHub cluster={cluster} pages={pages} />
+	<ContatoCta />
+</BioLayout>

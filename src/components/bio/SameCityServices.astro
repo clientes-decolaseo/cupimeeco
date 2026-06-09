@@ -1,0 +1,33 @@
+---
+import type { CrossClusterServiceLink } from '../../lib/cross-cluster-links';
+
+interface Props {
+	links: CrossClusterServiceLink[];
+	cidade: string;
+}
+
+const { links, cidade } = Astro.props;
+
+if (links.length === 0) return null;
+---
+
+<section class="bio-same-city" aria-labelledby="bio-same-city-titulo">
+	<h2 class="bio-same-city__titulo" id="bio-same-city-titulo">
+		Outros serviços em {cidade}
+	</h2>
+	<p class="bio-same-city__desc">
+		A Cupim Eco também atende {cidade} com equipes especializadas nestes serviços:
+	</p>
+	<ul class="bio-same-city__lista">
+		{
+			links.map((link) => (
+				<li>
+					<a href={link.href} class="bio-same-city__card">
+						<strong>{link.servico}</strong>
+						<span>{link.pageTitle}</span>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</section>

@@ -1,0 +1,72 @@
+---
+import BlogPostCard from './BlogPostCard.astro';
+import BlogPagination from './BlogPagination.astro';
+import { getAllClusters } from '../../lib/clusters';
+import type { BlogPostSummary } from '../../types/wordpress';
+
+interface Props {
+	posts: BlogPostSummary[];
+	currentPage: number;
+	totalPages: number;
+	totalPosts: number;
+}
+
+const { posts, currentPage, totalPages, totalPosts } = Astro.props;
+const topicos = getAllClusters();
+const isFirstPage = currentPage === 1;
+---
+
+<section class="bio-blog" aria-labelledby="blog-titulo">
+	<header class="bio-blog__header">
+		<p class="bio-section-label">Conteúdo especializado</p>
+		<h1 class="bio-blog__titulo" id="blog-titulo">
+			{isFirstPage ? 'Blog' : `Blog — Página ${currentPage}`}
+		</h1>
+		<p class="bio-blog__descricao">
+			Guias, dicas e artigos sobre cupins, dedetização e controle de pragas para proteger seu
+			patrimônio.
+		</p>
+		<p class="bio-blog__total">
+			{totalPosts} artigos publicados
+			{totalPages > 1 && (
+				<span class="bio-blog__pagina-atual">
+					{' '}
+					· Página {currentPage} de {totalPages}
+				</span>
+			)}
+		</p>
+	</header>
+
+	{
+		isFirstPage && (
+			<nav class="bio-blog__topicos" aria-label="Tópicos do blog">
+				<h2 class="bio-blog__topicos-titulo">Explorar por assunto</h2>
+				<ul>
+					{
+						topicos.map((cluster) => (
+							<li>
+								<a href={cluster.blogHub}>{cluster.blogHubTitulo}</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+		)
+	}
+
+	{
+		posts.length > 0 ? (
+			<ul class="bio-blog__lista">
+				{posts.map((post) => (
+					<li>
+						<BlogPostCard post={post} />
+					</li>
+				))}
+			</ul>
+		) : (
+			<p class="bio-blog__vazio">Nenhum artigo publicado no momento.</p>
+		)
+	}
+
+	<BlogPagination currentPage={currentPage} totalPages={totalPages} />
+</section>

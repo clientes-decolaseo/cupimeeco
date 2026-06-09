@@ -1,0 +1,50 @@
+---
+import BioLayout from '../../layouts/BioLayout.astro';
+import BlogListing from '../../components/bio/BlogListing.astro';
+import {
+	getBlogPageCount,
+	getBlogPaginationHeadLinks,
+	getBlogPostCount,
+} from '../../lib/blog-pagination';
+import { getBlogPostsSummaryPage, postUrl } from '../../lib/wordpress';
+import site from '../../data/site.json';
+
+const currentPage = 1;
+const totalPages = getBlogPageCount();
+const totalPosts = getBlogPostCount();
+const posts = await getBlogPostsSummaryPage(currentPage);
+const siteOrigin = Astro.site?.toString() ?? Astro.url.origin;
+const headLinks = getBlogPaginationHeadLinks(currentPage, totalPages, siteOrigin);
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Blog',
+	name: `Blog ${site.marca.nome}`,
+	description:
+		'Artigos sobre cupins, dedetização, controle de pragas e dicas de prevenção para residências e empresas.',
+	url: `${siteOrigin}/blog/`,
+	blogPost: posts.map((post) => ({
+		'@type': 'BlogPosting',
+		headline: post.title,
+		description: post.excerpt,
+		image: post.image ? `${siteOrigin}${post.image}` : undefined,
+		url: `${siteOrigin}${postUrl(post.path)}`,
+		dateModified: post.modified,
+	})),
+};
+---
+
+<BioLayout
+	variant="content"
+	title={`Blog — Dicas sobre Cupins e Controle de Pragas | ${site.marca.nome}`}
+	description={`Artigos e guias sobre cupins, dedetização, descupinização e controle de pragas urbanas. Conteúdo especializado da ${site.marca.nome}.`}
+	paginationNext={headLinks.next}
+	jsonLd={jsonLd}
+>
+	<BlogListing
+		posts={posts}
+		currentPage={currentPage}
+		totalPages={totalPages}
+		totalPosts={totalPosts}
+	/>
+</BioLayout>

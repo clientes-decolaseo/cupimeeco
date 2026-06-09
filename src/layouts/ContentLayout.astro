@@ -1,0 +1,92 @@
+---
+import BioLayout from './BioLayout.astro';
+import Breadcrumbs from '../components/bio/Breadcrumbs.astro';
+import PillarBanner from '../components/bio/PillarBanner.astro';
+import RelatedContent from '../components/bio/RelatedContent.astro';
+import SameCityServices from '../components/bio/SameCityServices.astro';
+import { breadcrumbsForWpContent, getClusterForPath } from '../lib/clusters';
+import { getCrossClusterServiceLinks } from '../lib/cross-cluster-links';
+import { resolveCityFromPage } from '../lib/area-atendida';
+import { getSeoPolicy } from '../lib/seo-policy';
+import { getRelatedContent, normalizeWpContent } from '../lib/wordpress';
+import type { WpContent } from '../types/wordpress';
+import site from '../data/site.json';
+import { normalizeSiteUrl } from '../lib/wp-urls';
+
+interface Props {
+	content: WpContent;
+}
+
+const { content: rawContent } = Astro.props;
+const content = normalizeWpContent(rawContent);
+
+const seoPolicy = getSeoPolicy(content.path, content.seo.robots);
+
+const pageTitle = content.seo.title || content.title;
+const description = content.seo.description || content.excerpt;
+const ogImage = content.seo.ogImage || site.marca.ogImage;
+const noindex = seoPolicy.noindex;
+
+const cluster = getClusterForPath(content.path);
+const breadcrumbs = breadcrumbsForWpContent(content.path, content.title, content.type);
+const relatedItems = await getRelatedContent(content.path, 4);
+const sameCityLinks =
+	content.type === 'page' ? getCrossClusterServiceLinks(content.path, content.title) : [];
+const cityLabel = resolveCityFromPage({ path: content.path, title: content.title }).nome;
+
+const canonical = normalizeSiteUrl(content.seo.canonical) || undefined;
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': content.type === 'post' ? 'BlogPosting' : 'WebPage',
+	headline: content.title,
+	description,
+	datePublished: content.date,
+	dateModified: content.modified,
+	url: canonical,
+	...(cluster && {
+		about: {
+			'@type': 'Service',
+			name: cluster.nome,
+			url: new URL(cluster.pilar, Astro.site ?? Astro.url).href,
+		},
+	}),
+};
+---
+
+<BioLayout
+	variant="content"
+	title={pageTitle}
+	description={description}
+	ogImage={ogImage}
+	ogImageAlt={content.title}
+	ogType={content.type === 'post' ? 'article' : 'website'}
+	canonical={canonical}
+	noindex={noindex}
+	jsonLd={jsonLd}
+>
+	<article class="bio-wp-content" itemscope itemtype="https://schema.org/Article">
+		<Breadcrumbs items={breadcrumbs} />
+
+		{cluster && <PillarBanner cluster={cluster} />}
+
+		<header class="bio-wp-content__header">
+			<h1 itemprop="headline">{content.title}</h1>
+			{
+				content.type === 'post' && (
+					<p class="bio-wp-content__meta">
+						<time datetime={content.date} itemprop="datePublished">
+							{new Date(content.date).toLocaleDateString('pt-BR')}
+						</time>
+					</p>
+				)
+			}
+		</header>
+
+		<div class="bio-wp-content__body" set:html={content.content} />
+
+		<SameCityServices links={sameCityLinks} cidade={cityLabel} />
+
+		<RelatedContent items={relatedItems} />
+	</article>
+</BioLayout>

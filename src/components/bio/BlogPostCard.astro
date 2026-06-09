@@ -1,0 +1,61 @@
+---
+import { postUrl } from '../../lib/wordpress';
+import type { BlogPostSummary } from '../../types/wordpress';
+
+interface Props {
+	post: BlogPostSummary;
+}
+
+const { post } = Astro.props;
+const href = postUrl(post.path);
+const formattedDate = new Date(post.modified).toLocaleDateString('pt-BR', {
+	day: '2-digit',
+	month: 'long',
+	year: 'numeric',
+});
+---
+
+<article class="bio-blog__card">
+	{
+		post.image ? (
+			<a class="bio-blog__card-media" href={href} aria-hidden="true" tabindex="-1">
+				<img
+					src={post.image}
+					alt={post.imageAlt}
+					width="640"
+					height="360"
+					loading="lazy"
+					decoding="async"
+				/>
+			</a>
+		) : null
+	}
+
+	<div class="bio-blog__card-body">
+		<header>
+			<time class="bio-blog__data" datetime={post.modified}>
+				{formattedDate}
+			</time>
+			<h2 class="bio-blog__card-titulo">
+				<a href={href}>{post.title}</a>
+			</h2>
+		</header>
+
+		{post.excerpt ? <p class="bio-blog__excerpt">{post.excerpt}</p> : null}
+
+		<a class="bio-blog__link" href={href}>
+			Ler artigo
+			<svg
+				width="14"
+				height="14"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2.5"
+				aria-hidden="true"
+			>
+				<path d="M5 12h14M12 5l7 7-7 7" />
+			</svg>
+		</a>
+	</div>
+</article>

@@ -9,9 +9,25 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "import:wp": "node scripts/import-wordpress.mjs",
+    "migrate:images": "node scripts/migrate-images.mjs",
+    "normalize:wp": "node scripts/normalize-wp-urls.mjs",
+    "normalize:redirect-links": "node scripts/fix-internal-redirect-links.mjs",
+    "fix:wp-content-seo": "node scripts/fix-wp-content-seo.mjs",
+    "fix:wp-seo-titles": "node scripts/fix-wp-seo-titles.mjs",
+    "fix:wp-seo-descriptions": "node scripts/fix-wp-seo-descriptions.mjs",
+    "fix:wp-meta-gaps": "node scripts/apply-wp-meta-overrides.mjs",
+    "normalize:brand": "node scripts/normalize-brand.mjs",
+    "audit:brand": "node scripts/audit-brand.mjs",
+    "audit:thin": "node scripts/audit-thin-content.mjs",
+    "enrich:preco-dedetizacao": "node scripts/enrich-preco-dedetizacao.mjs",
+    "audit:cupim": "node scripts/audit-cluster-duplicates.mjs",
+    "audit:seo": "node scripts/audit-cluster-duplicates.mjs",
+    "audit:seo:full": "node scripts/audit-seo-full.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.4.2"
   }
 }

@@ -1,0 +1,96 @@
+{
+  "slug": "dedetizacao",
+  "titulo": "Dedetização Profissional",
+  "subtitulo": "Controle de baratas, formigas, mosquitos, pulgas e outras pragas urbanas com produtos ANVISA.",
+  "seo": {
+    "title": "Dedetização Profissional | Controle de Pragas | Cupim Eco",
+    "description": "Dedetização residencial e comercial na Grande São Paulo. Elimine baratas, formigas, mosquitos e outras pragas com garantia. Ligue 0800 111 7272."
+  },
+  "intro": "Baratas, formigas, mosquitos e outras pragas urbanas comprometem a saúde e o conforto do seu imóvel. A Cupim Eco realiza dedetização com diagnóstico preciso, produtos registrados e técnicos certificados — em residências, comércios, condomínios e indústrias.",
+  "beneficios": [
+    {
+      "titulo": "Produtos certificados ANVISA",
+      "texto": "Inseticidas aplicados com técnica correta, respeitando áreas de preparo e tempo de reentrada."
+    },
+    {
+      "titulo": "Controle integrado de pragas",
+      "texto": "Abordagem que combina aplicação, monitoramento e orientações preventivas para resultado duradouro."
+    },
+    {
+      "titulo": "Garantia por escrito",
+      "texto": "Retorno sem custo no período de garantia quando a praga tratada reaparecer no local."
+    },
+    {
+      "titulo": "Atendimento 24 horas",
+      "texto": "Central e WhatsApp disponíveis para emergências e orçamentos na Grande São Paulo."
+    }
+  ],
+  "detalhesTitulo": "Pragas urbanas que tratamos",
+  "detalhes": [
+    {
+      "nome": "Baratas",
+      "descricao": "Infestação em cozinhas, despensas, esgotos e áreas úmidas — controle de ninfas e adultos."
+    },
+    {
+      "nome": "Formigas",
+      "descricao": "Trilhas em paredes, armários e jardins; tratamento em focos e barreiras quando indicado."
+    },
+    {
+      "nome": "Mosquitos e pernilongos",
+      "descricao": "Tratamento de áreas internas e externas; para foco em Aedes, veja também nosso serviço de controle de mosquitos."
+    },
+    {
+      "nome": "Pulgas, carrapatos e outras",
+      "descricao": "Ambientes com pets, carpetes e áreas externas com infestação de parasitas."
+    }
+  ],
+  "sinaisTitulo": "Quando chamar a dedetização",
+  "sinais": [
+    "Avistamento frequente de insetos, especialmente à noite",
+    "Ovos, fezes ou odor característico em armários e frestas",
+    "Picadas em moradores ou animais de estimação",
+    "Infestação recorrente após soluções caseiras",
+    "Exigência de laudo ou controle para vigilância sanitária"
+  ],
+  "etapasTitulo": "Como funciona o serviço",
+  "etapas": [
+    "Inspeção do imóvel e identificação das pragas e focos",
+    "Definição do método: gel, pulverização, nebulização ou barreira conforme o caso",
+    "Aplicação com orientações de preparo e ausência temporária quando necessário",
+    "Relatório, certificado e acompanhamento dentro da garantia"
+  ],
+  "prevencaoTitulo": "Medidas preventivas",
+  "prevencao": [
+    "Manter alimentos lacrados e lixo em sacos fechados",
+    "Vedar frestas em portas, janelas e passagens de tubulação",
+    "Eliminar água parada e corrigir vazamentos",
+    "Limpar regularmente áreas de preparo de alimentos e despensa",
+    "Agendar visitas periódicas em comércios e condomínios"
+  ],
+  "faq": [
+    {
+      "pergunta": "Qual a diferença entre dedetização e descupinização?",
+      "resposta": "Dedetização é o controle de pragas urbanas como baratas, formigas, mosquitos, pulgas e carrapatos, geralmente com inseticidas, gel ou nebulização. Descupinização trata especificamente cupins e outros xilófagos que destroem madeira e estruturas. São serviços complementares: a Cupim Eco oferece ambos com equipes especializadas."
+    },
+    {
+      "pergunta": "Os produtos da dedetização são seguros para crianças e pets?",
+      "resposta": "Utilizamos apenas produtos registrados na ANVISA, aplicados por técnicos certificados conforme a bula e a área tratada. Informamos o tempo de reentrada e as orientações de preparo (cobrir alimentos, afastar pets do cômodo no momento da aplicação). Siga sempre as instruções da equipe no dia do serviço."
+    },
+    {
+      "pergunta": "Quanto tempo devo ficar fora após a dedetização?",
+      "resposta": "Varia conforme o produto e o método: gel em frestas costuma permitir permanência quase imediata; pulverização ou nebulização podem exigir ausência de 2 a 4 horas ou mais em ambientes fechados. O técnico informa o prazo exato na vistoria e no dia da aplicação."
+    },
+    {
+      "pergunta": "A dedetização tem garantia?",
+      "resposta": "Sim. Oferecemos garantia por escrito: se a praga tratada reaparecer no local dentro do período acordado, retornamos para retratamento sem custo adicional, conforme as condições do contrato. Condomínios e comércios podem receber certificado para vigilância sanitária."
+    },
+    {
+      "pergunta": "Com que frequência devo dedetizar casa ou empresa?",
+      "resposta": "Residências costumam precisar de 1 a 2 visitas por ano, ou sob demanda ao detectar infestação. Restaurantes, padarias e condomínios frequentemente exigem contratos trimestrais ou mensais por normas sanitárias. A frequência ideal é definida na inspeção, conforme o tipo de praga e o risco do local."
+    },
+    {
+      "pergunta": "A Cupim Eco atende dedetização em quais regiões?",
+      "resposta": "Realizamos dedetização em 60 cidades: São Paulo e região, Baixada Santista, Campinas, Sorocaba, Jundiaí e Vale do Paraíba. Veja localidades e páginas por cidade em cupim.eco.br/dedetizacao/regioes/ ou ligue 0800 111 7272 — central 24 horas."
+    }
+  ]
+}

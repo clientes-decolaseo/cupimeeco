@@ -1,0 +1,45 @@
+---
+import type { LegalPageData } from '../../types/legal';
+
+interface Props {
+	page: LegalPageData;
+}
+
+const { page } = Astro.props;
+const atualizado = new Date(page.atualizadoEm).toLocaleDateString('pt-BR', {
+	day: '2-digit',
+	month: 'long',
+	year: 'numeric',
+});
+---
+
+<article class="bio-legal" itemscope itemtype="https://schema.org/WebPage">
+	<header class="bio-legal__header">
+		<p class="bio-section-label">Informações legais</p>
+		<h1 class="bio-legal__titulo" itemprop="name">{page.titulo}</h1>
+		<p class="bio-legal__meta">
+			Última atualização: <time datetime={page.atualizadoEm}>{atualizado}</time>
+		</p>
+		<p class="bio-legal__intro" itemprop="description">{page.intro}</p>
+	</header>
+
+	<div class="bio-legal__body">
+		{
+			page.secoes.map((secao) => (
+				<section>
+					<h2>{secao.titulo}</h2>
+					{secao.paragrafos.map((paragrafo) => (
+						<p>{paragrafo}</p>
+					))}
+					{secao.itens?.length ? (
+						<ul>
+							{secao.itens.map((item) => (
+								<li>{item}</li>
+							))}
+						</ul>
+					) : null}
+				</section>
+			))
+		}
+	</div>
+</article>

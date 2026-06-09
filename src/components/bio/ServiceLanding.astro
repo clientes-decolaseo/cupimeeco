@@ -1,0 +1,129 @@
+---
+import ContatoCta from './sections/ContatoCta.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import RelatedContent from './RelatedContent.astro';
+import ServiceFaq from './ServiceFaq.astro';
+import site from '../../data/site.json';
+import {
+	breadcrumbsForService,
+	getClusterByPilarPath,
+	getClusterPages,
+} from '../../lib/clusters';
+import { getFeaturedPostsForCluster } from '../../lib/wordpress';
+import type { ServicoData } from '../../types/servico';
+
+interface Props {
+	servico: ServicoData;
+}
+
+const { servico } = Astro.props;
+const whatsappUrl = site.contato.whatsappUrl;
+const cluster = getClusterByPilarPath(`/${servico.slug}`);
+const regioesCount = cluster ? getClusterPages(cluster.id).length : 0;
+const artigosDestaque = cluster ? await getFeaturedPostsForCluster(cluster, 3) : [];
+const breadcrumbs = cluster ? breadcrumbsForService(cluster) : undefined;
+---
+
+<article class="bio-servico" itemscope itemtype="https://schema.org/Service">
+	{cluster && breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
+
+	<header class="bio-servico__hero">
+		<p class="bio-section-label">Serviço especializado</p>
+		<h1 class="bio-servico__titulo" itemprop="name">{servico.titulo}</h1>
+		<p class="bio-servico__subtitulo" itemprop="description">{servico.subtitulo}</p>
+		<p class="bio-servico__intro">{servico.intro}</p>
+
+		<div class="bio-servico__acoes">
+			<a href={site.contato.telefoneGratisHref} class="bio-btn-primario">
+				Ligar {site.contato.telefoneGratis}
+			</a>
+			<a href={whatsappUrl} class="bio-btn-secundario" target="_blank" rel="noopener noreferrer">
+				Orçamento no WhatsApp
+			</a>
+		</div>
+	</header>
+
+	{
+		cluster && (
+			<section class="bio-servico__cluster" aria-labelledby="cluster-links-titulo">
+				<h2 class="bio-servico__h2" id="cluster-links-titulo">
+					Explore {cluster.nome.toLowerCase()}
+				</h2>
+				<ul class="bio-servico__cluster-links">
+					<li>
+						<a href={cluster.hubRegioes} class="bio-servico__cluster-card">
+							<strong>Regiões atendidas</strong>
+							<span>{regioesCount} localidades na Grande São Paulo</span>
+						</a>
+					</li>
+					<li>
+						<a href={cluster.blogHub} class="bio-servico__cluster-card">
+							<strong>{cluster.blogHubTitulo}</strong>
+							<span>Guias e artigos no blog</span>
+						</a>
+					</li>
+				</ul>
+			</section>
+		)
+	}
+
+	<section class="bio-servico__bloco" aria-labelledby="beneficios-titulo">
+		<h2 class="bio-servico__h2" id="beneficios-titulo">Por que contratar a {site.marca.nome}?</h2>
+		<ul class="bio-servico__grid">
+			{
+				servico.beneficios.map((item) => (
+					<li>
+						<article class="bio-servico__card">
+							<h3>{item.titulo}</h3>
+							<p>{item.texto}</p>
+						</article>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<section class="bio-servico__bloco" aria-labelledby="detalhes-titulo">
+		<h2 class="bio-servico__h2" id="detalhes-titulo">{servico.detalhesTitulo}</h2>
+		<ul class="bio-servico__lista">
+			{
+				servico.detalhes.map((item) => (
+					<li>
+						<strong>{item.nome}</strong> — {item.descricao}
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<section class="bio-servico__bloco" aria-labelledby="sinais-titulo">
+		<h2 class="bio-servico__h2" id="sinais-titulo">{servico.sinaisTitulo}</h2>
+		<ul class="bio-servico__lista bio-servico__lista--check">
+			{servico.sinais.map((item) => <li>{item}</li>)}
+		</ul>
+	</section>
+
+	<section class="bio-servico__bloco" aria-labelledby="etapas-titulo">
+		<h2 class="bio-servico__h2" id="etapas-titulo">{servico.etapasTitulo}</h2>
+		<ol class="bio-servico__passos">
+			{servico.etapas.map((item, index) => <li><span>{index + 1}</span>{item}</li>)}
+		</ol>
+	</section>
+
+	<section class="bio-servico__bloco" aria-labelledby="prevencao-titulo">
+		<h2 class="bio-servico__h2" id="prevencao-titulo">{servico.prevencaoTitulo}</h2>
+		<ul class="bio-servico__lista">
+			{servico.prevencao.map((item) => <li>{item}</li>)}
+		</ul>
+	</section>
+
+	{
+		artigosDestaque.length > 0 && (
+			<RelatedContent items={artigosDestaque} titulo="Artigos no blog" />
+		)
+	}
+
+	<ServiceFaq servico={servico} />
+</article>
+
+<ContatoCta />

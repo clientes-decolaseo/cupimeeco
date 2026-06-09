@@ -1,0 +1,75 @@
+---
+import site from '../../data/site.json';
+import Logo from './Logo.astro';
+
+const currentYear = new Date().getFullYear();
+const whatsappUrl = site.contato.whatsappUrl;
+---
+
+<footer class="bio-footer">
+	<div class="bio-footer-inner">
+		<div class="bio-footer-grid">
+			<div class="bio-footer-brand">
+				<Logo href="/" />
+				<p>{site.footer.descricao}</p>
+			</div>
+
+			<div class="bio-footer-col">
+				<p class="bio-footer-col-titulo">Serviços</p>
+				<ul>
+					{
+						site.footer.servicos.map((item) => (
+							<li>
+								<a href={item.href}>{item.label}</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div class="bio-footer-col">
+				<p class="bio-footer-col-titulo">Empresa</p>
+				<ul>
+					{
+						site.footer.empresa.map((item) => (
+							<li>
+								<a href={item.href}>{item.label}</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div class="bio-footer-col">
+				<p class="bio-footer-col-titulo">Contato</p>
+				<ul>
+					<li>
+						<a href={site.contato.telefoneGratisHref}>{site.contato.telefoneGratis}</a>
+					</li>
+					<li>
+						<a href={whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+					</li>
+					<li>
+						<a href={`mailto:${site.marca.email}`}>{site.marca.email}</a>
+					</li>
+					<li>
+						<a href="/#contato">Formulário</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="bio-footer-bottom">
+			<p class="bio-footer-copyright">
+				© {currentYear} {site.marca.nome}. Todos os direitos reservados. {site.marca.cnpj}
+			</p>
+			<nav class="bio-footer-links" aria-label="Links legais">
+				{
+					site.footer.legal.map((item) => (
+						<a href={item.href}>{item.label}</a>
+					))
+				}
+			</nav>
+		</div>
+	</div>
+</footer>

@@ -1,0 +1,76 @@
+---
+import site from '../../../data/site.json';
+
+const whatsappUrl = site.contato.whatsappUrl;
+---
+
+<section class="bio-hero" aria-labelledby="hero-titulo">
+	<div class="bio-hero-bg" aria-hidden="true"></div>
+	<div class="bio-hero-grid-lines" aria-hidden="true"></div>
+
+	<div class="bio-hero-inner">
+		<div>
+			<p class="bio-hero-badge" aria-label="Status: Atendendo agora">
+				<span class="bio-hero-badge-dot" aria-hidden="true"></span>
+				{site.hero.badge}
+			</p>
+
+			<h1 class="bio-hero-titulo" id="hero-titulo">
+				{site.hero.tituloLinha1}<br />
+				<em>{site.hero.tituloDestaque}</em><br />
+				{site.hero.tituloLinha3}
+			</h1>
+
+			<p class="bio-hero-descricao">{site.hero.descricao}</p>
+
+			<div class="bio-hero-acoes">
+				<a href={site.contato.telefoneGratisHref} class="bio-btn-primario">
+					<svg
+						width="18"
+						height="18"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.5"
+						aria-hidden="true"
+						><path
+							d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"
+						></path></svg
+					>
+					Ligar Grátis
+				</a>
+				<a href={whatsappUrl} class="bio-btn-secundario" target="_blank" rel="noopener noreferrer">
+					WhatsApp →
+				</a>
+			</div>
+		</div>
+
+		<aside class="bio-hero-visual" aria-label="Central de atendimento">
+			<div class="bio-hero-card-phone">
+				<p class="bio-phone-numero">{site.contato.telefoneGratis}</p>
+				<p class="bio-phone-label">Central de Atendimento</p>
+				<a href={site.contato.telefoneGratisHref} class="bio-phone-gratis">Ligue Grátis Agora</a>
+			</div>
+
+			<dl class="bio-hero-stats">
+				{
+					site.hero.stats.map((stat) => (
+						<div class="bio-hero-stat">
+							<dt class="bio-hero-stat-num">{stat.numero}</dt>
+							<dd class="bio-hero-stat-txt">{stat.texto}</dd>
+						</div>
+					))
+				}
+			</dl>
+		</aside>
+	</div>
+</section>
+
+<style>
+	.bio-hero-stats {
+		margin: 0;
+	}
+	.bio-hero-stat dd {
+		margin: 0;
+	}
+</style>

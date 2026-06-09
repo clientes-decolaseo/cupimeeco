@@ -1,0 +1,30 @@
+---
+import BioLayout from '../../layouts/BioLayout.astro';
+import ClusterBlogHub from '../../components/bio/ClusterBlogHub.astro';
+import ContatoCta from '../../components/bio/sections/ContatoCta.astro';
+import { getAllClusters, getClusterByBlogTopic } from '../../lib/clusters';
+import { getBlogPostsSummaryForCluster } from '../../lib/wordpress';
+
+export function getStaticPaths() {
+	return getAllClusters().map((cluster) => ({
+		params: { topico: cluster.blogHub.replace('/blog/', '') },
+	}));
+}
+
+const topico = Astro.params.topico ?? '';
+const cluster = getClusterByBlogTopic(topico);
+
+if (!cluster) {
+	return Astro.redirect('/404');
+}
+
+const posts = await getBlogPostsSummaryForCluster(cluster.id);
+
+const pageTitle = `${cluster.blogHubTitulo} | Blog | Cupim Eco`;
+const pageDescription = cluster.blogHubDescricao;
+---
+
+<BioLayout variant="content" title={pageTitle} description={pageDescription}>
+	<ClusterBlogHub cluster={cluster} posts={posts} />
+	<ContatoCta />
+</BioLayout>

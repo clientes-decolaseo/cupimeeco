@@ -1,0 +1,92 @@
+{
+  "slug": "contratos-empresariais",
+  "titulo": "Contratos Empresariais",
+  "subtitulo": "Controle integrado de pragas com visitas programadas para empresas, condomínios e indústrias.",
+  "seo": {
+    "title": "Contratos Empresariais de Dedetização | Cupim Eco",
+    "description": "Programas de controle integrado de pragas para empresas, restaurantes, condomínios e indústrias. Visitas periódicas, laudos e atendimento 24h. Ligue 0800 111 7272."
+  },
+  "intro": "Empresas e condomínios precisam de prevenção contínua, não apenas uma visita isolada. A Cupim Eco oferece contratos empresariais com cronograma de monitoramento, equipe dedicada, documentação para auditorias e resposta rápida em caso de intercorrência.",
+  "beneficios": [
+    {
+      "titulo": "Visitas programadas",
+      "texto": "Frequência definida conforme o risco do segmento: mensal, bimestral ou sob demanda."
+    },
+    {
+      "titulo": "Laudos e relatórios",
+      "texto": "Documentação para vigilância sanitária, certificações e auditorias internas."
+    },
+    {
+      "titulo": "Técnico de referência",
+      "texto": "Profissional que conhece o layout do imóvel e o histórico de ocorrências."
+    },
+    {
+      "titulo": "Atendimento prioritário",
+      "texto": "Canal direto para emergências fora do horário comercial, 24 horas."
+    }
+  ],
+  "detalhesTitulo": "Segmentos atendidos",
+  "detalhes": [
+    {
+      "nome": "Restaurantes e food service",
+      "descricao": "Controle de baratas, formigas, roedores e cupins com horários que não param a operação."
+    },
+    {
+      "nome": "Condomínios residenciais",
+      "descricao": "Áreas comuns, garagens, casas de máquinas e jardins com plano integrado."
+    },
+    {
+      "nome": "Indústrias e galpões",
+      "descricao": "Protocolos para áreas produtivas, estoques e docas conforme exigências do setor."
+    },
+    {
+      "nome": "Comércio e escritórios",
+      "descricao": "Manutenção preventiva em lojas, clínicas, escolas e centros administrativos."
+    }
+  ],
+  "sinaisTitulo": "Quando um contrato faz sentido",
+  "sinais": [
+    "Infestações recorrentes mesmo após dedetizações pontuais",
+    "Exigência de laudo periódico da vigilância sanitária ou certificadora",
+    "Grande fluxo de pessoas, alimentos ou matéria-prima no local",
+    "Múltiplas unidades ou filiais que precisam de padrão único de serviço",
+    "Necessidade de previsibilidade de custos no orçamento anual"
+  ],
+  "etapasTitulo": "Como montamos o contrato",
+  "etapas": [
+    "Visita técnica para mapear riscos, áreas críticas e histórico de pragas",
+    "Proposta com escopo, periodicidade, produtos e indicadores de acompanhamento",
+    "Implantação com treinamento da equipe do cliente quando necessário",
+    "Visitas de rotina, relatórios e revisão semestral do plano de controle"
+  ],
+  "prevencaoTitulo": "O que o cliente deve manter",
+  "prevencao": [
+    "Rotina de limpeza e armazenamento correto de alimentos e resíduos",
+    "Comunicação imediata de qualquer sinal de praga entre as visitas",
+    "Acesso liberado às áreas combinadas no dia da visita técnica",
+    "Registro de ocorrências para ajuste do plano de controle integrado",
+    "Renovação e revisão do contrato conforme mudanças no imóvel ou operação"
+  ],
+  "faq": [
+    {
+      "pergunta": "O que é um contrato empresarial de controle de pragas?",
+      "resposta": "É um plano de controle integrado com visitas programadas (mensais, bimestrais ou conforme o risco), relatórios técnicos e garantia de retratamento. Indicado para restaurantes, indústrias, condomínios, hospitais e comércios sujeitos à vigilância sanitária."
+    },
+    {
+      "pergunta": "Qual a vantagem do contrato em relação ao serviço avulso?",
+      "resposta": "Previsibilidade de custos, prioridade no agendamento, histórico do imóvel e conformidade com exigências de laudos e certificados. A prevenção contínua costuma ser mais econômica que corrigir infestações graves."
+    },
+    {
+      "pergunta": "O contrato inclui dedetização, cupins e ratos?",
+      "resposta": "O escopo é definido na proposta: pode incluir dedetização, descupinização, deratização, sanitização e controle de mosquitos conforme a necessidade do estabelecimento. Cada contrato é personalizado após vistoria."
+    },
+    {
+      "pergunta": "Vocês emitem laudo para vigilância sanitária?",
+      "resposta": "Sim. Fornecemos certificados e relatórios de execução conforme o serviço realizado e as exigências do cliente ou do órgão fiscalizador."
+    },
+    {
+      "pergunta": "Como solicitar orçamento de contrato empresarial?",
+      "resposta": "Ligue grátis 0800 111 7272, WhatsApp 24h ou preencha o formulário em cupim.eco.br/contato. Agendamos vistoria técnica sem compromisso."
+    }
+  ]
+}

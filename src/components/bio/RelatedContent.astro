@@ -1,0 +1,34 @@
+---
+import type { RelatedContentItem } from '../../lib/wordpress';
+import { postUrl } from '../../lib/wordpress';
+
+interface Props {
+	items: RelatedContentItem[];
+	titulo?: string;
+}
+
+const { items, titulo = 'Conteúdo relacionado' } = Astro.props;
+---
+
+{
+	items.length > 0 && (
+		<section class="bio-related" aria-labelledby="bio-related-titulo">
+			<h2 class="bio-related__titulo" id="bio-related-titulo">
+				{titulo}
+			</h2>
+			<ul class="bio-related__lista">
+				{items.map((item) => (
+					<li>
+						<article class="bio-related__card">
+							<p class="bio-related__tipo">{item.type === 'post' ? 'Artigo' : 'Página'}</p>
+							<h3>
+								<a href={postUrl(item.path)}>{item.title}</a>
+							</h3>
+							{item.excerpt && <p>{item.excerpt}</p>}
+						</article>
+					</li>
+				))}
+			</ul>
+		</section>
+	)
+}

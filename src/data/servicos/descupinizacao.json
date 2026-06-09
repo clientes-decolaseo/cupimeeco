@@ -1,0 +1,96 @@
+{
+  "slug": "descupinizacao",
+  "titulo": "Descupinização Profissional",
+  "subtitulo": "Controle e eliminação de cupins de solo e de madeira seca com garantia e laudo técnico.",
+  "seo": {
+    "title": "Descupinização Profissional | Dedetizadora de Cupim | Cupim Eco",
+    "description": "Descupinização com barreira química, tratamento de madeira e iscas. Proteja seu imóvel contra cupins subterrâneos e de madeira seca. Ligue 0800 111 7272."
+  },
+  "intro": "Cupins destroem madeira em silêncio: vigas, portas, móveis e estruturas podem estar comprometidos antes do primeiro sinal visível. A Cupim Eco realiza descupinização com inspeção técnica, identificação da espécie e método adequado para eliminar a colônia e proteger seu patrimônio.",
+  "beneficios": [
+    {
+      "titulo": "Diagnóstico preciso",
+      "texto": "Diferenciamos cupim subterrâneo, de madeira seca e outros xilófagos para aplicar o tratamento certo."
+    },
+    {
+      "titulo": "Barreira química e tratamento localizado",
+      "texto": "Barreiras no solo, injeção em madeira e sistemas de isca conforme a infestação."
+    },
+    {
+      "titulo": "Laudo e garantia",
+      "texto": "Documentação para condomínios, compra e venda de imóveis e exigências de fiscalização."
+    },
+    {
+      "titulo": "Atendimento 24 horas",
+      "texto": "Equipe disponível para emergências e orçamentos em toda a Grande São Paulo."
+    }
+  ],
+  "detalhesTitulo": "Tipos de cupim que combatemos",
+  "detalhes": [
+    {
+      "nome": "Cupim subterrâneo",
+      "descricao": "Colônias no solo, túneis de lama em paredes e danos estruturais rápidos — tratamento com barreira química."
+    },
+    {
+      "nome": "Cupim de madeira seca",
+      "descricao": "Vive dentro da madeira; sinais: pellets (fezes granuladas) e madeira oca — injeção e tratamento localizado."
+    },
+    {
+      "nome": "Revoada (siriris / aleluias)",
+      "descricao": "Indício de colônia próxima ou em formação; inspeção urgente após enxames em casa."
+    },
+    {
+      "nome": "Brocas de madeira",
+      "descricao": "Pequenos furos e serragem na superfície — abordagem específica diferente do cupim."
+    }
+  ],
+  "sinaisTitulo": "Sinais de infestação de cupins",
+  "sinais": [
+    "Pó granulado (pellets) perto de móveis, rodapés ou batentes",
+    "Túneis de lama ou terra em paredes e conduítes",
+    "Madeira com som oco ao ser batida",
+    "Asas descartadas após revoada, perto de janelas e luzes",
+    "Portas ou janelas emperrando sem causa aparente"
+  ],
+  "etapasTitulo": "Como funciona o serviço",
+  "etapas": [
+    "Vistoria técnica e mapeamento de áreas afetadas",
+    "Escolha do método: barreira no solo, tratamento de madeira, iscas ou combinação",
+    "Execução com produtos registrados e orientação de segurança",
+    "Monitoramento e garantia documentada do serviço"
+  ],
+  "prevencaoTitulo": "Medidas preventivas",
+  "prevencao": [
+    "Eliminar contato direto da madeira com o solo em estruturas",
+    "Corrigir infiltrações e manter ventilação em áreas úmidas",
+    "Inspecionar móveis usados antes de introduzir no imóvel",
+    "Realizar barreira preventiva em obras e reformas",
+    "Agendar inspeções periódicas em imóveis com histórico de cupins"
+  ],
+  "faq": [
+    {
+      "pergunta": "Qual a diferença entre cupim subterrâneo e cupim de madeira seca?",
+      "resposta": "O cupim subterrâneo vive no solo e costuma subir por paredes com túneis de lama, atingindo vigas e estruturas. O cupim de madeira seca habita dentro da própria madeira e deixa pellets (pó granulado) perto de móveis e batentes. Cada espécie exige método diferente: barreira química no solo, injeção em madeira ou iscas. A inspeção técnica da Cupim Eco identifica o tipo antes do tratamento."
+    },
+    {
+      "pergunta": "Quanto custa uma descupinização?",
+      "resposta": "O valor depende da metragem afetada, do tipo de cupim, do método (barreira, injeção, iscas) e se o imóvel é residencial ou comercial. Após a vistoria, enviamos orçamento detalhado sem compromisso. Ligue grátis 0800 111 7272 ou solicite pelo WhatsApp — atendimento 24 horas."
+    },
+    {
+      "pergunta": "A descupinização tem garantia?",
+      "resposta": "Sim. O serviço inclui garantia documentada conforme o método aplicado e o contrato. Em caso de retorno dos cupins no período coberto, realizamos retratamento conforme as condições acordadas. Emitimos laudo técnico quando necessário para condomínios e transações imobiliárias."
+    },
+    {
+      "pergunta": "Preciso sair de casa durante a descupinização?",
+      "resposta": "Na maioria dos casos não é necessário desocupar o imóvel por longos períodos. Alguns métodos exigem ausência temporária em cômodos específicos ou orientações de ventilação após aplicação. Nossa equipe informa o tempo de reentrada antes de iniciar o serviço, com produtos registrados e técnica segura."
+    },
+    {
+      "pergunta": "Quanto tempo demora para eliminar os cupins?",
+      "resposta": "Barreiras preventivas e tratamentos localizados podem mostrar resultado em dias ou semanas, conforme a espécie e o tamanho da colônia. Sistemas com iscas exigem monitoramento por algumas semanas até a eliminação da colônia. A vistoria inicial define o prazo estimado para o seu caso."
+    },
+    {
+      "pergunta": "Em quais cidades a Cupim Eco faz descupinização?",
+      "resposta": "Atendemos 60 cidades em seis regiões: Grande São Paulo (capital e região metropolitana), Baixada Santista, Campinas, Sorocaba, Jundiaí e Vale do Paraíba. Consulte a lista completa na página de contato ou no hub de regiões em cupim.eco.br/descupinizacao/regioes/."
+    }
+  ]
+}

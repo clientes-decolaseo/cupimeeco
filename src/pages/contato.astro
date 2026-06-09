@@ -1,0 +1,108 @@
+---
+import BioLayout from '../layouts/BioLayout.astro';
+import AreaAtendida from '../components/bio/sections/AreaAtendida.astro';
+import { listCidadesAtendidas } from '../lib/area-atendida';
+import site from '../data/site.json';
+
+const totalCidades = listCidadesAtendidas().length;
+
+const pageTitle = `Contato | ${site.marca.nome}`;
+const pageDescription = `Fale com a ${site.marca.nome}: telefone 0800 111 7272, WhatsApp e e-mail. Atendimento 24h em ${totalCidades} cidades de SP, Baixada, Campinas, Sorocaba, Jundiaí e Vale do Paraíba.`;
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'ContactPage',
+	name: pageTitle,
+	description: pageDescription,
+	url: `${site.marca.siteUrl}/contato/`,
+	mainEntity: {
+		'@type': 'LocalBusiness',
+		name: site.marca.nome,
+		telephone: '+55-800-111-7272',
+		email: site.marca.email,
+		url: site.marca.siteUrl,
+		areaServed: [
+			'São Paulo',
+			'Baixada Santista',
+			'Região de Campinas',
+			'Região de Sorocaba',
+			'Região de Jundiaí',
+			'Vale do Paraíba',
+		],
+		openingHours: 'Mo-Su 00:00-23:59',
+	},
+};
+---
+
+<BioLayout variant="content" title={pageTitle} description={pageDescription} jsonLd={jsonLd}>
+	<div class="bio-contato-pagina">
+		<header class="bio-contato-pagina__header">
+			<p class="bio-section-label">Fale conosco</p>
+			<h1 class="bio-contato-pagina__titulo">Contato</h1>
+			<p class="bio-contato-pagina__intro">
+				Central de atendimento disponível <strong>24 horas</strong>, 7 dias por semana. Atendemos{' '}
+				<strong>{totalCidades} cidades</strong> na Grande São Paulo, Baixada Santista, Campinas,
+				Sorocaba, Jundiaí e Vale do Paraíba.
+			</p>
+		</header>
+
+		<div class="bio-contato-pagina__grid">
+			<article class="bio-contato-card">
+				<h2>Telefone gratuito</h2>
+				<p class="bio-contato-card__destaque">
+					<a href={site.contato.telefoneGratisHref}>{site.contato.telefoneGratis}</a>
+				</p>
+				<p>Ligação gratuita de qualquer telefone fixo ou celular no Brasil.</p>
+			</article>
+
+			<article class="bio-contato-card">
+				<h2>WhatsApp</h2>
+				<p class="bio-contato-card__destaque">
+					<a href={site.contato.whatsappUrl} target="_blank" rel="noopener noreferrer">
+						Chamar no WhatsApp
+					</a>
+				</p>
+				<p>Orçamento rápido com fotos do local e resposta da nossa equipe comercial.</p>
+			</article>
+
+			<article class="bio-contato-card">
+				<h2>E-mail</h2>
+				<p class="bio-contato-card__destaque">
+					<a href={`mailto:${site.marca.email}`}>{site.marca.email}</a>
+				</p>
+				<p>Para dúvidas, contratos empresariais e assuntos de privacidade de dados.</p>
+			</article>
+
+			<article class="bio-contato-card">
+				<h2>Área de atendimento</h2>
+				<p class="bio-contato-card__destaque">{totalCidades} cidades</p>
+				<p>
+					6 regiões: São Paulo capital e grande SP, Baixada Santista, Campinas, Sorocaba, Jundiaí
+					e Vale do Paraíba. Veja a lista completa abaixo.
+				</p>
+			</article>
+		</div>
+
+		<AreaAtendida layout="page" />
+
+		<section class="bio-contato-pagina__servicos" aria-labelledby="contato-servicos-titulo">
+			<h2 class="bio-contato-pagina__h2" id="contato-servicos-titulo">Serviços que você pode solicitar</h2>
+			<ul class="bio-contato-pagina__lista">
+				{site.servicos.map((servico) => (
+					<li>
+						<a href={servico.href}>{servico.nome}</a>
+					</li>
+				))}
+			</ul>
+			<p class="bio-contato-pagina__mais">
+				<a href="/servico/">Ver todos os serviços →</a>
+			</p>
+		</section>
+
+		<nav class="bio-contato-pagina__links" aria-label="Links relacionados">
+			<a href="/">Voltar para a página inicial</a>
+			<a href="/privacidade/">Política de privacidade</a>
+			<a href="/termos/">Termos de uso</a>
+		</nav>
+	</div>
+</BioLayout>

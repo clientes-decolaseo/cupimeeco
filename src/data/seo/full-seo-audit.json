@@ -1,0 +1,134 @@
+{
+  "generatedAt": "2026-06-02T18:11:33.644Z",
+  "summary": {
+    "totalPages": 1358,
+    "totalPosts": 91,
+    "indexablePages": 585,
+    "indexablePosts": 82,
+    "redirects301": 772,
+    "noindexPaths": 9,
+    "buildPagesExpected": "~701 (último build)",
+    "hasRobotsTxt": true,
+    "clusterRedirects": {
+      "descupinizacao": {
+        "pages": 252,
+        "redirects": 159
+      },
+      "dedetizacao": {
+        "pages": 527,
+        "redirects": 408
+      },
+      "deratizacao": {
+        "pages": 181,
+        "redirects": 115
+      },
+      "sanitizacao": {
+        "pages": 9,
+        "redirects": 1
+      },
+      "mosquitos": {
+        "pages": 1,
+        "redirects": 0
+      },
+      "foraArea": {
+        "redirects": 87
+      }
+    },
+    "blogNoindexSlugs": [
+      "blog/a-importancia-da-limpeza-de-caixa-dagua",
+      "blog/a-importancia-da-manutencao-preventiva-em-sistemas-de-esgoto-evite-entupimentos-e-vazamentos",
+      "blog/a-importancia-do-hidrojateamento",
+      "blog/caca-vazamento-de-agua-no-brasil-a-solucao-definitiva-com-a-combate-ambienta",
+      "blog/como-encontrar-o-melhor-profissional-encanador",
+      "blog/desentupidora-em-caraguatatuba",
+      "blog/dicas-e-cuidados-importantes-com-vazamento-de-agua",
+      "blog/guia-completo-sobre-impermeabilizacao",
+      "blog/saiba-como-identificar-vazamentos-ocultos"
+    ]
+  },
+  "issues": {
+    "missingDescription": {
+      "count": 0,
+      "sample": []
+    },
+    "shortDescription": {
+      "count": 0,
+      "sample": []
+    },
+    "longDescriptionTruncated": {
+      "count": 0,
+      "sample": []
+    },
+    "shortTitle": {
+      "count": 0,
+      "sample": []
+    },
+    "longTitleTruncated": {
+      "count": 0,
+      "sample": []
+    },
+    "duplicateTitles": {
+      "count": 0,
+      "items": []
+    },
+    "duplicateDescriptions": {
+      "count": 0,
+      "items": []
+    },
+    "imagesWithoutAlt": {
+      "count": 0,
+      "totalImgs": 0,
+      "sample": []
+    },
+    "extraH1InContent": {
+      "count": 0,
+      "sample": []
+    },
+    "linksToRedirects": {
+      "count": 0,
+      "sample": []
+    },
+    "linksLegacyDomain": {
+      "count": 0,
+      "sample": []
+    },
+    "thinPosts": {
+      "count": 0,
+      "sample": []
+    },
+    "wpRobotsNoindex": {
+      "count": 0,
+      "sample": []
+    },
+    "emptyContent": {
+      "count": 5,
+      "sample": [
+        {
+          "path": "blog",
+          "type": "page",
+          "title": "Blog"
+        },
+        {
+          "path": "glossario-tudo-sobre-descupinizacao",
+          "type": "page",
+          "title": "Glossário &#8211; Tudo sobre Descupinização"
+        },
+        {
+          "path": "fotos",
+          "type": "page",
+          "title": "Fotos"
+        },
+        {
+          "path": "biblioteca-da-universo",
+          "type": "page",
+          "title": "Biblioteca da Universo"
+        },
+        {
+          "path": "servico",
+          "type": "page",
+          "title": "Serviço"
+        }
+      ]
+    }
+  }
+}

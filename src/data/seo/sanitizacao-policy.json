@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-06-02T17:44:12.051Z",
+  "cluster": "sanitizacao",
+  "stats": {
+    "pages": 9,
+    "redirects": 1
+  },
+  "redirects": {
+    "sanitizacao-em-jandira": "/sanitizacao/"
+  },
+  "noindex": []
+}

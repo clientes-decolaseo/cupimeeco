@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import site from '../../data/site.json';
+import logoImg from '../../assets/cupim-eco-logo.png';
+
+interface Props {
+	href?: string;
+	current?: boolean;
+}
+
+const { href = '/', current = false } = Astro.props;
+
+const Tag = current ? 'span' : 'a';
+const linkProps = current ? { 'aria-current': 'page' as const } : { href };
+const logoAlt = `${site.marca.nome} — ${site.marca.subtitulo}. ${site.marca.tagline}`;
+---
+
+<Tag class="bio-logo" aria-label={`${site.marca.nome} — Página inicial`} {...linkProps}>
+	<Image
+		src={logoImg}
+		alt={logoAlt}
+		class="bio-logo-img"
+		format="webp"
+		quality="high"
+		widths={[200, 280, 360]}
+		sizes="(max-width: 480px) 200px, 320px"
+		loading="eager"
+		decoding="async"
+	/>
+</Tag>

@@ -1,0 +1,20 @@
+---
+import BioLayout from '../../layouts/BioLayout.astro';
+import ClusterRegioesHub from '../../components/bio/ClusterRegioesHub.astro';
+import ContatoCta from '../../components/bio/sections/ContatoCta.astro';
+import { getClusterById, getClusterPages } from '../../lib/clusters';
+
+const cluster = getClusterById('deratizacao')!;
+const pages = getClusterPages('deratizacao');
+
+const pageTitle = `Deratização por região | Grande São Paulo | Cupim Eco`;
+import { groupPagesByCity } from '../../lib/cluster-regions';
+
+const cities = groupPagesByCity(pages);
+const pageDescription = `Deratização e controle de ratos em ${cities.length}+ cidades. Produtos ANVISA e garantia. Ligue 0800 111 7272.`;
+---
+
+<BioLayout variant="content" title={pageTitle} description={pageDescription}>
+	<ClusterRegioesHub cluster={cluster} pages={pages} />
+	<ContatoCta />
+</BioLayout>

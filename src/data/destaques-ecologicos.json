@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "titulo": "Cupim Eco — Sustentabilidade na prática",
+    "subtitulo": "Guias, dicas e conteúdos para viver de forma mais consciente, reduzir impacto ambiental e transformar hábitos do dia a dia."
+  },
+  "pilares": {
+    "titulo": "Pilares para uma vida mais ecológica",
+    "descricao": "Conteúdos práticos organizados por temas essenciais para quem quer começar ou aprofundar práticas sustentáveis.",
+    "itens": [
+      {
+        "id": "compostagem",
+        "titulo": "Compostagem doméstica",
+        "descricao": "Aprenda a transformar resíduos orgânicos em adubo rico em nutrientes, mesmo em espaços pequenos.",
+        "altImagem": "Composteira doméstica com restos de frutas e verduras sendo reciclados organicamente"
+      },
+      {
+        "id": "reciclagem",
+        "titulo": "Reciclagem inteligente",
+        "descricao": "Entenda como separar, descartar e reutilizar materiais para reduzir o volume de lixo enviado a aterros.",
+        "altImagem": "Materiais recicláveis separados corretamente em containers identificados por tipo"
+      },
+      {
+        "id": "consumo",
+        "titulo": "Consumo consciente",
+        "descricao": "Faça escolhas mais sustentáveis no mercado, priorizando durabilidade, origem e impacto ambiental.",
+        "altImagem": "Sacolas reutilizáveis e produtos sustentáveis selecionados para compras conscientes"
+      }
+    ]
+  }
+}

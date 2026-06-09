@@ -1,0 +1,68 @@
+---
+import BioLayout from '../layouts/BioLayout.astro';
+import ServicosGrid from '../components/bio/ServicosGrid.astro';
+import ServicoClusterHub from '../components/bio/ServicoClusterHub.astro';
+import ServicoAreaBand from '../components/bio/ServicoAreaBand.astro';
+import ContatoCta from '../components/bio/sections/ContatoCta.astro';
+import { getAllClusters } from '../lib/clusters';
+import { listCidadesAtendidas } from '../lib/area-atendida';
+import site from '../data/site.json';
+
+const totalCidades = listCidadesAtendidas().length;
+const clusters = getAllClusters();
+
+const pageTitle = `Nossos Serviços | ${site.marca.nome}`;
+const pageDescription = `Dedetização, descupinização, deratização, sanitização e controle de mosquitos em ${totalCidades} cidades. Hubs por região, blog especializado e atendimento 24h — ${site.marca.nome}.`;
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	name: `Serviços ${site.marca.nome}`,
+	description: pageDescription,
+	url: `${site.marca.siteUrl}/servico/`,
+	hasPart: [
+		...site.servicos.map((servico) => ({
+			'@type': 'Service',
+			name: servico.nome,
+			url: new URL(servico.href, site.marca.siteUrl).href,
+			description: servico.descricao,
+		})),
+		...clusters.map((cluster) => ({
+			'@type': 'WebPage',
+			name: `${cluster.nome} por região`,
+			url: new URL(cluster.hubRegioes, site.marca.siteUrl).href,
+		})),
+	],
+};
+---
+
+<BioLayout variant="content" title={pageTitle} description={pageDescription} jsonLd={jsonLd}>
+	<div class="bio-servicos-index">
+		<header class="bio-servicos-index__header">
+			<p class="bio-section-label">O que fazemos</p>
+			<h1 class="bio-servicos-index__titulo">Nossos serviços</h1>
+			<p class="bio-servicos-index__descricao">
+				Soluções completas de controle de pragas para residências, comércios, condomínios e
+				indústrias. Escolha o serviço, explore por cidade ou fale com nossa central 24h para um
+				orçamento personalizado.
+			</p>
+		</header>
+
+		<section class="bio-servicos-mega__grid-section" aria-labelledby="servico-grid-titulo">
+			<h2 class="visually-hidden" id="servico-grid-titulo">Todos os serviços</h2>
+			<ServicosGrid variant="light" />
+		</section>
+
+		<ServicoClusterHub />
+
+		<ServicoAreaBand />
+
+		<section class="bio-servicos-index__selos" aria-label="Certificações e garantias">
+			<ul>
+				{site.selos.map((selo) => <li>{selo}</li>)}
+			</ul>
+		</section>
+	</div>
+
+	<ContatoCta />
+</BioLayout>

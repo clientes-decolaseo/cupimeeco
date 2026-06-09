@@ -1,0 +1,24 @@
+---
+import type { ClusterConfig } from '../../types/cluster';
+
+interface Props {
+	cluster: ClusterConfig;
+}
+
+const { cluster } = Astro.props;
+---
+
+<aside class="bio-pillar-banner" aria-label={`Serviço de ${cluster.nome}`}>
+	<p class="bio-pillar-banner__label">Serviço especializado</p>
+	<p class="bio-pillar-banner__texto">
+		Precisa de {cluster.nome.toLowerCase()} com garantia e equipe certificada?
+	</p>
+	<div class="bio-pillar-banner__acoes">
+		<a href={cluster.pilar} class="bio-btn-primario">
+			Ver {cluster.nome}
+		</a>
+		<a href={cluster.hubRegioes} class="bio-btn-secundario">
+			Regiões atendidas
+		</a>
+	</div>
+</aside>

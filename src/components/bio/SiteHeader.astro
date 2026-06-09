@@ -1,0 +1,38 @@
+---
+import site from '../../data/site.json';
+import HeaderSearch from './HeaderSearch.astro';
+import Logo from './Logo.astro';
+
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html';
+---
+
+<div class="bio-topbar" role="banner" aria-label="Informação de contato">
+	<strong>Atendimento 24h</strong>
+	&nbsp;·&nbsp; Ligue grátis:
+	<a href={site.contato.telefoneGratisHref}>{site.contato.telefoneGratis}</a>
+	&nbsp;·&nbsp; Orçamento sem compromisso
+</div>
+
+<header class="bio-header">
+	<div class="bio-nav-inner">
+		<Logo href="/" current={isHome} />
+
+		<div class="bio-header-actions">
+			<HeaderSearch />
+
+			<nav class="bio-nav" aria-label="Menu principal">
+				<ul>
+					{
+						site.navegacao.map((item) => (
+							<li>
+								<a href={item.href} class={item.cta ? 'bio-btn-cta-nav' : undefined}>
+									{item.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>

@@ -1,0 +1,151 @@
+---
+import BioLayout from '../layouts/BioLayout.astro';
+import { buildSearchIndex } from '../lib/search-index';
+import site from '../data/site.json';
+
+const searchIndex = buildSearchIndex();
+
+const pageTitle = `Buscar | ${site.marca.nome}`;
+const pageDescription = `Encontre páginas sobre dedetização, descupinização, deratização, sanitização e cidades atendidas pela ${site.marca.nome}.`;
+---
+
+<BioLayout variant="content" title={pageTitle} description={pageDescription}>
+	<div class="bio-content-shell bio-busca-page">
+		<header class="bio-busca-header">
+			<h1>Buscar no site</h1>
+			<p>Digite o serviço, cidade ou assunto que você procura.</p>
+		</header>
+
+		<form method="get" action="/busca/" class="bio-busca-form" role="search" id="busca-form">
+			<label for="busca-q" class="visually-hidden">Termo de busca</label>
+			<input
+				type="search"
+				id="busca-q"
+				name="q"
+				class="bio-search-input"
+				placeholder="Ex.: cupins em Osasco, dedetização, ratos…"
+				autocomplete="off"
+				minlength="2"
+				maxlength="80"
+			/>
+			<button type="submit" class="bio-search-submit">Buscar</button>
+		</form>
+
+		<p class="bio-busca-status" id="busca-status" role="status" aria-live="polite"></p>
+
+		<ol class="bio-busca-results" id="busca-results" hidden></ol>
+	</div>
+</BioLayout>
+
+<script define:vars={{ searchIndex }}>
+	const form = document.getElementById('busca-form');
+	const input = document.getElementById('busca-q');
+	const status = document.getElementById('busca-status');
+	const list = document.getElementById('busca-results');
+
+	const kindLabels = {
+		pagina: 'Página',
+		artigo: 'Artigo',
+		servico: 'Serviço',
+	};
+
+	function normalize(text) {
+		return text
+			.normalize('NFD')
+			.replace(/\p{Diacritic}/gu, '')
+			.toLowerCase()
+			.trim();
+	}
+
+	function scoreEntry(entry, query) {
+		const title = normalize(entry.title);
+		const href = normalize(entry.href.replace(/\//g, ' '));
+		let score = 0;
+
+		if (title.startsWith(query)) score += 100;
+		if (title.includes(query)) score += 50;
+		if (href.includes(query)) score += 20;
+
+		return score;
+	}
+
+	function runSearch(rawQuery) {
+		const query = normalize(rawQuery);
+
+		if (!status || !list || !input) return;
+
+		if (query.length < 2) {
+			status.textContent = 'Digite pelo menos 2 caracteres para buscar.';
+			list.hidden = true;
+			list.replaceChildren();
+			return;
+		}
+
+		const results = searchIndex
+			.map((entry) => ({ entry, score: scoreEntry(entry, query) }))
+			.filter((item) => item.score > 0)
+			.sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title, 'pt-BR'))
+			.slice(0, 40);
+
+		list.replaceChildren();
+
+		if (results.length === 0) {
+			status.textContent = `Nenhum resultado para “${rawQuery.trim()}”. Tente outra palavra ou cidade.`;
+			list.hidden = true;
+			return;
+		}
+
+		status.textContent =
+			results.length === 40
+				? `Mais de 40 resultados para “${rawQuery.trim()}”. Mostrando os principais:`
+				: `${results.length} resultado${results.length === 1 ? '' : 's'} para “${rawQuery.trim()}”:`;
+
+		for (const { entry } of results) {
+			const item = document.createElement('li');
+			const link = document.createElement('a');
+			link.href = entry.href;
+			link.className = 'bio-busca-result-link';
+
+			const title = document.createElement('span');
+			title.className = 'bio-busca-result-title';
+			title.textContent = entry.title;
+
+			const kind = document.createElement('span');
+			kind.className = 'bio-busca-result-kind';
+			kind.textContent = kindLabels[entry.kind] ?? 'Página';
+
+			link.append(title, kind);
+			item.append(link);
+			list.append(item);
+		}
+
+		list.hidden = false;
+	}
+
+	function initFromUrl() {
+		const params = new URLSearchParams(window.location.search);
+		const q = params.get('q') ?? '';
+
+		if (input) input.value = q;
+		if (q) runSearch(q);
+		else if (status) status.textContent = `${searchIndex.length} páginas indexadas. Comece digitando acima.`;
+	}
+
+	if (form && input) {
+		form.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const q = input.value.trim();
+			const url = new URL(window.location.href);
+			url.searchParams.set('q', q);
+			window.history.replaceState({}, '', url);
+			runSearch(q);
+		});
+
+		input.addEventListener('input', () => {
+			const q = input.value.trim();
+			if (q.length >= 2) runSearch(q);
+		});
+	}
+
+	initFromUrl();
+</script>

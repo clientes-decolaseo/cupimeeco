@@ -1,0 +1,141 @@
+{
+  "marca": {
+    "nome": "Cupim Eco",
+    "subtitulo": "Descupinização e controle de pragas",
+    "tagline": "Protege sua casa, preserva a natureza.",
+    "siteUrl": "https://cupim.eco.br",
+    "ogImage": "/cupim-eco-logo.png",
+    "email": "contato@cupim.eco.br",
+    "cnpj": "CNPJ: XX.XXX.XXX/0001-XX"
+  },
+  "contato": {
+    "telefoneGratis": "0800 111 7272",
+    "telefoneGratisHref": "tel:08001117272",
+    "whatsapp": "5508001117272",
+    "whatsappUrl": "https://api.whatsapp.com/send?phone=5508001117272",
+    "whatsappMensagem": "Olá! Gostaria de um orçamento."
+  },
+  "hero": {
+    "badge": "Atendendo agora — 24 horas",
+    "tituloLinha1": "Elimine",
+    "tituloDestaque": "as Pragas",
+    "tituloLinha3": "de Vez",
+    "descricao": "Dedetização profissional com produtos certificados pela ANVISA. Residências, comércios e indústrias. Garantia de resultado ou devolvemos seu dinheiro.",
+    "stats": [
+      { "numero": "+5k", "texto": "Clientes" },
+      { "numero": "30+", "texto": "Anos" },
+      { "numero": "98%", "texto": "Aprovação" }
+    ]
+  },
+  "navegacao": [
+    { "label": "Home", "href": "/" },
+    { "label": "Serviços", "href": "/servico" },
+    { "label": "Cidades", "href": "/#area-atendimento" },
+    { "label": "Contato", "href": "/contato" },
+    { "label": "Orçamento", "href": "/contato", "cta": true }
+  ],
+  "servicos": [
+    {
+      "icone": "🪳",
+      "nome": "Dedetização",
+      "descricao": "Eliminação de baratas, formigas, mosquitos, pulgas, carrapatos e outros insetos com produtos aprovados pela ANVISA.",
+      "href": "/dedetizacao"
+    },
+    {
+      "icone": "🪵",
+      "nome": "Descupinização",
+      "descricao": "Controle e eliminação de cupins em estruturas de madeira, móveis e construções, evitando danos estruturais.",
+      "href": "/descupinizacao"
+    },
+    {
+      "icone": "🐀",
+      "nome": "Deratização",
+      "descricao": "Controle de roedores (ratos e camundongos) com técnicas eficazes que protegem alimentos e estruturas.",
+      "href": "/deratizacao"
+    },
+    {
+      "icone": "🧹",
+      "nome": "Sanitização",
+      "descricao": "Desinfecção e higienização de ambientes, eliminando vírus, bactérias e fungos. Ideal para pós-obra e pós-infestação.",
+      "href": "/sanitizacao"
+    },
+    {
+      "icone": "🦟",
+      "nome": "Controle de Mosquitos",
+      "descricao": "Tratamento especializado contra Aedes aegypti, dengue, Zika e Chikungunya em áreas internas e externas.",
+      "href": "/controle-de-mosquitos"
+    },
+    {
+      "icone": "🏢",
+      "nome": "Contratos Empresariais",
+      "descricao": "Programas de controle integrado de pragas para empresas, restaurantes, indústrias e condomínios com visitas periódicas.",
+      "href": "/contratos-empresariais"
+    }
+  ],
+  "diferenciais": [
+    {
+      "titulo": "Produtos certificados ANVISA",
+      "texto": "Todos os produtos utilizados são registrados no Ministério da Saúde, garantindo segurança para sua família e pets."
+    },
+    {
+      "titulo": "Equipe treinada e certificada",
+      "texto": "Técnicos especializados com treinamento contínuo e uniformes de identificação para sua tranquilidade."
+    },
+    {
+      "titulo": "Garantia de resultado",
+      "texto": "Se as pragas voltarem no período de garantia, retornamos sem custo adicional. Simples assim."
+    },
+    {
+      "titulo": "Atendimento emergencial 24h",
+      "texto": "Infestações não esperam horário comercial. Nossa central funciona 24 horas, 7 dias por semana."
+    }
+  ],
+  "selos": [
+    "Registro ANVISA ativo",
+    "Licença Vigilância Sanitária",
+    "Certificado de execução do serviço",
+    "Seguro de responsabilidade civil",
+    "Nota fiscal garantida"
+  ],
+  "depoimentos": [
+    {
+      "texto": "Resolveram um problema sério de cupins que eu tinha há anos. Vieram no mesmo dia, explicaram tudo e o serviço foi impecável.",
+      "nome": "Roberto Silva",
+      "local": "São Paulo, SP",
+      "iniciais": "RS"
+    },
+    {
+      "texto": "Tenho contrato mensal para meu restaurante. Nunca mais tive problema com pragas, e os clientes ficam tranquilos. Recomendo demais!",
+      "nome": "Ana Meireles",
+      "local": "Guarulhos, SP",
+      "iniciais": "AM"
+    },
+    {
+      "texto": "Atendimento rápido, preço justo e o serviço funciona de verdade. Chamei para dedetização e já fechei contrato anual.",
+      "nome": "Carlos Ferreira",
+      "local": "Santo André, SP",
+      "iniciais": "CF"
+    }
+  ],
+  "footer": {
+    "descricao": "Empresa especializada em controle de pragas urbanas desde 2009. Atendemos residências, comércios e indústrias em toda a Grande São Paulo.",
+    "servicos": [
+      { "label": "Dedetização", "href": "/dedetizacao" },
+      { "label": "Descupinização", "href": "/descupinizacao" },
+      { "label": "Deratização", "href": "/deratizacao" },
+      { "label": "Sanitização", "href": "/sanitizacao" },
+      { "label": "Controle de Mosquitos", "href": "/controle-de-mosquitos" },
+      { "label": "Contratos Empresariais", "href": "/contratos-empresariais" }
+    ],
+    "empresa": [
+      { "label": "Blog", "href": "/blog" },
+      { "label": "Serviços", "href": "/servico" },
+      { "label": "Contato", "href": "/contato" }
+    ],
+    "legal": [
+      { "label": "Privacidade", "href": "/privacidade" },
+      { "label": "Termos de Uso", "href": "/termos" },
+      { "label": "Sitemap", "href": "/sitemap-index.xml" }
+    ]
+  }
+}

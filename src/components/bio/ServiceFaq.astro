@@ -1,0 +1,28 @@
+---
+import type { ServicoData } from '../../types/servico';
+
+interface Props {
+	servico: ServicoData;
+}
+
+const { servico } = Astro.props;
+const faq = servico.faq ?? [];
+
+if (faq.length === 0) return null;
+---
+
+<section class="bio-servico__bloco bio-servico-faq" aria-labelledby="faq-titulo">
+	<h2 class="bio-servico__h2" id="faq-titulo">Perguntas frequentes</h2>
+	<div class="bio-servico-faq__lista">
+		{
+			faq.map((item, index) => (
+				<details class="bio-servico-faq__item" id={`faq-${servico.slug}-${index + 1}`}>
+					<summary class="bio-servico-faq__pergunta">{item.pergunta}</summary>
+					<div class="bio-servico-faq__resposta">
+						<p>{item.resposta}</p>
+					</div>
+				</details>
+			))
+		}
+	</div>
+</section>

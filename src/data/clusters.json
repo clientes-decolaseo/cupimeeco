@@ -1,0 +1,71 @@
+{
+  "clusters": [
+    {
+      "id": "descupinizacao",
+      "nome": "Descupinização",
+      "pilar": "/descupinizacao",
+      "hubRegioes": "/descupinizacao/regioes",
+      "blogHub": "/blog/cupins",
+      "blogHubTitulo": "Cupins e descupinização",
+      "blogHubDescricao": "Guias, sinais de infestação e dicas de prevenção contra cupins em residências e empresas.",
+      "blogSlugIncludes": ["cupim", "cupins", "descupiniz", "termite", "cupins-"],
+      "matchPage": {
+        "prefixes": ["descupiniz", "dedetizadora-de-cupim"]
+      }
+    },
+    {
+      "id": "dedetizacao",
+      "nome": "Dedetização",
+      "pilar": "/dedetizacao",
+      "hubRegioes": "/dedetizacao/regioes",
+      "blogHub": "/blog/dedetizacao",
+      "blogHubTitulo": "Dedetização e controle de insetos",
+      "blogHubDescricao": "Artigos sobre baratas, formigas, pulgas e controle integrado de pragas urbanas.",
+      "blogSlugIncludes": ["dedetiz", "desinsetiz", "barata", "formiga", "inseto", "pragas-urbanas"],
+      "matchPage": {
+        "prefixes": ["dedetizadora-em", "dedetizadora-de-barata", "dedetizadora-de-formiga", "dedetizadora-de-pulga", "dedetizadora-de-carrapato", "empresa-de-dedetizacao"],
+        "anyPrefix": "dedetizadora",
+        "excludePrefixes": ["dedetizadora-de-cupim", "dedetizadora-de-rato", "dedetizadora-de-mosquito", "descupiniz"]
+      }
+    },
+    {
+      "id": "deratizacao",
+      "nome": "Deratização",
+      "pilar": "/deratizacao",
+      "hubRegioes": "/deratizacao/regioes",
+      "blogHub": "/blog/deratizacao",
+      "blogHubTitulo": "Deratização e controle de roedores",
+      "blogHubDescricao": "Conteúdo sobre ratos, camundongos, desratização e prevenção em imóveis e empresas.",
+      "blogSlugIncludes": ["rato", "ratos", "roedor", "deratiz", "desratiz", "camundongo"],
+      "matchPage": {
+        "prefixes": ["dedetizadora-de-rato", "desratiz"]
+      }
+    },
+    {
+      "id": "sanitizacao",
+      "nome": "Sanitização",
+      "pilar": "/sanitizacao",
+      "hubRegioes": "/sanitizacao/regioes",
+      "blogHub": "/blog",
+      "blogHubTitulo": "Blog Cupim Eco",
+      "blogHubDescricao": "Artigos sobre controle de pragas, prevenção e higienização de ambientes.",
+      "blogSlugIncludes": ["sanitiz", "desinfec", "higieniz"],
+      "matchPage": {
+        "prefixes": ["sanitizacao-em", "sanitizacao-na", "sanitizacao-no", "sanitizacao"]
+      }
+    },
+    {
+      "id": "mosquitos",
+      "nome": "Controle de Mosquitos",
+      "pilar": "/controle-de-mosquitos",
+      "hubRegioes": "/controle-de-mosquitos/regioes",
+      "blogHub": "/blog",
+      "blogHubTitulo": "Blog Cupim Eco",
+      "blogHubDescricao": "Conteúdo sobre pragas urbanas, dengue e prevenção em residências e empresas.",
+      "blogSlugIncludes": ["mosquito", "aedes", "dengue", "pernilongo", "zika", "chikungunya"],
+      "matchPage": {
+        "prefixes": ["dedetizadora-de-mosquito", "controle-de-mosquito", "controle-de-mosquitos"]
+      }
+    }
+  ]
+}

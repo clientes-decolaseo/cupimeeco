@@ -1,11 +1,23 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BioLayout from '../layouts/BioLayout.astro';
+import ContatoCta from '../components/bio/sections/ContatoCta.astro';
+import Depoimentos from '../components/bio/sections/Depoimentos.astro';
+import Hero from '../components/bio/sections/Hero.astro';
+import AreaAtendida from '../components/bio/sections/AreaAtendida.astro';
+import Porque from '../components/bio/sections/Porque.astro';
+import Servicos from '../components/bio/sections/Servicos.astro';
+import site from '../data/site.json';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BioLayout
+	variant="home"
+	ogImage={site.marca.ogImage}
+	ogImageAlt={`${site.marca.nome} — Dedetizadora de cupim e controle de pragas`}
+>
+	<Hero />
+	<Servicos />
+	<Porque />
+	<AreaAtendida layout="home" />
+	<Depoimentos />
+	<ContatoCta />
+</BioLayout>

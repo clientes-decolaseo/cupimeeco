@@ -1,23 +1,247 @@
+---
+import site from '../data/site.json';
+
+interface Props {
+	title?: string;
+	description?: string;
+	ogImage?: string;
+	ogImageAlt?: string;
+	ogType?: 'website' | 'article';
+	siteName?: string;
+	canonical?: string;
+	noindex?: boolean;
+	jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const TITLE_MAX = 60;
+const DESCRIPTION_MAX = 160;
+
+function truncate(text: string, max: number): string {
+	const normalized = text.trim().replace(/\s+/g, ' ');
+	if (normalized.length <= max) return normalized;
+
+	const slice = normalized.slice(0, max - 1);
+	const lastSpace = slice.lastIndexOf(' ');
+
+	return `${(lastSpace > max * 0.6 ? slice.slice(0, lastSpace) : slice).trim()}…`;
+}
+
+function resolveAbsoluteUrl(path: string, base: URL): string {
+	return new URL(path, base).href;
+}
+
+function resolveCanonicalUrl(url: URL, override?: string): string {
+	if (override) return override;
+
+	const pathname =
+		url.pathname === '/' ? '/' : url.pathname.replace(/\/+$/, '');
+
+	return `${url.origin}${pathname}`;
+}
+
+const {
+	title: rawTitle = 'Cupim Eco',
+	description: rawDescription = 'Conteúdos sobre sustentabilidade, consumo consciente e vida ecológica.',
+	ogImage = site.marca.ogImage,
+	ogImageAlt,
+	ogType = 'website',
+	siteName = 'Cupim Eco',
+	canonical,
+	noindex = false,
+	jsonLd,
+} = Astro.props;
+
+const siteBase = Astro.site ? new URL(Astro.site) : Astro.url;
+
+const pageTitle = truncate(rawTitle, TITLE_MAX);
+const metaDescription = truncate(rawDescription, DESCRIPTION_MAX);
+const canonicalUrl = resolveCanonicalUrl(Astro.url, canonical);
+const ogImageUrl = resolveAbsoluteUrl(ogImage, siteBase);
+const ogImageAltText = ogImageAlt ?? pageTitle;
+const structuredData = jsonLd
+	? Array.isArray(jsonLd)
+		? jsonLd
+		: [jsonLd]
+	: [];
+const currentYear = new Date().getFullYear();
+const isHomePage =
+	Astro.url.pathname === '/' || Astro.url.pathname === '/index.html';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="color-scheme" content="light" />
+		<meta name="theme-color" content="#ffffff" />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<link rel="canonical" href={canonicalUrl} />
+
+		<title>{pageTitle}</title>
+		<meta name="description" content={metaDescription} />
+		<meta
+			name="robots"
+			content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'}
+		/>
+
+		<meta property="og:type" content={ogType} />
+		<meta property="og:locale" content="pt_BR" />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={metaDescription} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:secure_url" content={ogImageUrl} />
+		<meta property="og:image:alt" content={ogImageAltText} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={metaDescription} />
+		<meta name="twitter:image" content={ogImageUrl} />
+		<meta name="twitter:image:alt" content={ogImageAltText} />
+
+		{
+			structuredData.map((schema) => (
+				<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+			))
+		}
 	</head>
 	<body>
-		<slot />
+		<a class="skip-link" href="#conteudo-principal">Ir para o conteúdo principal</a>
+
+		<header class="site-header">
+			<div class="container header-inner">
+				{
+					isHomePage ? (
+						<span class="brand" aria-current="page">
+							{siteName}
+						</span>
+					) : (
+						<a class="brand" href="/">
+							{siteName}
+						</a>
+					)
+				}
+				<nav aria-label="Navegação principal">
+					{
+						isHomePage ? (
+							<span class="nav-current" aria-current="page">
+								Início
+							</span>
+						) : (
+							<a href="/">Início</a>
+						)
+					}
+				</nav>
+			</div>
+		</header>
+
+		<main id="conteudo-principal" class="container">
+			<slot />
+		</main>
+
+		<footer class="site-footer">
+			<div class="container">
+				<p>© {currentYear} {siteName}. Todos os direitos reservados.</p>
+			</div>
+		</footer>
 	</body>
 </html>
 
 <style>
-	html,
+	:root {
+		font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+		color: #1f2937;
+		background-color: #ffffff;
+		line-height: 1.6;
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
 	body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.skip-link {
+		position: absolute;
+		top: -100%;
+		left: 1rem;
+		z-index: 100;
+		padding: 0.75rem 1rem;
+		background: #111827;
+		color: #ffffff;
+		text-decoration: none;
+		border-radius: 0 0 0.5rem 0.5rem;
+	}
+
+	.skip-link:focus-visible {
+		top: 0;
+	}
+
+	.container {
+		width: min(1100px, 92%);
+		margin: 0 auto;
+	}
+
+	.site-header {
+		border-bottom: 1px solid #e5e7eb;
+		padding: 1rem 0;
+	}
+
+	.header-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.brand {
+		font-weight: 700;
+		font-size: 1.125rem;
+		color: #111827;
+		text-decoration: none;
+	}
+
+	nav a,
+	.nav-current {
+		color: #1f2937;
+		text-decoration: none;
+		font-weight: 500;
+	}
+
+	.nav-current {
+		cursor: default;
+	}
+
+	nav a:focus-visible,
+	.brand:focus-visible,
+	.skip-link:focus-visible {
+		outline: 2px solid #111827;
+		outline-offset: 2px;
+	}
+
+	main {
+		flex: 1;
+		padding: 2rem 0;
+	}
+
+	.site-footer {
+		border-top: 1px solid #e5e7eb;
+		padding: 1rem 0;
+		color: #374151;
+		font-size: 0.95rem;
 	}
 </style>

@@ -1,0 +1,91 @@
+{
+  "slug": "deratizacao",
+  "titulo": "Deratização Profissional",
+  "subtitulo": "Controle de ratos, ratazanas e camundongos com produtos certificados e garantia por escrito.",
+  "seo": {
+    "title": "Deratização Profissional | Controle de Ratos | Cupim Eco",
+    "description": "Deratização com técnicos certificados, produtos ANVISA e atendimento 24h. Elimine ratos, ratazanas e camundongos na Grande São Paulo. Ligue 0800 111 7272."
+  },
+  "intro": "Ratos e camundongos transmitem doenças, contaminam alimentos e podem causar incêndios ao roer fiação elétrica. A Cupim Eco realiza deratização com controle integrado de pragas: inspeção, identificação da espécie, aplicação segura e monitoramento para proteger sua casa ou empresa.",
+  "beneficios": [
+    {
+      "titulo": "Produtos registrados na ANVISA",
+      "texto": "Raticidas e iscas aplicados com dosagem correta, sem risco desnecessário para pessoas e pets."
+    },
+    {
+      "titulo": "Técnicos especializados",
+      "texto": "Equipe treinada para identificar espécie, grau de infestação e pontos críticos do imóvel."
+    },
+    {
+      "titulo": "Garantia de resultado",
+      "texto": "Retorno sem custo no período de garantia se os roedores reaparecerem no local tratado."
+    },
+    {
+      "titulo": "Atendimento 24 horas",
+      "texto": "Central disponível a qualquer hora para emergências e orçamentos na Grande São Paulo."
+    }
+  ],
+  "detalhesTitulo": "Espécies mais comuns em ambiente urbano",
+  "detalhes": [
+    {
+      "nome": "Ratazana (Rattus norvegicus)",
+      "descricao": "Maior e mais comum em esgotos, quintais e áreas externas. Fezes grandes e cilíndricas."
+    },
+    {
+      "nome": "Rato de telhado (Rattus rattus)",
+      "descricao": "Ágil, habita forros, sótãos e beirais. Fezes fusiformes com cerca de 1 cm."
+    },
+    {
+      "nome": "Camundongo (Mus musculus)",
+      "descricao": "Menor das espécies urbanas. Vive em armários, gavetas e depósitos. Fezes finas, semelhantes a grãos."
+    }
+  ],
+  "sinaisTitulo": "Sinais de infestação de roedores",
+  "sinais": [
+    "Fezes ou urina em cantos, armários e áreas de despensa",
+    "Roeduras em portas, móveis, embalagens e fios elétricos",
+    "Sons de corrida ou roídos à noite em forros e paredes",
+    "Trilhas ou marcas de gordura ao longo de rodapés e paredes",
+    "Agitação incomum de cães e gatos em determinados cômodos"
+  ],
+  "etapasTitulo": "Como funciona o serviço",
+  "etapas": [
+    "Inspeção técnica e identificação da espécie e dos focos",
+    "Definição da estratégia: iscas, estações de monitoramento ou barreiras",
+    "Aplicação segura com orientações de reentrada quando necessário",
+    "Monitoramento e retratamento dentro do período de garantia"
+  ],
+  "prevencaoTitulo": "Medidas preventivas",
+  "prevencao": [
+    "Manter lixo em sacos fechados e lixeiras com tampa",
+    "Vedar frestas em portas, janelas, ralos e passagens de tubulação",
+    "Armazenar alimentos em recipientes lacrados",
+    "Evitar acúmulo de entulho, mato alto e materiais em desuso no quintal"
+  ],
+  "faq": [
+    {
+      "pergunta": "Qual a diferença entre deratização e dedetização?",
+      "resposta": "Deratização é o controle de roedores — ratos, ratazanas e camundongos — com iscas, estações de monitoramento e vedação de acessos. Dedetização combate insetos como baratas e formigas. São tratamentos distintos; em imóveis com ambos os problemas, recomendamos plano integrado de controle de pragas."
+    },
+    {
+      "pergunta": "Como saber se tenho rato, ratazana ou camundongo?",
+      "resposta": "A ratazana deixa fezes grandes e cilíndricas e costuma vir de esgotos e quintais. O rato de telhado é ágil, com fezes fusiformes de cerca de 1 cm, comum em forros. O camundongo é menor e deixa fezes finas como grãos de arroz, em armários e despensas. Nossa inspeção identifica a espécie e os focos."
+    },
+    {
+      "pergunta": "A deratização é segura para pets?",
+      "resposta": "Sim, quando executada por profissionais: usamos estações de isca fechadas e dosagem conforme a ANVISA, posicionadas fora do alcance de crianças e animais. Orientamos sobre reentrada e cuidados no período do tratamento. Nunca aplique raticidas caseiros sem orientação — o risco de intoxicação é maior."
+    },
+    {
+      "pergunta": "Quanto tempo leva para acabar com os ratos?",
+      "resposta": "Em infestações leves, sinais de redução podem aparecer em poucos dias. Colônias maiores exigem monitoramento por 2 a 4 semanas, com reposição de iscas e vedação de entradas. A garantia cobre retorno no período contratado se os roedores reaparecerem no local tratado."
+    },
+    {
+      "pergunta": "A deratização tem garantia?",
+      "resposta": "Sim. A Cupim Eco oferece garantia por escrito: se ratos ou camundongos retornarem no imóvel tratado dentro do prazo acordado, realizamos retratamento sem custo adicional, conforme o contrato. Empresas e condomínios recebem relatório do serviço quando solicitado."
+    },
+    {
+      "pergunta": "Vocês atendem deratização 24 horas?",
+      "resposta": "Sim. A central 0800 111 7272 e o WhatsApp funcionam 24 horas para emergências e orçamentos. Atendemos 60 cidades na Grande São Paulo, Baixada Santista, Campinas, Sorocaba, Jundiaí e Vale do Paraíba — confira cupim.eco.br/deratizacao/regioes/."
+    }
+  ]
+}

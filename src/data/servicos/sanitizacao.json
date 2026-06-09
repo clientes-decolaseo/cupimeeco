@@ -1,0 +1,92 @@
+{
+  "slug": "sanitizacao",
+  "titulo": "Sanitização de Ambientes",
+  "subtitulo": "Desinfecção e higienização profissional contra vírus, bactérias e fungos.",
+  "seo": {
+    "title": "Sanitização de Ambientes | Desinfecção Profissional | Cupim Eco",
+    "description": "Sanitização residencial e comercial com produtos certificados. Elimine vírus, bactérias e fungos. Atendimento 24h na Grande São Paulo. Ligue 0800 111 7272."
+  },
+  "intro": "A sanitização reduz microrganismos em superfícies e no ar, protegendo a saúde de moradores, colaboradores e clientes. A Cupim Eco realiza desinfecção técnica em residências, comércios, condomínios e indústrias — ideal após obras, surtos de doenças ou como rotina de higienização profunda.",
+  "beneficios": [
+    {
+      "titulo": "Produtos bactericidas e virucidas",
+      "texto": "Soluções registradas e aplicadas conforme bula, com segurança para o ambiente tratado."
+    },
+    {
+      "titulo": "Protocolo por tipo de ambiente",
+      "texto": "Cada espaço recebe método e dosagem adequados: salas, cozinhas, banheiros, áreas comuns e industriais."
+    },
+    {
+      "titulo": "Equipe com EPI completo",
+      "texto": "Técnicos treinados seguem normas de biossegurança do início ao fim do serviço."
+    },
+    {
+      "titulo": "Atendimento 24 horas",
+      "texto": "Agendamento flexível e atendimento emergencial para empresas e residências."
+    }
+  ],
+  "detalhesTitulo": "Onde a sanitização é indicada",
+  "detalhes": [
+    {
+      "nome": "Residências e condomínios",
+      "descricao": "Apartamentos, casas e áreas comuns após reformas, mudanças ou retorno de viagens prolongadas."
+    },
+    {
+      "nome": "Comércio e alimentação",
+      "descricao": "Restaurantes, padarias, mercados e lojas que exigem higiene reforçada e conformidade sanitária."
+    },
+    {
+      "nome": "Escritórios e clínicas",
+      "descricao": "Ambientes com alto fluxo de pessoas, salas de espera, consultórios e copa."
+    },
+    {
+      "nome": "Pós-obra e pós-dedetização",
+      "descricao": "Limpeza desinfetante após reformas ou tratamentos de pragas para ambiente seguro."
+    }
+  ],
+  "sinaisTitulo": "Quando contratar a sanitização",
+  "sinais": [
+    "Odor persistente de mofo ou umidade em cômodos fechados",
+    "Surto de gripe, virose ou contaminação em ambiente compartilhado",
+    "Retorno de moradores após longo período sem uso do imóvel",
+    "Reforma concluída com poeira, entulho e resíduos de obra",
+    "Exigência de vigilância sanitária ou auditoria em estabelecimento comercial"
+  ],
+  "etapasTitulo": "Como funciona o serviço",
+  "etapas": [
+    "Vistoria do ambiente e definição do protocolo de desinfecção",
+    "Proteção de equipamentos sensíveis e orientação de reentrada",
+    "Aplicação por nebulização, pulverização ou pano úmido conforme o local",
+    "Ventilação, secagem e entrega de certificado de execução quando aplicável"
+  ],
+  "prevencaoTitulo": "Cuidados após a sanitização",
+  "prevencao": [
+    "Respeitar o tempo de reentrada indicado pelo técnico",
+    "Manter ventilação adequada nos primeiros minutos após o retorno",
+    "Evitar limpeza com produtos agressivos nas primeiras 24 horas",
+    "Manter rotina de limpeza e lixo organizado para prolongar o efeito",
+    "Agendar visitas periódicas em ambientes de alto fluxo"
+  ],
+  "faq": [
+    {
+      "pergunta": "Qual a diferença entre sanitização e dedetização?",
+      "resposta": "A dedetização combate pragas como baratas, formigas e cupins. A sanitização é desinfecção do ambiente: reduz vírus, bactérias e fungos em superfícies e no ar, com produtos bactericidas e virucidas. São serviços complementares."
+    },
+    {
+      "pergunta": "Quanto tempo devo ficar fora após a sanitização?",
+      "resposta": "Depende do produto e do método (nebulização, pulverização ou pano úmido). Em geral, de 30 minutos a algumas horas. O técnico informa o tempo de reentrada antes da aplicação, especialmente em residências com crianças, idosos e pets."
+    },
+    {
+      "pergunta": "A sanitização elimina o coronavírus e outras doenças?",
+      "resposta": "Utilizamos produtos registrados com ação virucida e bactericida conforme a bula. A eficácia depende do protocolo, da superfície e do tempo de contato. A sanitização é indicada para reduzir carga microbiana, não substitui tratamento médico."
+    },
+    {
+      "pergunta": "Empresas e condomínios podem contratar sanitização recorrente?",
+      "resposta": "Sim. Oferecemos planos periódicos para comércios, escolas, clínicas e condomínios, com certificado de execução quando necessário. Ligue 0800 111 7272 ou solicite orçamento pelo WhatsApp."
+    },
+    {
+      "pergunta": "Em quais cidades a Cupim Eco faz sanitização?",
+      "resposta": "Atendemos cidades da Grande São Paulo, Baixada, Campinas, Sorocaba, Jundiaí e Vale do Paraíba. Veja as localidades em cupim.eco.br/sanitizacao/regioes/."
+    }
+  ]
+}

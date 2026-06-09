@@ -1,0 +1,92 @@
+{
+  "slug": "controle-de-mosquitos",
+  "titulo": "Controle de Mosquitos",
+  "subtitulo": "Tratamento contra Aedes aegypti, pernilongos e mosquitos em áreas internas e externas.",
+  "seo": {
+    "title": "Controle de Mosquitos | Dengue, Zika e Chikungunya | Cupim Eco",
+    "description": "Controle de mosquitos e Aedes aegypti com produtos ANVISA. Proteja sua casa ou empresa contra dengue, Zika e Chikungunya. Atendimento 24h. Ligue 0800 111 7272."
+  },
+  "intro": "Mosquitos não são apenas incômodo: o Aedes aegypti transmite dengue, Zika, chikungunya e febre amarela urbana. A Cupim Eco combina inspeção de criadouros, tratamento de focos e aplicação de inseticidas em áreas internas e externas para reduzir a população de mosquitos no seu imóvel.",
+  "beneficios": [
+    {
+      "titulo": "Foco no Aedes aegypti",
+      "texto": "Identificação e eliminação de criadouros em recipientes, calhas, ralos e áreas acumuladoras de água."
+    },
+    {
+      "titulo": "Produtos registrados na ANVISA",
+      "texto": "Inseticidas e larvicidas aplicados com técnica adequada para adultos e formas imaturas."
+    },
+    {
+      "titulo": "Tratamento interno e externo",
+      "texto": "Nebulização ULV, termonebulização e barreiras em jardins, garagens e áreas comuns."
+    },
+    {
+      "titulo": "Orientação preventiva",
+      "texto": "Relatório com recomendações para moradores e síndicos manterem o ambiente protegido."
+    }
+  ],
+  "detalhesTitulo": "Principais mosquitos urbanos",
+  "detalhes": [
+    {
+      "nome": "Aedes aegypti",
+      "descricao": "Vetor da dengue, Zika e chikungunya. Picada diurna; cria em água parada limpa ou suja em recipientes."
+    },
+    {
+      "nome": "Aedes albopictus",
+      "descricao": "Tigre asiático. Hábitos semelhantes ao Aedes aegypti; comum em áreas com vegetação e vasos."
+    },
+    {
+      "nome": "Culex (pernilongo)",
+      "descricao": "Picada noturna; prolifera em água parada com matéria orgânica, bueiros e lagoas urbanas."
+    },
+    {
+      "nome": "Anopheles",
+      "descricao": "Associado à malária em algumas regiões; prefere água parada e vegetação em margens."
+    }
+  ],
+  "sinaisTitulo": "Sinais de alta infestação",
+  "sinais": [
+    "Muitos mosquitos dentro de casa, especialmente ao amanhecer e entardecer",
+    "Água parada em pratinhos de vasos, calhas entupidas ou pneus no quintal",
+    "Larvas visíveis em reservatórios de água ou ralos",
+    "Picadas frequentes em moradores, especialmente em crianças",
+    "Casos de dengue ou arboviroses no bairro ou condomínio"
+  ],
+  "etapasTitulo": "Como funciona o serviço",
+  "etapas": [
+    "Inspeção para mapear criadouros e áreas de repouso dos adultos",
+    "Eliminação ou tratamento de focos com larvicidas quando indicado",
+    "Aplicação de inseticida em áreas externas e internas conforme o protocolo",
+    "Orientação ao cliente e monitoramento em visitas de acompanhamento"
+  ],
+  "prevencaoTitulo": "Medidas preventivas em casa",
+  "prevencao": [
+    "Eliminar água parada em pratinhos, garrafas, pneus e calhas",
+    "Manter caixas d'água e reservatórios bem tampados",
+    "Trocar a água de vasos e aquários semanalmente",
+    "Usar telas em janelas e portas",
+    "Informar focos no condomínio ou vizinhança para ação coletiva"
+  ],
+  "faq": [
+    {
+      "pergunta": "O controle de mosquitos previne dengue, Zika e Chikungunya?",
+      "resposta": "O serviço reduz populações de Aedes aegypti e outros mosquitos em áreas internas e externas, complementando a eliminação de água parada. Não substitui ações da vigilância epidemiológica, mas é parte importante da prevenção em casas e empresas."
+    },
+    {
+      "pergunta": "Qual a diferença entre dedetização e controle de mosquitos?",
+      "resposta": "A dedetização trata diversas pragas urbanas. O controle de mosquitos usa protocolo específico para larvas e adultos do Aedes, com produtos e técnicas adequados a quintais, jardins, garagens e áreas comuns."
+    },
+    {
+      "pergunta": "Preciso eliminar água parada antes do serviço?",
+      "resposta": "Sim. Remover água parada em pneus, pratinhos, calhas e reservatórios abertos aumenta muito a eficácia. Nossa equipe orienta o que fazer antes e depois da aplicação."
+    },
+    {
+      "pergunta": "Condomínios podem contratar controle periódico de mosquitos?",
+      "resposta": "Sim. Planos para áreas comuns, garagens e jardins com visitas programadas na época de maior risco. Solicite orçamento em cupim.eco.br/contato ou ligue 0800 111 7272."
+    },
+    {
+      "pergunta": "A Cupim Eco atende controle de mosquitos em quais regiões?",
+      "resposta": "Atendemos a Grande São Paulo e regiões metropolitanas de Campinas, Sorocaba, Baixada Santista e Vale do Paraíba. Consulte cupim.eco.br/controle-de-mosquitos/regioes/."
+    }
+  ]
+}

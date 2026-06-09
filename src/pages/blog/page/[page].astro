@@ -1,0 +1,75 @@
+---
+import BioLayout from '../../../layouts/BioLayout.astro';
+import BlogListing from '../../../components/bio/BlogListing.astro';
+import {
+	getBlogPageCount,
+	getBlogPaginationHeadLinks,
+	getBlogPostCount,
+	parseBlogPageParam,
+	blogPagePath,
+} from '../../../lib/blog-pagination';
+import { getBlogPostsSummaryPage, postUrl } from '../../../lib/wordpress';
+import site from '../../../data/site.json';
+
+export function getStaticPaths() {
+	const totalPages = getBlogPageCount();
+
+	return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => ({
+		params: { page: String(index + 2) },
+	}));
+}
+
+const pageParam = Astro.params.page ?? '';
+const currentPage = parseBlogPageParam(pageParam);
+const totalPages = getBlogPageCount();
+
+if (currentPage === null || currentPage === 1) {
+	return Astro.redirect('/blog/', 301);
+}
+
+if (currentPage > totalPages) {
+	return Astro.redirect('/404');
+}
+
+const posts = await getBlogPostsSummaryPage(currentPage);
+const siteOrigin = Astro.site?.toString() ?? Astro.url.origin;
+const headLinks = getBlogPaginationHeadLinks(currentPage, totalPages, siteOrigin);
+
+const pageTitle = `Blog — Página ${currentPage} | ${site.marca.nome}`;
+const pageDescription = `Artigos sobre cupins, dedetização e controle de pragas — página ${currentPage} de ${totalPages}. ${site.marca.nome}.`;
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	name: `Blog ${site.marca.nome} — Página ${currentPage}`,
+	description: pageDescription,
+	url: `${siteOrigin}${blogPagePath(currentPage)}`,
+	isPartOf: {
+		'@type': 'Blog',
+		name: `Blog ${site.marca.nome}`,
+		url: `${siteOrigin}/blog/`,
+	},
+	hasPart: posts.map((post) => ({
+		'@type': 'BlogPosting',
+		headline: post.title,
+		url: `${siteOrigin}${postUrl(post.path)}`,
+	})),
+};
+---
+
+<BioLayout
+	variant="content"
+	title={pageTitle}
+	description={pageDescription}
+	canonical={blogPagePath(currentPage)}
+	paginationPrev={headLinks.prev}
+	paginationNext={headLinks.next}
+	jsonLd={jsonLd}
+>
+	<BlogListing
+		posts={posts}
+		currentPage={currentPage}
+		totalPages={totalPages}
+		totalPosts={getBlogPostCount()}
+	/>
+</BioLayout>

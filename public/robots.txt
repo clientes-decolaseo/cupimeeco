@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Prefixo legado do WordPress (redireciona via 301)
+Disallow: /d/
+
+Sitemap: https://cupim.eco.br/sitemap-index.xml

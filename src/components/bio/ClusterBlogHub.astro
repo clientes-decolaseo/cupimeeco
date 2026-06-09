@@ -1,0 +1,43 @@
+---
+import BlogPostCard from './BlogPostCard.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import type { ClusterConfig } from '../../types/cluster';
+import { breadcrumbsForBlogTopic } from '../../lib/clusters';
+import type { BlogPostSummary } from '../../types/wordpress';
+
+interface Props {
+	cluster: ClusterConfig;
+	posts: BlogPostSummary[];
+}
+
+const { cluster, posts } = Astro.props;
+const breadcrumbs = breadcrumbsForBlogTopic(cluster);
+---
+
+<section class="bio-cluster-blog">
+	<Breadcrumbs items={breadcrumbs} />
+
+	<header class="bio-cluster-blog__header">
+		<p class="bio-section-label">Blog</p>
+		<h1 class="bio-cluster-blog__titulo">{cluster.blogHubTitulo}</h1>
+		<p class="bio-cluster-blog__descricao">{cluster.blogHubDescricao}</p>
+		<p class="bio-cluster-blog__total">{posts.length} artigos neste tópico</p>
+		<a href={cluster.pilar} class="bio-btn-secundario">
+			Serviço de {cluster.nome}
+		</a>
+	</header>
+
+	{
+		posts.length > 0 ? (
+			<ul class="bio-blog__lista">
+				{posts.map((post) => (
+					<li>
+						<BlogPostCard post={post} />
+					</li>
+				))}
+			</ul>
+		) : (
+			<p class="bio-cluster-blog__vazio">Nenhum artigo encontrado para este tópico.</p>
+		)
+	}
+</section>

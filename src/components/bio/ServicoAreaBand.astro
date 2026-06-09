@@ -1,0 +1,41 @@
+---
+import { getAllClusters } from '../../lib/clusters';
+import { listCidadesAtendidas } from '../../lib/area-atendida';
+
+const totalCidades = listCidadesAtendidas().length;
+const clusters = getAllClusters();
+---
+
+<section class="bio-servicos-mega__area" aria-labelledby="servico-area-titulo">
+	<div class="bio-servicos-mega__area-inner">
+		<header class="bio-servicos-mega__section-header">
+			<p class="bio-section-label">Onde atendemos</p>
+			<h2 class="bio-servicos-mega__titulo" id="servico-area-titulo">
+				{totalCidades} cidades na Grande São Paulo e interior
+			</h2>
+			<p class="bio-servicos-mega__desc">
+				São Paulo capital e região, Baixada Santista, Campinas, Sorocaba, Jundiaí e Vale do
+				Paraíba. Encontre o serviço na sua cidade pelos hubs regionais.
+			</p>
+		</header>
+
+		<ul class="bio-servicos-mega__area-links">
+			{
+				clusters.map((cluster) => (
+					<li>
+						<a href={cluster.hubRegioes} class="bio-servicos-mega__area-link">
+							<strong>{cluster.nome}</strong>
+							<span>Ver por região e cidade</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+
+		<p class="bio-servicos-mega__area-mais">
+			<a href="/contato#area-atendimento">Lista completa das {totalCidades} cidades</a>
+			<span aria-hidden="true">·</span>
+			<a href="/">Mapa na página inicial</a>
+		</p>
+	</div>
+</section>

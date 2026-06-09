@@ -1,0 +1,183 @@
+---
+import { Image } from 'astro:assets';
+import cupimBanner from '../../assets/cupim-banner.jpg';
+import destaqueCompostagem from '../../assets/destaque-compostagem.jpg';
+import destaqueReciclagem from '../../assets/destaque-reciclagem.jpg';
+import destaqueConsumo from '../../assets/destaque-consumo.jpg';
+import conteudo from '../../data/destaques-ecologicos.json';
+
+const imagensPilares = {
+	compostagem: destaqueCompostagem,
+	reciclagem: destaqueReciclagem,
+	consumo: destaqueConsumo,
+} as const;
+---
+
+<section class="destaques" aria-labelledby="destaques-titulo-principal">
+	<header class="destaques-hero">
+		<div class="destaques-hero__conteudo">
+			<h1 id="destaques-titulo-principal">{conteudo.hero.titulo}</h1>
+			<p class="destaques-hero__subtitulo">{conteudo.hero.subtitulo}</p>
+		</div>
+
+		<figure class="destaques-hero__figura">
+			<Image
+				src={cupimBanner}
+				alt="Banner do Cupim Eco com tons verdes representando natureza, sustentabilidade e consumo consciente"
+				width={1200}
+				height={630}
+				format="webp"
+				quality="mid"
+				loading="eager"
+				fetchpriority="high"
+				decoding="async"
+				sizes="(max-width: 768px) 100vw, min(1100px, 92vw)"
+			/>
+		</figure>
+	</header>
+
+	<section class="destaques-pilares" aria-labelledby="pilares-titulo">
+		<header class="destaques-pilares__cabecalho">
+			<h2 id="pilares-titulo">{conteudo.pilares.titulo}</h2>
+			<p>{conteudo.pilares.descricao}</p>
+		</header>
+
+		<ul class="destaques-pilares__lista">
+			{
+				conteudo.pilares.itens.map((item) => (
+					<li class="destaques-pilares__item">
+						<article aria-labelledby={`pilar-${item.id}`}>
+							<figure class="destaques-pilares__figura">
+								<Image
+									src={imagensPilares[item.id as keyof typeof imagensPilares]}
+									alt={item.altImagem}
+									width={400}
+									height={300}
+									format="webp"
+									quality="mid"
+									loading="lazy"
+									decoding="async"
+									sizes="(max-width: 768px) 100vw, 320px"
+								/>
+							</figure>
+							<h3 id={`pilar-${item.id}`}>{item.titulo}</h3>
+							<p>{item.descricao}</p>
+						</article>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</section>
+
+<style>
+	.destaques {
+		display: grid;
+		gap: 3rem;
+	}
+
+	.destaques-hero {
+		display: grid;
+		gap: 1.5rem;
+		align-items: center;
+		margin: 0;
+	}
+
+	.destaques-hero__conteudo {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.destaques-hero h1 {
+		margin: 0;
+		font-size: clamp(1.75rem, 4vw, 2.5rem);
+		line-height: 1.2;
+		color: #111827;
+	}
+
+	.destaques-hero__subtitulo {
+		margin: 0;
+		max-width: 60ch;
+		font-size: 1.0625rem;
+		color: #374151;
+	}
+
+	.destaques-hero__figura,
+	.destaques-pilares__figura {
+		margin: 0;
+		overflow: hidden;
+		border-radius: 0.75rem;
+	}
+
+	.destaques-hero__figura {
+		aspect-ratio: 1200 / 630;
+	}
+
+	.destaques-pilares__figura {
+		aspect-ratio: 400 / 300;
+	}
+
+	.destaques-hero__figura :global(img),
+	.destaques-pilares__figura :global(img) {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.destaques-pilares__cabecalho {
+		display: grid;
+		gap: 0.75rem;
+		max-width: 70ch;
+	}
+
+	.destaques-pilares__cabecalho h2 {
+		margin: 0;
+		font-size: clamp(1.375rem, 3vw, 1.875rem);
+		color: #111827;
+	}
+
+	.destaques-pilares__cabecalho p {
+		margin: 0;
+		color: #374151;
+	}
+
+	.destaques-pilares__lista {
+		display: grid;
+		gap: 1.5rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.destaques-pilares__item article {
+		display: grid;
+		gap: 0.75rem;
+		height: 100%;
+		padding: 1rem;
+		border: 1px solid #e5e7eb;
+		border-radius: 0.75rem;
+		background: #ffffff;
+	}
+
+	.destaques-pilares__item h3 {
+		margin: 0;
+		font-size: 1.125rem;
+		color: #111827;
+	}
+
+	.destaques-pilares__item p {
+		margin: 0;
+		color: #374151;
+	}
+
+	@media (min-width: 768px) {
+		.destaques-hero {
+			grid-template-columns: 1fr 1.2fr;
+		}
+
+		.destaques-pilares__lista {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+</style>

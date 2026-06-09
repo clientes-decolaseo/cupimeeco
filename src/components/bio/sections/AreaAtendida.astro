@@ -1,0 +1,73 @@
+---
+import { getRegioesComCidades, listCidadesAtendidas } from '../../../lib/area-atendida';
+
+interface Props {
+	/** home = seção na landing; page = bloco na página de contato */
+	layout?: 'home' | 'page';
+}
+
+const { layout = 'home' } = Astro.props;
+
+const regioes = getRegioesComCidades();
+const totalCidades = listCidadesAtendidas().length;
+const isHome = layout === 'home';
+---
+
+<section
+	id={isHome ? 'area-atendimento' : layout === 'page' ? 'area-atendimento' : undefined}
+	class:list={['bio-area-atendida', isHome && 'bio-section']}
+	aria-labelledby="area-atendida-titulo"
+>
+	<div class:list={[isHome && 'bio-section-inner', 'bio-area-atendida__inner']}>
+		<header class="bio-area-atendida__header">
+			<p class="bio-section-label">Onde atendemos</p>
+			<h2 class="bio-section-titulo" id="area-atendida-titulo">
+				{totalCidades} cidades <span>atendidas</span>
+			</h2>
+			<p class="bio-section-desc">
+				Equipes próprias em São Paulo, Baixada Santista, Campinas, Sorocaba, Jundiaí e Vale do
+				Paraíba. Confira sua cidade abaixo ou solicite orçamento pela central 24h.
+			</p>
+		</header>
+
+		<div class="bio-area-atendida__regioes">
+			{
+				regioes.map((regiao) => (
+					<article class="bio-area-atendida__regiao" aria-labelledby={`area-regiao-${regiao.regiaoId}`}>
+						<div class="bio-area-atendida__regiao-header">
+							<h3 class="bio-area-atendida__regiao-titulo" id={`area-regiao-${regiao.regiaoId}`}>
+								{regiao.regiaoLabel}
+							</h3>
+							<span class="bio-area-atendida__regiao-count">
+								{regiao.cidades.length} {regiao.cidades.length === 1 ? 'cidade' : 'cidades'}
+							</span>
+						</div>
+						{regiao.regiaoIntro && <p class="bio-area-atendida__regiao-intro">{regiao.regiaoIntro}</p>}
+						<ul class="bio-area-atendida__cidades" role="list">
+							{regiao.cidades.map((cidade) => (
+								<li>{cidade.nome}</li>
+							))}
+						</ul>
+					</article>
+				))
+			}
+		</div>
+
+		<footer class="bio-area-atendida__footer">
+			<p class="bio-area-atendida__footer-texto">
+				Páginas detalhadas por serviço e localidade:
+			</p>
+			<ul class="bio-area-atendida__footer-links">
+				<li>
+					<a href="/descupinizacao/regioes/">Descupinização por região</a>
+				</li>
+				<li>
+					<a href="/dedetizacao/regioes/">Dedetização por região</a>
+				</li>
+				<li>
+					<a href="/deratizacao/regioes/">Deratização por região</a>
+				</li>
+			</ul>
+		</footer>
+	</div>
+</section>

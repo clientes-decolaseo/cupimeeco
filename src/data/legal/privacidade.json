@@ -1,0 +1,85 @@
+{
+  "slug": "privacidade",
+  "titulo": "Política de Privacidade",
+  "atualizadoEm": "2026-06-02",
+  "seo": {
+    "title": "Política de Privacidade | Cupim Eco",
+    "description": "Saiba como a Cupim Eco coleta, usa e protege seus dados pessoais em conformidade com a LGPD (Lei nº 13.709/2018)."
+  },
+  "intro": "A Cupim Eco respeita sua privacidade e trata dados pessoais de forma transparente e segura. Esta política descreve quais informações podemos coletar, para quais finalidades e quais são os seus direitos como titular de dados.",
+  "secoes": [
+    {
+      "titulo": "1. Quem somos",
+      "paragrafos": [
+        "O controlador dos dados é a Cupim Eco, empresa especializada em controle de pragas urbanas, dedetização, descupinização, deratização e serviços correlatos, com atuação na Grande São Paulo e região.",
+        "Para exercer seus direitos ou esclarecer dúvidas sobre privacidade, utilize o e-mail contato@cupim.eco.br ou o telefone 0800 111 7272."
+      ]
+    },
+    {
+      "titulo": "2. Dados que podemos coletar",
+      "paragrafos": ["Podemos tratar as seguintes categorias de dados, conforme a sua interação conosco:"],
+      "itens": [
+        "Dados de identificação e contato: nome, telefone, e-mail e endereço informados em orçamentos ou atendimentos.",
+        "Dados do imóvel ou empresa: tipo de serviço, metragem, histórico de infestação e observações técnicas para execução do trabalho.",
+        "Dados de navegação: cookies, endereço IP, páginas visitadas e dispositivo, quando você utiliza nosso site.",
+        "Dados de comunicação: mensagens enviadas por WhatsApp, telefone ou formulários de contato."
+      ]
+    },
+    {
+      "titulo": "3. Finalidades do tratamento",
+      "paragrafos": ["Utilizamos seus dados para:"],
+      "itens": [
+        "Responder solicitações de orçamento e prestar atendimento comercial.",
+        "Agendar, executar e dar suporte aos serviços contratados.",
+        "Emitir notas fiscais, certificados de execução e documentação exigida por órgãos reguladores.",
+        "Cumprir obrigações legais e regulatórias aplicáveis ao setor.",
+        "Melhorar nosso site, campanhas e experiência do usuário, com base em interesse legítimo ou consentimento quando exigido.",
+        "Enviar comunicações sobre serviços, somente quando houver base legal ou consentimento prévio."
+      ]
+    },
+    {
+      "titulo": "4. Base legal (LGPD)",
+      "paragrafos": [
+        "O tratamento de dados pessoais observa as bases previstas na Lei Geral de Proteção de Dados (LGPD), incluindo execução de contrato ou procedimentos preliminares, cumprimento de obrigação legal, exercício regular de direitos, legítimo interesse (quando aplicável) e consentimento do titular, quando necessário."
+      ]
+    },
+    {
+      "titulo": "5. Compartilhamento de dados",
+      "paragrafos": [
+        "Não vendemos dados pessoais. Podemos compartilhar informações apenas com prestadores essenciais à operação (por exemplo: hospedagem do site, ferramentas de análise ou contabilidade), sempre com medidas contratuais de confidencialidade e segurança, ou quando houver determinação legal ou ordem de autoridade competente."
+      ]
+    },
+    {
+      "titulo": "6. Retenção e segurança",
+      "paragrafos": [
+        "Mantemos os dados pelo tempo necessário para cumprir as finalidades descritas e obrigações legais, incluindo prazos fiscais e de garantia de serviços.",
+        "Adotamos medidas técnicas e administrativas razoáveis para proteger as informações contra acesso não autorizado, perda ou alteração indevida."
+      ]
+    },
+    {
+      "titulo": "7. Seus direitos",
+      "paragrafos": ["Nos termos da LGPD, você pode solicitar:"],
+      "itens": [
+        "Confirmação da existência de tratamento e acesso aos dados.",
+        "Correção de dados incompletos, inexatos ou desatualizados.",
+        "Anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade.",
+        "Portabilidade, quando aplicável.",
+        "Informação sobre compartilhamentos realizados.",
+        "Revogação do consentimento, quando o tratamento tiver essa base.",
+        "Oposição a tratamentos realizados com base em legítimo interesse, quando cabível."
+      ]
+    },
+    {
+      "titulo": "8. Cookies",
+      "paragrafos": [
+        "Nosso site pode utilizar cookies essenciais para funcionamento e cookies analíticos para entender o uso das páginas. Você pode gerenciar cookies nas configurações do seu navegador. A desativação de cookies essenciais pode afetar algumas funcionalidades."
+      ]
+    },
+    {
+      "titulo": "9. Alterações desta política",
+      "paragrafos": [
+        "Podemos atualizar esta política periodicamente. A data da última revisão será indicada no topo desta página. Recomendamos consulta regular em caso de mudanças relevantes."
+      ]
+    }
+  ]
+}

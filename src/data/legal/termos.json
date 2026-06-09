@@ -1,0 +1,81 @@
+{
+  "slug": "termos",
+  "titulo": "Termos de Uso",
+  "atualizadoEm": "2026-06-02",
+  "seo": {
+    "title": "Termos de Uso | Cupim Eco",
+    "description": "Termos e condições de uso do site e dos serviços da Cupim Eco. Leia antes de contratar dedetização, descupinização e controle de pragas."
+  },
+  "intro": "Ao acessar o site cupim.eco.br ou contratar serviços da Cupim Eco, você concorda com estes Termos de Uso. Leia com atenção antes de solicitar orçamentos ou agendar atendimentos.",
+  "secoes": [
+    {
+      "titulo": "1. Aceitação",
+      "paragrafos": [
+        "Estes termos regulam o uso do site e a relação comercial referente aos serviços de controle de pragas oferecidos pela Cupim Eco. Se não concordar com qualquer disposição, não utilize o site nem contrate nossos serviços."
+      ]
+    },
+    {
+      "titulo": "2. Serviços",
+      "paragrafos": [
+        "A Cupim Eco presta serviços de dedetização, descupinização, deratização, sanitização, controle de mosquitos e programas empresariais de controle integrado de pragas, conforme escopo, periodicidade e valores acordados em proposta ou contrato específico.",
+        "A eficácia do tratamento depende de fatores como tipo de praga, grau de infestação, condições do imóvel e cumprimento das orientações técnicas e preventivas fornecidas pela equipe."
+      ]
+    },
+    {
+      "titulo": "3. Orçamentos e contratação",
+      "paragrafos": [
+        "Orçamentos informados por telefone, WhatsApp ou site têm caráter orientativo e podem ser ajustados após vistoria técnica no local.",
+        "A contratação efetiva ocorre mediante confirmação do cliente, agendamento e, quando aplicável, assinatura de proposta comercial ou contrato de prestação de serviços."
+      ]
+    },
+    {
+      "titulo": "4. Obrigações do cliente",
+      "paragrafos": ["Para a correta execução do serviço, o cliente compromete-se a:"],
+      "itens": [
+        "Fornecer informações verdadeiras sobre o imóvel, infestação e restrições de acesso.",
+        "Garantir acesso seguro às áreas a serem tratadas no horário agendado.",
+        "Seguir orientações de preparação, reentrada e medidas preventivas comunicadas pelos técnicos.",
+        "Manter animais, alimentos e pessoas sensíveis afastados conforme instruções de segurança do produto aplicado.",
+        "Comunicar imediatamente qualquer intercorrência ou retorno de pragas dentro do período de garantia contratado."
+      ]
+    },
+    {
+      "titulo": "5. Garantia",
+      "paragrafos": [
+        "Quando prevista em proposta ou contrato, a garantia aplica-se exclusivamente à praga e área tratadas, pelo prazo e condições documentados. Não cobre reinfestação por novas fontes externas, falta de manutenção preventiva ou descumprimento das orientações técnicas.",
+        "O acionamento da garantia deve ser feito pelos canais oficiais de atendimento, com descrição do problema e, se solicitado, disponibilidade para nova vistoria."
+      ]
+    },
+    {
+      "titulo": "6. Pagamento",
+      "paragrafos": [
+        "Valores, formas de pagamento e condições de parcelamento são definidos na proposta comercial. O não pagamento nas datas acordadas pode suspender agendamentos, garantias e visitas de manutenção contratadas."
+      ]
+    },
+    {
+      "titulo": "7. Propriedade intelectual",
+      "paragrafos": [
+        "Textos, imagens, logotipos e demais conteúdos deste site são de propriedade da Cupim Eco ou de licenciantes, protegidos pela legislação aplicável. É vedada a reprodução sem autorização prévia por escrito."
+      ]
+    },
+    {
+      "titulo": "8. Limitação de responsabilidade",
+      "paragrafos": [
+        "O site é disponibilizado \"como está\". Empregamos esforços para manter informações atualizadas, mas não garantimos ausência total de erros tipográficos ou indisponibilidade temporária.",
+        "A Cupim Eco não se responsabiliza por danos indiretos decorrentes do uso do site. Responsabilidades relacionadas à execução dos serviços limitam-se ao previsto em contrato e na legislação consumerista, quando aplicável."
+      ]
+    },
+    {
+      "titulo": "9. Privacidade",
+      "paragrafos": [
+        "O tratamento de dados pessoais é regido pela nossa Política de Privacidade, disponível em /privacidade/, em conformidade com a LGPD."
+      ]
+    },
+    {
+      "titulo": "10. Legislação e foro",
+      "paragrafos": [
+        "Estes termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da comarca de São Paulo/SP para dirimir controvérsias, salvo disposição legal em contrário em relações de consumo."
+      ]
+    }
+  ]
+}

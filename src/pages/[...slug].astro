@@ -1,0 +1,30 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import { getRedirectDestination } from '../lib/seo-policy';
+import { findByPath, getAllContentPaths, loadContentById } from '../lib/wordpress';
+
+export async function getStaticPaths() {
+	const paths = getAllContentPaths();
+
+	return paths.map((itemPath) => ({
+		params: { slug: itemPath },
+	}));
+}
+
+const slugParam = Astro.params.slug ?? '';
+const redirectTo = getRedirectDestination(slugParam);
+
+if (redirectTo) {
+	return Astro.redirect(redirectTo, 301);
+}
+
+const match = findByPath(slugParam);
+
+if (!match) {
+	return Astro.redirect('/404');
+}
+
+const content = await loadContentById(match.type, match.entry.id);
+---
+
+<ContentLayout content={content} />

@@ -1,0 +1,15 @@
+---
+import BioLayout from '../layouts/BioLayout.astro';
+import ServiceLanding from '../components/bio/ServiceLanding.astro';
+import servico from '../data/servicos/sanitizacao.json';
+import { buildPillarJsonLd } from '../lib/servico';
+---
+
+<BioLayout
+	variant="content"
+	title={servico.seo.title}
+	description={servico.seo.description}
+	jsonLd={buildPillarJsonLd(servico)}
+>
+	<ServiceLanding servico={servico} />
+</BioLayout>

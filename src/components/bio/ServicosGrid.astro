@@ -1,0 +1,37 @@
+---
+import site from '../../data/site.json';
+
+interface Props {
+	variant?: 'dark' | 'light';
+}
+
+const { variant = 'dark' } = Astro.props;
+---
+
+<div class:list={['bio-servicos-grid', { 'bio-servicos-grid--light': variant === 'light' }]}>
+	{
+		site.servicos.map((servico) => (
+			<article class="bio-servico-card">
+				<div class="bio-servico-icone" aria-hidden="true">
+					{servico.icone}
+				</div>
+				<h3 class="bio-servico-nome">{servico.nome}</h3>
+				<p class="bio-servico-desc">{servico.descricao}</p>
+				<a href={servico.href} class="bio-servico-link">
+					Saiba mais
+					<svg
+						width="14"
+						height="14"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.5"
+						aria-hidden="true"
+					>
+						<path d="M5 12h14M12 5l7 7-7 7" />
+					</svg>
+				</a>
+			</article>
+		))
+	}
+</div>

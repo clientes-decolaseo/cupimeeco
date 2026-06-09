@@ -1,0 +1,54 @@
+---
+import { getAllClusters, getClusterPages } from '../../lib/clusters';
+
+const clusters = getAllClusters().map((cluster) => ({
+	cluster,
+	localidades: getClusterPages(cluster.id).length,
+}));
+---
+
+<section class="bio-servicos-mega__clusters" aria-labelledby="servico-clusters-titulo">
+	<header class="bio-servicos-mega__section-header">
+		<p class="bio-section-label">Clusters de conteúdo</p>
+		<h2 class="bio-servicos-mega__titulo" id="servico-clusters-titulo">
+			Explore por serviço e cidade
+		</h2>
+		<p class="bio-servicos-mega__desc">
+			Cada serviço tem página principal, índice por região com dezenas de localidades e artigos
+			especializados no blog.
+		</p>
+	</header>
+
+	<div class="bio-servicos-mega__cluster-grid">
+		{
+			clusters.map(({ cluster, localidades }) => (
+				<article class="bio-servicos-mega__cluster-card">
+					<h3 class="bio-servicos-mega__cluster-nome">
+						<a href={cluster.pilar}>{cluster.nome}</a>
+					</h3>
+					<p class="bio-servicos-mega__cluster-intro">{cluster.blogHubDescricao}</p>
+					<ul class="bio-servicos-mega__cluster-links">
+						<li>
+							<a href={cluster.pilar}>
+								<strong>Serviço</strong>
+								<span>Visão geral e orçamento</span>
+							</a>
+						</li>
+						<li>
+							<a href={cluster.hubRegioes}>
+								<strong>Regiões</strong>
+								<span>{localidades} páginas por cidade</span>
+							</a>
+						</li>
+						<li>
+							<a href={cluster.blogHub}>
+								<strong>Blog</strong>
+								<span>{cluster.blogHubTitulo}</span>
+							</a>
+						</li>
+					</ul>
+				</article>
+			))
+		}
+	</div>
+</section>
