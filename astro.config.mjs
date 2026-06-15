@@ -53,6 +53,9 @@ export default defineConfig({
 	output: 'static',
 	adapter: vercel(),
 	trailingSlash: 'always',
+	build: {
+		inlineStylesheets: 'always',
+	},
 	integrations: [
 		sitemap({
 			filter: (page) => {

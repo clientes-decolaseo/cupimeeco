@@ -2,5 +2,43 @@
 	"$schema": "https://openapi.vercel.sh/vercel.json",
 	"framework": "astro",
 	"trailingSlash": true,
-	"cleanUrls": false
+	"cleanUrls": false,
+	"headers": [
+		{
+			"source": "/_astro/(.*)",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "public, max-age=31536000, immutable"
+				}
+			]
+		},
+		{
+			"source": "/wp-content/uploads/(.*)",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "public, max-age=31536000, immutable"
+				}
+			]
+		},
+		{
+			"source": "/(.*)\\.(webp|avif|png|jpe?g|gif|svg|ico|woff2?|ttf|otf)",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "public, max-age=31536000, immutable"
+				}
+			]
+		},
+		{
+			"source": "/(robots\\.txt|sitemap-index\\.xml|sitemap-.*\\.xml)",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "public, max-age=86400, stale-while-revalidate=604800"
+				}
+			]
+		}
+	]
 }

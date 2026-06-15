@@ -25,11 +25,14 @@
     "audit:cupim": "node scripts/audit-cluster-duplicates.mjs",
     "audit:seo": "node scripts/audit-cluster-duplicates.mjs",
     "audit:seo:full": "node scripts/audit-seo-full.mjs",
-    "update:domain": "node scripts/update-domain.mjs"
+    "update:domain": "node scripts/update-domain.mjs",
+    "generate:favicons": "node scripts/generate-favicons.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/vercel": "^10.0.8",
+    "@fontsource/barlow": "^5.2.8",
+    "@fontsource/barlow-condensed": "^5.2.8",
     "astro": "^6.4.2"
   }
 }

@@ -1,9 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import ContatoCta from './sections/ContatoCta.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 import RelatedContent from './RelatedContent.astro';
 import ServiceFaq from './ServiceFaq.astro';
 import site from '../../data/site.json';
+import { getServiceImage } from '../../lib/service-images';
 import {
 	breadcrumbsForService,
 	getClusterByPilarPath,
@@ -22,12 +24,36 @@ const cluster = getClusterByPilarPath(`/${servico.slug}`);
 const regioesCount = cluster ? getClusterPages(cluster.id).length : 0;
 const artigosDestaque = cluster ? await getFeaturedPostsForCluster(cluster, 3) : [];
 const breadcrumbs = cluster ? breadcrumbsForService(cluster) : undefined;
+const servicoHref = `/${servico.slug}`;
+const imagem = getServiceImage(servicoHref);
+const servicoSite = site.servicos.find((item) => item.href === servicoHref);
+const imagemAlt =
+	servicoSite?.imagemAlt ?? `Serviço de ${servico.titulo} — ${site.marca.nome}`;
 ---
 
 <article class="bio-servico" itemscope itemtype="https://schema.org/Service">
 	{cluster && breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
 
 	<header class="bio-servico__hero">
+		{
+			imagem && (
+				<figure class="bio-servico__hero-media">
+					<Image
+						src={imagem.src}
+						alt={imagemAlt}
+						width={imagem.width}
+						height={imagem.height}
+						format="webp"
+						quality="mid"
+						class="bio-servico__hero-img"
+						loading="eager"
+						decoding="async"
+						sizes="(max-width: 768px) 100vw, 960px"
+						widths={[480, 768, 1024]}
+					/>
+				</figure>
+			)
+		}
 		<p class="bio-section-label">Serviço especializado</p>
 		<h1 class="bio-servico__titulo" itemprop="name">{servico.titulo}</h1>
 		<p class="bio-servico__subtitulo" itemprop="description">{servico.subtitulo}</p>

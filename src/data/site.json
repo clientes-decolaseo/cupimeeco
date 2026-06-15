@@ -39,37 +39,43 @@
       "icone": "🪳",
       "nome": "Dedetização",
       "descricao": "Eliminação de baratas, formigas, mosquitos, pulgas, carrapatos e outros insetos com produtos aprovados pela ANVISA.",
-      "href": "/dedetizacao"
+      "href": "/dedetizacao",
+      "imagemAlt": "Controle profissional de baratas e insetos em ambiente residencial"
     },
     {
       "icone": "🪵",
       "nome": "Descupinização",
       "descricao": "Controle e eliminação de cupins em estruturas de madeira, móveis e construções, evitando danos estruturais.",
-      "href": "/descupinizacao"
+      "href": "/descupinizacao",
+      "imagemAlt": "Cupim em madeira — sinal de infestação que exige descupinização"
     },
     {
       "icone": "🐀",
       "nome": "Deratização",
       "descricao": "Controle de roedores (ratos e camundongos) com técnicas eficazes que protegem alimentos e estruturas.",
-      "href": "/deratizacao"
+      "href": "/deratizacao",
+      "imagemAlt": "Rato marrom em close-up sobre superfície de pedra — desratização profissional Cupim Eco"
     },
     {
       "icone": "🧹",
       "nome": "Sanitização",
       "descricao": "Desinfecção e higienização de ambientes, eliminando vírus, bactérias e fungos. Ideal para pós-obra e pós-infestação.",
-      "href": "/sanitizacao"
+      "href": "/sanitizacao",
+      "imagemAlt": "Sanitização de ambientes contra vírus, bactérias e fungos"
     },
     {
       "icone": "🦟",
       "nome": "Controle de Mosquitos",
       "descricao": "Tratamento especializado contra Aedes aegypti, dengue, Zika e Chikungunya em áreas internas e externas.",
-      "href": "/controle-de-mosquitos"
+      "href": "/controle-de-mosquitos",
+      "imagemAlt": "Mosquito transmissor de dengue — controle especializado Cupim Eco"
     },
     {
       "icone": "🏢",
       "nome": "Contratos Empresariais",
       "descricao": "Programas de controle integrado de pragas para empresas, restaurantes, indústrias e condomínios com visitas periódicas.",
-      "href": "/contratos-empresariais"
+      "href": "/contratos-empresariais",
+      "imagemAlt": "Profissional com EPI aplicando névoa de sanitização em ambiente corporativo — contratos empresariais Cupim Eco"
     }
   ],
   "diferenciais": [

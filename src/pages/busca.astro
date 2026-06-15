@@ -69,6 +69,44 @@ const pageDescription = `Encontre páginas sobre dedetização, descupinização
 		return score;
 	}
 
+	function renderResults(results, rawQuery) {
+		if (!status || !list) return;
+
+		const fragment = document.createDocumentFragment();
+
+		for (const { entry } of results) {
+			const item = document.createElement('li');
+			const link = document.createElement('a');
+			link.href = entry.href;
+			link.className = 'bio-busca-result-link';
+
+			const title = document.createElement('span');
+			title.className = 'bio-busca-result-title';
+			title.textContent = entry.title;
+
+			const kind = document.createElement('span');
+			kind.className = 'bio-busca-result-kind';
+			kind.textContent = kindLabels[entry.kind] ?? 'Página';
+
+			link.append(title, kind);
+			item.append(link);
+			fragment.append(item);
+		}
+
+		list.replaceChildren(fragment);
+		list.hidden = results.length === 0;
+
+		if (results.length === 0) {
+			status.textContent = `Nenhum resultado para “${rawQuery.trim()}”. Tente outra palavra ou cidade.`;
+			return;
+		}
+
+		status.textContent =
+			results.length === 40
+				? `Mais de 40 resultados para “${rawQuery.trim()}”. Mostrando os principais:`
+				: `${results.length} resultado${results.length === 1 ? '' : 's'} para “${rawQuery.trim()}”:`;
+	}
+
 	function runSearch(rawQuery) {
 		const query = normalize(rawQuery);
 
@@ -87,39 +125,7 @@ const pageDescription = `Encontre páginas sobre dedetização, descupinização
 			.sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title, 'pt-BR'))
 			.slice(0, 40);
 
-		list.replaceChildren();
-
-		if (results.length === 0) {
-			status.textContent = `Nenhum resultado para “${rawQuery.trim()}”. Tente outra palavra ou cidade.`;
-			list.hidden = true;
-			return;
-		}
-
-		status.textContent =
-			results.length === 40
-				? `Mais de 40 resultados para “${rawQuery.trim()}”. Mostrando os principais:`
-				: `${results.length} resultado${results.length === 1 ? '' : 's'} para “${rawQuery.trim()}”:`;
-
-		for (const { entry } of results) {
-			const item = document.createElement('li');
-			const link = document.createElement('a');
-			link.href = entry.href;
-			link.className = 'bio-busca-result-link';
-
-			const title = document.createElement('span');
-			title.className = 'bio-busca-result-title';
-			title.textContent = entry.title;
-
-			const kind = document.createElement('span');
-			kind.className = 'bio-busca-result-kind';
-			kind.textContent = kindLabels[entry.kind] ?? 'Página';
-
-			link.append(title, kind);
-			item.append(link);
-			list.append(item);
-		}
-
-		list.hidden = false;
+		renderResults(results, rawQuery);
 	}
 
 	function initFromUrl() {
@@ -132,6 +138,8 @@ const pageDescription = `Encontre páginas sobre dedetização, descupinização
 	}
 
 	if (form && input) {
+		let pendingSearch = 0;
+
 		form.addEventListener('submit', (event) => {
 			event.preventDefault();
 			const q = input.value.trim();
@@ -143,9 +151,14 @@ const pageDescription = `Encontre páginas sobre dedetização, descupinização
 
 		input.addEventListener('input', () => {
 			const q = input.value.trim();
-			if (q.length >= 2) runSearch(q);
+			cancelAnimationFrame(pendingSearch);
+			pendingSearch = requestAnimationFrame(() => {
+				if (q.length >= 2) runSearch(q);
+			});
 		});
 	}
 
-	initFromUrl();
+	requestAnimationFrame(() => {
+		initFromUrl();
+	});
 </script>
