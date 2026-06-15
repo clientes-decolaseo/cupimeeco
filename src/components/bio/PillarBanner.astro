@@ -1,11 +1,13 @@
 ---
 import type { ClusterConfig } from '../../types/cluster';
+import { isRegionalHubActive } from '../../lib/clusters';
 
 interface Props {
 	cluster: ClusterConfig;
 }
 
 const { cluster } = Astro.props;
+const mostraHubRegioes = isRegionalHubActive(cluster);
 ---
 
 <aside class="bio-pillar-banner" aria-label={`Serviço de ${cluster.nome}`}>
@@ -17,8 +19,16 @@ const { cluster } = Astro.props;
 		<a href={cluster.pilar} class="bio-btn-primario">
 			Ver {cluster.nome}
 		</a>
-		<a href={cluster.hubRegioes} class="bio-btn-secundario">
-			Regiões atendidas
-		</a>
+		{
+			mostraHubRegioes ? (
+				<a href={cluster.hubRegioes} class="bio-btn-secundario">
+					Regiões atendidas
+				</a>
+			) : (
+				<a href={cluster.blogHub} class="bio-btn-secundario">
+					{cluster.blogHubTitulo}
+				</a>
+			)
+		}
 	</div>
 </aside>

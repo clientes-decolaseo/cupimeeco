@@ -2,6 +2,7 @@ import clustersData from '../data/clusters.json';
 import type { BreadcrumbItem, ClusterConfig, ClusterManifestEntry } from '../types/cluster';
 import type { WpManifestEntry } from '../types/wordpress';
 import { isPageInServiceArea } from './area-atendida';
+import { matchesPagePath } from './cluster-page-match';
 import { isRedirectedPath } from './seo-policy';
 import { getManifest } from './wordpress';
 
@@ -9,6 +10,14 @@ const clusters = clustersData.clusters as ClusterConfig[];
 
 export function getAllClusters(): ClusterConfig[] {
 	return clusters;
+}
+
+export function isRegionalHubActive(cluster: ClusterConfig): boolean {
+	return cluster.hubRegioesAtivo !== false;
+}
+
+export function getClustersWithRegionalHub(): ClusterConfig[] {
+	return clusters.filter(isRegionalHubActive);
 }
 
 export function getClusterById(id: string): ClusterConfig | undefined {
@@ -20,39 +29,29 @@ export function getClusterByPilarPath(pilarPath: string): ClusterConfig | undefi
 	return clusters.find((cluster) => cluster.pilar === normalized);
 }
 
-function matchesPagePath(path: string, match: ClusterConfig['matchPage']): boolean {
-	if (match.excludePrefixes?.some((prefix) => path.startsWith(prefix))) {
-		return false;
-	}
-
-	if (match.prefixes?.some((prefix) => path.startsWith(prefix))) {
-		return true;
-	}
-
-	if (match.anyPrefix && path.startsWith(match.anyPrefix)) {
-		return true;
-	}
-
-	return false;
+function pageMatchesCluster(path: string, cluster: ClusterConfig): boolean {
+	if (!path || path.startsWith('blog/')) return false;
+	return matchesPagePath(path, cluster.matchPage);
 }
 
+/** @deprecated Use matchesPagePath via pageBelongsToCluster */
 export function isCupimLegacyPath(path: string): boolean {
-	return (
-		path.startsWith('descupiniz') ||
-		path.startsWith('dedetizadora-de-cupim') ||
-		path.includes('/descupiniz') ||
-		path.includes('dedetizadora-de-cupim')
-	);
+	const cupim = clusters.find((cluster) => cluster.id === 'descupinizacao');
+	return cupim ? pageMatchesCluster(path, cupim) : false;
+}
+
+/** Slug do hub editorial: `/blog/cupins` → `cupins` */
+export function getBlogTopicFromHub(blogHub: string): string | null {
+	const match = blogHub.match(/^\/blog\/([^/]+)$/);
+	return match?.[1] ?? null;
+}
+
+export function getClustersWithBlogHub(): ClusterConfig[] {
+	return clusters.filter((cluster) => getBlogTopicFromHub(cluster.blogHub) !== null);
 }
 
 export function pageBelongsToCluster(path: string, cluster: ClusterConfig): boolean {
-	if (!path || path.startsWith('blog/')) return false;
-
-	if (cluster.id === 'descupinizacao' && isCupimLegacyPath(path)) {
-		return matchesPagePath(path, cluster.matchPage) || path.includes('descupiniz') || path.includes('cupim');
-	}
-
-	return matchesPagePath(path, cluster.matchPage);
+	return pageMatchesCluster(path, cluster);
 }
 
 export function postBelongsToCluster(path: string, cluster: ClusterConfig): boolean {
@@ -148,7 +147,9 @@ export function breadcrumbsForWpContent(
 	} else if (cluster) {
 		items.push({ label: 'Serviços', href: '/servico' });
 		items.push({ label: cluster.nome, href: cluster.pilar });
-		items.push({ label: 'Regiões atendidas', href: cluster.hubRegioes });
+		if (isRegionalHubActive(cluster)) {
+			items.push({ label: 'Regiões atendidas', href: cluster.hubRegioes });
+		}
 	}
 
 	items.push({ label: title });

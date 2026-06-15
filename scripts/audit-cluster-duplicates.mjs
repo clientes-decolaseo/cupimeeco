@@ -2,6 +2,8 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import manifest from '../src/data/wp/manifest.json' with { type: 'json' };
 import { extractLocationFromPath, isPageInServiceArea } from './lib/resolve-city.mjs';
+import { pageBelongsToClusterId } from './lib/cluster-page-match.mjs';
+import { getClusterPreferPathScore } from './lib/cluster-prefer-path.mjs';
 
 const OUT_DIR = path.resolve('src/data/seo');
 const SERVICO_HOME = '/servico/';
@@ -16,19 +18,15 @@ const CLUSTER_CONFIGS = [
 		htaccessLabel: 'CUPIM',
 		pilar: '/descupinizacao',
 		hubRegioes: '/descupinizacao/regioes',
-		isPage: (p) =>
-			p.startsWith('descupiniz') ||
-			p.startsWith('dedetizadora-de-cupim') ||
-			p.includes('/descupiniz') ||
-			p.includes('dedetizadora-de-cupim'),
+		isPage: (p) => pageBelongsToClusterId(p, 'descupinizacao'),
 		locationPattern:
-			/^(?:descupinizacao|descupinizadora|dedetizadora-de-cupim|empresa-de-descupinizacao)(?:-em|-no|-na|-de)?-(.+)$/i,
-		preferPath: (p) => {
-			if (p.startsWith('descupinizacao')) return 0;
-			if (p.startsWith('descupinizadora')) return 1;
-			return 2;
-		},
+			/^(?:descupinizacao|descupinizadora|dedetizadora-de-cupim|dedetizacao-de-cupim|dedetizacao-de-cupins|dedetizacao-cupim|empresa-de-descupinizacao)(?:-em|-no|-na|-de)?-(.+)$/i,
+		preferPath: (p) => getClusterPreferPathScore('descupinizacao', p),
 		redirectToPilar: new Set([
+			'dedetizacao-de-cupins',
+			'dedetizacao-cupim-sp-preco',
+			'servicos-de-dedetizacao-de-cupins',
+			'sao-sebastiao-sp/dedetizacao-de-cupins',
 			'descupinizacao-como-funciona',
 			'descupinizacao-sp-preco',
 			'descupinizadora-em-sao-paulo',
@@ -53,37 +51,10 @@ const CLUSTER_CONFIGS = [
 		htaccessLabel: 'DEDETIZACAO',
 		pilar: '/dedetizacao',
 		hubRegioes: '/dedetizacao/regioes',
-		isPage: (p) => {
-			if (
-				p.startsWith('descupiniz') ||
-				p.startsWith('dedetizadora-de-cupim') ||
-				p.startsWith('dedetizadora-de-rato') ||
-				p.startsWith('dedetizadora-de-mosquito') ||
-				p.startsWith('desratiz') ||
-				p.startsWith('sanitiz')
-			) {
-				return false;
-			}
-
-			return (
-				p.startsWith('dedetizadora-em') ||
-				p.startsWith('dedetizadora-de-barata') ||
-				p.startsWith('dedetizadora-de-formiga') ||
-				p.startsWith('dedetizadora-de-pulga') ||
-				p.startsWith('dedetizadora-de-carrapato') ||
-				p.startsWith('dedetizadora-de-escorpiao') ||
-				p.startsWith('empresa-de-dedetizacao') ||
-				p.startsWith('dedetizadora-em-') ||
-				(p.startsWith('dedetizadora') && !p.includes('cupim') && !p.includes('rato'))
-			);
-		},
+		isPage: (p) => pageBelongsToClusterId(p, 'dedetizacao'),
 		locationPattern:
 			/^(?:dedetizadora-em|dedetizadora-de-barata|dedetizadora-de-formiga|dedetizadora-de-pulga|dedetizadora-de-carrapato|dedetizadora-de-escorpiao|empresa-de-dedetizacao|dedetizadora)(?:-em|-na|-no|-de)?-(.+)$/i,
-		preferPath: (p) => {
-			if (p.startsWith('dedetizadora-em')) return 0;
-			if (p.startsWith('empresa-de-dedetizacao')) return 1;
-			return 2;
-		},
+		preferPath: (p) => getClusterPreferPathScore('dedetizacao', p),
 		redirectToPilar: new Set([
 			'dedetizadora-em-sao-paulo',
 			'dedetizadora-em-sp',
@@ -108,14 +79,10 @@ const CLUSTER_CONFIGS = [
 		htaccessLabel: 'DERATIZACAO',
 		pilar: '/deratizacao',
 		hubRegioes: '/deratizacao/regioes',
-		isPage: (p) => p.startsWith('dedetizadora-de-rato') || p.startsWith('desratiz'),
+		isPage: (p) => pageBelongsToClusterId(p, 'deratizacao'),
 		locationPattern:
 			/^(?:dedetizadora-de-rato|desratizacao|desratizadora|desratiz)(?:-em|-na|-no|-de)?-(.+)$/i,
-		preferPath: (p) => {
-			if (p.startsWith('desratizacao')) return 0;
-			if (p.startsWith('desratizadora')) return 1;
-			return 2;
-		},
+		preferPath: (p) => getClusterPreferPathScore('deratizacao', p),
 		redirectToPilar: new Set([
 			'desratizacao',
 			'desratizacao-em-sao-paulo',
@@ -136,9 +103,9 @@ const CLUSTER_CONFIGS = [
 		htaccessLabel: 'SANITIZACAO',
 		pilar: '/sanitizacao',
 		hubRegioes: '/sanitizacao/regioes',
-		isPage: (p) => p.startsWith('sanitizacao'),
+		isPage: (p) => pageBelongsToClusterId(p, 'sanitizacao'),
 		locationPattern: /^sanitizacao(?:-em|-na|-no)?-(.+)$/i,
-		preferPath: (p) => (p.startsWith('sanitizacao-em') ? 0 : 1),
+		preferPath: (p) => getClusterPreferPathScore('sanitizacao', p),
 		redirectToPilar: new Set(),
 	},
 	{
@@ -147,10 +114,9 @@ const CLUSTER_CONFIGS = [
 		htaccessLabel: 'MOSQUITOS',
 		pilar: '/controle-de-mosquitos',
 		hubRegioes: '/controle-de-mosquitos/regioes',
-		isPage: (p) =>
-			p.startsWith('dedetizadora-de-mosquito') || p.startsWith('controle-de-mosquito'),
+		isPage: (p) => pageBelongsToClusterId(p, 'mosquitos'),
 		locationPattern: /^(?:dedetizadora-de-mosquito|controle-de-mosquito)(?:-em|-na|-no)?-(.+)$/i,
-		preferPath: () => 0,
+		preferPath: (p) => getClusterPreferPathScore('mosquitos', p),
 		redirectToPilar: new Set(),
 	},
 ];
@@ -311,27 +277,23 @@ function updateHtaccessBlock(htaccess, label, redirects) {
 }
 
 function pilarForPath(itemPath) {
-	if (
-		itemPath.startsWith('descupiniz') ||
-		itemPath.startsWith('dedetizadora-de-cupim') ||
-		itemPath.includes('cupim')
-	) {
+	if (pageBelongsToClusterId(itemPath, 'descupinizacao')) {
 		return '/descupinizacao/';
 	}
 
-	if (itemPath.startsWith('dedetizadora-de-rato') || itemPath.startsWith('desratiz')) {
+	if (pageBelongsToClusterId(itemPath, 'deratizacao')) {
 		return '/deratizacao/';
 	}
 
-	if (itemPath.startsWith('dedetizadora') || itemPath.startsWith('empresa-de-dedetizacao')) {
+	if (pageBelongsToClusterId(itemPath, 'dedetizacao')) {
 		return '/dedetizacao/';
 	}
 
-	if (itemPath.startsWith('sanitiz')) {
+	if (pageBelongsToClusterId(itemPath, 'sanitizacao')) {
 		return '/sanitizacao/';
 	}
 
-	if (itemPath.includes('mosquito')) {
+	if (pageBelongsToClusterId(itemPath, 'mosquitos')) {
 		return '/controle-de-mosquitos/';
 	}
 

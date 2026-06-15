@@ -20,7 +20,9 @@ const { items, titulo = 'Conteúdo relacionado' } = Astro.props;
 				{items.map((item) => (
 					<li>
 						<article class="bio-related__card">
-							<p class="bio-related__tipo">{item.type === 'post' ? 'Artigo' : 'Página'}</p>
+							<p class="bio-related__tipo">
+								{item.tipoLabel ?? (item.type === 'post' ? 'Artigo' : 'Página')}
+							</p>
 							<h3>
 								<a href={postUrl(item.path)}>{item.title}</a>
 							</h3>

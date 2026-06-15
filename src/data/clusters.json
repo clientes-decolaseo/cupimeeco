@@ -10,7 +10,25 @@
       "blogHubDescricao": "Guias, sinais de infestação e dicas de prevenção contra cupins em residências e empresas.",
       "blogSlugIncludes": ["cupim", "cupins", "descupiniz", "termite", "cupins-"],
       "matchPage": {
-        "prefixes": ["descupiniz", "dedetizadora-de-cupim"]
+        "prefixes": [
+          "descupiniz",
+          "dedetizadora-de-cupim",
+          "dedetizacao-de-cupim",
+          "dedetizacao-cupim",
+          "empresa-de-descupinizacao"
+        ],
+        "pathIncludes": ["/descupiniz", "dedetizadora-de-cupim"],
+        "slugPatterns": ["dedetizacao-de-cupins", "cupim"],
+        "excludeSlugPatterns": [
+          "rato",
+          "ratos",
+          "mosquito",
+          "barata",
+          "formiga",
+          "pulga",
+          "escorpiao",
+          "carrapato"
+        ]
       }
     },
     {
@@ -23,9 +41,24 @@
       "blogHubDescricao": "Artigos sobre baratas, formigas, pulgas e controle integrado de pragas urbanas.",
       "blogSlugIncludes": ["dedetiz", "desinsetiz", "barata", "formiga", "inseto", "pragas-urbanas"],
       "matchPage": {
-        "prefixes": ["dedetizadora-em", "dedetizadora-de-barata", "dedetizadora-de-formiga", "dedetizadora-de-pulga", "dedetizadora-de-carrapato", "empresa-de-dedetizacao"],
+        "prefixes": [
+          "dedetizadora-em",
+          "dedetizadora-de-barata",
+          "dedetizadora-de-formiga",
+          "dedetizadora-de-pulga",
+          "dedetizadora-de-carrapato",
+          "dedetizadora-de-escorpiao",
+          "empresa-de-dedetizacao"
+        ],
         "anyPrefix": "dedetizadora",
-        "excludePrefixes": ["dedetizadora-de-cupim", "dedetizadora-de-rato", "dedetizadora-de-mosquito", "descupiniz"]
+        "excludePrefixes": [
+          "dedetizadora-de-cupim",
+          "dedetizadora-de-rato",
+          "dedetizadora-de-mosquito",
+          "descupiniz",
+          "desratiz",
+          "sanitiz"
+        ]
       }
     },
     {
@@ -38,7 +71,7 @@
       "blogHubDescricao": "Conteúdo sobre ratos, camundongos, desratização e prevenção em imóveis e empresas.",
       "blogSlugIncludes": ["rato", "ratos", "roedor", "deratiz", "desratiz", "camundongo"],
       "matchPage": {
-        "prefixes": ["dedetizadora-de-rato", "desratiz"]
+        "prefixes": ["dedetizadora-de-rato", "desratizacao", "desratizadora", "desratiz"]
       }
     },
     {
@@ -46,12 +79,13 @@
       "nome": "Sanitização",
       "pilar": "/sanitizacao",
       "hubRegioes": "/sanitizacao/regioes",
-      "blogHub": "/blog",
-      "blogHubTitulo": "Blog Cupim Eco",
-      "blogHubDescricao": "Artigos sobre controle de pragas, prevenção e higienização de ambientes.",
+      "hubRegioesAtivo": false,
+      "blogHub": "/blog/sanitizacao",
+      "blogHubTitulo": "Sanitização e higienização",
+      "blogHubDescricao": "Artigos sobre sanitização, desinfecção e higienização de ambientes residenciais e comerciais.",
       "blogSlugIncludes": ["sanitiz", "desinfec", "higieniz"],
       "matchPage": {
-        "prefixes": ["sanitizacao-em", "sanitizacao-na", "sanitizacao-no", "sanitizacao"]
+        "prefixes": ["sanitizacao"]
       }
     },
     {
@@ -59,12 +93,17 @@
       "nome": "Controle de Mosquitos",
       "pilar": "/controle-de-mosquitos",
       "hubRegioes": "/controle-de-mosquitos/regioes",
-      "blogHub": "/blog",
-      "blogHubTitulo": "Blog Cupim Eco",
-      "blogHubDescricao": "Conteúdo sobre pragas urbanas, dengue e prevenção em residências e empresas.",
+      "hubRegioesAtivo": false,
+      "blogHub": "/blog/mosquitos",
+      "blogHubTitulo": "Mosquitos e arboviroses",
+      "blogHubDescricao": "Conteúdo sobre controle de mosquitos, dengue, zika e prevenção em residências e empresas.",
       "blogSlugIncludes": ["mosquito", "aedes", "dengue", "pernilongo", "zika", "chikungunya"],
       "matchPage": {
-        "prefixes": ["dedetizadora-de-mosquito", "controle-de-mosquito", "controle-de-mosquitos"]
+        "prefixes": [
+          "dedetizadora-de-mosquito",
+          "controle-de-mosquito",
+          "controle-de-mosquitos"
+        ]
       }
     }
   ]

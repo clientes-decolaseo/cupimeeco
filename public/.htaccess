@@ -18,8 +18,43 @@
 	RewriteRule ^dedetizadora-de-cupim/?$ /descupinizacao/ [R=301,L]
 
 # BEGIN CUPIM REDIRECTS (npm run audit:seo)
+	RewriteRule ^acabar-com-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^acabar-com-cupim-de-solo/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^barreira-quimica-para-cupim/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^campinas-sp/dedetizadora-de-cupim/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^campinas-sp/descupinizacao/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^campinas-sp/tratamento-contra-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^coco-de-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-acabar-com-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-acabar-com-cupim-de-madeira/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-acabar-com-cupim-de-solo/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-acabar-com-cupim-no-forro/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-acabar-com-cupim-no-telhado/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-acabar-com-cupim-subterraneo/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-acabar-com-o-cupim-subterraneo/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-controlar-cupim-de-solo/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-eliminar-cupim-de-madeira/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-eliminar-cupim-de-solo/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-matar-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-matar-cupim-de-parede/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^como-matar-cupim-em-arvore/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^comprando-uma-casa-com-dano-de-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^controle-de-cupim-de-madeira-seca/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^controle-de-cupim-de-solo/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^cupim-broca-2/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^cupim-de-madeira/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^cupim-de-madeira-seca/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^cupim-de-solo/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^cupim-inseto/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^cupim-subterraneo/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^dano-da-fundacao-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^dano-de-teto-de-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^dedetizacao-cupim-sp-preco/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^dedetizacao-de-cupim-em-mongagua/?$ /descupinizacao-em-mongagua/ [R=301,L]
+	RewriteRule ^dedetizacao-de-cupim-na-zona-norte/?$ /descupinizadora-na-zona-norte/ [R=301,L]
+	RewriteRule ^dedetizacao-de-cupim-na-zona-sul/?$ /descupinizacao-em-zona-sul/ [R=301,L]
+	RewriteRule ^dedetizacao-de-cupins/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^dedetizacao-de-cupins-em-guaruja/?$ /descupinizacao-em-guaruja/ [R=301,L]
 	RewriteRule ^dedetizadora-de-cupim/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^dedetizadora-de-cupim-em-agua-fria/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^dedetizadora-de-cupim-em-alphaville/?$ /descupinizacao-em-alphaville/ [R=301,L]
@@ -102,6 +137,7 @@
 	RewriteRule ^dedetizadora-de-cupim-no-rj/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^dedetizadora-de-cupim-sao-paulo/?$ /descupinizacao-em-sao-paulo/ [R=301,L]
 	RewriteRule ^dedetizadora-de-cupim-sp/?$ /descupinizacao-em-sp/ [R=301,L]
+	RewriteRule ^dedetizadora-em-cupim-em-bauru/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^descupinizacao-como-funciona/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^descupinizacao-em-aruja/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^descupinizacao-em-campo-belo/?$ /descupinizacao-no-campo-belo/ [R=301,L]
@@ -176,16 +212,51 @@
 	RewriteRule ^descupinizadora-na-lapa-sp/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^descupinizadora-na-zona-sul/?$ /descupinizacao-em-zona-sul/ [R=301,L]
 	RewriteRule ^descupinizar/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^eliminar-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^eliminar-cupim-sp/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^empresa-de-descupinizacao/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^empresa-de-descupinizacao-24hs-em-braganca-paulista/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^empresa-de-descupinizacao-em-guaruja/?$ /descupinizacao-em-guaruja/ [R=301,L]
+	RewriteRule ^empresa-de-descupinizacao-em-sao-paulo/?$ /descupinizacao-em-sao-paulo/ [R=301,L]
+	RewriteRule ^empresa-especializada-em-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^excrementos-de-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^jundiai-como-matar-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^madeira-seca-cupins-cupim-madeira-seca-parasitas/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^matar-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^melhor-veneno-para-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^melhor-veneno-para-cupim-de-madeira/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^melhor-veneno-para-cupim-em-curitiba/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^melhor-veneno-para-cupim-em-fortaleza/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^melhor-veneno-para-cupim-em-macapa/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^melhor-veneno-para-cupim-em-recife/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^melhor-veneno-para-cupim-maceio/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^melhor-veneno-para-cupim-no-rj/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^melhor-veneno-para-cupim-salvador/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^ninhos-de-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^o-cupim-e-um-inseto/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^o-que-e-bom-para-acabar-com-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^o-que-fazer-para-acabar-com-cupim-de-madeira/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^o-tipo-de-cupim-que-causa-mais-danos-no-brasil/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^ovos-de-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^quanto-custa-uma-dedetizacao-de-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^sao-sebastiao-sp/dedetizacao-de-cupins/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^sao-sebastiao-sp/descupinizacao/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^servicos-de-dedetizacao-de-cupins/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^tubos-de-lama-de-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^veneno-para-cupim/?$ /descupinizacao/ [R=301,L]
+	RewriteRule ^veneno-para-cupim-de-madeira/?$ /descupinizacao/ [R=301,L]
 	# END CUPIM REDIRECTS
+
 
 # BEGIN MOSQUITOS REDIRECTS (npm run audit:seo)
 
 	# END MOSQUITOS REDIRECTS
 
+
 # BEGIN SANITIZACAO REDIRECTS (npm run audit:seo)
 	RewriteRule ^sanitizacao-em-jandira/?$ /sanitizacao/ [R=301,L]
 	# END SANITIZACAO REDIRECTS
+
 
 # BEGIN DERATIZACAO REDIRECTS (npm run audit:seo)
 	RewriteRule ^dedetizadora-de-rato/?$ /deratizacao/ [R=301,L]
@@ -305,6 +376,7 @@
 	RewriteRule ^desratizacao-preco-baixo/?$ /deratizacao/ [R=301,L]
 	# END DERATIZACAO REDIRECTS
 
+
 # BEGIN FORA AREA ATENDIDA (npm run audit:seo)
 	RewriteRule ^a-chuva-pode-estimular-a-atividade-dos-cupins-em-casa/?$ /servico/ [R=301,L]
 	RewriteRule ^areas-de-risco-de-cupins-em-sua-casa-identificacao-prevencao-e-solucoes/?$ /servico/ [R=301,L]
@@ -313,18 +385,12 @@
 	RewriteRule ^caca-vazamento-em-mairinque/?$ /servico/ [R=301,L]
 	RewriteRule ^campinas-sp/?$ /servico/ [R=301,L]
 	RewriteRule ^campinas-sp/controle-de-pragas/?$ /servico/ [R=301,L]
-	RewriteRule ^campinas-sp/tratamento-contra-cupim/?$ /descupinizacao/ [R=301,L]
-	RewriteRule ^como-acabar-com-cupim-no-forro/?$ /descupinizacao/ [R=301,L]
-	RewriteRule ^como-acabar-com-cupim-no-telhado/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^como-acabar-com-os-cupins-guia-definitivo-da-cmbate-ambiental-no-brasil/?$ /servico/ [R=301,L]
 	RewriteRule ^como-acabar-ratos-em-casa/?$ /servico/ [R=301,L]
-	RewriteRule ^como-matar-cupim-em-arvore/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^cupins-em-tapetes/?$ /servico/ [R=301,L]
 	RewriteRule ^cupins-podem-viver-em-arvores/?$ /servico/ [R=301,L]
 	RewriteRule ^danos-em-cupins-em-parede/?$ /servico/ [R=301,L]
 	RewriteRule ^dedetizacao-amadora/?$ /servico/ [R=301,L]
-	RewriteRule ^dedetizacao-cupim-sp-preco/?$ /descupinizacao/ [R=301,L]
-	RewriteRule ^dedetizacao-de-cupins/?$ /servico/ [R=301,L]
 	RewriteRule ^dedetizacao-de-escolas/?$ /servico/ [R=301,L]
 	RewriteRule ^dedetizacao-de-hoteis/?$ /servico/ [R=301,L]
 	RewriteRule ^dedetizacao-de-ratos/?$ /servico/ [R=301,L]
@@ -349,9 +415,7 @@
 	RewriteRule ^desentupidora-em-sao-roque/?$ /servico/ [R=301,L]
 	RewriteRule ^desentupidora-em-torre-de-pedra/?$ /servico/ [R=301,L]
 	RewriteRule ^desentupidora-em-vila-olimpia/?$ /servico/ [R=301,L]
-	RewriteRule ^empresa-de-descupinizacao-24hs-em-braganca-paulista/?$ /servico/ [R=301,L]
 	RewriteRule ^empresa-especializada-em-controle-de-cupins/?$ /servico/ [R=301,L]
-	RewriteRule ^empresa-especializada-em-cupim/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^empresa-especializada-em-descupinizacao/?$ /servico/ [R=301,L]
 	RewriteRule ^empresa-especializada-em-matar-rato/?$ /servico/ [R=301,L]
 	RewriteRule ^hidrojateamento-em-belo-horizonte/?$ /servico/ [R=301,L]
@@ -374,31 +438,24 @@
 	RewriteRule ^limpeza-de-calhas-em-sao-roque/?$ /servico/ [R=301,L]
 	RewriteRule ^limpeza-de-coifa/?$ /servico/ [R=301,L]
 	RewriteRule ^maneijo-de-pombos-em-sao-paulo-sp/?$ /servico/ [R=301,L]
-	RewriteRule ^melhor-veneno-para-cupim-em-curitiba/?$ /descupinizacao/ [R=301,L]
-	RewriteRule ^melhor-veneno-para-cupim-em-fortaleza/?$ /descupinizacao/ [R=301,L]
-	RewriteRule ^melhor-veneno-para-cupim-em-macapa/?$ /descupinizacao/ [R=301,L]
-	RewriteRule ^melhor-veneno-para-cupim-em-recife/?$ /descupinizacao/ [R=301,L]
-	RewriteRule ^melhor-veneno-para-cupim-no-rj/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^o-que-e-bom-para-matar-pulgas-no-ambiente/?$ /servico/ [R=301,L]
-	RewriteRule ^o-tipo-de-cupim-que-causa-mais-danos-no-brasil/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^os-cupins-voam-na-casa/?$ /servico/ [R=301,L]
 	RewriteRule ^preco-de-dedetizacao-de-carrapato/?$ /servico/ [R=301,L]
 	RewriteRule ^produtos-inseticidas-utilizados-na-dedetizacao/?$ /servico/ [R=301,L]
 	RewriteRule ^qualidade-em-controle-de-pombos/?$ /servico/ [R=301,L]
 	RewriteRule ^quanto-custa-um-servico-de-dedetizacao-de-ratos/?$ /servico/ [R=301,L]
-	RewriteRule ^quanto-custa-uma-dedetizacao-de-cupim/?$ /descupinizacao/ [R=301,L]
 	RewriteRule ^quanto-custa-uma-dedetizacao-de-pulga/?$ /servico/ [R=301,L]
 	RewriteRule ^sao-sebastiao-sp/?$ /servico/ [R=301,L]
-	RewriteRule ^sao-sebastiao-sp/dedetizacao-de-cupins/?$ /servico/ [R=301,L]
 	RewriteRule ^sao-sebastiao-sp/dedetizadora-de-cupins/?$ /servico/ [R=301,L]
-	RewriteRule ^servicos-de-dedetizacao-de-cupins/?$ /servico/ [R=301,L]
 	RewriteRule ^sinais-iniciais-de-cupins-no-teto/?$ /servico/ [R=301,L]
 	# END FORA AREA ATENDIDA
+
 
 # BEGIN DUPLICATAS NUMERICAS (npm run audit:seo)
 	RewriteRule ^como-voce-sabe-se-voce-tem-cupins-2/?$ /como-voce-sabe-se-voce-tem-cupins/ [R=301,L]
 	RewriteRule ^matar-ratos-em-osasco-2/?$ /matar-ratos-em-osasco/ [R=301,L]
 	# END DUPLICATAS NUMERICAS
+
 
 # BEGIN DEDETIZACAO REDIRECTS (npm run audit:seo)
 	RewriteRule ^dedetizadora/?$ /dedetizacao/ [R=301,L]
@@ -810,6 +867,7 @@
 	RewriteRule ^empresa-de-dedetizacao-24-horas-em-santo-andre/?$ /dedetizacao/ [R=301,L]
 	RewriteRule ^empresa-de-dedetizacao-em-osasco/?$ /dedetizadora-em-osasco/ [R=301,L]
 	# END DEDETIZACAO REDIRECTS
+
 </IfModule>
 
 <IfModule mod_headers.c>

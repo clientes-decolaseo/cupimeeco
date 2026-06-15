@@ -1,6 +1,6 @@
 import manifest from '../data/wp/manifest.json';
 import site from '../data/site.json';
-import { getAllClusters } from './clusters';
+import { getAllClusters, isRegionalHubActive } from './clusters';
 import { shouldNoindexPath } from './seo-policy';
 import { getAllContentPaths } from './wordpress';
 import type { WpManifest, WpManifestEntry } from '../types/wordpress';
@@ -37,11 +37,13 @@ function staticEntries(): SearchEntry[] {
 			href: `${cluster.pilar}/`,
 			kind: 'servico',
 		});
-		entries.push({
-			title: `${cluster.nome} por região`,
-			href: `${cluster.hubRegioes}/`,
-			kind: 'pagina',
-		});
+		if (isRegionalHubActive(cluster)) {
+			entries.push({
+				title: `${cluster.nome} por região`,
+				href: `${cluster.hubRegioes}/`,
+				kind: 'pagina',
+			});
+		}
 		entries.push({
 			title: cluster.blogHubTitulo,
 			href: `${cluster.blogHub}/`,

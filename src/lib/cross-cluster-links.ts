@@ -1,5 +1,6 @@
 import type { ClusterManifestEntry } from '../types/cluster';
 import { resolveCityFromPage } from './area-atendida';
+import { getClusterPreferPathScore } from './cluster-prefer-path';
 import {
 	getAllClusters,
 	getClusterById,
@@ -18,32 +19,7 @@ export interface CrossClusterServiceLink {
 }
 
 function preferPathScore(clusterId: string, path: string): number {
-	switch (clusterId) {
-		case 'descupinizacao':
-			if (path.startsWith('descupinizacao')) return 0;
-			if (path.startsWith('descupinizadora')) return 1;
-			return 2;
-		case 'dedetizacao':
-			if (path.startsWith('dedetizadora-em-')) return 0;
-			if (path.startsWith('dedetizadora-de-barata')) return 1;
-			if (path.startsWith('dedetizadora-de-formiga')) return 2;
-			if (path.startsWith('dedetizadora-de-pulga')) return 3;
-			if (path.startsWith('empresa-de-dedetizacao')) return 4;
-			return 5;
-		case 'deratizacao':
-			if (path.startsWith('desratiz')) return 0;
-			if (path.startsWith('dedetizadora-de-rato')) return 1;
-			return 2;
-		case 'sanitizacao':
-			if (path.startsWith('sanitizacao-em')) return 0;
-			return 1;
-		case 'mosquitos':
-			if (path.startsWith('controle-de-mosquito')) return 0;
-			if (path.startsWith('dedetizadora-de-mosquito')) return 1;
-			return 2;
-		default:
-			return 9;
-	}
+	return getClusterPreferPathScore(clusterId, path);
 }
 
 function pickCanonicalPage(

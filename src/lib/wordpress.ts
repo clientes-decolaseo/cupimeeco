@@ -87,6 +87,8 @@ export interface RelatedContentItem {
 	title: string;
 	excerpt: string;
 	type: 'page' | 'post';
+	/** Rótulo exibido no card (ex.: nome da cidade) */
+	tipoLabel?: string;
 }
 
 export async function getRelatedContent(

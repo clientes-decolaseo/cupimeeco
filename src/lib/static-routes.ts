@@ -24,7 +24,13 @@ export const ASTRO_STATIC_PREFIXES = [
 ];
 
 /** Tópicos editoriais em /blog/{topico}/ */
-export const ASTRO_BLOG_TOPICS = new Set(['cupins', 'dedetizacao', 'deratizacao']);
+export const ASTRO_BLOG_TOPICS = new Set([
+	'cupins',
+	'dedetizacao',
+	'deratizacao',
+	'sanitizacao',
+	'mosquitos',
+]);
 
 /** URLs antigas do WordPress — redirecionadas em astro.config.mjs */
 export const REDIRECTED_WP_PATHS = new Set([

@@ -5,6 +5,7 @@ import PillarBanner from '../components/bio/PillarBanner.astro';
 import RelatedContent from '../components/bio/RelatedContent.astro';
 import SameCityServices from '../components/bio/SameCityServices.astro';
 import { breadcrumbsForWpContent, getClusterForPath } from '../lib/clusters';
+import { getRelatedClusterPages } from '../lib/cluster-related';
 import { getCrossClusterServiceLinks } from '../lib/cross-cluster-links';
 import { resolveCityFromPage } from '../lib/area-atendida';
 import { getSeoPolicy } from '../lib/seo-policy';
@@ -30,6 +31,8 @@ const noindex = seoPolicy.noindex;
 const cluster = getClusterForPath(content.path);
 const breadcrumbs = breadcrumbsForWpContent(content.path, content.title, content.type);
 const relatedItems = await getRelatedContent(content.path, 4);
+const clusterPageLinks =
+	content.type === 'page' ? getRelatedClusterPages(content.path, content.title, 4) : [];
 const sameCityLinks =
 	content.type === 'page' ? getCrossClusterServiceLinks(content.path, content.title) : [];
 const cityLabel = resolveCityFromPage({ path: content.path, title: content.title }).nome;
@@ -87,6 +90,18 @@ const jsonLd = {
 
 		<SameCityServices links={sameCityLinks} cidade={cityLabel} />
 
-		<RelatedContent items={relatedItems} />
+		{
+			cluster && clusterPageLinks.length > 0 && (
+				<RelatedContent
+					items={clusterPageLinks}
+					titulo={`${cluster.nome} em outras localidades`}
+				/>
+			)
+		}
+
+		<RelatedContent
+			items={relatedItems}
+			titulo={cluster ? 'Artigos no blog' : undefined}
+		/>
 	</article>
 </BioLayout>

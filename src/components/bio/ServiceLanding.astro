@@ -10,6 +10,7 @@ import {
 	breadcrumbsForService,
 	getClusterByPilarPath,
 	getClusterPages,
+	isRegionalHubActive,
 } from '../../lib/clusters';
 import { getFeaturedPostsForCluster } from '../../lib/wordpress';
 import type { ServicoData } from '../../types/servico';
@@ -22,6 +23,7 @@ const { servico } = Astro.props;
 const whatsappUrl = site.contato.whatsappUrl;
 const cluster = getClusterByPilarPath(`/${servico.slug}`);
 const regioesCount = cluster ? getClusterPages(cluster.id).length : 0;
+const mostraHubRegioes = cluster ? isRegionalHubActive(cluster) : false;
 const artigosDestaque = cluster ? await getFeaturedPostsForCluster(cluster, 3) : [];
 const breadcrumbs = cluster ? breadcrumbsForService(cluster) : undefined;
 const servicoHref = `/${servico.slug}`;
@@ -76,12 +78,16 @@ const imagemAlt =
 					Explore {cluster.nome.toLowerCase()}
 				</h2>
 				<ul class="bio-servico__cluster-links">
-					<li>
-						<a href={cluster.hubRegioes} class="bio-servico__cluster-card">
-							<strong>Regiões atendidas</strong>
-							<span>{regioesCount} localidades na Grande São Paulo</span>
-						</a>
-					</li>
+					{
+						mostraHubRegioes && (
+							<li>
+								<a href={cluster.hubRegioes} class="bio-servico__cluster-card">
+									<strong>Regiões atendidas</strong>
+									<span>{regioesCount} localidades na Grande São Paulo</span>
+								</a>
+							</li>
+						)
+					}
 					<li>
 						<a href={cluster.blogHub} class="bio-servico__cluster-card">
 							<strong>{cluster.blogHubTitulo}</strong>

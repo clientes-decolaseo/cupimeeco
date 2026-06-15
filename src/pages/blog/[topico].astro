@@ -2,11 +2,11 @@
 import BioLayout from '../../layouts/BioLayout.astro';
 import ClusterBlogHub from '../../components/bio/ClusterBlogHub.astro';
 import ContatoCta from '../../components/bio/sections/ContatoCta.astro';
-import { getAllClusters, getClusterByBlogTopic } from '../../lib/clusters';
+import { getClustersWithBlogHub, getClusterByBlogTopic } from '../../lib/clusters';
 import { getBlogPostsSummaryForCluster } from '../../lib/wordpress';
 
 export function getStaticPaths() {
-	return getAllClusters().map((cluster) => ({
+	return getClustersWithBlogHub().map((cluster) => ({
 		params: { topico: cluster.blogHub.replace('/blog/', '') },
 	}));
 }

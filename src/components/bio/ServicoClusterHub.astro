@@ -1,9 +1,10 @@
 ---
-import { getAllClusters, getClusterPages } from '../../lib/clusters';
+import { getAllClusters, getClusterPages, isRegionalHubActive } from '../../lib/clusters';
 
 const clusters = getAllClusters().map((cluster) => ({
 	cluster,
 	localidades: getClusterPages(cluster.id).length,
+	mostraHubRegioes: isRegionalHubActive(cluster),
 }));
 ---
 
@@ -14,14 +15,14 @@ const clusters = getAllClusters().map((cluster) => ({
 			Explore por serviço e cidade
 		</h2>
 		<p class="bio-servicos-mega__desc">
-			Cada serviço tem página principal, índice por região com dezenas de localidades e artigos
-			especializados no blog.
+			Cada serviço tem página principal, artigos no blog e — quando há cobertura ampla — índice por
+			região com dezenas de localidades.
 		</p>
 	</header>
 
 	<div class="bio-servicos-mega__cluster-grid">
 		{
-			clusters.map(({ cluster, localidades }) => (
+			clusters.map(({ cluster, localidades, mostraHubRegioes }) => (
 				<article class="bio-servicos-mega__cluster-card">
 					<h3 class="bio-servicos-mega__cluster-nome">
 						<a href={cluster.pilar}>{cluster.nome}</a>
@@ -34,12 +35,16 @@ const clusters = getAllClusters().map((cluster) => ({
 								<span>Visão geral e orçamento</span>
 							</a>
 						</li>
-						<li>
-							<a href={cluster.hubRegioes}>
-								<strong>Regiões</strong>
-								<span>{localidades} páginas por cidade</span>
-							</a>
-						</li>
+						{
+							mostraHubRegioes && (
+								<li>
+									<a href={cluster.hubRegioes}>
+										<strong>Regiões</strong>
+										<span>{localidades} páginas por cidade</span>
+									</a>
+								</li>
+							)
+						}
 						<li>
 							<a href={cluster.blogHub}>
 								<strong>Blog</strong>

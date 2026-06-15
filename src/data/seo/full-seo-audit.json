@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-06-02T18:11:33.644Z",
+  "generatedAt": "2026-06-15T14:52:36.109Z",
   "summary": {
     "totalPages": 1358,
     "totalPosts": 91,
-    "indexablePages": 585,
+    "indexablePages": 538,
     "indexablePosts": 82,
-    "redirects301": 772,
+    "redirects301": 819,
     "noindexPaths": 9,
     "buildPagesExpected": "~701 (último build)",
     "hasRobotsTxt": true,
     "clusterRedirects": {
       "descupinizacao": {
-        "pages": 252,
-        "redirects": 159
+        "pages": 323,
+        "redirects": 223
       },
       "dedetizacao": {
         "pages": 527,
@@ -31,7 +31,7 @@
         "redirects": 0
       },
       "foraArea": {
-        "redirects": 87
+        "redirects": 71
       }
     },
     "blogNoindexSlugs": [

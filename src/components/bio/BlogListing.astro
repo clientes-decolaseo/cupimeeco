@@ -1,7 +1,7 @@
 ---
 import BlogPostCard from './BlogPostCard.astro';
 import BlogPagination from './BlogPagination.astro';
-import { getAllClusters } from '../../lib/clusters';
+import { getClustersWithBlogHub } from '../../lib/clusters';
 import type { BlogPostSummary } from '../../types/wordpress';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const { posts, currentPage, totalPages, totalPosts } = Astro.props;
-const topicos = getAllClusters();
+const topicos = getClustersWithBlogHub();
 const isFirstPage = currentPage === 1;
 ---
 

@@ -94,6 +94,15 @@ export default defineConfig({
 			status: 301,
 			destination: '/blog/',
 		},
+		...clusterRedirects,
+		'/sanitizacao/regioes': {
+			status: 301,
+			destination: '/sanitizacao',
+		},
+		'/controle-de-mosquitos/regioes': {
+			status: 301,
+			destination: '/controle-de-mosquitos',
+		},
 		'/dedetizacao-de-cupins': {
 			status: 301,
 			destination: '/descupinizacao',
@@ -102,6 +111,5 @@ export default defineConfig({
 			status: 301,
 			destination: '/descupinizacao',
 		},
-		...clusterRedirects,
 	},
 });

@@ -1,9 +1,9 @@
 ---
-import { getAllClusters } from '../../lib/clusters';
+import { getClustersWithRegionalHub } from '../../lib/clusters';
 import { listCidadesAtendidas } from '../../lib/area-atendida';
 
 const totalCidades = listCidadesAtendidas().length;
-const clusters = getAllClusters();
+const clusters = getClustersWithRegionalHub();
 ---
 
 <section class="bio-servicos-mega__area" aria-labelledby="servico-area-titulo">

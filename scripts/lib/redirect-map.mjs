@@ -53,13 +53,12 @@ export function buildRedirectMap() {
 		for (const [from, to] of Object.entries(policy.redirects ?? {})) {
 			const key = normalizePathKey(from);
 			const destination = normalizeRedirectDestination(to);
-
-			if (map.has(key) && map.get(key) !== destination) {
-				// Política de cluster prevalece sobre redirect estático duplicado
-			}
-
 			map.set(key, destination);
 		}
+	}
+
+	for (const [from, to] of Object.entries(STATIC_REDIRECTS)) {
+		map.set(normalizePathKey(from), normalizeRedirectDestination(to));
 	}
 
 	return map;

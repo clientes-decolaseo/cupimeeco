@@ -2,10 +2,15 @@
 import BioLayout from '../../layouts/BioLayout.astro';
 import ClusterRegioesHub from '../../components/bio/ClusterRegioesHub.astro';
 import ContatoCta from '../../components/bio/sections/ContatoCta.astro';
-import { getClusterById, getClusterPages } from '../../lib/clusters';
+import { getClusterById, getClusterPages, isRegionalHubActive } from '../../lib/clusters';
 import { groupPagesByCity } from '../../lib/cluster-regions';
 
 const cluster = getClusterById('sanitizacao')!;
+
+if (!isRegionalHubActive(cluster)) {
+	return Astro.redirect(`${cluster.pilar}/`);
+}
+
 const pages = getClusterPages('sanitizacao');
 const cities = groupPagesByCity(pages);
 
