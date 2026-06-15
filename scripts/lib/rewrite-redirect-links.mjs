@@ -4,7 +4,7 @@ import {
 	resolveRedirectDestination,
 } from './redirect-map.mjs';
 
-const SITE_HOSTS = new Set(['cupim.eco.br', 'www.cupim.eco.br']);
+const SITE_HOSTS = new Set(['cupins.eco.br', 'www.cupins.eco.br', 'cupim.eco.br', 'www.cupim.eco.br']);
 const HREF_RE = /href\s*=\s*(["'])([^"']*)\1/gi;
 
 function isSkippableHref(href) {
@@ -64,7 +64,7 @@ function formatHref(destination, query, hash, isAbsolute) {
 
 	if (isAbsolute) {
 		const originPath = path === '/' ? '/' : path;
-		return `https://cupim.eco.br${originPath}${suffix}`;
+		return `https://cupins.eco.br${originPath}${suffix}`;
 	}
 
 	return `${path}${suffix}`;

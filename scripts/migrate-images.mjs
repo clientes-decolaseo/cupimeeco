@@ -1,7 +1,7 @@
 import { mkdir, readFile, readdir, writeFile, access, stat } from 'node:fs/promises';
 import path from 'node:path';
 
-const WP_ORIGIN = 'https://cupim.eco.br/d';
+const WP_ORIGIN = 'https://cupins.eco.br/d';
 const DATA_DIR = path.resolve('src/data/wp');
 const PUBLIC_DIR = path.resolve('public');
 const MANIFEST_PATH = path.resolve('src/data/wp/images-manifest.json');
@@ -48,7 +48,7 @@ function getFallbackUrls(absoluteUrl) {
 
 function toLocalPath(absoluteUrl) {
 	const prefix = `${WP_ORIGIN}/wp-content/uploads/`;
-	const altPrefix = 'https://cupim.eco.br/wp-content/uploads/';
+	const altPrefix = 'https://cupins.eco.br/wp-content/uploads/';
 
 	let relative = '';
 
@@ -165,7 +165,7 @@ function replaceUrlsInText(text, urlMap) {
 			remote,
 			remote.replace(WP_ORIGIN, ''),
 			remote.replace(`${WP_ORIGIN}/wp-content`, '/wp-content'),
-			remote.replace('https://cupim.eco.br/d/', 'https://cupim.eco.br/'),
+			remote.replace('https://cupins.eco.br/d/', 'https://cupins.eco.br/'),
 		];
 
 		for (const variant of new Set(variants)) {

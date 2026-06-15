@@ -10,7 +10,7 @@ import {
 const WP_DIR = path.resolve('src/data/wp');
 const redirectMap = getRedirectMap();
 const MANIFEST_PATH = path.join(WP_DIR, 'manifest.json');
-const SITE_ORIGIN = 'https://cupim.eco.br';
+const SITE_ORIGIN = 'https://cupins.eco.br';
 
 function normalizeSiteUrl(url = '') {
 	if (!url) return url;

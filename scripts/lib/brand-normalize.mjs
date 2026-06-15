@@ -8,10 +8,10 @@ export const BRAND_REPLACEMENTS = [
 	[/BioSolu[cç][oõ]es/gi, 'Cupim Eco'],
 	[/Universo\s+Ambiental/gi, 'Cupim Eco'],
 	[/Combate\s+Ambienta/gi, 'Cupim Eco'],
-	[/https?:\/\/(?:www\.)?bio-solucoes\.com\.br/gi, 'https://cupim.eco.br'],
-	[/https?:\/\/(?:www\.)?bio-solucoes\.com/gi, 'https://cupim.eco.br'],
-	[/https?:\/\/(?:www\.)?biosolucoes\.com\.br/gi, 'https://cupim.eco.br'],
-	[/https?:\/\/(?:www\.)?biosolucoes\.com/gi, 'https://cupim.eco.br'],
+	[/https?:\/\/(?:www\.)?bio-solucoes\.com\.br/gi, 'https://cupins.eco.br'],
+	[/https?:\/\/(?:www\.)?bio-solucoes\.com/gi, 'https://cupins.eco.br'],
+	[/https?:\/\/(?:www\.)?biosolucoes\.com\.br/gi, 'https://cupins.eco.br'],
+	[/https?:\/\/(?:www\.)?biosolucoes\.com/gi, 'https://cupins.eco.br'],
 ];
 
 export function normalizeBrandText(text = '') {

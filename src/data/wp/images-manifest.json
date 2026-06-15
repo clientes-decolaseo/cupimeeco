@@ -1,6 +1,6 @@
 {
   "migratedAt": "2026-06-02T14:51:08.983Z",
-  "source": "https://cupim.eco.br/d",
+  "source": "https://cupins.eco.br/d",
   "stats": {
     "uniqueUrls": 121,
     "downloaded": 111,
@@ -11,43 +11,43 @@
   },
   "failed": [
     {
-      "absoluteUrl": "https://cupim.eco.br/d/wp-content/uploads/2018/05/4a-Cópia-1.jpg",
+      "absoluteUrl": "https://cupins.eco.br/d/wp-content/uploads/2018/05/4a-Cópia-1.jpg",
       "error": "HTTP 404"
     },
     {
-      "absoluteUrl": "https://cupim.eco.br/d/wp-content/uploads/2019/04/images.jpg",
+      "absoluteUrl": "https://cupins.eco.br/d/wp-content/uploads/2019/04/images.jpg",
       "error": "HTTP 404"
     },
     {
-      "absoluteUrl": "https://cupim.eco.br/d/wp-content/uploads/2019/07/download.jpg",
+      "absoluteUrl": "https://cupins.eco.br/d/wp-content/uploads/2019/07/download.jpg",
       "error": "HTTP 404"
     },
     {
-      "absoluteUrl": "https://cupim.eco.br/d/wp-content/uploads/2018/10/desentupidora-de-ralo-de-banheiro.jpg",
+      "absoluteUrl": "https://cupins.eco.br/d/wp-content/uploads/2018/10/desentupidora-de-ralo-de-banheiro.jpg",
       "error": "HTTP 404"
     },
     {
-      "absoluteUrl": "https://cupim.eco.br/d/wp-content/uploads/2016/05/blonde-woman-standing-over-sink-300x200.jpg",
+      "absoluteUrl": "https://cupins.eco.br/d/wp-content/uploads/2016/05/blonde-woman-standing-over-sink-300x200.jpg",
       "error": "HTTP 404"
     },
     {
-      "absoluteUrl": "https://cupim.eco.br/d/wp-content/uploads/2018/05/Descupinização-1.jpg",
+      "absoluteUrl": "https://cupins.eco.br/d/wp-content/uploads/2018/05/Descupinização-1.jpg",
       "error": "HTTP 404"
     },
     {
-      "absoluteUrl": "https://cupim.eco.br/d/wp-content/uploads/2018/05/Descupinização-1-300x225.jpg",
+      "absoluteUrl": "https://cupins.eco.br/d/wp-content/uploads/2018/05/Descupinização-1-300x225.jpg",
       "error": "HTTP 404"
     },
     {
-      "absoluteUrl": "https://cupim.eco.br/d/wp-content/uploads/2018/05/Descupinização-1-768x576.jpg",
+      "absoluteUrl": "https://cupins.eco.br/d/wp-content/uploads/2018/05/Descupinização-1-768x576.jpg",
       "error": "HTTP 404"
     },
     {
-      "absoluteUrl": "https://cupim.eco.br/d/wp-content/uploads/2016/05/drains-1-300x245.jpg",
+      "absoluteUrl": "https://cupins.eco.br/d/wp-content/uploads/2016/05/drains-1-300x245.jpg",
       "error": "HTTP 404"
     },
     {
-      "absoluteUrl": "https://cupim.eco.br/d/wp-content/uploads/2017/04/dedetiza&ccedil;&atilde;o_65-300x200.jpg",
+      "absoluteUrl": "https://cupins.eco.br/d/wp-content/uploads/2017/04/dedetiza&ccedil;&atilde;o_65-300x200.jpg",
       "error": "HTTP 404"
     }
   ]

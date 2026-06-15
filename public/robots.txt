@@ -4,4 +4,4 @@ Allow: /
 # Prefixo legado do WordPress (redireciona via 301)
 Disallow: /d/
 
-Sitemap: https://cupim.eco.br/sitemap-index.xml
+Sitemap: https://cupins.eco.br/sitemap-index.xml

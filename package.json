@@ -24,10 +24,12 @@
     "enrich:preco-dedetizacao": "node scripts/enrich-preco-dedetizacao.mjs",
     "audit:cupim": "node scripts/audit-cluster-duplicates.mjs",
     "audit:seo": "node scripts/audit-cluster-duplicates.mjs",
-    "audit:seo:full": "node scripts/audit-seo-full.mjs"
+    "audit:seo:full": "node scripts/audit-seo-full.mjs",
+    "update:domain": "node scripts/update-domain.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/vercel": "^10.0.8",
     "astro": "^6.4.2"
   }
 }

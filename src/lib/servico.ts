@@ -10,7 +10,7 @@ export function buildServiceJsonLd(servico: ServicoData) {
 			'@type': 'LocalBusiness',
 			name: 'Cupim Eco',
 			telephone: '08001117272',
-			url: 'https://cupim.eco.br',
+			url: 'https://cupins.eco.br',
 		},
 		areaServed: {
 			'@type': 'State',

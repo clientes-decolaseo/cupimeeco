@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const WP_BASE = 'https://cupim.eco.br/d';
+const WP_BASE = 'https://cupins.eco.br/d';
 const API = `${WP_BASE}/wp-json/wp/v2`;
 const OUT_DIR = path.resolve('src/data/wp');
 const PER_PAGE = 100;
@@ -26,7 +26,7 @@ function extractPath(link) {
 	return relative;
 }
 
-const SITE_ORIGIN = 'https://cupim.eco.br';
+const SITE_ORIGIN = 'https://cupins.eco.br';
 
 function normalizeSiteUrl(url = '') {
 	if (!url) return url;

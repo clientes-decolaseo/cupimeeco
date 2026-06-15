@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
 import cupimPolicy from './src/data/seo/cupim-policy.json';
 import dedetizacaoPolicy from './src/data/seo/dedetizacao-policy.json';
@@ -48,7 +49,10 @@ function pathnameFromSitemapUrl(url) {
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://cupim.eco.br',
+	site: 'https://cupins.eco.br',
+	output: 'static',
+	adapter: vercel(),
+	trailingSlash: 'always',
 	integrations: [
 		sitemap({
 			filter: (page) => {

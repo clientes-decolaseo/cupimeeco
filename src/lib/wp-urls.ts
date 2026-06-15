@@ -1,4 +1,4 @@
-const SITE_ORIGIN = 'https://cupim.eco.br';
+const SITE_ORIGIN = 'https://cupins.eco.br';
 
 const BRAND_REPLACEMENTS: [RegExp, string][] = [
 	[/Dedetizadora\s+Bio[\s-]*Solu[cç][oõ]es/gi, 'Cupim Eco'],
@@ -9,18 +9,22 @@ const BRAND_REPLACEMENTS: [RegExp, string][] = [
 	[/BioSolu[cç][oõ]es/gi, 'Cupim Eco'],
 	[/Universo\s+Ambiental/gi, 'Cupim Eco'],
 	[/Combate\s+Ambienta/gi, 'Cupim Eco'],
-	[/https?:\/\/(?:www\.)?bio-solucoes\.com\.br/gi, 'https://cupim.eco.br'],
-	[/https?:\/\/(?:www\.)?bio-solucoes\.com/gi, 'https://cupim.eco.br'],
-	[/https?:\/\/(?:www\.)?biosolucoes\.com\.br/gi, 'https://cupim.eco.br'],
-	[/https?:\/\/(?:www\.)?biosolucoes\.com/gi, 'https://cupim.eco.br'],
+	[/https?:\/\/(?:www\.)?bio-solucoes\.com\.br/gi, 'https://cupins.eco.br'],
+	[/https?:\/\/(?:www\.)?bio-solucoes\.com/gi, 'https://cupins.eco.br'],
+	[/https?:\/\/(?:www\.)?biosolucoes\.com\.br/gi, 'https://cupins.eco.br'],
+	[/https?:\/\/(?:www\.)?biosolucoes\.com/gi, 'https://cupins.eco.br'],
 ];
 
 export function normalizeSiteUrl(url: string): string {
 	if (!url) return url;
 
 	let normalized = url
-		.replace(/https?:\/\/cupim\.eco\.br\/d\//gi, `${SITE_ORIGIN}/`)
-		.replace(/https?:\/\/cupim\.eco\.br\/d$/gi, SITE_ORIGIN)
+		.replace(/https?:\/\/(?:www\.)?cupins\.eco\.br\/d\//gi, `${SITE_ORIGIN}/`)
+		.replace(/https?:\/\/(?:www\.)?cupins\.eco\.br\/d$/gi, SITE_ORIGIN)
+		.replace(/https?:\/\/(?:www\.)?cupim\.eco\.br\/d\//gi, `${SITE_ORIGIN}/`)
+		.replace(/https?:\/\/(?:www\.)?cupim\.eco\.br\/d$/gi, SITE_ORIGIN)
+		.replace(/https?:\/\/(?:www\.)?cupim\.eco\.br\//gi, `${SITE_ORIGIN}/`)
+		.replace(/https?:\/\/(?:www\.)?cupim\.eco\.br$/gi, SITE_ORIGIN)
 		.replace(/\/d\//g, '/');
 
 	if (normalized.startsWith('/d/')) {
@@ -34,7 +38,9 @@ export function normalizeWpHtml(html: string): string {
 	if (!html) return html;
 
 	return html
-		.replace(/https?:\/\/cupim\.eco\.br\/d\//gi, `${SITE_ORIGIN}/`)
+		.replace(/https?:\/\/(?:www\.)?cupins\.eco\.br\/d\//gi, `${SITE_ORIGIN}/`)
+		.replace(/https?:\/\/(?:www\.)?cupim\.eco\.br\/d\//gi, `${SITE_ORIGIN}/`)
+		.replace(/https?:\/\/(?:www\.)?cupim\.eco\.br\//gi, `${SITE_ORIGIN}/`)
 		.replace(/href="\/d\//gi, 'href="/')
 		.replace(/href='\/d\//gi, "href='/");
 }
