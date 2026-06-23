@@ -9,6 +9,13 @@ import {
 } from './clusters';
 import { isRedirectedPath } from './seo-policy';
 import { isExcludedFromWpCatchAll } from './static-routes';
+import {
+	findEditorialByPath,
+	getEditorialManifestEntries,
+	isEditorialPostId,
+	loadEditorialById,
+} from './editorial-posts';
+import { applyContentSupplement } from './wp-content-supplements';
 import { normalizeBrandText, normalizeSiteUrl, normalizeWpHtml, pathToCanonical } from './wp-urls';
 
 const pageModules = import.meta.glob<{ default: WpContent }>('../data/wp/pages/*.json');
@@ -24,6 +31,22 @@ export function findByPath(itemPath: string): {
 	type: 'page' | 'post';
 	entry: WpManifestEntry;
 } | undefined {
+	const editorial = findEditorialByPath(itemPath);
+	if (editorial) {
+		return {
+			type: 'post',
+			entry: {
+				id: editorial.id,
+				slug: editorial.slug,
+				path: editorial.path,
+				title: editorial.title,
+				modified: editorial.modified,
+				link: editorial.link,
+				seoTitle: editorial.seo.title || editorial.title,
+			},
+		};
+	}
+
 	const data = getManifest();
 	const page = data.pages.find((entry) => entry.path === itemPath);
 
@@ -43,16 +66,22 @@ export function getHomePage(): WpManifestEntry | undefined {
 export function getAllContentPaths(): string[] {
 	const data = getManifest();
 
-	return [...data.pages, ...data.posts]
-		.map((entry) => entry.path)
-		.filter(
-			(itemPath) =>
-				itemPath && !isExcludedFromWpCatchAll(itemPath) && !isRedirectedPath(itemPath),
-		);
+	return [
+		...new Set(
+			[...data.pages, ...data.posts, ...getEditorialManifestEntries()]
+				.map((entry) => entry.path)
+				.filter(
+					(itemPath) =>
+						itemPath &&
+						!isExcludedFromWpCatchAll(itemPath) &&
+						!isRedirectedPath(itemPath),
+				),
+		),
+	];
 }
 
 export function getBlogPosts(): WpManifestEntry[] {
-	return [...getManifest().posts].sort(
+	return [...getManifest().posts, ...getEditorialManifestEntries()].sort(
 		(a, b) => new Date(b.modified).getTime() - new Date(a.modified).getTime(),
 	);
 }
@@ -71,7 +100,9 @@ export function normalizeWpContent(content: WpContent): WpContent {
 		title: normalizeBrandText(content.title),
 		excerpt: normalizeBrandText(content.excerpt),
 		link: normalizeSiteUrl(content.link) || pathToCanonical(content.path),
-		content: normalizeBrandText(normalizeWpHtml(content.content)),
+		content: normalizeBrandText(
+			normalizeWpHtml(applyContentSupplement(content.path, content.content)),
+		),
 		seo: {
 			...content.seo,
 			title: normalizeBrandText(content.seo.title || content.title),
@@ -250,6 +281,14 @@ export async function loadContentById(
 	type: 'page' | 'post',
 	id: number,
 ): Promise<WpContent> {
+	if (type === 'post' && isEditorialPostId(id)) {
+		const editorial = loadEditorialById(id);
+		if (!editorial) {
+			throw new Error(`Conteúdo editorial não encontrado: post/${id}`);
+		}
+		return normalizeWpContent(editorial);
+	}
+
 	const modules = type === 'page' ? pageModules : postModules;
 	const key = `../data/wp/${type === 'page' ? 'pages' : 'posts'}/${id}.json`;
 	const loader = modules[key];

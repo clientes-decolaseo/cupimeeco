@@ -4,6 +4,7 @@ import type { WpManifestEntry } from '../types/wordpress';
 import { isPageInServiceArea } from './area-atendida';
 import { matchesPagePath } from './cluster-page-match';
 import { isRedirectedPath } from './seo-policy';
+import { getEditorialManifestEntries } from './editorial-posts';
 import { getManifest } from './wordpress';
 
 const clusters = clustersData.clusters as ClusterConfig[];
@@ -92,8 +93,8 @@ export function getClusterPosts(clusterId: string): WpManifestEntry[] {
 	const cluster = getClusterById(clusterId);
 	if (!cluster) return [];
 
-	return getManifest()
-		.posts.filter((entry) => postBelongsToCluster(entry.path, cluster))
+	return [...getManifest().posts, ...getEditorialManifestEntries()]
+		.filter((entry) => postBelongsToCluster(entry.path, cluster))
 		.sort((a, b) => new Date(b.modified).getTime() - new Date(a.modified).getTime());
 }
 
