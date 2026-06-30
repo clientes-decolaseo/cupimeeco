@@ -47,6 +47,9 @@ function pathnameFromSitemapUrl(url) {
 	}
 }
 
+/** Paths never listed in sitemap-index (utility or legacy HTML pages). */
+const sitemapBlocklist = new Set(['sitemap', 'busca']);
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://cupins.eco.br',
@@ -62,6 +65,7 @@ export default defineConfig({
 				const pathname = pathnameFromSitemapUrl(page);
 
 				if (!pathname) return true;
+				if (sitemapBlocklist.has(pathname)) return false;
 				if (redirectSources.has(pathname)) return false;
 				if (noindexPaths.has(pathname)) return false;
 
@@ -70,6 +74,10 @@ export default defineConfig({
 		}),
 	],
 	redirects: {
+		'/sitemap.xml': {
+			status: 301,
+			destination: '/sitemap-index.xml',
+		},
 		'/d': {
 			status: 301,
 			destination: '/',

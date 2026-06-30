@@ -130,6 +130,12 @@ const structuredData = jsonLd
 
 		<FaviconLinks />
 		<link rel="canonical" href={canonicalUrl} />
+		<link
+			rel="sitemap"
+			type="application/xml"
+			title="Sitemap"
+			href={resolveAbsoluteUrl('/sitemap-index.xml', Astro.site ?? Astro.url)}
+		/>
 		{paginationPrev && <link rel="prev" href={paginationPrev} />}
 		{paginationNext && <link rel="next" href={paginationNext} />}
 

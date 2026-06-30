@@ -32,11 +32,24 @@
 			]
 		},
 		{
-			"source": "/(robots\\.txt|sitemap-index\\.xml|sitemap-.*\\.xml)",
+			"source": "/robots\\.txt",
 			"headers": [
 				{
 					"key": "Cache-Control",
 					"value": "public, max-age=86400, stale-while-revalidate=604800"
+				}
+			]
+		},
+		{
+			"source": "/(sitemap-index\\.xml|sitemap-.*\\.xml)",
+			"headers": [
+				{
+					"key": "Cache-Control",
+					"value": "public, max-age=86400, stale-while-revalidate=604800"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/xml; charset=utf-8"
 				}
 			]
 		}
