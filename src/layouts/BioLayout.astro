@@ -10,12 +10,15 @@ import site from '../data/site.json';
 import { normalizeSiteUrl } from '../lib/wp-urls';
 
 interface Props {
+	/** Título da aba e meta og:title. Usa fallback do site se omitido. */
 	title?: string;
+	/** Meta description — sempre renderizada; fallback se omitida ou vazia. */
 	description?: string;
+	/** URL canônica absoluta ou path relativo. Fallback: URL atual via Astro.site. */
+	canonical?: string;
 	ogImage?: string;
 	ogImageAlt?: string;
 	ogType?: 'website' | 'article';
-	canonical?: string;
 	paginationPrev?: string;
 	paginationNext?: string;
 	noindex?: boolean;
@@ -25,6 +28,11 @@ interface Props {
 
 const TITLE_MAX = 60;
 const DESCRIPTION_MAX = 160;
+
+const defaultTitle = `${site.marca.nome} — Dedetizadora de Cupins e Controle de Pragas | ${site.contato.telefoneGratis}`;
+const defaultDescription =
+	'Dedetizadora e descupinizadora em São Paulo e região: cupins, ratos, baratas e sanitização. Produtos ANVISA, atendimento 24h. Orçamento grátis: 0800 111 7272.';
+const defaultCanonical = `${site.marca.siteUrl}/`;
 
 function truncate(text: string, max: number): string {
 	const normalized = text.trim().replace(/\s+/g, ' ');
@@ -58,16 +66,12 @@ function resolveCanonicalUrl(url: URL, override?: string): string {
 	return `${url.origin}${pathname}/`;
 }
 
-const defaultTitle = `${site.marca.nome} — Controle de Pragas e Dedetização | ${site.contato.telefoneGratis}`;
-const defaultDescription =
-	'Empresa especializada em controle de pragas, dedetização, descupinização, deratização e sanitização. Atendimento 24h. Ligue grátis: 0800 111 7272.';
-
 const {
-	title: rawTitle = defaultTitle,
-	description: rawDescription = defaultDescription,
+	title: rawTitle,
+	description: rawDescription,
 	ogImage = site.marca.ogImage,
 	ogImageAlt,
-	canonical,
+	canonical: canonicalOverride,
 	paginationPrev,
 	paginationNext,
 	noindex = false,
@@ -80,9 +84,15 @@ const isHomeVariant = variant === 'home';
 
 const siteBase = Astro.site ? new URL(Astro.site) : Astro.url;
 
-const pageTitle = truncate(rawTitle, TITLE_MAX);
-const metaDescription = truncate(rawDescription, DESCRIPTION_MAX);
-const canonicalUrl = resolveCanonicalUrl(Astro.url, canonical);
+const pageTitle = truncate((rawTitle?.trim() || defaultTitle), TITLE_MAX);
+const metaDescription = truncate(
+	(rawDescription?.trim() || defaultDescription),
+	DESCRIPTION_MAX,
+);
+const canonicalUrl = resolveCanonicalUrl(
+	Astro.url,
+	canonicalOverride?.trim() || (isHomeVariant ? defaultCanonical : undefined),
+);
 const ogImageUrl = resolveAbsoluteUrl(ogImage, siteBase);
 const ogImageAltText = ogImageAlt ?? pageTitle;
 

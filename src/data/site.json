@@ -17,10 +17,9 @@
   },
   "hero": {
     "badge": "Atendendo agora — 24 horas",
-    "tituloLinha1": "Elimine",
-    "tituloDestaque": "as Pragas",
-    "tituloLinha3": "de Vez",
-    "descricao": "Dedetização profissional com produtos certificados pela ANVISA. Residências, comércios e indústrias. Garantia de resultado ou devolvemos seu dinheiro.",
+    "tituloSeo": "Descupinização Ecológica e Controle de Pragas Sustentável",
+    "tagline": "Elimine cupins, ratos e insetos com segurança — garantia de resultado por escrito",
+    "descricao": "Dedetizadora e descupinizadora com mais de 30 anos de experiência na Grande São Paulo. Atendemos residências, condomínios, comércios e indústrias com produtos certificados pela ANVISA, laudo técnico e equipe disponível 24 horas para emergências.",
     "stats": [
       { "numero": "+5k", "texto": "Clientes" },
       { "numero": "30+", "texto": "Anos" },

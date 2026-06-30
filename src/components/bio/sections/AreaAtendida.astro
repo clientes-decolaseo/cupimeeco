@@ -1,12 +1,15 @@
 ---
 import { getRegioesComCidades, listCidadesAtendidas } from '../../../lib/area-atendida';
+import site from '../../../data/site.json';
 
 interface Props {
 	/** home = seção na landing; page = bloco na página de contato */
 	layout?: 'home' | 'page';
+	/** Sobrescreve o parágrafo introdutório */
+	descricao?: string;
 }
 
-const { layout = 'home' } = Astro.props;
+const { layout = 'home', descricao } = Astro.props;
 
 const regioes = getRegioesComCidades();
 const totalCidades = listCidadesAtendidas().length;
@@ -22,11 +25,21 @@ const isHome = layout === 'home';
 		<header class="bio-area-atendida__header">
 			<p class="bio-section-label">Onde atendemos</p>
 			<h2 class="bio-section-titulo" id="area-atendida-titulo">
-				{totalCidades} cidades <span>atendidas</span>
+				{
+					isHome ? (
+						<>
+							Áreas de <span>atendimento</span>
+						</>
+					) : (
+						<>
+							{totalCidades} cidades <span>atendidas</span>
+						</>
+					)
+				}
 			</h2>
 			<p class="bio-section-desc">
-				Equipes próprias em São Paulo, Baixada Santista, Campinas, Sorocaba, Jundiaí e Vale do
-				Paraíba. Confira sua cidade abaixo ou solicite orçamento pela central 24h.
+				{descricao ??
+					'Equipes próprias em São Paulo, Baixada Santista, Campinas, Sorocaba, Jundiaí e Vale do Paraíba. Confira sua cidade abaixo ou solicite orçamento pela central 24h.'}
 			</p>
 		</header>
 
@@ -68,6 +81,42 @@ const isHome = layout === 'home';
 					<a href="/deratizacao/regioes/">Deratização por região</a>
 				</li>
 			</ul>
+			{
+				isHome && (
+					<p class="bio-area-atendida__cta">
+						<a href={site.contato.telefoneGratisHref} class="bio-btn-primario">
+							Ligar grátis — {site.contato.telefoneGratis}
+						</a>
+						<a href="/contato/" class="bio-btn-secundario">
+							Solicitar orçamento online →
+						</a>
+					</p>
+				)
+			}
 		</footer>
 	</div>
 </section>
+
+<style>
+	.bio-area-atendida__cta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		align-items: center;
+		margin-top: 28px;
+		padding-top: 28px;
+		border-top: 1px solid var(--borda);
+	}
+
+	@media (max-width: 640px) {
+		.bio-area-atendida__cta {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.bio-area-atendida__cta a {
+			justify-content: center;
+			text-align: center;
+		}
+	}
+</style>

@@ -3,21 +3,34 @@ import BioLayout from '../layouts/BioLayout.astro';
 import ContatoCta from '../components/bio/sections/ContatoCta.astro';
 import Depoimentos from '../components/bio/sections/Depoimentos.astro';
 import Hero from '../components/bio/sections/Hero.astro';
+import HomeConteudoSemantico from '../components/bio/sections/HomeConteudoSemantico.astro';
 import AreaAtendida from '../components/bio/sections/AreaAtendida.astro';
 import Porque from '../components/bio/sections/Porque.astro';
 import Servicos from '../components/bio/sections/Servicos.astro';
 import site from '../data/site.json';
+
+const title = `${site.marca.nome} — Descupinização Ecológica e Controle de Pragas`;
+const description =
+	'Descupinização ecológica, dedetização e deratização na Grande São Paulo, ABC, Campinas e Baixada. Produtos ANVISA, vistoria grátis e atendimento 24h. Elimine cupins e pragas com garantia.';
+const canonical = `${site.marca.siteUrl}/`;
+
+const areaAtendimentoDescricao =
+	'Desde 2009, a Cupim Eco mantém equipes próprias em toda a Grande São Paulo — capital, ABC Paulista, Baixada Santista, Campinas, Sorocaba, Jundiaí e Vale do Paraíba. Atendemos residências, condomínios, restaurantes, indústrias e comércios com descupinização, dedetização e deratização. Confira se sua cidade está na lista abaixo ou ligue grátis para agendar uma vistoria sem compromisso.';
 ---
 
 <BioLayout
 	variant="home"
+	title={title}
+	description={description}
+	canonical={canonical}
 	ogImage={site.marca.ogImage}
-	ogImageAlt={`${site.marca.nome} — Dedetizadora de cupim e controle de pragas`}
+	ogImageAlt={`${site.marca.nome} — Descupinização ecológica e controle de pragas`}
 >
 	<Hero />
+	<HomeConteudoSemantico />
 	<Servicos />
 	<Porque />
-	<AreaAtendida layout="home" />
+	<AreaAtendida layout="home" descricao={areaAtendimentoDescricao} />
 	<Depoimentos />
 	<ContatoCta />
 </BioLayout>

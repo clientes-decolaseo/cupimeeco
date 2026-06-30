@@ -1,0 +1,176 @@
+---
+import site from '../../../data/site.json';
+
+const whatsappUrl = site.contato.whatsappUrl;
+---
+
+<section class="bio-home-conteudo bio-section" aria-label="Conteúdo sobre descupinização e controle de pragas">
+	<div class="bio-section-inner">
+		<article class="bio-home-artigo" aria-labelledby="metodo-ecologico-titulo">
+			<p class="bio-section-label">Nossa abordagem</p>
+			<h2 class="bio-section-titulo" id="metodo-ecologico-titulo">
+				Como funciona nosso <span>método ecológico?</span>
+			</h2>
+
+			<div class="bio-home-prose">
+				<p>
+					A Cupim Eco aplica o <strong>Controle Integrado de Pragas (CIP)</strong>, uma metodologia
+					que combina inspeção técnica, tratamento direcionado e medidas preventivas. Em vez de
+					aplicar produtos de forma indiscriminada, nossa equipe identifica a espécie da praga, o
+					nível de infestação e os pontos críticos do imóvel — paredes, forros, móveis embutidos,
+					áreas úmidas e jardins — para definir a estratégia mais eficiente e com menor impacto
+					ambiental.
+				</p>
+				<p>
+					Utilizamos exclusivamente <strong>produtos registrados na ANVISA</strong>, aplicados por
+					técnicos certificados e uniformizados. Nas descupinizações, empregamos barreiras químicas,
+					iscas e, quando indicado, injeção localizada em madeiras atacadas, preservando estruturas
+					sadias sempre que possível. Para dedetização e deratização, priorizamos gel, iscas
+					seguras e pontos de monitoramento, reduzindo a exposição de pessoas, pets e alimentos.
+				</p>
+				<p>
+					Cada serviço inclui laudo técnico, orientações de manutenção e <strong>garantia por
+					escrito</strong>. Se a praga retornar dentro do prazo acordado, voltamos sem custo
+					adicional. Nossa central funciona 24 horas — infestação de cupim ou surto de baratas não
+					espera horário comercial.
+				</p>
+			</div>
+
+			<div class="bio-home-cta-row">
+				<a href="/contato/" class="bio-btn-primario">Solicitar vistoria grátis</a>
+				<a href="/descupinizacao/" class="bio-btn-secundario">Conheça a descupinização →</a>
+			</div>
+		</article>
+
+		<article class="bio-home-artigo bio-home-artigo--alt" aria-labelledby="sinais-cupins-titulo">
+			<p class="bio-section-label">Diagnóstico precoce</p>
+			<h2 class="bio-section-titulo" id="sinais-cupins-titulo">
+				Sinais de <span>infestação de cupins</span>
+			</h2>
+
+			<div class="bio-home-prose">
+				<p>
+					Cupins subterrâneos e de madeira seca atuam de forma silenciosa: colonias inteiras podem
+					consumir vigas, batentes e móveis por meses antes que o dano se torne visível. Por isso,
+					reconhecer os primeiros indícios é essencial para evitar reformas estruturais caras e
+					perda de valor do imóvel.
+				</p>
+				<p>
+					Entre os sinais mais comuns estão: <strong>túneis de lama</strong> (casas de cupim) nas
+					paredes e rodapés; madeira que soa oca ao bater; <strong>pó fino de madeira</strong>
+					(frass) próximo a móveis ou trincas; portas e janelas emperrando sem causa aparente; e,
+					na primavera, enxames de <strong>insetos alados</strong> próximos a luminárias ou frestas.
+					Em edificações mais antigas, manchas escuras ou pintura descascando sobre estruturas de
+					madeira também merecem investigação imediata.
+				</p>
+				<p>
+					Se você identificou um ou mais desses sinais, não adie a vistoria. Nossa equipe realiza
+					inspeção com equipamentos específicos, indica o tipo de cupim presente e propõe o plano de
+					tratamento adequado — com orçamento transparente e sem compromisso.
+				</p>
+			</div>
+
+			<ul class="bio-home-sinais" role="list">
+				<li>Casas de cupim (túneis de barro) em paredes e pilares</li>
+				<li>Madeira oca, frágil ou com trincas inexplicáveis</li>
+				<li>Pó fino marrom ou bege acumulado no chão ou móveis</li>
+				<li>Enxames de cupins alados na primavera e verão</li>
+			</ul>
+
+			<div class="bio-home-cta-row">
+				<a href={whatsappUrl} class="bio-btn-primario" target="_blank" rel="noopener noreferrer">
+					Falar com especialista no WhatsApp
+				</a>
+				<a href="/blog/sinais-de-cupim-em-moveis-e-estruturas/" class="bio-btn-secundario">
+					Guia completo de sinais →
+				</a>
+			</div>
+		</article>
+	</div>
+</section>
+
+<style>
+	.bio-home-conteudo {
+		background: var(--fundo-suave);
+	}
+
+	.bio-home-artigo + .bio-home-artigo {
+		margin-top: 72px;
+		padding-top: 72px;
+		border-top: 1px solid var(--borda);
+	}
+
+	.bio-home-artigo--alt {
+		background: transparent;
+	}
+
+	.bio-home-prose {
+		max-width: 780px;
+		margin-bottom: 32px;
+	}
+
+	.bio-home-prose p {
+		font-size: 17px;
+		line-height: 1.75;
+		color: var(--cinza-texto);
+		margin-bottom: 1.25em;
+	}
+
+	.bio-home-prose p:last-child {
+		margin-bottom: 0;
+	}
+
+	.bio-home-prose strong {
+		color: var(--texto);
+		font-weight: 600;
+	}
+
+	.bio-home-sinais {
+		list-style: none;
+		display: grid;
+		gap: 12px;
+		margin: 0 0 36px;
+		max-width: 640px;
+	}
+
+	.bio-home-sinais li {
+		position: relative;
+		padding-left: 28px;
+		font-size: 16px;
+		line-height: 1.6;
+		color: var(--texto);
+	}
+
+	.bio-home-sinais li::before {
+		content: '✓';
+		position: absolute;
+		left: 0;
+		top: 0;
+		color: var(--verde-texto);
+		font-weight: 700;
+	}
+
+	.bio-home-cta-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		align-items: center;
+	}
+
+	@media (max-width: 640px) {
+		.bio-home-artigo + .bio-home-artigo {
+			margin-top: 56px;
+			padding-top: 56px;
+		}
+
+		.bio-home-cta-row {
+			flex-direction: column;
+			align-items: stretch;
+		}
+
+		.bio-home-cta-row a {
+			justify-content: center;
+			text-align: center;
+		}
+	}
+</style>

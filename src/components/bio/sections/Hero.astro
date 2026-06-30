@@ -15,11 +15,11 @@ const whatsappUrl = site.contato.whatsappUrl;
 				{site.hero.badge}
 			</p>
 
-			<h1 class="bio-hero-titulo" id="hero-titulo">
-				{site.hero.tituloLinha1}<br />
-				<em>{site.hero.tituloDestaque}</em><br />
-				{site.hero.tituloLinha3}
+			<h1 class="bio-hero-titulo bio-hero-titulo--seo" id="hero-titulo">
+				{site.hero.tituloSeo}
 			</h1>
+
+			<p class="bio-hero-tagline">{site.hero.tagline}</p>
 
 			<p class="bio-hero-descricao">{site.hero.descricao}</p>
 
@@ -67,10 +67,36 @@ const whatsappUrl = site.contato.whatsappUrl;
 </section>
 
 <style>
+	.bio-hero-titulo--seo {
+		font-size: clamp(36px, 4.5vw, 58px);
+		line-height: 1.05;
+		text-transform: none;
+		letter-spacing: -0.02em;
+		max-width: 14ch;
+	}
+
+	.bio-hero-tagline {
+		font-family: var(--fonte-display);
+		font-size: clamp(20px, 2.5vw, 26px);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: var(--verde-texto);
+		line-height: 1.2;
+		margin-bottom: 20px;
+		max-width: 480px;
+	}
+
 	.bio-hero-stats {
 		margin: 0;
 	}
 	.bio-hero-stat dd {
 		margin: 0;
+	}
+
+	@media (max-width: 900px) {
+		.bio-hero-titulo--seo {
+			max-width: none;
+		}
 	}
 </style>
