@@ -53,5 +53,4182 @@
 				}
 			]
 		}
+	],
+	"redirects": [
+		{
+			"source": "/d/:path*",
+			"destination": "/:path*",
+			"permanent": true
+		},
+		{
+			"source": "/glossario/:path*",
+			"destination": "/blog/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-Cotia",
+			"destination": "/dedetizadora-em-cotia/",
+			"permanent": true
+		},
+		{
+			"source": "/751775195.shtml",
+			"destination": "/",
+			"permanent": true
+		},
+		{
+			"source": "/a-chuva-pode-estimular-a-atividade-dos-cupins-em-casa",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/acabar-com-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/acabar-com-cupim-de-solo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/areas-de-risco-de-cupins-em-sua-casa-identificacao-prevencao-e-solucoes",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/barreira-quimica-para-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/biblioteca-da-universo",
+			"destination": "/blog/",
+			"permanent": true
+		},
+		{
+			"source": "/blog/riscos-e-danos-causados-por-cupins",
+			"destination": "/blog/riscos-e-danos-causados-por-cupins-como-proteger-seu-imovel-e-negocio/",
+			"permanent": true
+		},
+		{
+			"source": "/caca-vazamento-em-boituva",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/caca-vazamento-em-ibiuna",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/caca-vazamento-em-mairinque",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/campinas-sp",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/campinas-sp/controle-de-pragas",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/campinas-sp/dedetizadora-de-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/campinas-sp/descupinizacao",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/campinas-sp/tratamento-contra-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/coco-de-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-acabar-com-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-acabar-com-cupim-de-madeira",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-acabar-com-cupim-de-solo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-acabar-com-cupim-no-forro",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-acabar-com-cupim-no-telhado",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-acabar-com-cupim-subterraneo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-acabar-com-o-cupim-subterraneo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-acabar-com-os-cupins-guia-definitivo-da-cmbate-ambiental-no-brasil",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/como-acabar-ratos-em-casa",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/como-controlar-cupim-de-solo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-eliminar-cupim-de-madeira",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-eliminar-cupim-de-solo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-matar-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-matar-cupim-de-parede",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-matar-cupim-em-arvore",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-voce-sabe-se-voce-tem-cupins-2",
+			"destination": "/como-voce-sabe-se-voce-tem-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/comprando-uma-casa-com-dano-de-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/controle-de-cupim-de-madeira-seca",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/controle-de-cupim-de-solo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/cupim-broca-2",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/cupim-de-madeira",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/cupim-de-madeira-seca",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/cupim-de-solo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/cupim-inseto",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/cupim-subterraneo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/cupins-em-tapetes",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/cupins-podem-viver-em-arvores",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/dano-da-fundacao-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dano-de-teto-de-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/danos-em-cupins-em-parede",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-amadora",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-cupim-sp-preco",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-cupim-em-mongagua",
+			"destination": "/descupinizacao-em-mongagua/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-cupim-na-zona-norte",
+			"destination": "/descupinizadora-na-zona-norte/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-cupim-na-zona-sul",
+			"destination": "/descupinizacao-em-zona-sul/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-cupins",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-cupins-em-guaruja",
+			"destination": "/descupinizacao-em-guaruja/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-escolas",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-hoteis",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-ratos",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-em-sao-paulo-com-produto-organico",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-preco",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-com-preco-baixo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-da-vila-mariana-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-aranhas",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-em-alphaville",
+			"destination": "/dedetizadora-em-alphaville/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-em-carapicuiba",
+			"destination": "/dedetizadora-em-carapicuiba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-em-cotia",
+			"destination": "/dedetizadora-em-cotia/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-em-guarulhos",
+			"destination": "/dedetizadora-em-guarulhos/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-em-itapevi",
+			"destination": "/dedetizadora-de-pulga-em-itapevi/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-em-jandira",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-em-osasco",
+			"destination": "/dedetizadora-em-osasco/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-em-sorocaba",
+			"destination": "/dedetizadora-em-sorocaba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-na-vila-maria",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-baratas-guarulhos",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-bertioga",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-caraguatatuba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-alphaville",
+			"destination": "/dedetizadora-em-alphaville/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-aruja",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-atibaia",
+			"destination": "/dedetizadora-em-atibaia/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-barueri",
+			"destination": "/dedetizadora-em-barueri/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-boituva",
+			"destination": "/dedetizadora-em-boituva/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-cajamar",
+			"destination": "/dedetizadora-em-cajamar/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-cotia",
+			"destination": "/dedetizadora-em-cotia/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-extrema",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-fortaleza",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-guaruja",
+			"destination": "/dedetizadora-em-guaruja/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-guarulhos",
+			"destination": "/dedetizadora-em-guarulhos/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-hortolandia",
+			"destination": "/dedetizadora-em-hortolandia/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-itu",
+			"destination": "/dedetizadora-em-itu/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-itupeva",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-jacarei",
+			"destination": "/dedetizadora-em-jacarei/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-limeira",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-mairipora",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-osasco",
+			"destination": "/dedetizadora-em-osasco/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-peruibe",
+			"destination": "/dedetizadora-de-peruibe/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-piracicaba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-porto-feliz",
+			"destination": "/dedetizadora-em-porto-feliz/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-recife",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-rio-claro",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-salvador",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-santo-andre",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-sao-bernardo-do-campo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-sao-jose-dos-campos",
+			"destination": "/dedetizadora-em-sao-jose-dos-campos/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-sao-paulo",
+			"destination": "/dedetizadora-em-sao-paulo/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-sorocaba",
+			"destination": "/dedetizadora-em-sorocaba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-sp",
+			"destination": "/dedetizadora-em-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-suzano",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-varzea-paulista",
+			"destination": "/dedetizadora-em-varzea-paulista/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-vinhedo",
+			"destination": "/dedetizadora-em-vinhedo/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-na-lapa",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-no-butanta",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-no-itaim-bibi",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-no-jaguare",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-no-jardim-paulista",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapatos",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-condominios",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cotia",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-agua-fria",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-alphaville",
+			"destination": "/descupinizacao-em-alphaville/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-alto-da-riviera",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-aluminio",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-angra-dos-reis",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-anhanguera",
+			"destination": "/descupinizadora-em-anhanguera/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-aracaju",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-aracariguama",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-aruja",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-avare",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-balneario-sao-francisco",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-balneario-sao-jose",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-barra-funda",
+			"destination": "/descupinizacao-na-barra-funda/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-bela-vista",
+			"destination": "/descupinizacao-em-bela-vista/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-bosque-da-saude",
+			"destination": "/descupinizacao-no-bosque-da-saude/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-braganca-paulista",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-brooklin-novo",
+			"destination": "/descupinizacao-no-brooklin-novo/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-butanta",
+			"destination": "/descupinizacao-no-butanta/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-buzios",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-cajamar",
+			"destination": "/descupinizacao-em-cajamar/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-cambuci",
+			"destination": "/descupinizacao-em-cambuci/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-campo-do-jordao",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-campo-grande",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-campos-do-jordao",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-campos-eliseos",
+			"destination": "/descupinizacao-em-campos-eliseos/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-caraguatatuba",
+			"destination": "/descupinizacao-em-caraguatatuba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-diadema",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-extrema",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-guarulhos",
+			"destination": "/descupinizacao-em-guarulhos/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-ibiuna",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-ilhabela",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-itaquaquecetuba",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-jandira",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-limeira",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-mairipora",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-mato-grosso",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-mogi-das-cruz",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-mogi-das-cruzes",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-mongagua",
+			"destination": "/descupinizacao-em-mongagua/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-morumbi",
+			"destination": "/descupinizacao-no-morumbi/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-nazare-paulista",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-palmas",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-pernambuco",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-pinheiros",
+			"destination": "/descupinizacao-em-pinheiros/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-piracicaba",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-pirituba",
+			"destination": "/descupinizacao-em-pirituba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-porto-alegre",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-porto-feliz",
+			"destination": "/descupinizacao-em-porto-feliz/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-praia-grande",
+			"destination": "/descupinizacao-em-praia-grande/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-registro",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-rio-claro",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-salvador",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-santa-isabel",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-santos",
+			"destination": "/descupinizacao-em-santos/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-sao-bernardo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-sao-bernardo-do-campo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-sao-caetano-do-sul",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-sao-paulo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-sao-roque",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-sergipe",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-suzano",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-taboao-da-serra",
+			"destination": "/descupinizacao-em-taboao-da-serra/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-ubatuba",
+			"destination": "/descupinizacao-em-ubatuba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-vargem-grande-paulista",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-vinhedo",
+			"destination": "/descupinizacao-em-vinhedo/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-na-lapa-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-na-pompeia",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-na-vila-maria",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-na-zona-norte",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-na-zona-norte-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-na-zona-oeste-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-na-zona-sul",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-na-zona-sul-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-no-abc",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-no-alto-de-pinheiros",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-no-jardins-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-no-litoral",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-no-pacaembu",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-no-rj",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-sao-paulo",
+			"destination": "/descupinizacao-em-sao-paulo/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-sp",
+			"destination": "/descupinizacao-em-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-bairro-do-limao",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-bertioga",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-brasilia",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-condominio",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-curitiba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-embu-das-artes",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-florianopolis",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-fortaleza",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-ibiuna",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-ilhabela",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-joinville",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-pinheiros-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-recife",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-salvador",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-santo-amaro",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-vila-mariana",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-morumbi-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-na-aclimacao",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-na-agua-branca",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-na-agua-rasa-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-na-barra-funda",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-na-freguesia-do-o",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-na-mooca",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-no-alto-da-lapa",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-no-alto-da-mooca",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-no-alto-de-pinheiros",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-no-alto-de-pinheiros-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-no-bela-vista-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-no-campo-belo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-no-centro-de-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-no-morumbi",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-no-morumbi-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-no-parque-dos-principes",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-no-rio-de-janeiro",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-embu-das-artes",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-empresas",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-aracariguama",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-atibaia",
+			"destination": "/dedetizadora-em-atibaia/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-barueri",
+			"destination": "/dedetizadora-em-barueri/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-boituva",
+			"destination": "/dedetizadora-em-boituva/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-cabreuva",
+			"destination": "/dedetizadora-em-cabreuva/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-cajamar",
+			"destination": "/dedetizadora-em-cajamar/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-campinas",
+			"destination": "/dedetizadora-de-carrapato-em-campinas/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-campo-limpo-paulista",
+			"destination": "/dedetizadora-em-campo-limpo-paulista/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-campos-do-jordao",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-carapicuiba",
+			"destination": "/dedetizadora-em-carapicuiba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-cotia",
+			"destination": "/dedetizadora-em-cotia/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-extrema",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-guaruja",
+			"destination": "/dedetizadora-em-guaruja/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-guarulhos",
+			"destination": "/dedetizadora-em-guarulhos/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-hortolandia",
+			"destination": "/dedetizadora-em-hortolandia/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-ibiuna",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-itapecerica",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-itapevi",
+			"destination": "/dedetizadora-de-pulga-em-itapevi/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-itaquaquecetuba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-itu",
+			"destination": "/dedetizadora-em-itu/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-itupeva",
+			"destination": "/dedetizadora-em-itupeva/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-jacarei",
+			"destination": "/dedetizadora-em-jacarei/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-jandira",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-jarinu",
+			"destination": "/dedetizadora-de-carrapato-em-jarinu/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-jundiai",
+			"destination": "/dedetizadora-em-jundiai/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-limeira",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-mairipora",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-nazare-paulista",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-osasco",
+			"destination": "/dedetizadora-em-osasco/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-paulinia",
+			"destination": "/dedetizadora-em-paulinia/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-peruibe",
+			"destination": "/dedetizadora-de-peruibe/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-piracicaba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-porto-feliz",
+			"destination": "/dedetizadora-em-porto-feliz/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-rio-claro",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-salvador",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-santa-isabel",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-santana-de-parnaiba",
+			"destination": "/dedetizadora-em-santana-de-parnaiba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-santo-andre",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-sao-bernardo-do-campo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-sao-caitano-do-sul",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-sao-jose-dos-campos",
+			"destination": "/dedetizadora-em-sao-jose-dos-campos/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-sorocaba",
+			"destination": "/dedetizadora-em-sorocaba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-sp",
+			"destination": "/dedetizadora-em-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-sumare",
+			"destination": "/dedetizadora-em-sumare/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-suzano",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-varzea-paulista",
+			"destination": "/dedetizadora-em-varzea-paulista/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-em-vinhedo",
+			"destination": "/dedetizadora-em-vinhedo/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-na-agua-branca",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-na-barra-funda",
+			"destination": "/dedetizadora-na-barra-funda/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-na-casa-verde",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-no-alto-de-pinheiros",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-no-butanta",
+			"destination": "/dedetizadora-de-pulga-no-butanta/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-no-morumbi",
+			"destination": "/dedetizadora-em-morumbi/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpiao-no-rio-de-janeiro",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-escorpioes",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-formigas-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-itapecerica-da-serra",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-itapevi",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-jandira",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-mairinque",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-mosca-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-osasco",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-peruibe",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pombos-em-cotia",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pombos-em-jundiai",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pombos-em-osasco",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pombos-em-santo-andre",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pombos-em-sao-bernardo-do-campo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-aldeia-da-serra",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-aruja",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-cajamar",
+			"destination": "/dedetizadora-em-cajamar/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-cotia",
+			"destination": "/dedetizadora-em-cotia/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-embu",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-ermelino-matarazzo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-ibiuna",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-itapecerica",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-itaquera",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-jundiai",
+			"destination": "/dedetizadora-em-jundiai/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-osasco",
+			"destination": "/dedetizadora-em-osasco/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-pinheiros",
+			"destination": "/dedetizadora-em-pinheiros/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-porto-feliz",
+			"destination": "/dedetizadora-em-porto-feliz/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-sao-bernardo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-sao-paulo",
+			"destination": "/dedetizadora-em-sao-paulo/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-sao-roque",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-sorocaba",
+			"destination": "/dedetizadora-em-sorocaba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-sp",
+			"destination": "/dedetizadora-em-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-suzano",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-vagem-grande",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-na-vila-jaguara",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-na-vila-leopoldina",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-na-vila-maria",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-na-vila-mariana",
+			"destination": "/dedetizadora-de-barata-na-vila-mariana/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-na-vila-sonia",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-na-zona-leste",
+			"destination": "/dedetizadora-na-zona-leste/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-na-zona-norte",
+			"destination": "/dedetizadora-de-barata-na-zona-norte/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-na-zona-oeste",
+			"destination": "/dedetizadora-de-barata-na-zona-oeste/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-na-zona-sul",
+			"destination": "/dedetizadora-de-barata-na-zona-sul/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-no-jaguare",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-no-jardim-paulista",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-no-morumbi",
+			"destination": "/dedetizadora-em-morumbi/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-no-rio-pequeno",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-aracariguama",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-campos-do-jordao",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-embu-das-artes",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-extrema",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-florianopolis",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-itaquaquecetuba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-jandira",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-joinville",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-limeira",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-mairipora",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-mogi-das-cruz",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-pirituba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-rio-claro",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-santana",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-santo-andre",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-sao-bernardo-do-campo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-sao-caitano-do-sul",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-guarulhos",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-na-agua-branca",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-na-barra-funda",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-na-casa-verde",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-na-lapa",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-no-abc",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-no-alto-de-pinheiros",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-no-bela-vista",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-no-butanta",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-no-morumbi",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-no-rio-de-janeiro",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-alphaville",
+			"destination": "/desratizacao-em-alphaville/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-aracariguama",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-aricanduva",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-aruja",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-barueri",
+			"destination": "/desratizacao-em-barueri/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-bauru",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-cajamar",
+			"destination": "/desratizacao-em-cajamar/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-campo-limpo-paulista",
+			"destination": "/desratizacao-em-campo-limpo-paulista/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-campos-do-jordao",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-carapicuiba",
+			"destination": "/desratizacao-em-carapicuiba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-cotia",
+			"destination": "/desratizacao-em-cotia/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-curitiba",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-embu-das-artes",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-ermelino-matarazzo",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-fortaleza",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-guarulhos",
+			"destination": "/desratizacao-em-guarulhos/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-ibiuna",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-itaquera",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-itu",
+			"destination": "/desratizacao-em-itu/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-jandira",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-limeira",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-mairipora",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-mogi-das-cruz",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-nazare-paulista",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-osasco",
+			"destination": "/desratizacao-em-osasco/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-pinheiros",
+			"destination": "/desratizacao-em-pinheiros/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-pirituba",
+			"destination": "/desratizacao-em-pirituba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-recife",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-rio-claro",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-salvador",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-santa-isabel",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-santo-andre",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-sao-bernardo-do-campo",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-sao-caitano-do-sul",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-sao-miguel-paulista",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-sao-paulo",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-sao-roque",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-sorocaba",
+			"destination": "/desratizacao-em-sorocaba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-sp",
+			"destination": "/desratizacao-em-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-suzano",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-taboao-da-serra",
+			"destination": "/desratizacao-em-taboao-da-serra/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-agua-branca",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-barra-funda",
+			"destination": "/desratizacao-na-barra-funda/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-cachoeirinha",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-casa-verde",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-chacara-flora",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-cidade-ademar",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-consolacao",
+			"destination": "/desratizacao-na-consolacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-freguesia-do-o",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-jaguara",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-lapa",
+			"destination": "/desratizacao-na-lapa/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-liberdade",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-mooca",
+			"destination": "/desratizacao-na-mooca/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-ponte-rasa",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-raposo-tavares",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-republica",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-santa-cecilia",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-vila-carrao",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-vila-jaguara",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-vila-maria",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-vila-sonia",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-no-abc",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-no-alto-de-pinheiros",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-no-butanta",
+			"destination": "/desratizacao-no-butanta/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-no-guarulhos",
+			"destination": "/desratizacao-em-guarulhos/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-no-itaim-bibi",
+			"destination": "/desratizacao-em-itaim-bibi/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-no-jaguare",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-no-jardim-paulista",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-no-rio-de-janeiro",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-no-rio-pequeno",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-sp",
+			"destination": "/desratizacao-em-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-ratos",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-ratos-em-curitiba",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-ratos-em-florianopolis",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-ratos-em-pinheiros",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-recife",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-salvador",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-sao-paulo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-tracas-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-do-rio-pequeno-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-aracariguama",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-aruja-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-avare",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-balneario-mar-paulista",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-bauru",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-belo-horizonte",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-cabo-frio",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-cachoeirinha",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-campo-belo-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-cupim-em-bauru",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-curitiba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-ermelino-matarazzo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-extrema",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-florianopolis",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-florianopolis-2",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-fortaleza",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-higienopolis",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-ibiuna",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-igarata",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-interlagos",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-itaim-bibi-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-itaim-paulista",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-itaquaquecetuba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-itaquera",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-itatiba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jacana",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jandira",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jardim-analia-franco",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jardim-da-saude",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jardim-dracena-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jardim-europa",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jardim-paulista",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jardim-sao-luis",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jardim-sao-luis-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jardim-sao-paulo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jardins-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-joinville",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jurubatuba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-lencois-paulista",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-limeira",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-limeira-2",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-mairipora",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-moema-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-mogi-das-cruz",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-mongagua-2",
+			"destination": "/dedetizadora-em-mongagua/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-nazare-paulista",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-paranapanema",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-paraty",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-perdizes-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-pinheiros-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-piracicaba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-pirapora",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-pirituba-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-rio-claro",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-salto-de-pirapora",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-salvador",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-santa-isabel",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-santana-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-santo-andre",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-sao-bernardo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-sao-caitano-do-sul",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-sao-judas",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-sao-paulo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-sao-roque",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-suzano",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-vargem-grande-paulista",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-guarulhos",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-jardim-marajoarara",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-morumbi-sp-24-horas",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-aclimacao",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-agua-branca",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-agua-fria",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-agua-rosa",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-avenida-paulista-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-barra-funda",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-barra-funda-sp-24-horas",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-bela-vista",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-brasilandia",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-casa-verde",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-casa-verde-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-chacara-klabin",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-cidade-jardim",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-consolacao",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-freguesia-do-o",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-granja-julieta",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-jaguare-sp-24-horas",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-lapa",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-lapa-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-liberdade",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-mooca",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-parada-inglesa",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-penha",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-pompeia",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-pompeia-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-praia",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-raposo-tavares",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-republica",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-santa-cecilia",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-saude",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-se",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-conceicao",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-das-merces",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-formosa",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-guilherme",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-guilherme-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-gumercindo",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-jaguara",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-leopoldina",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-leopoldina-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-maria",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-mariana",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-mascote",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-olimpia",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-romana",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-santa-catarina",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-sao-francisco",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-vila-sonia-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-zona-central",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-zona-norte-sp",
+			"destination": "/dedetizadora-de-barata-na-zona-norte-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-zona-oeste",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-na-zona-sul",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-aeroporto",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-alto-da-lapa",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-alto-da-mca",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-alto-de-pinheiros",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-bairro-do-limao",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-bela-vista-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-belem",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-bom-retiro",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-bonfiglioli-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-bosque-da-saude",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-bras",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-brooklin",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-butanta",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-caxingui",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-centro-de-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-centro-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-cursino",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-horto-do-ipe",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-horto-florestal",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-ibirapuera",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-iguatemi",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-imirim",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-ipiranga",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-jabaquara",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-jaguare",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-jaragua",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-jardim-america",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-mandaqui",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-morumbi",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-pacaembu",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-panamby",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-paraiso",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-pari",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-parque-sao-domingos",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-piqueri",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-real-parque",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-rio-de-janeiro",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-rio-pequeno",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-sumare",
+			"destination": "/dedetizadora-em-sumare/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-taboao-da-serra",
+			"destination": "/dedetizadora-de-escorpiao-em-taboao-da-serra/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-tatuape",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-no-tucuruvi",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-vila-madalena-sp",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-como-funciona",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-aruja",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-campo-belo",
+			"destination": "/descupinizacao-no-campo-belo/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-casa-verde",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-centro-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-ermelino-matarazzo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-guaruja-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-higienopolis",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-ibiuna",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-itaim-bibi-2",
+			"destination": "/descupinizacao-em-itaim-bibi/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-itaim-paulista",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-itapecerica-da-serra",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-jabaquara-2",
+			"destination": "/descupinizacao-em-jabaquara/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-jandira",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-jardim-america",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-jardim-analia-franco",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-jardim-da-saude",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-jardim-europa",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-jardim-paulista",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-jardim-sao-paulo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-mairinque",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-morumbi",
+			"destination": "/descupinizacao-no-morumbi/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-parada-inglesa",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-pedreira",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-perdizes-2",
+			"destination": "/descupinizacao-em-perdizes/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-pirituba-2",
+			"destination": "/descupinizacao-em-pirituba/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-praia-da-enseada",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-santo-andre",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-sao-bernardo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-sao-bernardo-do-campo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-sorocaba-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-vila-olimpia",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-emergencial",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-avenida-paulista-2",
+			"destination": "/descupinizacao-na-avenida-paulista/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-casa-verde",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-chacara-flora",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-cidade-jardim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-granja-julieta",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-lapa-2",
+			"destination": "/descupinizacao-na-lapa/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-praia",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-raposo-tavares",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-vila-leopoldina",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-vila-leopoldina-sp-com-menor-preco",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-vila-sonia",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-abc",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-bairro-do-limao",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-bonfiglioli",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-centro-de-sao-paulo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-centro-de-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-horto-florestal",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-iguatemi",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-jaguare",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-jaragua",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-pacaembu",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-pari",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-rio-pequeno",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-pacaembu-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-preco",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-preco-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-quanto-custa",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-sp-preco",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-24-horas-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-de-sp",
+			"destination": "/descupinizacao-em-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-em-barueri",
+			"destination": "/descupinizacao-em-barueri/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-em-carapicuiba",
+			"destination": "/descupinizacao-em-carapicuiba/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-em-itapecerica",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-em-jandira",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-em-jundiai",
+			"destination": "/descupinizacao-em-jundiai/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-em-santos-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-em-sao-paulo",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-em-sp",
+			"destination": "/descupinizacao-em-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-na-lapa-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-na-zona-sul",
+			"destination": "/descupinizacao-em-zona-sul/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizar",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-de-caixa-de-gordura-em-santa-cecilia",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-aparecida",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-aracariguama",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-arandu",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-avare",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-barra-grande",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-bh",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-braganca-paulista",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-campos-do-jordao",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-cesario-lange",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-ilhabela",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-itatinga",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-jandira",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-mairinque",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-paranapanema",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-sao-bernardo-do-campo",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-sao-roque",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-torre-de-pedra",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-vila-olimpia",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-barueri-2",
+			"destination": "/desratizacao-em-barueri/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-casa-verde",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-chacara-flora",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-higienopolis",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-ibirapuera",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-itapecerica-da-serra",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-jaguara",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-jandira",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-jaragua",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-jardim-america",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-jardim-analia-franco",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-jardim-europa",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-mairinque",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-moema-sp",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-pacaembu",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-sao-bernardo",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-sao-bernardo-do-campo",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-sao-paulo",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-me-tatuape",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-na-cidade-jardim",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-na-moca",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-na-paulista",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-na-vila-madalena-sp",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-na-vila-mariana-sp",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-na-vila-romana",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-na-vila-sao-francisco",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-no-aeroporto",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-no-alto-de-pinheiros",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-no-bairro-do-pacaembu",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-no-belem",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-no-booking-sp",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-no-centro",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-no-horto-florestal",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-no-iguatemi",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-no-limao",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-no-morumbi-sp",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-pacaembu-sp",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-parque-sao-domingos",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-preco-baixo",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/eliminar-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/eliminar-cupim-sp",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-aruja",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-embu",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-itapecerica",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-jandira",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-pinheiros",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-pirituba",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-santo-amaro",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-santo-andre",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-em-osasco",
+			"destination": "/dedetizadora-em-osasco/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-descupinizacao",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-descupinizacao-24hs-em-braganca-paulista",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-descupinizacao-em-guaruja",
+			"destination": "/descupinizacao-em-guaruja/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-descupinizacao-em-sao-paulo",
+			"destination": "/descupinizacao-em-sao-paulo/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-especializada-em-controle-de-cupins",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-especializada-em-controle-de-cupins/embed",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-especializada-em-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-especializada-em-descupinizacao",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-especializada-em-matar-rato",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/excrementos-de-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/fotos",
+			"destination": "/",
+			"permanent": true
+		},
+		{
+			"source": "/glossario-tudo-sobre-descupinizacao",
+			"destination": "/blog/",
+			"permanent": true
+		},
+		{
+			"source": "/glossario/o-que-e-dedetizacao-entenda-o-processo-e-sua-importancia",
+			"destination": "/blog/",
+			"permanent": true
+		},
+		{
+			"source": "/glossario/o-que-e-orcamentos-competitivos",
+			"destination": "/blog/",
+			"permanent": true
+		},
+		{
+			"source": "/hidrojateamento-em-belo-horizonte",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/hidrojateamento-em-sao-roque",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/infestacao-de-cupins-na-madeira",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/jundiai-como-matar-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/larva-de-vagalume-no-cupinzeiro",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-caixa-de-gordura-no-morumbi",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-dagua-em-boituva",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-dagua-em-sao-bernardo-do-campo",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-de-gordura-em-aldeia-da-serra",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-de-gordura-em-jandira",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-de-gordura-em-mairinque",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-de-gordura-em-pinheiros",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-de-gordura-em-sao-bernardo-do-campo",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-de-gordura-na-barra-funda",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-de-gordura-na-lapa-sp",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-calha-em-sao-bernardo-do-campo",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-calhas-em-embu-das-artes",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-calhas-em-mairinque",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-calhas-em-sao-roque",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-coifa",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/madeira-seca-cupins-cupim-madeira-seca-parasitas",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/maneijo-de-pombos-em-sao-paulo-sp",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-ratos-em-osasco-2",
+			"destination": "/matar-ratos-em-osasco/",
+			"permanent": true
+		},
+		{
+			"source": "/melhor-veneno-para-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/melhor-veneno-para-cupim-de-madeira",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/melhor-veneno-para-cupim-em-curitiba",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/melhor-veneno-para-cupim-em-fortaleza",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/melhor-veneno-para-cupim-em-macapa",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/melhor-veneno-para-cupim-em-recife",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/melhor-veneno-para-cupim-maceio",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/melhor-veneno-para-cupim-no-rj",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/melhor-veneno-para-cupim-salvador",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/ninhos-de-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/o-cupim-e-um-inseto",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/o-que-e-bom-para-acabar-com-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/o-que-e-bom-para-matar-pulgas-no-ambiente",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/o-que-fazer-para-acabar-com-cupim-de-madeira",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/o-tipo-de-cupim-que-causa-mais-danos-no-brasil",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/os-cupins-voam-na-casa",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/ovos-de-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/preco-de-dedetizacao-de-carrapato",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/produtos-inseticidas-utilizados-na-dedetizacao",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/qualidade-em-controle-de-pombos",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/quanto-custa-um-servico-de-dedetizacao-de-ratos",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/quanto-custa-uma-dedetizacao-de-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/quanto-custa-uma-dedetizacao-de-pulga",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/sanitizacao-em-jandira",
+			"destination": "/sanitizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/sanitizacao/regioes",
+			"destination": "/sanitizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/sao-sebastiao-sp",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/sao-sebastiao-sp/dedetizacao-de-cupins",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/sao-sebastiao-sp/dedetizadora-de-cupins",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/sao-sebastiao-sp/descupinizacao",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/servicos-de-dedetizacao-de-cupins",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/sinais-iniciais-de-cupins-no-teto",
+			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/tubos-de-lama-de-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/veneno-para-cupim",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/veneno-para-cupim-de-madeira",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		}
 	]
 }

@@ -24,6 +24,7 @@ const STATIC_REDIRECTS = {
 	'glossario-tudo-sobre-descupinizacao': '/blog/',
 	'dedetizacao-de-cupins': '/descupinizacao/',
 	'dedetizadora-de-cupim': '/descupinizacao/',
+	'sanitizacao/regioes': '/sanitizacao/',
 };
 
 export function normalizePathKey(itemPath = '') {

@@ -28,12 +28,22 @@ const POLICIES: ClusterPolicyFile[] = [
 ];
 
 const redirects: Record<string, string> = {};
+const redirectsByKey = new Map<string, string>();
 const noindexPaths = new Set<string>();
 const redirectSources = new Set<string>();
+
+function normalizePathKey(itemPath: string): string {
+	return itemPath.replace(/^\/+|\/+$/g, '').toLowerCase();
+}
+
+function normalizeDestination(destination: string): string {
+	return destination.endsWith('/') ? destination : `${destination}/`;
+}
 
 for (const policy of POLICIES) {
 	for (const [from, to] of Object.entries(policy.redirects)) {
 		redirects[from] = to;
+		redirectsByKey.set(normalizePathKey(from), to);
 		redirectSources.add(from);
 	}
 
@@ -57,14 +67,20 @@ export function getSeoPolicyStats() {
 }
 
 export function isRedirectedPath(itemPath: string): boolean {
-	return redirectSources.has(itemPath);
+	return redirectSources.has(itemPath) || redirectsByKey.has(normalizePathKey(itemPath));
 }
 
 export function getRedirectDestination(itemPath: string): string | undefined {
-	const destination = redirects[itemPath];
+	const key = normalizePathKey(itemPath);
+	let destination = redirects[itemPath] ?? redirectsByKey.get(key);
+
+	if (!destination && key.endsWith('/embed')) {
+		destination = redirectsByKey.get(key.replace(/\/embed$/, ''));
+	}
+
 	if (!destination) return undefined;
 
-	return destination.endsWith('/') ? destination : `${destination}/`;
+	return normalizeDestination(destination);
 }
 
 export function shouldNoindexPath(itemPath: string, wpRobotsNoindex = false): boolean {
