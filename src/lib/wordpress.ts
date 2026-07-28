@@ -23,6 +23,14 @@ const postModules = import.meta.glob<{ default: WpContent }>('../data/wp/posts/*
 
 export const BLOG_POSTS_PER_PAGE = 12;
 
+/** true se o JSON ainda existe em pages/posts (não arquivado em archive/removed-wp-pages/). */
+function hasWpContentModule(type: 'page' | 'post', id: number): boolean {
+	const folder = type === 'page' ? 'pages' : 'posts';
+	const key = `../data/wp/${folder}/${id}.json`;
+	const modules = type === 'page' ? pageModules : postModules;
+	return Boolean(modules[key]);
+}
+
 export function getManifest(): WpManifest {
 	return manifest as WpManifest;
 }
@@ -48,11 +56,15 @@ export function findByPath(itemPath: string): {
 	}
 
 	const data = getManifest();
-	const page = data.pages.find((entry) => entry.path === itemPath);
+	const page = data.pages.find(
+		(entry) => entry.path === itemPath && hasWpContentModule('page', entry.id),
+	);
 
 	if (page) return { type: 'page', entry: page };
 
-	const post = data.posts.find((entry) => entry.path === itemPath);
+	const post = data.posts.find(
+		(entry) => entry.path === itemPath && hasWpContentModule('post', entry.id),
+	);
 
 	if (post) return { type: 'post', entry: post };
 
@@ -66,9 +78,13 @@ export function getHomePage(): WpManifestEntry | undefined {
 export function getAllContentPaths(): string[] {
 	const data = getManifest();
 
+	// hasWpContentModule: ignora IDs cujo JSON foi movido para archive/removed-wp-pages/
+	const livePages = data.pages.filter((entry) => hasWpContentModule('page', entry.id));
+	const livePosts = data.posts.filter((entry) => hasWpContentModule('post', entry.id));
+
 	return [
 		...new Set(
-			[...data.pages, ...data.posts, ...getEditorialManifestEntries()]
+			[...livePages, ...livePosts, ...getEditorialManifestEntries()]
 				.map((entry) => entry.path)
 				.filter(
 					(itemPath) =>
@@ -81,7 +97,8 @@ export function getAllContentPaths(): string[] {
 }
 
 export function getBlogPosts(): WpManifestEntry[] {
-	return [...getManifest().posts, ...getEditorialManifestEntries()].sort(
+	const livePosts = getManifest().posts.filter((entry) => hasWpContentModule('post', entry.id));
+	return [...livePosts, ...getEditorialManifestEntries()].sort(
 		(a, b) => new Date(b.modified).getTime() - new Date(a.modified).getTime(),
 	);
 }

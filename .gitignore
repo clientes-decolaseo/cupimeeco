@@ -28,3 +28,10 @@ pnpm-debug.log*
 
 # vercel
 .vercel
+
+# auditorias locais (não versionar)
+.tmp-audit-cidades.csv
+scripts/.tmp-audit-cidades.csv
+scripts/.tmp-audit-priorizacao.csv
+scripts/.tmp-plano-remocao.csv
+.tmp-*
