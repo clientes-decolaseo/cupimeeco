@@ -5,6 +5,7 @@ import foraAreaPolicy from '../data/seo/fora-area-policy.json';
 import duplicatesPolicy from '../data/seo/duplicates-policy.json';
 import sanitizacaoPolicy from '../data/seo/sanitizacao-policy.json';
 import mosquitosPolicy from '../data/seo/mosquitos-policy.json';
+import cidadesRedirectsJson from '../../scripts/redirects-cidades.json';
 
 export interface SeoPolicyResult {
 	redirectTo?: string;
@@ -49,6 +50,19 @@ for (const policy of POLICIES) {
 
 	for (const path of policy.noindex ?? []) {
 		noindexPaths.add(path);
+	}
+}
+
+// 301 de cidades (scripts/redirects-cidades.json) — exclui path da geração estática
+for (const [from, to] of Object.entries(cidadesRedirectsJson as Record<string, unknown>)) {
+	if (from === '_meta' || from.startsWith('_')) continue;
+	if (typeof to !== 'string') continue;
+	const source = normalizePathKey(from);
+	if (!source) continue;
+	if (!redirectsByKey.has(source)) {
+		redirects[source] = to;
+		redirectsByKey.set(source, to);
+		redirectSources.add(source);
 	}
 }
 

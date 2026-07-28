@@ -10,6 +10,7 @@ import foraAreaPolicy from './src/data/seo/fora-area-policy.json';
 import duplicatesPolicy from './src/data/seo/duplicates-policy.json';
 import sanitizacaoPolicy from './src/data/seo/sanitizacao-policy.json';
 import mosquitosPolicy from './src/data/seo/mosquitos-policy.json';
+import cidadesRedirectsJson from './scripts/redirects-cidades.json' with { type: 'json' };
 
 const policyFiles = [
 	cupimPolicy,
@@ -37,6 +38,39 @@ for (const policy of policyFiles) {
 		const destination = to.replace(/\/+$/, '') || '/';
 		clusterRedirects[`/${from}`] = { status: 301, destination };
 	}
+}
+
+/** Redirects 301 de cidades (fora da área) — merge sem sobrescrever chaves já existentes. */
+function normalizeRedirectKey(key = '') {
+	return String(key).replace(/^\/+|\/+$/g, '').toLowerCase();
+}
+
+const existingRedirectKeys = new Set(
+	[
+		'/sitemap.xml',
+		'/d',
+		'/d/[...slug]',
+		'/desratizacao',
+		'/fotos',
+		'/biblioteca-da-universo',
+		'/glossario-tudo-sobre-descupinizacao',
+		'/sanitizacao/regioes',
+		'/controle-de-mosquitos/regioes',
+		'/dedetizacao-de-cupins',
+		'/dedetizadora-de-cupim',
+		...Object.keys(clusterRedirects),
+	].map(normalizeRedirectKey),
+);
+
+/** @type {Record<string, string>} */
+const cidadesRedirects = {};
+for (const [from, to] of Object.entries(cidadesRedirectsJson)) {
+	if (from === '_meta' || from.startsWith('_')) continue;
+	if (existingRedirectKeys.has(normalizeRedirectKey(from))) continue;
+	cidadesRedirects[from] = typeof to === 'string' ? to : String(to?.destination ?? to);
+	existingRedirectKeys.add(normalizeRedirectKey(from));
+	// sitemap: não listar URLs que só redirecionam
+	redirectSources.add(normalizeRedirectKey(from));
 }
 
 function pathnameFromSitemapUrl(url) {
@@ -74,6 +108,9 @@ export default defineConfig({
 		}),
 	],
 	redirects: {
+		// Cidades fora da área (scripts/redirects-cidades.json) — entradas
+		// já existentes abaixo têm prioridade e não são sobrescritas.
+		...cidadesRedirects,
 		'/sitemap.xml': {
 			status: 301,
 			destination: '/sitemap-index.xml',
