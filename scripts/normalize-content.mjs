@@ -21,19 +21,15 @@ const ROOT = path.resolve('.');
 const PRIO_CSV = path.join(ROOT, 'scripts', '.tmp-audit-priorizacao.csv');
 const AUDIT_CSV = path.join(ROOT, 'scripts', '.tmp-audit-cidades.csv');
 const OUT_TELEFONE = path.join(ROOT, 'scripts', '.tmp-normalizacao-telefone.csv');
+const OUT_TELEFONE_V2 = path.join(ROOT, 'scripts', '.tmp-normalizacao-telefone-v2.csv');
+const OUT_TELEFONES_UNICOS = path.join(ROOT, 'scripts', '.tmp-telefones-unicos.json');
 const OUT_LINKS = path.join(ROOT, 'scripts', '.tmp-normalizacao-links.csv');
 const OUT_MARCA = path.join(ROOT, 'scripts', '.tmp-revisao-marca.csv');
 const OUT_PADROES = path.join(ROOT, 'scripts', '.tmp-padroes-marca.csv');
 
 const OFFICIAL_PHONE_DISPLAY = '0800 111 7272';
 const OFFICIAL_PHONE_DIGITS = '08001117272';
-const OFFICIAL_TEL_HREF = `tel:${OFFICIAL_PHONE_DIGITS}`;
-
-/** Padrão do audit + variante compacta em title/seo: "(11)3211-0000" (sem espaço após DDD). */
-const PHONE_RE =
-	/(?:0800[\s.\-]?\d{3}[\s.\-]?\d{4})|(?:\(\d{2}\)\s*\d{4,5}[\s.\-]?\d{4})|(?:\(?\d{2}\)?[\s.\-]\d{4,5}[\s.\-]\d{4})|(?:\+?55[\s.\-]?\(?\d{2}\)?[\s.\-]?\d{4,5}[\s.\-]\d{4})/g;
-
-const TEL_HREF_RE = /href\s*=\s*(["'])\s*tel:([^"']+)\1/gi;
+const OFFICIAL_TEL_DIGITS = OFFICIAL_PHONE_DIGITS;
 
 const WHITELIST_SUFFIXES = [
 	'cupins.eco.br',
@@ -206,13 +202,22 @@ function normalizePhoneDigits(phone) {
 	return String(phone ?? '').replace(/\D/g, '');
 }
 
+/** Forma canônica exata — não precisa substituir. */
+function isExactOfficialForm(phone) {
+	const t = String(phone ?? '').trim();
+	if (t === OFFICIAL_PHONE_DISPLAY) return true;
+	if (t === OFFICIAL_PHONE_DIGITS) return true;
+	if (t === `tel:${OFFICIAL_PHONE_DIGITS}`) return true;
+	return normalizePhoneDigits(t) === OFFICIAL_PHONE_DIGITS;
+}
+
+/** Qualquer variante do 0800 oficial (com 55, zero faltando, etc.). */
 function isOfficialPhone(phone) {
 	const digits = normalizePhoneDigits(phone);
 	if (!digits) return false;
-	if (digits === OFFICIAL_PHONE_DIGITS) return true;
-	if (digits === `55${OFFICIAL_PHONE_DIGITS}`) return true;
-	// Ex.: 551108001117272 (55 + DDD + 0800…)
-	if (digits.endsWith(OFFICIAL_PHONE_DIGITS)) return true;
+	if (digits.includes(OFFICIAL_PHONE_DIGITS)) return true;
+	// 8001117272 (faltou o 0 inicial do 0800)
+	if (digits.endsWith('8001117272')) return true;
 	return false;
 }
 
@@ -265,151 +270,378 @@ async function writeCsv(filePath, headers, rows) {
 	await writeFile(filePath, `${lines.join('\n')}\n`, 'utf8');
 }
 
-// ——— telefone ———
-
-/** Campos textuais do JSON WP a normalizar (além de content). */
-const PHONE_TEXT_FIELDS_TOP = ['title', 'excerpt', 'description', 'caption', 'summary'];
-const PHONE_TEXT_FIELDS_SEO = ['title', 'description', 'ogTitle', 'ogDescription', 'twitterDescription'];
+// ——— telefone (lista fechada + substituição literal) ———
 
 /**
- * Substitui telefones não oficiais no texto.
- * Preserva tel: hrefs com formato oficial.
+ * Agrega telefones únicos da coluna `telefones` do audit (Etapa 4).
+ * Salva em scripts/.tmp-telefones-unicos.json
+ * @returns {Promise<{ numero: string, ocorrencias_paginas: number }[]>}
  */
-function normalizePhonesInText(text) {
-	let changed = 0;
-	/** @type {Map<string, number>} */
-	const found = new Map();
-
-	// 1) href="tel:..."
-	let out = text.replace(TEL_HREF_RE, (full, quote, telBody) => {
-		const sample = String(telBody).trim();
-		if (isOfficialPhone(sample)) return full;
-		found.set(`tel:${sample}`, (found.get(`tel:${sample}`) ?? 0) + 1);
-		changed += 1;
-		return `href=${quote}${OFFICIAL_TEL_HREF}${quote}`;
-	});
-
-	// 2) Campos JSON "telefone"/"phone": "..." (quando o pedaço for o arquivo inteiro)
-	out = out.replace(
-		/(["'](?:telefone|phone|tel|whatsapp|celular)["']\s*:\s*["'])([^"']+)(["'])/gi,
-		(full, prefix, value, suffix) => {
-			if (!PHONE_RE.test(value) && !/\d{8,}/.test(value)) return full;
-			PHONE_RE.lastIndex = 0;
-			if (isOfficialPhone(value)) return full;
-			found.set(value.trim(), (found.get(value.trim()) ?? 0) + 1);
-			changed += 1;
-			return `${prefix}${OFFICIAL_PHONE_DISPLAY}${suffix}`;
-		},
-	);
-
-	// 3) Telefones em texto (fora de tel: já tratados)
-	const masks = [];
-	out = out.replace(/tel:[+\d\s.\-()]+/gi, (m) => {
-		const token = `__TEL_MASK_${masks.length}__`;
-		masks.push(m);
-		return token;
-	});
-
-	PHONE_RE.lastIndex = 0;
-	out = out.replace(PHONE_RE, (match) => {
-		if (isOfficialPhone(match)) return match;
-		const trimmed = match.trim();
-		found.set(trimmed, (found.get(trimmed) ?? 0) + 1);
-		changed += 1;
-		return OFFICIAL_PHONE_DISPLAY;
-	});
-
-	out = out.replace(/__TEL_MASK_(\d+)__/g, (_, idx) => masks[Number(idx)] ?? '');
-
-	return { text: out, changed, found };
-}
-
-function mergePhoneFound(into, from) {
-	for (const [k, n] of from.entries()) {
-		into.set(k, (into.get(k) ?? 0) + n);
+async function loadOrBuildUniquePhones() {
+	if (await pathExists(OUT_TELEFONES_UNICOS)) {
+		try {
+			const data = JSON.parse(await readFile(OUT_TELEFONES_UNICOS, 'utf8'));
+			if (Array.isArray(data) && data.length > 0) {
+				console.log(
+					`📞 Lista de telefones: ${path.relative(ROOT, OUT_TELEFONES_UNICOS)} (${data.length} únicos)\n`,
+				);
+				return data;
+			}
+		} catch {
+			/* regenera abaixo */
+		}
 	}
+
+	if (!(await pathExists(AUDIT_CSV))) {
+		console.error(
+			`❌ Não encontrei ${path.relative(ROOT, AUDIT_CSV)} nem ${path.relative(ROOT, OUT_TELEFONES_UNICOS)}.\n` +
+				`   Rode antes: npm run audit:cidades`,
+		);
+		process.exit(1);
+	}
+
+	const rows = await readCsvRows(AUDIT_CSV);
+	/** @type {Map<string, number>} */
+	const freq = new Map();
+
+	for (const row of rows) {
+		const cell = String(row.telefones ?? '');
+		const seenInPage = new Set();
+		for (const part of cell.split('|')) {
+			const numero = part.trim();
+			if (!numero) continue;
+			if (seenInPage.has(numero)) continue;
+			seenInPage.add(numero);
+			freq.set(numero, (freq.get(numero) ?? 0) + 1);
+		}
+	}
+
+	const list = [...freq.entries()]
+		.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+		.map(([numero, ocorrencias_paginas]) => ({ numero, ocorrencias_paginas }));
+
+	await writeFile(OUT_TELEFONES_UNICOS, `${JSON.stringify(list, null, 2)}\n`, 'utf8');
+	console.log(
+		`📞 Telefones únicos regenerados do audit: ${list.length} → ${path.relative(ROOT, OUT_TELEFONES_UNICOS)}\n`,
+	);
+	return list;
 }
 
 /**
- * Normaliza telefones em content + metadata textual (title, excerpt, seo.*, etc.).
- * @returns {{ data: object, changed: number, found: Map<string, number>, campos: string[], contentChanged: number, metaChanged: number }}
+ * Gera variações literais plausíveis de escrita a partir dos dígitos.
+ * Ordenadas da mais longa para a mais curta (substituição segura).
  */
-function normalizePhonesInWpJson(data) {
-	/** @type {Map<string, number>} */
-	const found = new Map();
-	/** @type {string[]} */
-	const campos = [];
-	let changed = 0;
-	let contentChanged = 0;
-	let metaChanged = 0;
+function generatePhoneVariations(numeroOriginal) {
+	const original = String(numeroOriginal ?? '').trim();
+	const digits = normalizePhoneDigits(original);
+	/** @type {Set<string>} */
+	const out = new Set();
+	if (!digits || digits.length < 8) return [];
 
-	const applyField = (obj, key, label, isContent = false) => {
-		if (!obj || typeof obj[key] !== 'string' || !obj[key]) return;
-		const result = normalizePhonesInText(obj[key]);
-		if (result.changed === 0) return;
-		obj[key] = result.text;
-		changed += result.changed;
-		if (isContent) contentChanged += result.changed;
-		else metaChanged += result.changed;
-		mergePhoneFound(found, result.found);
-		campos.push(`${label}:${result.changed}`);
+	const add = (s) => {
+		const t = String(s ?? '').trim();
+		if (t.length >= 7) out.add(t);
 	};
 
-	applyField(data, 'content', 'content', true);
+	add(original);
 
-	for (const key of PHONE_TEXT_FIELDS_TOP) {
-		applyField(data, key, key, false);
-	}
+	let local = digits;
+	if (local.startsWith('55') && local.length >= 12) local = local.slice(2);
 
-	// Campos soltos tipo telefone/phone no root
-	for (const key of ['telefone', 'phone', 'tel', 'whatsapp', 'celular']) {
-		applyField(data, key, key, false);
-	}
-
-	if (data.seo && typeof data.seo === 'object') {
-		for (const key of PHONE_TEXT_FIELDS_SEO) {
-			applyField(data.seo, key, `seo.${key}`, false);
+	// Variante do 0800 oficial (ex.: 5508001117272, 558001117272):
+	// só literais dessa forma — não reinterpretar como fixo DD+NNNN.
+	if (isOfficialPhone(original) && !isExactOfficialForm(original)) {
+		add(digits);
+		add(original);
+		if (local.startsWith('0800') && local.length === 11) {
+			const rest = local.slice(4);
+			add(local);
+			add(`0800 ${rest.slice(0, 3)} ${rest.slice(3)}`);
+			add(`0800${rest}`);
+			add(`0800-${rest.slice(0, 3)}-${rest.slice(3)}`);
+			add(`+55${local}`);
+			add(`55${local}`);
+			add(`tel:${local}`);
+			add(`tel:+55${local}`);
+			add(`tel:55${local}`);
+		} else {
+			// Forma truncada (ex.: 558001117272) — só o literal completo, sem stem curto
+			add(`+${digits}`);
+			add(`tel:${digits}`);
+			add(`tel:+${digits}`);
 		}
-		for (const key of ['telefone', 'phone', 'tel', 'whatsapp']) {
-			applyField(data.seo, key, `seo.${key}`, false);
+		return [...out].sort((a, b) => b.length - a.length || a.localeCompare(b));
+	}
+
+	// 0800 (não-oficial / outros 0800)
+	if (local.startsWith('0800') && local.length === 11) {
+		const rest = local.slice(4); // 7 dígitos
+		const a = rest.slice(0, 3);
+		const b = rest.slice(3);
+		add(`0800 ${a} ${b}`);
+		add(`0800${a}${b}`);
+		add(`0800-${a}-${b}`);
+		add(`0800.${a}.${b}`);
+		add(`0800 ${a}${b}`);
+		add(`0800-${a}${b}`);
+		add(local);
+		add(`+55${local}`);
+		add(`55${local}`);
+		add(`tel:${local}`);
+		add(`tel:+55${local}`);
+		add(`tel:55${local}`);
+		return [...out].sort((a, b) => b.length - a.length || a.localeCompare(b));
+	}
+
+	// Fixo 10 dígitos: DD + NNNN-NNNN
+	if (local.length === 10) {
+		const ddd = local.slice(0, 2);
+		const p1 = local.slice(2, 6);
+		const p2 = local.slice(6);
+		add(`(${ddd}) ${p1}-${p2}`);
+		add(`(${ddd})${p1}-${p2}`);
+		add(`(${ddd}) ${p1}${p2}`);
+		add(`(${ddd})${p1}${p2}`);
+		add(`${ddd} ${p1}-${p2}`);
+		add(`${ddd} ${p1} ${p2}`);
+		add(`${ddd}${p1}-${p2}`);
+		add(`${ddd}.${p1}.${p2}`);
+		add(`${ddd}-${p1}-${p2}`);
+		add(`${ddd}${p1}${p2}`);
+		add(`${p1}-${p2}`);
+		add(`${p1} ${p2}`);
+		add(`${p1}${p2}`);
+		add(`+55${ddd}${p1}${p2}`);
+		add(`+55 ${ddd} ${p1}-${p2}`);
+		add(`+55 (${ddd}) ${p1}-${p2}`);
+		add(`+55(${ddd})${p1}-${p2}`);
+		add(`55${ddd}${p1}${p2}`);
+		add(`tel:${ddd}${p1}${p2}`);
+		add(`tel:+55${ddd}${p1}${p2}`);
+		add(`tel:55${ddd}${p1}${p2}`);
+		add(`tel:+55${ddd}${p1}-${p2}`);
+	}
+
+	// Celular 11 dígitos: DD + NNNNN-NNNN
+	if (local.length === 11 && !local.startsWith('0800')) {
+		const ddd = local.slice(0, 2);
+		const p1 = local.slice(2, 7);
+		const p2 = local.slice(7);
+		add(`(${ddd}) ${p1}-${p2}`);
+		add(`(${ddd})${p1}-${p2}`);
+		add(`(${ddd}) ${p1}${p2}`);
+		add(`(${ddd})${p1}${p2}`);
+		add(`${ddd} ${p1}-${p2}`);
+		add(`${ddd} ${p1} ${p2}`);
+		add(`${ddd}${p1}-${p2}`);
+		add(`${ddd}.${p1}.${p2}`);
+		add(`${ddd}-${p1}-${p2}`);
+		add(`${ddd}${p1}${p2}`);
+		add(`${p1}-${p2}`);
+		add(`${p1} ${p2}`);
+		add(`${p1}${p2}`);
+		add(`+55${ddd}${p1}${p2}`);
+		add(`+55 ${ddd} ${p1}-${p2}`);
+		add(`+55 (${ddd}) ${p1}-${p2}`);
+		add(`+55(${ddd})${p1}-${p2}`);
+		add(`55${ddd}${p1}${p2}`);
+		add(`tel:${ddd}${p1}${p2}`);
+		add(`tel:+55${ddd}${p1}${p2}`);
+		add(`tel:55${ddd}${p1}${p2}`);
+		add(`tel:+55${ddd}${p1}-${p2}`);
+	}
+
+	// Também: dígitos crus com/sem 55
+	add(digits);
+	add(local);
+	if (!digits.startsWith('55')) add(`55${local}`);
+
+	return [...out].sort((a, b) => b.length - a.length || a.localeCompare(b));
+}
+
+/**
+ * Substitui literais de telefone numa string.
+ * Em contexto tel: → 08001117272; senão → 0800 111 7272.
+ * @returns {{ text: string, hits: { numero_original: string, variacao: string, count: number }[] }}
+ */
+function replacePhonesLiteralInString(text, replacementPlan) {
+	let out = text;
+	/** @type {{ numero_original: string, variacao: string, count: number }[]} */
+	const hits = [];
+
+	for (const item of replacementPlan) {
+		const { numero, variations } = item;
+		for (const variation of variations) {
+			if (!variation || !out.includes(variation)) continue;
+
+			// Conta ocorrências antes
+			let count = 0;
+			let idx = 0;
+			while ((idx = out.indexOf(variation, idx)) !== -1) {
+				count += 1;
+				idx += variation.length;
+			}
+			if (count === 0) continue;
+
+			// Substituição contextual: se a variação já começa com tel:, só dígitos oficiais
+			if (/^tel:/i.test(variation)) {
+				out = out.split(variation).join(`tel:${OFFICIAL_TEL_DIGITS}`);
+			} else {
+				// tel: imediatamente antes da variação (sem ser parte da variação)
+				const telPrefix = `tel:${variation}`;
+				if (out.includes(telPrefix)) {
+					const telCount = out.split(telPrefix).length - 1;
+					out = out.split(telPrefix).join(`tel:${OFFICIAL_TEL_DIGITS}`);
+					hits.push({
+						numero_original: numero,
+						variacao: telPrefix,
+						count: telCount,
+					});
+					// recontar o que sobrou da variação solta
+					count = 0;
+					idx = 0;
+					while ((idx = out.indexOf(variation, idx)) !== -1) {
+						count += 1;
+						idx += variation.length;
+					}
+					if (count === 0) continue;
+				}
+				out = out.split(variation).join(OFFICIAL_PHONE_DISPLAY);
+			}
+
+			hits.push({ numero_original: numero, variacao: variation, count });
 		}
 	}
 
-	return { data, changed, found, campos, contentChanged, metaChanged };
+	return { text: out, hits };
+}
+
+/**
+ * Percorre recursivamente todos os campos string do JSON.
+ * @returns {{ data: any, hits: { campo: string, numero_original: string, variacao: string, count: number }[], changed: boolean }}
+ */
+function replacePhonesInJsonTree(data, replacementPlan, basePath = '') {
+	/** @type {{ campo: string, numero_original: string, variacao: string, count: number }[]} */
+	const hits = [];
+	let changed = false;
+
+	const walk = (node, path) => {
+		if (typeof node === 'string') {
+			const { text, hits: localHits } = replacePhonesLiteralInString(node, replacementPlan);
+			if (localHits.length > 0) {
+				changed = true;
+				for (const h of localHits) {
+					hits.push({ campo: path || '(root)', ...h });
+				}
+			}
+			return text;
+		}
+		if (Array.isArray(node)) {
+			return node.map((item, i) => walk(item, path ? `${path}[${i}]` : `[${i}]`));
+		}
+		if (node && typeof node === 'object') {
+			/** @type {Record<string, unknown>} */
+			const out = Array.isArray(node) ? [] : { ...node };
+			for (const [key, value] of Object.entries(node)) {
+				out[key] = walk(value, path ? `${path}.${key}` : key);
+			}
+			return out;
+		}
+		return node;
+	};
+
+	const next = walk(data, basePath);
+	return { data: next, hits, changed };
+}
+
+/**
+ * Após simular apply: busca variações dos telefones da lista que ainda restariam.
+ * Ignora formas curtas sem DDD (ex.: "32110000") para reduzir falso positivo —
+ * mas sempre verifica o `numero` original do audit e formas com DDD / tel: / dígitos completos.
+ */
+function findRemainingPhoneSnippets(text, phoneList, replacementPlanByNumero) {
+	/** @type {{ numero: string, variacao: string, trecho: string }[]} */
+	const leftovers = [];
+
+	for (const entry of phoneList) {
+		if (isOfficialPhone(entry.numero)) continue;
+		const digits = normalizePhoneDigits(entry.numero);
+		let local = digits;
+		if (local.startsWith('55') && local.length >= 12) local = local.slice(2);
+
+		const all = replacementPlanByNumero.get(entry.numero) ?? generatePhoneVariations(entry.numero);
+		const toCheck = all.filter((v) => {
+			if (!v || v.length < 8) return false;
+			if (isOfficialPhone(v)) return false;
+			if (v === OFFICIAL_PHONE_DISPLAY || v === OFFICIAL_PHONE_DIGITS) return false;
+			if (v === `tel:${OFFICIAL_PHONE_DIGITS}`) return false;
+			const vd = normalizePhoneDigits(v.replace(/^tel:/i, ''));
+			// Relevante: forma original, tel:, contém DDD completo, ou dígitos locais completos
+			if (v === entry.numero) return true;
+			if (/^tel:/i.test(v)) return true;
+			if (/\(\d{2}\)/.test(v)) return true;
+			if (vd === local || vd === digits || vd === `55${local}`) return true;
+			if (local.length >= 10 && vd.length >= 10 && vd.includes(local)) return true;
+			return false;
+		});
+
+		for (const variation of toCheck) {
+			let idx = 0;
+			while ((idx = text.indexOf(variation, idx)) !== -1) {
+				const start = Math.max(0, idx - 40);
+				const end = Math.min(text.length, idx + variation.length + 40);
+				leftovers.push({
+					numero: entry.numero,
+					variacao: variation,
+					trecho: text.slice(start, end).replace(/\s+/g, ' '),
+				});
+				idx += variation.length;
+				if (leftovers.length > 500) return leftovers;
+			}
+		}
+	}
+	return leftovers;
 }
 
 async function cmdTelefone(apply) {
 	const targets = await loadTargetPages();
-	console.log(`📋 Alvos (página + área): ${targets.length}`);
-	console.log(`Modo: ${apply ? '--apply (grava + git add)' : 'dry-run (só CSV)'}`);
-	console.log('Campos: content + title/excerpt/description + seo.* (+ telefone/phone)\n');
+	const phoneList = await loadOrBuildUniquePhones();
 
-	/** Baseline do dry-run anterior (246 arquivos / 455 ocorrências), se existir */
-	let baselineFiles = new Set();
-	let baselineOcc = 0;
-	if (await pathExists(OUT_TELEFONE)) {
-		try {
-			const prev = await readCsvRows(OUT_TELEFONE);
-			baselineFiles = new Set(prev.map((r) => r.arquivo).filter(Boolean));
-			baselineOcc = prev.reduce((s, r) => s + (Number(r.ocorrencias_a_trocar) || 0), 0);
-			console.log(
-				`Baseline CSV anterior: ${baselineFiles.size} arquivos / ${baselineOcc} ocorrências\n`,
-			);
-		} catch {
-			/* ignore */
-		}
+	console.log(`📋 Alvos (página + área): ${targets.length}`);
+	console.log(`Modo: ${apply ? '--apply (grava + git add)' : 'dry-run (lista fechada)'}`);
+	console.log('Estratégia: substituição LITERAL por variações dos telefones únicos do audit\n');
+
+	/** Planos de substituição (pula oficiais) */
+	const replacementPlan = [];
+	/** @type {Map<string, string[]>} */
+	const planByNumero = new Map();
+
+	for (const entry of phoneList) {
+		// Só pula a forma canônica; variantes do 0800 ainda são normalizadas para o padrão
+		if (isExactOfficialForm(entry.numero)) continue;
+		const variations = generatePhoneVariations(entry.numero);
+		const filtered = variations.filter(
+			(v) => !isExactOfficialForm(v) && v !== OFFICIAL_PHONE_DISPLAY,
+		);
+		if (filtered.length === 0) continue;
+		replacementPlan.push({ numero: entry.numero, variations: filtered });
+		planByNumero.set(entry.numero, filtered);
 	}
+
+	// Ordena variações globais: processar números com variações mais longas primeiro
+	// (já ordenado dentro de cada numero; entre numeros, prioriza o primeiro hit)
+	console.log(`Telefones a normalizar (não oficiais): ${replacementPlan.length}`);
+	const totalVars = replacementPlan.reduce((s, p) => s + p.variations.length, 0);
+	console.log(`Variações literais geradas: ${totalVars}\n`);
 
 	/** @type {Record<string, string>[]} */
 	const report = [];
-	let filesWithChanges = 0;
-	let totalReplacements = 0;
-	let totalContent = 0;
-	let totalMeta = 0;
-	let filesMetaOnly = 0;
-	let filesNewVsBaseline = 0;
-	let occInNewFiles = 0;
-	let occMetaInOldFiles = 0;
+	let filesChanged = 0;
+	let totalHits = 0;
+
+	/** Para verificação pós dry-run */
+	/** @type {{ arquivo: string, numero: string, variacao: string, trecho: string }[]} */
+	const uncovered = [];
 
 	for (const target of targets) {
 		const raw = await readFile(target.abs, 'utf8');
@@ -417,99 +649,83 @@ async function cmdTelefone(apply) {
 		try {
 			data = JSON.parse(raw);
 		} catch {
-			// Fallback: arquivo não-JSON — trata texto bruto (compat)
-			const { text, changed, found } = normalizePhonesInText(raw);
-			if (changed === 0) continue;
-			filesWithChanges += 1;
-			totalReplacements += changed;
-			totalContent += changed;
-			report.push({
-				arquivo: target.arquivo,
-				campos: 'raw',
-				telefones_encontrados: [...found.entries()].map(([p, n]) => `${p} (×${n})`).join(' | '),
-				ocorrencias_a_trocar: String(changed),
-				ocorrencias_content: String(changed),
-				ocorrencias_metadata: '0',
-			});
-			if (apply && text !== raw) {
-				await writeFile(target.abs, text, 'utf8');
-				gitAdd(target.arquivo);
-			}
+			console.warn(`  ⚠ JSON inválido, pulando: ${target.arquivo}`);
 			continue;
 		}
 
-		const { data: next, changed, found, campos, contentChanged, metaChanged } =
-			normalizePhonesInWpJson(structuredClone(data));
-		if (changed === 0) continue;
+		const { data: next, hits, changed } = replacePhonesInJsonTree(
+			structuredClone(data),
+			replacementPlan,
+		);
 
-		filesWithChanges += 1;
-		totalReplacements += changed;
-		totalContent += contentChanged;
-		totalMeta += metaChanged;
-		if (metaChanged > 0 && contentChanged === 0) filesMetaOnly += 1;
+		if (changed && hits.length > 0) {
+			filesChanged += 1;
+			for (const h of hits) {
+				totalHits += h.count;
+				report.push({
+					arquivo: target.arquivo,
+					numero_original: h.numero_original,
+					variacao: h.variacao,
+					campo: h.campo,
+					ocorrencias: String(h.count),
+				});
+			}
 
-		const inBaseline = baselineFiles.has(target.arquivo);
-		if (!inBaseline) {
-			filesNewVsBaseline += 1;
-			occInNewFiles += changed;
-		} else if (metaChanged > 0) {
-			// Em arquivos já listados, ocorrências extras típicas de metadata
-			occMetaInOldFiles += metaChanged;
-		}
-
-		report.push({
-			arquivo: target.arquivo,
-			campos: campos.join(' | '),
-			telefones_encontrados: [...found.entries()].map(([p, n]) => `${p} (×${n})`).join(' | '),
-			ocorrencias_a_trocar: String(changed),
-			ocorrencias_content: String(contentChanged),
-			ocorrencias_metadata: String(metaChanged),
-		});
-
-		if (apply) {
-			const out = `${JSON.stringify(next, null, 2)}\n`;
-			if (out !== raw) {
+			if (apply) {
+				const out = `${JSON.stringify(next, null, 2)}\n`;
 				await writeFile(target.abs, out, 'utf8');
 				gitAdd(target.arquivo);
 			}
 		}
+
+		// Verificação: simula o texto pós-apply (árvore next) e procura restos
+		const probeText = JSON.stringify(changed ? next : data);
+		const left = findRemainingPhoneSnippets(probeText, phoneList, planByNumero);
+		for (const L of left) {
+			uncovered.push({ arquivo: target.arquivo, ...L });
+		}
 	}
 
 	await writeCsv(
-		OUT_TELEFONE,
-		[
-			'arquivo',
-			'campos',
-			'telefones_encontrados',
-			'ocorrencias_a_trocar',
-			'ocorrencias_content',
-			'ocorrencias_metadata',
-		],
+		OUT_TELEFONE_V2,
+		['arquivo', 'numero_original', 'variacao', 'campo', 'ocorrencias'],
 		report,
 	);
 
-	console.log(`Arquivos com telefone a normalizar: ${filesWithChanges}`);
-	console.log(`Ocorrências totais:                 ${totalReplacements}`);
-	console.log(`  · em content:                     ${totalContent}`);
-	console.log(`  · em metadata (title/excerpt/seo): ${totalMeta}`);
-	console.log(`Arquivos só-metadata (sem content): ${filesMetaOnly}`);
+	console.log(`Arquivos com substituição: ${filesChanged}`);
+	console.log(`Ocorrências substituídas:  ${totalHits}`);
+	console.log(`CSV: ${path.relative(ROOT, OUT_TELEFONE_V2)}`);
 
-	if (baselineFiles.size > 0) {
-		const deltaFiles = filesWithChanges - baselineFiles.size;
-		const deltaOcc = totalReplacements - baselineOcc;
-		console.log('\n=== Comparação com baseline 246/455 ===');
-		console.log(`Arquivos agora:     ${filesWithChanges}  (Δ arquivos = ${deltaFiles >= 0 ? '+' : ''}${deltaFiles})`);
-		console.log(`Ocorrências agora:  ${totalReplacements}  (Δ ocorrências = ${deltaOcc >= 0 ? '+' : ''}${deltaOcc})`);
-		console.log(`Arquivos novos vs baseline:           ${filesNewVsBaseline} (+${occInNewFiles} ocorrências)`);
-		console.log(
-			`Ocorrências de metadata em arquivos já no baseline: ${occMetaInOldFiles}`,
-		);
-		console.log(
-			`Adicional efetivo (novos arquivos + meta em arquivos antigos): ${filesNewVsBaseline} arquivos / ${occInNewFiles + occMetaInOldFiles} ocorrências`,
-		);
+	// Dedup uncovered por numero+variacao+trecho
+	const seenUnc = new Set();
+	const uncoveredUnique = [];
+	for (const u of uncovered) {
+		const key = `${u.numero}||${u.variacao}||${u.trecho}`;
+		if (seenUnc.has(key)) continue;
+		seenUnc.add(key);
+		uncoveredUnique.push(u);
 	}
 
-	console.log(`\nCSV: ${path.relative(ROOT, OUT_TELEFONE)}`);
+	console.log('\n=== Verificação pós-substituição (lista dos 39) ===');
+	if (uncoveredUnique.length === 0) {
+		console.log('✓ ZERO ocorrências relevantes restantes nos arquivos-alvo após o apply simulado.');
+	} else {
+		console.log(
+			`⚠ ATENÇÃO: ${uncoveredUnique.length} ocorrência(s) de variação não coberta (ou remanescente):\n`,
+		);
+		for (const u of uncoveredUnique.slice(0, 40)) {
+			console.log('ATENÇÃO: variação não coberta');
+			console.log(`  numero lista: ${u.numero}`);
+			console.log(`  variacao:     ${u.variacao}`);
+			console.log(`  arquivo:      ${u.arquivo}`);
+			console.log(`  trecho:       ${u.trecho}`);
+			console.log('');
+		}
+		if (uncoveredUnique.length > 40) {
+			console.log(`  … +${uncoveredUnique.length - 40} outras`);
+		}
+	}
+
 	if (apply) {
 		console.log('\n✓ Alterações aplicadas e staged (git add). Sem commit.');
 	} else {
