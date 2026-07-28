@@ -273,12 +273,20 @@ async function writeCsv(filePath, headers, rows) {
 // ——— telefone (lista fechada + substituição literal) ———
 
 /**
+ * Telefones BR (mesma lógica do audit-city-pages.mjs):
+ * fixo (DD)+8 dígitos e celular (DD)+9 dígitos (em geral começando com 9).
+ */
+const PHONE_RE =
+	/(?:0800[\s.\-]?\d{3}[\s.\-]?\d{4})|(?:\(\d{2}\)\s*\d{4,5}[\s.\-]?\d{4})|(?:\(?\d{2}\)?[\s.\-]\d{4,5}[\s.\-]\d{4})|(?:\+?55[\s.\-]?\(?\d{2}\)?[\s.\-]?\d{4,5}[\s.\-]?\d{4})|(?:\+?55\d{10,11})/g;
+
+/**
  * Agrega telefones únicos da coluna `telefones` do audit (Etapa 4).
  * Salva em scripts/.tmp-telefones-unicos.json
+ * Passe force=true para regenerar mesmo se o arquivo já existir.
  * @returns {Promise<{ numero: string, ocorrencias_paginas: number }[]>}
  */
-async function loadOrBuildUniquePhones() {
-	if (await pathExists(OUT_TELEFONES_UNICOS)) {
+async function loadOrBuildUniquePhones(force = false) {
+	if (!force && (await pathExists(OUT_TELEFONES_UNICOS))) {
 		try {
 			const data = JSON.parse(await readFile(OUT_TELEFONES_UNICOS, 'utf8'));
 			if (Array.isArray(data) && data.length > 0) {
@@ -328,7 +336,63 @@ async function loadOrBuildUniquePhones() {
 }
 
 /**
+ * Variações de formatação para DDD + assinante (8 ou 9 dígitos).
+ * @param {(s: string) => void} add
+ * @param {string} ddd
+ * @param {string} sub assinante (8=fixo, 9=celular)
+ */
+function addDddSubscriberVariations(add, ddd, sub) {
+	if (!ddd || !sub || (sub.length !== 8 && sub.length !== 9)) return;
+	const p1 = sub.length === 9 ? sub.slice(0, 5) : sub.slice(0, 4);
+	const p2 = sub.length === 9 ? sub.slice(5) : sub.slice(4);
+
+	const baseForms = [
+		`(${ddd}) ${p1}-${p2}`,
+		`(${ddd})${p1}-${p2}`,
+		`(${ddd}) ${p1}${p2}`,
+		`(${ddd})${p1}${p2}`,
+		`(${ddd}) ${p1} ${p2}`,
+		`(${ddd})-${p1}-${p2}`,
+		`(${ddd}).${p1}.${p2}`,
+		`${ddd} ${p1}-${p2}`,
+		`${ddd} ${p1} ${p2}`,
+		`${ddd}${p1}-${p2}`,
+		`${ddd}.${p1}.${p2}`,
+		`${ddd}-${p1}-${p2}`,
+		`${ddd}${p1}${p2}`,
+		`${p1}-${p2}`,
+		`${p1} ${p2}`,
+		`${p1}${p2}`,
+		`+55${ddd}${p1}${p2}`,
+		`+55 ${ddd} ${p1}-${p2}`,
+		`+55 (${ddd}) ${p1}-${p2}`,
+		`+55(${ddd})${p1}-${p2}`,
+		`+55(${ddd}) ${p1}-${p2}`,
+		`55${ddd}${p1}${p2}`,
+		`55 ${ddd} ${p1}-${p2}`,
+		`tel:${ddd}${p1}${p2}`,
+		`tel:+55${ddd}${p1}${p2}`,
+		`tel:55${ddd}${p1}${p2}`,
+		`tel:+55${ddd}${p1}-${p2}`,
+		`tel:(${ddd})${p1}-${p2}`,
+		`tel:(${ddd}) ${p1}-${p2}`,
+	];
+
+	for (const form of baseForms) {
+		add(form);
+		// Separadores tipográficos comuns em HTML/WP
+		add(form.replace(/ /g, '\u00a0'));
+		add(form.replace(/ /g, '\u202f'));
+		add(form.replace(/-/g, '\u2011'));
+		add(form.replace(/-/g, '\u2010'));
+		add(form.replace(/ /g, '\u00a0').replace(/-/g, '\u2011'));
+		add(form.replace(/ /g, '\u202f').replace(/-/g, '\u2011'));
+	}
+}
+
+/**
  * Gera variações literais plausíveis de escrita a partir dos dígitos.
+ * Cobre fixo (8) e celular (9) com/sem espaço, parênteses e hífen.
  * Ordenadas da mais longa para a mais curta (substituição segura).
  */
 function generatePhoneVariations(numeroOriginal) {
@@ -341,9 +405,12 @@ function generatePhoneVariations(numeroOriginal) {
 	const add = (s) => {
 		const t = String(s ?? '').trim();
 		if (t.length >= 7) out.add(t);
+		// também versão com espaço normal se veio com NBSP
+		if (t.includes('\u00a0')) out.add(t.replace(/\u00a0/g, ' '));
 	};
 
 	add(original);
+	if (original.includes('\u00a0')) add(original.replace(/\u00a0/g, ' '));
 
 	let local = digits;
 	if (local.startsWith('55') && local.length >= 12) local = local.slice(2);
@@ -393,62 +460,11 @@ function generatePhoneVariations(numeroOriginal) {
 		return [...out].sort((a, b) => b.length - a.length || a.localeCompare(b));
 	}
 
-	// Fixo 10 dígitos: DD + NNNN-NNNN
-	if (local.length === 10) {
+	// Fixo 10 dígitos (DD + 8) ou celular 11 dígitos (DD + 9)
+	if (local.length === 10 || (local.length === 11 && !local.startsWith('0800'))) {
 		const ddd = local.slice(0, 2);
-		const p1 = local.slice(2, 6);
-		const p2 = local.slice(6);
-		add(`(${ddd}) ${p1}-${p2}`);
-		add(`(${ddd})${p1}-${p2}`);
-		add(`(${ddd}) ${p1}${p2}`);
-		add(`(${ddd})${p1}${p2}`);
-		add(`${ddd} ${p1}-${p2}`);
-		add(`${ddd} ${p1} ${p2}`);
-		add(`${ddd}${p1}-${p2}`);
-		add(`${ddd}.${p1}.${p2}`);
-		add(`${ddd}-${p1}-${p2}`);
-		add(`${ddd}${p1}${p2}`);
-		add(`${p1}-${p2}`);
-		add(`${p1} ${p2}`);
-		add(`${p1}${p2}`);
-		add(`+55${ddd}${p1}${p2}`);
-		add(`+55 ${ddd} ${p1}-${p2}`);
-		add(`+55 (${ddd}) ${p1}-${p2}`);
-		add(`+55(${ddd})${p1}-${p2}`);
-		add(`55${ddd}${p1}${p2}`);
-		add(`tel:${ddd}${p1}${p2}`);
-		add(`tel:+55${ddd}${p1}${p2}`);
-		add(`tel:55${ddd}${p1}${p2}`);
-		add(`tel:+55${ddd}${p1}-${p2}`);
-	}
-
-	// Celular 11 dígitos: DD + NNNNN-NNNN
-	if (local.length === 11 && !local.startsWith('0800')) {
-		const ddd = local.slice(0, 2);
-		const p1 = local.slice(2, 7);
-		const p2 = local.slice(7);
-		add(`(${ddd}) ${p1}-${p2}`);
-		add(`(${ddd})${p1}-${p2}`);
-		add(`(${ddd}) ${p1}${p2}`);
-		add(`(${ddd})${p1}${p2}`);
-		add(`${ddd} ${p1}-${p2}`);
-		add(`${ddd} ${p1} ${p2}`);
-		add(`${ddd}${p1}-${p2}`);
-		add(`${ddd}.${p1}.${p2}`);
-		add(`${ddd}-${p1}-${p2}`);
-		add(`${ddd}${p1}${p2}`);
-		add(`${p1}-${p2}`);
-		add(`${p1} ${p2}`);
-		add(`${p1}${p2}`);
-		add(`+55${ddd}${p1}${p2}`);
-		add(`+55 ${ddd} ${p1}-${p2}`);
-		add(`+55 (${ddd}) ${p1}-${p2}`);
-		add(`+55(${ddd})${p1}-${p2}`);
-		add(`55${ddd}${p1}${p2}`);
-		add(`tel:${ddd}${p1}${p2}`);
-		add(`tel:+55${ddd}${p1}${p2}`);
-		add(`tel:55${ddd}${p1}${p2}`);
-		add(`tel:+55${ddd}${p1}-${p2}`);
+		const sub = local.slice(2);
+		addDddSubscriberVariations(add, ddd, sub);
 	}
 
 	// Também: dígitos crus com/sem 55
@@ -556,15 +572,18 @@ function replacePhonesInJsonTree(data, replacementPlan, basePath = '') {
 
 /**
  * Após simular apply: busca variações dos telefones da lista que ainda restariam.
- * Ignora formas curtas sem DDD (ex.: "32110000") para reduzir falso positivo —
- * mas sempre verifica o `numero` original do audit e formas com DDD / tel: / dígitos completos.
+ * Também normaliza espaços/hífens tipográficos antes de procurar.
  */
 function findRemainingPhoneSnippets(text, phoneList, replacementPlanByNumero) {
 	/** @type {{ numero: string, variacao: string, trecho: string }[]} */
 	const leftovers = [];
+	const normText = text
+		.replace(/[\u00a0\u202f\u2007\u2009]/g, ' ')
+		.replace(/[\u2010\u2011\u2012\u2013\u2212]/g, '-');
 
 	for (const entry of phoneList) {
 		if (isOfficialPhone(entry.numero)) continue;
+
 		const digits = normalizePhoneDigits(entry.numero);
 		let local = digits;
 		if (local.startsWith('55') && local.length >= 12) local = local.slice(2);
@@ -572,11 +591,10 @@ function findRemainingPhoneSnippets(text, phoneList, replacementPlanByNumero) {
 		const all = replacementPlanByNumero.get(entry.numero) ?? generatePhoneVariations(entry.numero);
 		const toCheck = all.filter((v) => {
 			if (!v || v.length < 8) return false;
-			if (isOfficialPhone(v)) return false;
+			if (isExactOfficialForm(v)) return false;
 			if (v === OFFICIAL_PHONE_DISPLAY || v === OFFICIAL_PHONE_DIGITS) return false;
 			if (v === `tel:${OFFICIAL_PHONE_DIGITS}`) return false;
 			const vd = normalizePhoneDigits(v.replace(/^tel:/i, ''));
-			// Relevante: forma original, tel:, contém DDD completo, ou dígitos locais completos
 			if (v === entry.numero) return true;
 			if (/^tel:/i.test(v)) return true;
 			if (/\(\d{2}\)/.test(v)) return true;
@@ -586,17 +604,25 @@ function findRemainingPhoneSnippets(text, phoneList, replacementPlanByNumero) {
 		});
 
 		for (const variation of toCheck) {
-			let idx = 0;
-			while ((idx = text.indexOf(variation, idx)) !== -1) {
-				const start = Math.max(0, idx - 40);
-				const end = Math.min(text.length, idx + variation.length + 40);
-				leftovers.push({
-					numero: entry.numero,
-					variacao: variation,
-					trecho: text.slice(start, end).replace(/\s+/g, ' '),
-				});
-				idx += variation.length;
-				if (leftovers.length > 500) return leftovers;
+			const forms = [
+				variation,
+				variation.replace(/[\u00a0\u202f]/g, ' ').replace(/[\u2010\u2011]/g, '-'),
+			];
+			for (const form of forms) {
+				for (const hay of [text, normText]) {
+					let idx = 0;
+					while ((idx = hay.indexOf(form, idx)) !== -1) {
+						const start = Math.max(0, idx - 40);
+						const end = Math.min(hay.length, idx + form.length + 40);
+						leftovers.push({
+							numero: entry.numero,
+							variacao: form,
+							trecho: hay.slice(start, end).replace(/\s+/g, ' '),
+						});
+						idx += form.length;
+						if (leftovers.length > 500) return leftovers;
+					}
+				}
 			}
 		}
 	}
@@ -605,7 +631,7 @@ function findRemainingPhoneSnippets(text, phoneList, replacementPlanByNumero) {
 
 async function cmdTelefone(apply) {
 	const targets = await loadTargetPages();
-	const phoneList = await loadOrBuildUniquePhones();
+	const phoneList = await loadOrBuildUniquePhones(true);
 
 	console.log(`📋 Alvos (página + área): ${targets.length}`);
 	console.log(`Modo: ${apply ? '--apply (grava + git add)' : 'dry-run (lista fechada)'}`);
@@ -706,7 +732,7 @@ async function cmdTelefone(apply) {
 		uncoveredUnique.push(u);
 	}
 
-	console.log('\n=== Verificação pós-substituição (lista dos 39) ===');
+	console.log(`\n=== Verificação pós-substituição (lista dos ${phoneList.length}) ===`);
 	if (uncoveredUnique.length === 0) {
 		console.log('✓ ZERO ocorrências relevantes restantes nos arquivos-alvo após o apply simulado.');
 	} else {

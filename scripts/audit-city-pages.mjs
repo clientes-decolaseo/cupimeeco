@@ -42,8 +42,15 @@ const CITY_SLUG_RE =
 const CITY_CONTENT_HINT_RE =
 	/(?:dedetizadora-de-cupim-em-|dedetizadora-de-(?:ratos?|barata|formiga|pulga|carrapato|escorpiao)-|dedetizadora-em-|descupinizacao-em-|descupinizadora-|sanitizacao-em-|desratizacao-|empresa-de-)/i;
 
+/**
+ * Telefones BR:
+ * - 0800 XXX XXXX
+ * - (DD) NNNN-NNNN  (fixo, 8 dígitos) e (DD) NNNNN-NNNN (celular, 9)
+ * - compacto sem espaço após DDD: (DD)NNNNN-NNNN
+ * - com 55 / +55, com ou sem separadores
+ */
 const PHONE_RE =
-	/(?:0800[\s.\-]?\d{3}[\s.\-]?\d{4})|(?:\(?\d{2}\)?[\s.\-]\d{4,5}[\s.\-]\d{4})|(?:\+?55[\s.\-]?\(?\d{2}\)?[\s.\-]?\d{4,5}[\s.\-]?\d{4})/g;
+	/(?:0800[\s.\-]?\d{3}[\s.\-]?\d{4})|(?:\(\d{2}\)\s*\d{4,5}[\s.\-]?\d{4})|(?:\(?\d{2}\)?[\s.\-]\d{4,5}[\s.\-]\d{4})|(?:\+?55[\s.\-]?\(?\d{2}\)?[\s.\-]?\d{4,5}[\s.\-]?\d{4})|(?:\+?55\d{10,11})/g;
 
 const HREF_RE = /(?:href|src)=["']([^"']+)["']/gi;
 const MALFORMED_URL_RE = /\b(?:ttp:\/\/|htps:\/\/|hhtp:\/\/|https?:\/(?!\/))/gi;
