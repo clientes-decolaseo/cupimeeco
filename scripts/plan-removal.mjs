@@ -20,6 +20,159 @@ const PRIO_CSV = path.join(ROOT, 'scripts', '.tmp-audit-priorizacao.csv');
 const OUT_CSV = path.join(ROOT, 'scripts', '.tmp-plano-remocao.csv');
 const REMOVER_PREFIX = 'REMOVER - fora da área de atendimento';
 const FALLBACK_301 = '/descupinizacao/regioes/';
+const WP_DATA_DIR = path.join(ROOT, 'src', 'data', 'wp');
+const SRC_DIR = path.join(ROOT, 'src');
+
+/** Extrai ID numérico do caminho (ex.: src/data/wp/pages/48994.json → 48994) */
+function extractWpIdFromArquivo(arquivo) {
+	const m = String(arquivo ?? '')
+		.replace(/\\/g, '/')
+		.match(/\/(\d+)\.json$/i);
+	return m ? m[1] : null;
+}
+
+async function walkFilesByExt(dir, exts, acc = []) {
+	try {
+		await access(dir);
+	} catch {
+		return acc;
+	}
+	const entries = await readdir(dir, { withFileTypes: true });
+	for (const entry of entries) {
+		const full = path.join(dir, entry.name);
+		if (entry.isDirectory()) {
+			await walkFilesByExt(full, exts, acc);
+			continue;
+		}
+		const ext = path.extname(entry.name).toLowerCase();
+		if (exts.has(ext)) acc.push(full);
+	}
+	return acc;
+}
+
+/**
+ * Índice invertido: id → lista de locais que referenciam o ID
+ * (exclui o próprio arquivo do ID e o manifest.json, que lista todos os IDs).
+ */
+async function buildIdReferenceIndex(candidateIds) {
+	/** @type {Map<string, Set<string>>} */
+	const index = new Map();
+	for (const id of candidateIds) index.set(id, new Set());
+
+	const idList = [...candidateIds];
+	if (idList.length === 0) return index;
+
+	const codeFiles = await walkFilesByExt(SRC_DIR, new Set(['.ts', '.astro']));
+	const wpFiles = (await walkFilesByExt(WP_DATA_DIR, new Set(['.json']))).filter(
+		(f) => path.basename(f) !== 'manifest.json',
+	);
+
+	function makeStructuralRe(ids) {
+		const alt = ids.join('|');
+		return new RegExp(
+			`(?:` +
+				`"parent"\\s*:\\s*(${alt})\\b` +
+				`|"postId"\\s*:\\s*(${alt})\\b` +
+				`|"pageId"\\s*:\\s*(${alt})\\b` +
+				`|(?:pages|posts)/(${alt})\\.json` +
+				`|page_id=(${alt})\\b` +
+				`|(?:relatedPosts|clusterPosts|postIds|pageIds)[^\\n]{0,120}?\\b(${alt})\\b` +
+				// "id": N só conta fora do arquivo do próprio N (self filtrado abaixo)
+				`|"id"\\s*:\\s*(${alt})\\b` +
+				`)`,
+			'gi',
+		);
+	}
+
+	function makeCodeRe(ids) {
+		const alt = ids.join('|');
+		// Código: refs explícitas + literais de path/módulo WP
+		return new RegExp(
+			`(?:` +
+				`(?:postId|pageId|parentId|contentId)\\s*[:=]\\s*(${alt})\\b` +
+				`|(?:pages|posts)/(${alt})(?:\\.json)?` +
+				`|(?:relatedPosts|clusterPosts|postIds|pageIds)[^\\n]{0,120}?\\b(${alt})\\b` +
+				`|\\b(${alt})\\.json\\b` +
+				`)`,
+			'gi',
+		);
+	}
+
+	function collectMatches(text, re, rel, selfId) {
+		re.lastIndex = 0;
+		let match;
+		while ((match = re.exec(text)) !== null) {
+			const id = match.slice(1).find((g) => g != null);
+			if (!id || !index.has(id)) continue;
+			if (selfId === id) continue;
+			const line = text.slice(0, match.index).split(/\r?\n/).length;
+			const snippet = match[0].replace(/\s+/g, ' ').slice(0, 70);
+			index.get(id).add(`${rel}:${line} (${snippet})`);
+		}
+	}
+
+	const chunkSize = 100;
+
+	for (const fileAbs of wpFiles) {
+		const rel = path.relative(ROOT, fileAbs).replace(/\\/g, '/');
+		const selfId = extractWpIdFromArquivo(rel);
+		let text;
+		try {
+			text = await readFile(fileAbs, 'utf8');
+		} catch {
+			continue;
+		}
+		for (let i = 0; i < idList.length; i += chunkSize) {
+			const chunk = idList.slice(i, i + chunkSize);
+			collectMatches(text, makeStructuralRe(chunk), rel, selfId);
+		}
+	}
+
+	for (const fileAbs of codeFiles) {
+		const rel = path.relative(ROOT, fileAbs).replace(/\\/g, '/');
+		let text;
+		try {
+			text = await readFile(fileAbs, 'utf8');
+		} catch {
+			continue;
+		}
+		for (let i = 0; i < idList.length; i += chunkSize) {
+			const chunk = idList.slice(i, i + chunkSize);
+			collectMatches(text, makeCodeRe(chunk), rel, null);
+		}
+	}
+
+	return index;
+}
+
+/**
+ * Para itens "410 direto", se o ID estiver referenciado em outro lugar → MANTER.
+ */
+function applyReferentialIntegrity(plan, refIndex) {
+	let changed = 0;
+	/** @type {{ arquivo: string; id: string; refs: string[] }[]} */
+	const kept = [];
+
+	for (const item of plan) {
+		if (item.acao_sugerida !== '410 direto') continue;
+		const id = extractWpIdFromArquivo(item.arquivo);
+		if (!id) continue;
+		const refs = [...(refIndex.get(id) ?? [])];
+		if (refs.length === 0) continue;
+
+		const where = refs
+			.slice(0, 5)
+			.map((r) => r.replace(/\s+/g, ' '))
+			.join('; ');
+		const more = refs.length > 5 ? ` (+${refs.length - 5})` : '';
+		item.acao_sugerida = `MANTER - referenciado por: ${where}${more}`;
+		item.destino_301 = '';
+		changed += 1;
+		kept.push({ arquivo: item.arquivo, id, refs });
+	}
+
+	return { changed, kept };
+}
 
 function parseArgs(argv) {
 	const args = { gsc: process.env.GSC_PERFORMANCE_FILE || null };
@@ -500,9 +653,14 @@ async function main() {
 	}
 
 	const { rows: prioRows } = await readCsvRows(PRIO_CSV);
-	const remover = prioRows.filter((r) => String(r.acao ?? '').startsWith('REMOVER'));
+	const remover = prioRows.filter(
+		(r) =>
+			String(r.acao ?? '').startsWith('REMOVER') &&
+			(String(r.tipo_conteudo ?? '') === 'pagina' ||
+				String(r.arquivo ?? '').replace(/\\/g, '/').includes('/wp/pages/')),
+	);
 
-	console.log(`\n📋 Páginas "REMOVER - fora da área": ${remover.length}`);
+	console.log(`\n📋 Páginas "REMOVER - fora da área" (só tipo_conteudo=pagina): ${remover.length}`);
 
 	const gscSource = await resolveGscSource(args.gsc);
 	if (!gscSource.ok) {
@@ -549,7 +707,35 @@ async function main() {
 		if (teve) withTraffic.push(item);
 	}
 
+	// Integridade referencial antes de gravar o CSV
+	const ids410 = plan
+		.filter((p) => p.acao_sugerida === '410 direto')
+		.map((p) => extractWpIdFromArquivo(p.arquivo))
+		.filter(Boolean);
+	console.log(`\n🔗 Checagem de integridade referencial (${ids410.length} candidatos a 410)…`);
+	const refIndex = await buildIdReferenceIndex(new Set(ids410));
+	const integrity = applyReferentialIntegrity(plan, refIndex);
+	console.log(
+		`   ${integrity.changed} página(s) mudaram para MANTER (referenciadas em src/**/*.{ts,astro} ou src/data/wp/).`,
+	);
+	if (integrity.kept.length > 0) {
+		for (const k of integrity.kept.slice(0, 15)) {
+			console.log(`   · id=${k.id} ← ${k.refs[0]}${k.refs.length > 1 ? ` (+${k.refs.length - 1})` : ''}`);
+		}
+		if (integrity.kept.length > 15) {
+			console.log(`   · … e mais ${integrity.kept.length - 15}`);
+		}
+	}
+
 	plan.sort((a, b) => {
+		const rank = (acao) => {
+			if (String(acao).startsWith('301')) return 0;
+			if (acao === '410 direto') return 1;
+			return 2; // MANTER
+		};
+		const ra = rank(a.acao_sugerida);
+		const rb = rank(b.acao_sugerida);
+		if (ra !== rb) return ra - rb;
 		if (a.teve_impressao_gsc !== b.teve_impressao_gsc) return a.teve_impressao_gsc ? -1 : 1;
 		return (b.impressoes_gsc || 0) - (a.impressoes_gsc || 0) || a.slug.localeCompare(b.slug);
 	});
@@ -575,11 +761,13 @@ async function main() {
 
 	const n410 = plan.filter((p) => p.acao_sugerida === '410 direto').length;
 	const n301 = plan.filter((p) => p.acao_sugerida.startsWith('301')).length;
+	const nManter = plan.filter((p) => String(p.acao_sugerida).startsWith('MANTER')).length;
 
 	console.log('\n=== Plano de remoção (somente relatório) ===\n');
-	console.log(`Total REMOVER:     ${plan.length}`);
+	console.log(`Total no plano:    ${plan.length}`);
 	console.log(`410 direto:        ${n410}  (sem impressão/clique no GSC)`);
 	console.log(`301 → ${FALLBACK_301}: ${n301}  (teve tráfego — revisar manualmente)`);
+	console.log(`MANTER (refs):     ${nManter}  (integridade referencial)`);
 	console.log(`\nCSV: ${path.relative(ROOT, OUT_CSV)}`);
 
 	console.log(`\nPáginas com teve_impressao_gsc = true (${withTraffic.length}):`);

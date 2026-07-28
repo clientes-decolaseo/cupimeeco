@@ -119,7 +119,20 @@ function resolveOfficialCity(locationSlug) {
 	return { cidade_detectada: label || slug, area_atendimento: false, cityId: slug };
 }
 
-function priorityAction(areaAtendida, severidade) {
+const ACAO_MANTER_POST = 'MANTER - conteúdo editorial, avaliar qualidade separadamente';
+const ACAO_MANTER_OUTRO = 'MANTER - não é página WP de cidade';
+
+/** "pagina" | "post" | "outro" conforme pasta WP */
+function contentTypeFromRel(rel) {
+	const norm = String(rel ?? '').replace(/\\/g, '/');
+	if (norm.includes('src/data/wp/pages/')) return 'pagina';
+	if (norm.includes('src/data/wp/posts/')) return 'post';
+	return 'outro';
+}
+
+function priorityAction(areaAtendida, severidade, tipoConteudo) {
+	if (tipoConteudo === 'post') return ACAO_MANTER_POST;
+	if (tipoConteudo !== 'pagina') return ACAO_MANTER_OUTRO;
 	if (!areaAtendida) return 'REMOVER - fora da área de atendimento';
 	if (severidade >= 6) return 'REESCREVER - prioridade alta';
 	if (severidade >= 3) return 'REESCREVER - prioridade média';
@@ -130,7 +143,8 @@ function priorityRank(acao) {
 	if (acao.startsWith('REESCREVER - prioridade alta')) return 0;
 	if (acao.startsWith('REESCREVER - prioridade média')) return 1;
 	if (acao.startsWith('REVISAR')) return 2;
-	return 3;
+	if (acao.startsWith('REMOVER')) return 3;
+	return 4; // MANTER
 }
 
 function stripHtml(html = '') {
@@ -380,15 +394,21 @@ function auditPage({ rel, slug, body, raw }) {
 	severity = Math.min(10, severity);
 
 	const url = `/${String(slug).replace(/^\/+|\/+$/g, '')}/`;
+	const tipo_conteudo = contentTypeFromRel(rel);
 	const locationSlug = extractLocationSlug(String(slug));
 	const city = resolveOfficialCity(locationSlug);
-	const acao = priorityAction(city.area_atendimento, severity);
+
+	// area_atendimento e REMOVER/REESCREVER/REVISAR só para páginas WP
+	const area_atendimento = tipo_conteudo === 'pagina' ? city.area_atendimento : '';
+	const cidade_detectada = city.cidade_detectada;
+	const acao = priorityAction(city.area_atendimento, severity, tipo_conteudo);
 
 	return {
 		arquivo: rel,
+		tipo_conteudo,
 		slug_url: url,
-		cidade_detectada: city.cidade_detectada,
-		area_atendimento: city.area_atendimento,
+		cidade_detectada,
+		area_atendimento,
 		palavras: words,
 		marca_errada: wrongBrand,
 		marca_trecho: brandSnippet ?? '',
@@ -513,6 +533,7 @@ async function runAudit(cityFiles) {
 
 	const headers = [
 		'arquivo',
+		'tipo_conteudo',
 		'slug_url',
 		'cidade_detectada',
 		'area_atendimento',
@@ -559,6 +580,7 @@ async function runAudit(cityFiles) {
 	const prioHeaders = [
 		'acao',
 		'arquivo',
+		'tipo_conteudo',
 		'slug_url',
 		'cidade_detectada',
 		'area_atendimento',
@@ -585,14 +607,21 @@ async function runAudit(cityFiles) {
 	const catMedia = prioridade.filter((r) => r.acao.startsWith('REESCREVER - prioridade média')).length;
 	const catRevisar = prioridade.filter((r) => r.acao.startsWith('REVISAR')).length;
 	const catRemover = prioridade.filter((r) => r.acao.startsWith('REMOVER')).length;
+	const catManterPost = prioridade.filter((r) => r.acao === ACAO_MANTER_POST).length;
+	const catManterOutro = prioridade.filter((r) => r.acao === ACAO_MANTER_OUTRO).length;
+	const nPaginas = prioridade.filter((r) => r.tipo_conteudo === 'pagina').length;
+	const nPosts = prioridade.filter((r) => r.tipo_conteudo === 'post').length;
 
 	console.log('\n=== Etapa 4 — Priorização ===\n');
 	console.log(`CSV priorização: ${path.relative(ROOT, OUT_PRIORIDADE)}\n`);
-	console.log('Categorias de ação:');
-	console.log(`  REESCREVER - prioridade alta  (área + sev 6–10): ${catAlta}`);
-	console.log(`  REESCREVER - prioridade média (área + sev 3–5):  ${catMedia}`);
-	console.log(`  REVISAR - validar apenas      (área + sev 0–2):  ${catRevisar}`);
-	console.log(`  REMOVER - fora da área        (qualquer sev):   ${catRemover}`);
+	console.log(`Tipo: páginas=${nPaginas} | posts=${nPosts} | outros=${prioridade.length - nPaginas - nPosts}`);
+	console.log('Categorias de ação (REESCREVER/REVISAR/REMOVER só em páginas):');
+	console.log(`  REESCREVER - prioridade alta  (página + área + sev 6–10): ${catAlta}`);
+	console.log(`  REESCREVER - prioridade média (página + área + sev 3–5):  ${catMedia}`);
+	console.log(`  REVISAR - validar apenas      (página + área + sev 0–2):  ${catRevisar}`);
+	console.log(`  REMOVER - fora da área        (página fora das 60):       ${catRemover}`);
+	console.log(`  MANTER - post editorial:       ${catManterPost}`);
+	console.log(`  MANTER - outro arquivo:        ${catManterOutro}`);
 
 	const topDomains = [...domainFreq.entries()]
 		.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
