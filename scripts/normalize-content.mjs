@@ -23,6 +23,7 @@ const AUDIT_CSV = path.join(ROOT, 'scripts', '.tmp-audit-cidades.csv');
 const OUT_TELEFONE = path.join(ROOT, 'scripts', '.tmp-normalizacao-telefone.csv');
 const OUT_TELEFONE_V2 = path.join(ROOT, 'scripts', '.tmp-normalizacao-telefone-v2.csv');
 const OUT_TELEFONES_UNICOS = path.join(ROOT, 'scripts', '.tmp-telefones-unicos.json');
+const OUT_TELEFONES_MALFORMADOS = path.join(ROOT, 'scripts', '.tmp-telefones-malformados.json');
 const OUT_LINKS = path.join(ROOT, 'scripts', '.tmp-normalizacao-links.csv');
 const OUT_MARCA = path.join(ROOT, 'scripts', '.tmp-revisao-marca.csv');
 const OUT_PADROES = path.join(ROOT, 'scripts', '.tmp-padroes-marca.csv');
@@ -119,6 +120,10 @@ async function pathExists(target) {
 }
 
 function assertCleanGit() {
+	if (process.env.NORMALIZE_ALLOW_DIRTY === '1') {
+		console.log('⚠ NORMALIZE_ALLOW_DIRTY=1 — pulando checagem de working tree limpo\n');
+		return;
+	}
 	const result = spawnSync('git', ['status', '--porcelain'], {
 		cwd: ROOT,
 		encoding: 'utf8',
@@ -476,7 +481,41 @@ function generatePhoneVariations(numeroOriginal) {
 }
 
 /**
- * Substitui literais de telefone numa string.
+ * Conta ocorrências de um literal (sem RegExp).
+ * @param {string} haystack
+ * @param {string} needle
+ */
+function countLiteralOccurrences(haystack, needle) {
+	if (!needle) return 0;
+	let count = 0;
+	let idx = 0;
+	while ((idx = haystack.indexOf(needle, idx)) !== -1) {
+		count += 1;
+		idx += needle.length;
+	}
+	return count;
+}
+
+/**
+ * Substitui TODAS as ocorrências de um literal por outro.
+ * NUNCA constrói RegExp a partir do candidato — usa replaceAll com string
+ * (em JS, replaceAll com 1º arg string trata o padrão como literal, inclusive
+ * `(`, `)`, `.`, etc. de telefones "tortos" do audit).
+ * @param {string} haystack
+ * @param {string} needle
+ * @param {string} replacement
+ */
+function replaceAllLiteral(haystack, needle, replacement) {
+	if (!needle || !haystack.includes(needle)) return haystack;
+	// preferência: replaceAll(string, string). Fallback split+join é equivalente.
+	if (typeof haystack.replaceAll === 'function') {
+		return haystack.replaceAll(needle, replacement);
+	}
+	return haystack.split(needle).join(replacement);
+}
+
+/**
+ * Substitui literais de telefone numa string (apenas ops de string puras).
  * Em contexto tel: → 08001117272; senão → 0800 111 7272.
  * @returns {{ text: string, hits: { numero_original: string, variacao: string, count: number }[] }}
  */
@@ -488,41 +527,37 @@ function replacePhonesLiteralInString(text, replacementPlan) {
 	for (const item of replacementPlan) {
 		const { numero, variations } = item;
 		for (const variation of variations) {
+			// Candidato literal exatamente como na lista / variação gerada — sem escape/RegExp
 			if (!variation || !out.includes(variation)) continue;
 
-			// Conta ocorrências antes
-			let count = 0;
-			let idx = 0;
-			while ((idx = out.indexOf(variation, idx)) !== -1) {
-				count += 1;
-				idx += variation.length;
-			}
+			const count = countLiteralOccurrences(out, variation);
 			if (count === 0) continue;
 
-			// Substituição contextual: se a variação já começa com tel:, só dígitos oficiais
-			if (/^tel:/i.test(variation)) {
-				out = out.split(variation).join(`tel:${OFFICIAL_TEL_DIGITS}`);
+			// Prefixo tel: do próprio candidato (teste estático, não derivado do número)
+			if (variation.length >= 4 && variation.slice(0, 4).toLowerCase() === 'tel:') {
+				out = replaceAllLiteral(out, variation, `tel:${OFFICIAL_TEL_DIGITS}`);
 			} else {
 				// tel: imediatamente antes da variação (sem ser parte da variação)
 				const telPrefix = `tel:${variation}`;
 				if (out.includes(telPrefix)) {
-					const telCount = out.split(telPrefix).length - 1;
-					out = out.split(telPrefix).join(`tel:${OFFICIAL_TEL_DIGITS}`);
+					const telCount = countLiteralOccurrences(out, telPrefix);
+					out = replaceAllLiteral(out, telPrefix, `tel:${OFFICIAL_TEL_DIGITS}`);
 					hits.push({
 						numero_original: numero,
 						variacao: telPrefix,
 						count: telCount,
 					});
-					// recontar o que sobrou da variação solta
-					count = 0;
-					idx = 0;
-					while ((idx = out.indexOf(variation, idx)) !== -1) {
-						count += 1;
-						idx += variation.length;
-					}
-					if (count === 0) continue;
+					const remaining = countLiteralOccurrences(out, variation);
+					if (remaining === 0) continue;
+					out = replaceAllLiteral(out, variation, OFFICIAL_PHONE_DISPLAY);
+					hits.push({
+						numero_original: numero,
+						variacao: variation,
+						count: remaining,
+					});
+					continue;
 				}
-				out = out.split(variation).join(OFFICIAL_PHONE_DISPLAY);
+				out = replaceAllLiteral(out, variation, OFFICIAL_PHONE_DISPLAY);
 			}
 
 			hits.push({ numero_original: numero, variacao: variation, count });
@@ -571,8 +606,9 @@ function replacePhonesInJsonTree(data, replacementPlan, basePath = '') {
 }
 
 /**
- * Após simular apply: busca variações dos telefones da lista que ainda restariam.
- * Também normaliza espaços/hífens tipográficos antes de procurar.
+ * Após simular apply: para CADA entrada da lista (incl. variantes 0800),
+ * verifica se o `numero` exato (quando não canônico) ou variações
+ * não-oficiais ainda aparecem no texto.
  */
 function findRemainingPhoneSnippets(text, phoneList, replacementPlanByNumero) {
 	/** @type {{ numero: string, variacao: string, trecho: string }[]} */
@@ -581,46 +617,45 @@ function findRemainingPhoneSnippets(text, phoneList, replacementPlanByNumero) {
 		.replace(/[\u00a0\u202f\u2007\u2009]/g, ' ')
 		.replace(/[\u2010\u2011\u2012\u2013\u2212]/g, '-');
 
+	const isCanonicalKeep = (v) =>
+		v === OFFICIAL_PHONE_DISPLAY ||
+		v === OFFICIAL_PHONE_DIGITS ||
+		v === `tel:${OFFICIAL_PHONE_DIGITS}`;
+
 	for (const entry of phoneList) {
-		if (isOfficialPhone(entry.numero)) continue;
+		const exact = entry.numero;
+		/** @type {string[]} */
+		const toCheck = [];
 
-		const digits = normalizePhoneDigits(entry.numero);
-		let local = digits;
-		if (local.startsWith('55') && local.length >= 12) local = local.slice(2);
+		if (!isCanonicalKeep(exact)) toCheck.push(exact);
 
-		const all = replacementPlanByNumero.get(entry.numero) ?? generatePhoneVariations(entry.numero);
-		const toCheck = all.filter((v) => {
-			if (!v || v.length < 8) return false;
-			if (isExactOfficialForm(v)) return false;
-			if (v === OFFICIAL_PHONE_DISPLAY || v === OFFICIAL_PHONE_DIGITS) return false;
-			if (v === `tel:${OFFICIAL_PHONE_DIGITS}`) return false;
-			const vd = normalizePhoneDigits(v.replace(/^tel:/i, ''));
-			if (v === entry.numero) return true;
-			if (/^tel:/i.test(v)) return true;
-			if (/\(\d{2}\)/.test(v)) return true;
-			if (vd === local || vd === digits || vd === `55${local}`) return true;
-			if (local.length >= 10 && vd.length >= 10 && vd.includes(local)) return true;
-			return false;
-		});
+		const all = replacementPlanByNumero.get(exact) ?? generatePhoneVariations(exact);
+		for (const v of all) {
+			if (!v || v.length < 3) continue;
+			if (isCanonicalKeep(v)) continue;
+			if (toCheck.includes(v)) continue;
+			toCheck.push(v);
+		}
 
 		for (const variation of toCheck) {
 			const forms = [
 				variation,
 				variation.replace(/[\u00a0\u202f]/g, ' ').replace(/[\u2010\u2011]/g, '-'),
 			];
-			for (const form of forms) {
+			for (const form of [...new Set(forms)]) {
+				if (!form) continue;
 				for (const hay of [text, normText]) {
 					let idx = 0;
 					while ((idx = hay.indexOf(form, idx)) !== -1) {
 						const start = Math.max(0, idx - 40);
 						const end = Math.min(hay.length, idx + form.length + 40);
 						leftovers.push({
-							numero: entry.numero,
+							numero: exact,
 							variacao: form,
 							trecho: hay.slice(start, end).replace(/\s+/g, ' '),
 						});
 						idx += form.length;
-						if (leftovers.length > 500) return leftovers;
+						if (leftovers.length > 800) return leftovers;
 					}
 				}
 			}
@@ -629,43 +664,80 @@ function findRemainingPhoneSnippets(text, phoneList, replacementPlanByNumero) {
 	return leftovers;
 }
 
+/** Padrão "bem formatado" para triagem de lixo de parsing. */
+const WELL_FORMED_PHONE_RE = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
+
+function buildMalformedPhoneList(phoneList) {
+	return phoneList
+		.filter((entry) => !WELL_FORMED_PHONE_RE.test(String(entry.numero ?? '')))
+		.map((entry) => ({
+			numero: entry.numero,
+			ocorrencias_paginas: entry.ocorrencias_paginas,
+			motivo: 'nao_casa_com_/^(?:\\(?\\d{2}\\)?\\s?\\d{4,5}-?\\d{4})$/',
+		}));
+}
+
 async function cmdTelefone(apply) {
 	const targets = await loadTargetPages();
-	const phoneList = await loadOrBuildUniquePhones(true);
+	const phoneList = await loadOrBuildUniquePhones(false);
 
 	console.log(`📋 Alvos (página + área): ${targets.length}`);
 	console.log(`Modo: ${apply ? '--apply (grava + git add)' : 'dry-run (lista fechada)'}`);
-	console.log('Estratégia: substituição LITERAL por variações dos telefones únicos do audit\n');
+	console.log('Estratégia: substituição LITERAL (replaceAll/string — sem RegExp a partir do número)\n');
 
-	/** Planos de substituição (pula oficiais) */
 	const replacementPlan = [];
 	/** @type {Map<string, string[]>} */
 	const planByNumero = new Map();
 
 	for (const entry of phoneList) {
-		// Só pula a forma canônica; variantes do 0800 ainda são normalizadas para o padrão
-		if (isExactOfficialForm(entry.numero)) continue;
-		const variations = generatePhoneVariations(entry.numero);
-		const filtered = variations.filter(
-			(v) => !isExactOfficialForm(v) && v !== OFFICIAL_PHONE_DISPLAY,
+		// String EXATA do JSON — sem trim/correção
+		const exact = entry.numero;
+		if (exact == null || exact === '') continue;
+
+		if (exact === OFFICIAL_PHONE_DISPLAY || exact === OFFICIAL_PHONE_DIGITS) {
+			planByNumero.set(exact, [exact]);
+			continue;
+		}
+
+		const generated = generatePhoneVariations(exact);
+		/** @type {Set<string>} */
+		const variations = new Set();
+		variations.add(exact); // SEMPRE o literal exato do audit
+		for (const v of generated) {
+			if (v === exact) continue;
+			if (v === OFFICIAL_PHONE_DISPLAY || v === OFFICIAL_PHONE_DIGITS) continue;
+			if (v === `tel:${OFFICIAL_PHONE_DIGITS}`) continue;
+			variations.add(v);
+		}
+
+		const sorted = [...variations].sort(
+			(a, b) => b.length - a.length || a.localeCompare(b),
 		);
-		if (filtered.length === 0) continue;
-		replacementPlan.push({ numero: entry.numero, variations: filtered });
-		planByNumero.set(entry.numero, filtered);
+		replacementPlan.push({ numero: exact, variations: sorted });
+		planByNumero.set(exact, sorted);
 	}
 
-	// Ordena variações globais: processar números com variações mais longas primeiro
-	// (já ordenado dentro de cada numero; entre numeros, prioriza o primeiro hit)
-	console.log(`Telefones a normalizar (não oficiais): ${replacementPlan.length}`);
+	console.log(`Telefones na lista: ${phoneList.length}`);
+	console.log(`Telefones com plano de substituição: ${replacementPlan.length}`);
 	const totalVars = replacementPlan.reduce((s, p) => s + p.variations.length, 0);
-	console.log(`Variações literais geradas: ${totalVars}\n`);
+	console.log(`Candidatos literais (exatos + variações): ${totalVars}\n`);
+
+	const malformed = buildMalformedPhoneList(phoneList);
+	await writeFile(
+		OUT_TELEFONES_MALFORMADOS,
+		`${JSON.stringify(malformed, null, 2)}\n`,
+		'utf8',
+	);
+	console.log(
+		`⚠ Malformados (revisão): ${malformed.length} → ${path.relative(ROOT, OUT_TELEFONES_MALFORMADOS)}\n`,
+	);
 
 	/** @type {Record<string, string>[]} */
 	const report = [];
 	let filesChanged = 0;
 	let totalHits = 0;
 
-	/** Para verificação pós dry-run */
+	/** Para verificação pós dry-run (lista completa, incl. 0800) */
 	/** @type {{ arquivo: string, numero: string, variacao: string, trecho: string }[]} */
 	const uncovered = [];
 
@@ -732,9 +804,11 @@ async function cmdTelefone(apply) {
 		uncoveredUnique.push(u);
 	}
 
-	console.log(`\n=== Verificação pós-substituição (lista dos ${phoneList.length}) ===`);
+	console.log(`\n=== Verificação pós-substituição (lista completa dos ${phoneList.length}) ===`);
 	if (uncoveredUnique.length === 0) {
-		console.log('✓ ZERO ocorrências relevantes restantes nos arquivos-alvo após o apply simulado.');
+		console.log(
+			'✓ ZERO ocorrências relevantes restantes (incl. checagem de variantes 0800 não canônicas).',
+		);
 	} else {
 		console.log(
 			`⚠ ATENÇÃO: ${uncoveredUnique.length} ocorrência(s) de variação não coberta (ou remanescente):\n`,
@@ -742,7 +816,7 @@ async function cmdTelefone(apply) {
 		for (const u of uncoveredUnique.slice(0, 40)) {
 			console.log('ATENÇÃO: variação não coberta');
 			console.log(`  numero lista: ${u.numero}`);
-			console.log(`  variacao:     ${u.variacao}`);
+			console.log(`  variacao:     ${JSON.stringify(u.variacao)}`);
 			console.log(`  arquivo:      ${u.arquivo}`);
 			console.log(`  trecho:       ${u.trecho}`);
 			console.log('');
