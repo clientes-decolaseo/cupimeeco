@@ -10,10 +10,12 @@
  *   node scripts/normalize-content.mjs telefone [--apply]
  *   node scripts/normalize-content.mjs links-toxicos [--apply]
  *   node scripts/normalize-content.mjs revisao-marca
+ *   node scripts/normalize-content.mjs marca-padroes
  */
 import { spawnSync } from 'node:child_process';
 import { access, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import cidadesGsp from '../src/data/cidades-gsp.json' with { type: 'json' };
 
 const ROOT = path.resolve('.');
 const PRIO_CSV = path.join(ROOT, 'scripts', '.tmp-audit-priorizacao.csv');
@@ -21,14 +23,15 @@ const AUDIT_CSV = path.join(ROOT, 'scripts', '.tmp-audit-cidades.csv');
 const OUT_TELEFONE = path.join(ROOT, 'scripts', '.tmp-normalizacao-telefone.csv');
 const OUT_LINKS = path.join(ROOT, 'scripts', '.tmp-normalizacao-links.csv');
 const OUT_MARCA = path.join(ROOT, 'scripts', '.tmp-revisao-marca.csv');
+const OUT_PADROES = path.join(ROOT, 'scripts', '.tmp-padroes-marca.csv');
 
 const OFFICIAL_PHONE_DISPLAY = '0800 111 7272';
 const OFFICIAL_PHONE_DIGITS = '08001117272';
 const OFFICIAL_TEL_HREF = `tel:${OFFICIAL_PHONE_DIGITS}`;
 
-/** Mesmo padrão do audit-city-pages.mjs */
+/** Padrão do audit + variante compacta em title/seo: "(11)3211-0000" (sem espaço após DDD). */
 const PHONE_RE =
-	/(?:0800[\s.\-]?\d{3}[\s.\-]?\d{4})|(?:\(?\d{2}\)?[\s.\-]\d{4,5}[\s.\-]\d{4})|(?:\+?55[\s.\-]?\(?\d{2}\)?[\s.\-]?\d{4,5}[\s.\-]\d{4})/g;
+	/(?:0800[\s.\-]?\d{3}[\s.\-]?\d{4})|(?:\(\d{2}\)\s*\d{4,5}[\s.\-]?\d{4})|(?:\(?\d{2}\)?[\s.\-]\d{4,5}[\s.\-]\d{4})|(?:\+?55[\s.\-]?\(?\d{2}\)?[\s.\-]?\d{4,5}[\s.\-]\d{4})/g;
 
 const TEL_HREF_RE = /href\s*=\s*(["'])\s*tel:([^"']+)\1/gi;
 
@@ -208,10 +211,8 @@ function isOfficialPhone(phone) {
 	if (!digits) return false;
 	if (digits === OFFICIAL_PHONE_DIGITS) return true;
 	if (digits === `55${OFFICIAL_PHONE_DIGITS}`) return true;
-	// tel: / href variants
-	if (digits.endsWith(OFFICIAL_PHONE_DIGITS) && digits.length <= OFFICIAL_PHONE_DIGITS.length + 2) {
-		return true;
-	}
+	// Ex.: 551108001117272 (55 + DDD + 0800…)
+	if (digits.endsWith(OFFICIAL_PHONE_DIGITS)) return true;
 	return false;
 }
 
@@ -266,8 +267,12 @@ async function writeCsv(filePath, headers, rows) {
 
 // ——— telefone ———
 
+/** Campos textuais do JSON WP a normalizar (além de content). */
+const PHONE_TEXT_FIELDS_TOP = ['title', 'excerpt', 'description', 'caption', 'summary'];
+const PHONE_TEXT_FIELDS_SEO = ['title', 'description', 'ogTitle', 'ogDescription', 'twitterDescription'];
+
 /**
- * Substitui telefones não oficiais no texto bruto do arquivo.
+ * Substitui telefones não oficiais no texto.
  * Preserva tel: hrefs com formato oficial.
  */
 function normalizePhonesInText(text) {
@@ -284,7 +289,7 @@ function normalizePhonesInText(text) {
 		return `href=${quote}${OFFICIAL_TEL_HREF}${quote}`;
 	});
 
-	// 2) Campos JSON "telefone"/"phone": "..."
+	// 2) Campos JSON "telefone"/"phone": "..." (quando o pedaço for o arquivo inteiro)
 	out = out.replace(
 		/(["'](?:telefone|phone|tel|whatsapp|celular)["']\s*:\s*["'])([^"']+)(["'])/gi,
 		(full, prefix, value, suffix) => {
@@ -297,8 +302,7 @@ function normalizePhonesInText(text) {
 		},
 	);
 
-	// 3) Telefones em texto (fora de tel: já tratados — evita reprocessar href tel)
-	// Máscara temporária de tel: oficiais / já normalizados
+	// 3) Telefones em texto (fora de tel: já tratados)
 	const masks = [];
 	out = out.replace(/tel:[+\d\s.\-()]+/gi, (m) => {
 		const token = `__TEL_MASK_${masks.length}__`;
@@ -320,44 +324,192 @@ function normalizePhonesInText(text) {
 	return { text: out, changed, found };
 }
 
+function mergePhoneFound(into, from) {
+	for (const [k, n] of from.entries()) {
+		into.set(k, (into.get(k) ?? 0) + n);
+	}
+}
+
+/**
+ * Normaliza telefones em content + metadata textual (title, excerpt, seo.*, etc.).
+ * @returns {{ data: object, changed: number, found: Map<string, number>, campos: string[], contentChanged: number, metaChanged: number }}
+ */
+function normalizePhonesInWpJson(data) {
+	/** @type {Map<string, number>} */
+	const found = new Map();
+	/** @type {string[]} */
+	const campos = [];
+	let changed = 0;
+	let contentChanged = 0;
+	let metaChanged = 0;
+
+	const applyField = (obj, key, label, isContent = false) => {
+		if (!obj || typeof obj[key] !== 'string' || !obj[key]) return;
+		const result = normalizePhonesInText(obj[key]);
+		if (result.changed === 0) return;
+		obj[key] = result.text;
+		changed += result.changed;
+		if (isContent) contentChanged += result.changed;
+		else metaChanged += result.changed;
+		mergePhoneFound(found, result.found);
+		campos.push(`${label}:${result.changed}`);
+	};
+
+	applyField(data, 'content', 'content', true);
+
+	for (const key of PHONE_TEXT_FIELDS_TOP) {
+		applyField(data, key, key, false);
+	}
+
+	// Campos soltos tipo telefone/phone no root
+	for (const key of ['telefone', 'phone', 'tel', 'whatsapp', 'celular']) {
+		applyField(data, key, key, false);
+	}
+
+	if (data.seo && typeof data.seo === 'object') {
+		for (const key of PHONE_TEXT_FIELDS_SEO) {
+			applyField(data.seo, key, `seo.${key}`, false);
+		}
+		for (const key of ['telefone', 'phone', 'tel', 'whatsapp']) {
+			applyField(data.seo, key, `seo.${key}`, false);
+		}
+	}
+
+	return { data, changed, found, campos, contentChanged, metaChanged };
+}
+
 async function cmdTelefone(apply) {
 	const targets = await loadTargetPages();
 	console.log(`📋 Alvos (página + área): ${targets.length}`);
-	console.log(`Modo: ${apply ? '--apply (grava + git add)' : 'dry-run (só CSV)'}\n`);
+	console.log(`Modo: ${apply ? '--apply (grava + git add)' : 'dry-run (só CSV)'}`);
+	console.log('Campos: content + title/excerpt/description + seo.* (+ telefone/phone)\n');
+
+	/** Baseline do dry-run anterior (246 arquivos / 455 ocorrências), se existir */
+	let baselineFiles = new Set();
+	let baselineOcc = 0;
+	if (await pathExists(OUT_TELEFONE)) {
+		try {
+			const prev = await readCsvRows(OUT_TELEFONE);
+			baselineFiles = new Set(prev.map((r) => r.arquivo).filter(Boolean));
+			baselineOcc = prev.reduce((s, r) => s + (Number(r.ocorrencias_a_trocar) || 0), 0);
+			console.log(
+				`Baseline CSV anterior: ${baselineFiles.size} arquivos / ${baselineOcc} ocorrências\n`,
+			);
+		} catch {
+			/* ignore */
+		}
+	}
 
 	/** @type {Record<string, string>[]} */
 	const report = [];
 	let filesWithChanges = 0;
 	let totalReplacements = 0;
+	let totalContent = 0;
+	let totalMeta = 0;
+	let filesMetaOnly = 0;
+	let filesNewVsBaseline = 0;
+	let occInNewFiles = 0;
+	let occMetaInOldFiles = 0;
 
 	for (const target of targets) {
 		const raw = await readFile(target.abs, 'utf8');
-		const { text, changed, found } = normalizePhonesInText(raw);
+		let data;
+		try {
+			data = JSON.parse(raw);
+		} catch {
+			// Fallback: arquivo não-JSON — trata texto bruto (compat)
+			const { text, changed, found } = normalizePhonesInText(raw);
+			if (changed === 0) continue;
+			filesWithChanges += 1;
+			totalReplacements += changed;
+			totalContent += changed;
+			report.push({
+				arquivo: target.arquivo,
+				campos: 'raw',
+				telefones_encontrados: [...found.entries()].map(([p, n]) => `${p} (×${n})`).join(' | '),
+				ocorrencias_a_trocar: String(changed),
+				ocorrencias_content: String(changed),
+				ocorrencias_metadata: '0',
+			});
+			if (apply && text !== raw) {
+				await writeFile(target.abs, text, 'utf8');
+				gitAdd(target.arquivo);
+			}
+			continue;
+		}
+
+		const { data: next, changed, found, campos, contentChanged, metaChanged } =
+			normalizePhonesInWpJson(structuredClone(data));
 		if (changed === 0) continue;
 
 		filesWithChanges += 1;
 		totalReplacements += changed;
-		const phones = [...found.entries()]
-			.map(([p, n]) => `${p} (×${n})`)
-			.join(' | ');
+		totalContent += contentChanged;
+		totalMeta += metaChanged;
+		if (metaChanged > 0 && contentChanged === 0) filesMetaOnly += 1;
+
+		const inBaseline = baselineFiles.has(target.arquivo);
+		if (!inBaseline) {
+			filesNewVsBaseline += 1;
+			occInNewFiles += changed;
+		} else if (metaChanged > 0) {
+			// Em arquivos já listados, ocorrências extras típicas de metadata
+			occMetaInOldFiles += metaChanged;
+		}
 
 		report.push({
 			arquivo: target.arquivo,
-			telefones_encontrados: phones,
+			campos: campos.join(' | '),
+			telefones_encontrados: [...found.entries()].map(([p, n]) => `${p} (×${n})`).join(' | '),
 			ocorrencias_a_trocar: String(changed),
+			ocorrencias_content: String(contentChanged),
+			ocorrencias_metadata: String(metaChanged),
 		});
 
-		if (apply && text !== raw) {
-			await writeFile(target.abs, text, 'utf8');
-			gitAdd(target.arquivo);
+		if (apply) {
+			const out = `${JSON.stringify(next, null, 2)}\n`;
+			if (out !== raw) {
+				await writeFile(target.abs, out, 'utf8');
+				gitAdd(target.arquivo);
+			}
 		}
 	}
 
-	await writeCsv(OUT_TELEFONE, ['arquivo', 'telefones_encontrados', 'ocorrencias_a_trocar'], report);
+	await writeCsv(
+		OUT_TELEFONE,
+		[
+			'arquivo',
+			'campos',
+			'telefones_encontrados',
+			'ocorrencias_a_trocar',
+			'ocorrencias_content',
+			'ocorrencias_metadata',
+		],
+		report,
+	);
 
 	console.log(`Arquivos com telefone a normalizar: ${filesWithChanges}`);
 	console.log(`Ocorrências totais:                 ${totalReplacements}`);
-	console.log(`CSV: ${path.relative(ROOT, OUT_TELEFONE)}`);
+	console.log(`  · em content:                     ${totalContent}`);
+	console.log(`  · em metadata (title/excerpt/seo): ${totalMeta}`);
+	console.log(`Arquivos só-metadata (sem content): ${filesMetaOnly}`);
+
+	if (baselineFiles.size > 0) {
+		const deltaFiles = filesWithChanges - baselineFiles.size;
+		const deltaOcc = totalReplacements - baselineOcc;
+		console.log('\n=== Comparação com baseline 246/455 ===');
+		console.log(`Arquivos agora:     ${filesWithChanges}  (Δ arquivos = ${deltaFiles >= 0 ? '+' : ''}${deltaFiles})`);
+		console.log(`Ocorrências agora:  ${totalReplacements}  (Δ ocorrências = ${deltaOcc >= 0 ? '+' : ''}${deltaOcc})`);
+		console.log(`Arquivos novos vs baseline:           ${filesNewVsBaseline} (+${occInNewFiles} ocorrências)`);
+		console.log(
+			`Ocorrências de metadata em arquivos já no baseline: ${occMetaInOldFiles}`,
+		);
+		console.log(
+			`Adicional efetivo (novos arquivos + meta em arquivos antigos): ${filesNewVsBaseline} arquivos / ${occInNewFiles + occMetaInOldFiles} ocorrências`,
+		);
+	}
+
+	console.log(`\nCSV: ${path.relative(ROOT, OUT_TELEFONE)}`);
 	if (apply) {
 		console.log('\n✓ Alterações aplicadas e staged (git add). Sem commit.');
 	} else {
@@ -734,6 +886,162 @@ async function cmdRevisaoMarca() {
 	console.log('\nNenhuma alteração feita — revise manualmente.');
 }
 
+// ——— marca-padroes ———
+
+function escapeRegExp(s) {
+	return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function titleFromSlug(slug) {
+	return String(slug)
+		.split('-')
+		.filter(Boolean)
+		.map((w) => (w.length ? w[0].toUpperCase() + w.slice(1) : w))
+		.join(' ');
+}
+
+/** Nomes de município/bairro/alias para substituir por {CIDADE} (mais longos primeiro). */
+function buildPlaceNames() {
+	/** @type {Set<string>} */
+	const names = new Set();
+
+	for (const m of Object.values(cidadesGsp.municipios ?? {})) {
+		if (m?.nome) names.add(m.nome);
+	}
+
+	for (const alias of Object.keys(cidadesGsp.aliases ?? {})) {
+		const a = alias.trim();
+		if (a.length < 4) continue;
+		if (/^(?:sp|capital)$/i.test(a)) continue;
+		names.add(titleFromSlug(a.replace(/\s+/g, '-')));
+		// Mantém forma original do alias (ex.: "são paulo", "zona sul")
+		names.add(a.replace(/\b\w/g, (c) => c.toUpperCase()));
+		names.add(a);
+	}
+
+	for (const slug of cidadesGsp.bairrosSaoPaulo ?? []) {
+		names.add(titleFromSlug(slug));
+	}
+
+	const extras = [
+		'Grande São Paulo',
+		'grande São Paulo',
+		'São Paulo Capital',
+		'Zona Norte',
+		'Zona Sul',
+		'Zona Leste',
+		'Zona Oeste',
+		'Zona Central',
+		'Centro de São Paulo',
+		'ABC Paulista',
+		'Baixada Santista',
+		'Vale do Paraíba',
+		'Litoral Norte',
+		'Interior de São Paulo',
+	];
+	for (const e of extras) names.add(e);
+
+	return [...names]
+		.filter((n) => n && n.length >= 3)
+		.sort((a, b) => b.length - a.length || a.localeCompare(b));
+}
+
+const PLACE_NAMES = buildPlaceNames();
+const PLACE_NAME_RE = new RegExp(
+	`\\b(?:${PLACE_NAMES.map(escapeRegExp).join('|')})\\b`,
+	'gi',
+);
+
+/**
+ * Normaliza trecho: cidades/bairros → {CIDADE}, comprime espaços, lowercase leve
+ * só para pontuação/espaços (mantém casing das palavras restantes para legibilidade
+ * do padrão, mas unifica whitespace e places).
+ */
+function normalizeMarcaPattern(trecho) {
+	let s = String(trecho ?? '');
+	s = s.replace(/\r\n|\r|\n/g, ' ');
+	s = s.replace(/\\n/g, ' ');
+	// remove ruído HTML residual
+	s = s.replace(/<[^>]+>/g, ' ');
+	s = s.replace(/&[a-z#0-9]+;/gi, ' ');
+	PLACE_NAME_RE.lastIndex = 0;
+	s = s.replace(PLACE_NAME_RE, '{CIDADE}');
+	// Colapsa placeholders repetidos adjacentes
+	s = s.replace(/(?:\{CIDADE\}\s*){2,}/g, '{CIDADE} ');
+	s = s.replace(/\s+/g, ' ').trim();
+	return s;
+}
+
+async function cmdMarcaPadroes() {
+	if (!(await pathExists(OUT_MARCA))) {
+		console.error(
+			`❌ Não encontrei ${path.relative(ROOT, OUT_MARCA)}.\n` +
+				`   Rode antes: npm run normalize:marca`,
+		);
+		process.exit(1);
+	}
+
+	const rows = await readCsvRows(OUT_MARCA);
+	console.log(`📋 Trechos em revisao-marca: ${rows.length}`);
+	console.log('Modo: somente leitura (agrupa padrões — não edita)\n');
+
+	/** @type {Map<string, { count: number; arquivos: Set<string>; exemplo: string }>} */
+	const groups = new Map();
+
+	for (const row of rows) {
+		const trecho = String(row.trecho ?? '');
+		const arquivo = String(row.arquivo ?? '');
+		const padrao = normalizeMarcaPattern(trecho);
+		if (!padrao) continue;
+
+		let g = groups.get(padrao);
+		if (!g) {
+			g = { count: 0, arquivos: new Set(), exemplo: trecho };
+			groups.set(padrao, g);
+		}
+		g.count += 1;
+		if (arquivo) g.arquivos.add(arquivo);
+		// Preferir exemplo um pouco mais longo / completo
+		if (trecho.length > g.exemplo.length) g.exemplo = trecho;
+	}
+
+	const sorted = [...groups.entries()].sort(
+		(a, b) => b[1].count - a[1].count || a[0].localeCompare(b[0]),
+	);
+
+	const report = sorted.map(([padrao, g]) => ({
+		padrao_normalizado: padrao,
+		quantidade: String(g.count),
+		arquivos: [...g.arquivos].sort().join(' | '),
+		exemplo_real: g.exemplo,
+	}));
+
+	await writeCsv(
+		OUT_PADROES,
+		['padrao_normalizado', 'quantidade', 'arquivos', 'exemplo_real'],
+		report,
+	);
+
+	const topN = 15;
+	const top = sorted.slice(0, topN);
+	const topSum = top.reduce((s, [, g]) => s + g.count, 0);
+	const total = rows.length;
+	const pct = total ? ((100 * topSum) / total).toFixed(1) : '0';
+
+	console.log(`Padrões únicos: ${sorted.length}`);
+	console.log(`CSV: ${path.relative(ROOT, OUT_PADROES)}\n`);
+	console.log(`=== Top ${topN} padrões por frequência ===\n`);
+	top.forEach(([padrao, g], i) => {
+		const preview = padrao.length > 110 ? `${padrao.slice(0, 110)}…` : padrao;
+		console.log(`${String(i + 1).padStart(2)}. ×${String(g.count).padStart(3)}  ${preview}`);
+	});
+	console.log(
+		`\nTop ${topN} cobrem ${topSum}/${total} trechos (${pct}%). ` +
+			`Corrigir só esses padrões resolve a maior fatia do problema.`,
+	);
+	console.log('\nNenhuma alteração feita.');
+}
+
 // ——— main ———
 
 async function main() {
@@ -743,15 +1051,16 @@ async function main() {
 		'Uso:\n' +
 		'  node scripts/normalize-content.mjs telefone [--apply]\n' +
 		'  node scripts/normalize-content.mjs links-toxicos [--apply]\n' +
-		'  node scripts/normalize-content.mjs revisao-marca\n';
+		'  node scripts/normalize-content.mjs revisao-marca\n' +
+		'  node scripts/normalize-content.mjs marca-padroes\n';
 
-	if (!['telefone', 'links-toxicos', 'revisao-marca'].includes(cmd)) {
+	if (!['telefone', 'links-toxicos', 'revisao-marca', 'marca-padroes'].includes(cmd)) {
 		console.error(`❌ Sub-comando inválido: ${cmd || '(vazio)'}\n\n${usage}`);
 		process.exit(1);
 	}
 
-	if (cmd === 'revisao-marca' && apply) {
-		console.error('❌ revisao-marca é sempre somente leitura — não use --apply.\n');
+	if ((cmd === 'revisao-marca' || cmd === 'marca-padroes') && apply) {
+		console.error(`❌ ${cmd} é sempre somente leitura — não use --apply.\n`);
 		process.exit(1);
 	}
 
@@ -759,7 +1068,8 @@ async function main() {
 
 	if (cmd === 'telefone') await cmdTelefone(apply);
 	else if (cmd === 'links-toxicos') await cmdLinksToxicos(apply);
-	else await cmdRevisaoMarca();
+	else if (cmd === 'revisao-marca') await cmdRevisaoMarca();
+	else await cmdMarcaPadroes();
 }
 
 main().catch((err) => {
