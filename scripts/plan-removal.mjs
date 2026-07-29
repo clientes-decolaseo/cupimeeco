@@ -20,8 +20,44 @@ const PRIO_CSV = path.join(ROOT, 'scripts', '.tmp-audit-priorizacao.csv');
 const OUT_CSV = path.join(ROOT, 'scripts', '.tmp-plano-remocao.csv');
 const REMOVER_PREFIX = 'REMOVER - fora da área de atendimento';
 const FALLBACK_301 = '/descupinizacao/regioes/';
+const ACAO_REVISAR_SEM_LOCAL =
+	'REVISAR - conteúdo sem localização, avaliar individualmente';
+/** Páginas REMOVER no audit mas que ficam FORA do 410/301 nesta rodada. */
+const EXCLUSOES_AREA_MANUAL = new Map([
+	[
+		'src/data/wp/pages/24594.json',
+		'REESCREVER - área de atendimento (Aldeia da Serra → Barueri/Santana de Parnaíba)',
+	],
+]);
 const WP_DATA_DIR = path.join(ROOT, 'src', 'data', 'wp');
 const SRC_DIR = path.join(ROOT, 'src');
+
+/** Preposição + localidade no slug/path (sinal de geografia real). */
+const SLUG_GEO_PREP_RE = /(?:^|\/|-)(?:em|na|no|nas|nos)-[a-z0-9]+(?:-[a-z0-9]+)*(?:\/|$)/i;
+/** Pasta pai tipo /sao-roque-sp/ ou /rj/. */
+const SLUG_GEO_PARENT_RE = /(?:^|\/)(?:[a-z0-9-]+-sp|rj|sp)(?:\/|$)/i;
+
+/**
+ * Cidade ausente (vazio/nulo) OU rótulo inventado do slug sem sinal geográfico
+ * (ex.: "Pulga", "Cupins", "Limpeza De Coifa" — não é município fora da área).
+ * @param {{ cidade_detectada?: string, slug_url?: string, slug?: string }} row
+ */
+function isSemLocalizacao(row) {
+	const cidade = String(row.cidade_detectada ?? '').trim();
+	if (!cidade || cidade === '-' || /^\(?\s*vazio\s*\)?$/i.test(cidade)) {
+		return true;
+	}
+
+	const slug = String(row.slug_url ?? row.slug ?? '')
+		.trim()
+		.toLowerCase();
+	if (SLUG_GEO_PREP_RE.test(slug) || SLUG_GEO_PARENT_RE.test(slug)) {
+		return false;
+	}
+
+	// Sem prep no slug: rótulo title-case do path não conta como cidade identificada
+	return true;
+}
 
 /** Extrai ID numérico do caminho (ex.: src/data/wp/pages/48994.json → 48994) */
 function extractWpIdFromArquivo(arquivo) {
@@ -685,13 +721,31 @@ async function main() {
 
 	const plan = [];
 	const withTraffic = [];
+	/** @type {typeof plan} */
+	const excluidasSemLocal = [];
+	/** @type {typeof plan} */
+	const excluidasAreaManual = [];
 
 	for (const row of remover) {
 		const slug = String(row.slug_url ?? '');
+		const arquivoNorm = String(row.arquivo ?? '').replace(/\\/g, '/');
 		const key = normalizeUrlKey(slug);
 		const stats = gsc.map.get(key) ?? { impressions: 0, clicks: 0 };
 		const teve = stats.impressions > 0 || stats.clicks > 0;
-		const { acao_sugerida, destino_301 } = suggestAction(teve);
+		const acaoManual = EXCLUSOES_AREA_MANUAL.get(arquivoNorm);
+		const semLocal = !acaoManual && isSemLocalizacao(row);
+
+		let acao_sugerida;
+		let destino_301;
+		if (acaoManual) {
+			acao_sugerida = acaoManual;
+			destino_301 = '';
+		} else if (semLocal) {
+			acao_sugerida = ACAO_REVISAR_SEM_LOCAL;
+			destino_301 = '';
+		} else {
+			({ acao_sugerida, destino_301 } = suggestAction(teve));
+		}
 
 		const item = {
 			arquivo: row.arquivo ?? '',
@@ -704,7 +758,9 @@ async function main() {
 			destino_301,
 		};
 		plan.push(item);
-		if (teve) withTraffic.push(item);
+		if (acaoManual) excluidasAreaManual.push(item);
+		else if (semLocal) excluidasSemLocal.push(item);
+		else if (teve) withTraffic.push(item);
 	}
 
 	// Integridade referencial antes de gravar o CSV
@@ -731,7 +787,9 @@ async function main() {
 		const rank = (acao) => {
 			if (String(acao).startsWith('301')) return 0;
 			if (acao === '410 direto') return 1;
-			return 2; // MANTER
+			if (String(acao).startsWith('REESCREVER')) return 2;
+			if (String(acao).startsWith('REVISAR')) return 3;
+			return 4; // MANTER
 		};
 		const ra = rank(a.acao_sugerida);
 		const rb = rank(b.acao_sugerida);
@@ -761,14 +819,43 @@ async function main() {
 
 	const n410 = plan.filter((p) => p.acao_sugerida === '410 direto').length;
 	const n301 = plan.filter((p) => p.acao_sugerida.startsWith('301')).length;
+	const nRevisarSemLocal = plan.filter((p) => p.acao_sugerida === ACAO_REVISAR_SEM_LOCAL).length;
+	const nReescreverManual = plan.filter((p) => String(p.acao_sugerida).startsWith('REESCREVER')).length;
 	const nManter = plan.filter((p) => String(p.acao_sugerida).startsWith('MANTER')).length;
+	const nRemocaoEfetiva = n410 + n301;
 
 	console.log('\n=== Plano de remoção (somente relatório) ===\n');
-	console.log(`Total no plano:    ${plan.length}`);
+	console.log(`Total no CSV:      ${plan.length}  (REMOVER do audit, incl. exclusões)`);
+	console.log(`410/301 (plano):   ${nRemocaoEfetiva}  ← remoção de fato`);
 	console.log(`410 direto:        ${n410}  (sem impressão/clique no GSC)`);
 	console.log(`301 → ${FALLBACK_301}: ${n301}  (teve tráfego — revisar manualmente)`);
+	console.log(
+		`REVISAR sem local: ${nRevisarSemLocal}  (excluídas do 410/301 — avaliar individualmente)`,
+	);
+	console.log(
+		`REESCREVER manual: ${nReescreverManual}  (excluídas do 410/301 — área de atendimento)`,
+	);
 	console.log(`MANTER (refs):     ${nManter}  (integridade referencial)`);
 	console.log(`\nCSV: ${path.relative(ROOT, OUT_CSV)}`);
+
+	if (excluidasAreaManual.length > 0) {
+		console.log(`\nExcluídas do plano 410/301 por área manual (${excluidasAreaManual.length}):`);
+		for (const item of excluidasAreaManual) {
+			const id = extractWpIdFromArquivo(item.arquivo) ?? '?';
+			console.log(`  ${id}  ${item.slug} — ${item.acao_sugerida}`);
+		}
+	}
+
+	if (excluidasSemLocal.length > 0) {
+		console.log(`\nExcluídas do plano 410/301 por sem localização (${excluidasSemLocal.length}):`);
+		const sortedEx = [...excluidasSemLocal].sort((a, b) => a.slug.localeCompare(b.slug));
+		for (const item of sortedEx) {
+			const id = extractWpIdFromArquivo(item.arquivo) ?? '?';
+			console.log(
+				`  ${id}  ${item.slug} — cidade_detectada="${item.cidade_detectada || '(vazio)'}"`,
+			);
+		}
+	}
 
 	console.log(`\nPáginas com teve_impressao_gsc = true (${withTraffic.length}):`);
 	if (withTraffic.length === 0) {

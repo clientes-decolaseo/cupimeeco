@@ -156,30 +156,15 @@ function resolveOfficialCity(locationSlug) {
 
 	const slug = locationSlug.toLowerCase().replace(/^-+|-+$/g, '');
 
-	if (BAIRROS_SP.has(slug) || /^(?:zona-(?:norte|sul|leste|oeste)|centro|moema|pinheiros|itaim|vila-)/i.test(slug)) {
-		return {
-			cidade_detectada: MUNICIPIOS['sao-paulo']?.nome ?? 'São Paulo',
-			area_atendimento: true,
-			cityId: 'sao-paulo',
-		};
-	}
+	const direct = resolveKnownCitySlug(slug);
+	if (direct) return direct;
 
-	if (MUNICIPIOS[slug]) {
-		return {
-			cidade_detectada: MUNICIPIOS[slug].nome,
-			area_atendimento: true,
-			cityId: slug,
-		};
-	}
-
-	const aliasKey = slug.replace(/-/g, ' ');
-	const aliasId = ALIASES[aliasKey] ?? ALIASES[slug] ?? ALIASES[slugify(aliasKey)];
-	if (aliasId && MUNICIPIOS[aliasId]) {
-		return {
-			cidade_detectada: MUNICIPIOS[aliasId].nome,
-			area_atendimento: true,
-			cityId: aliasId,
-		};
+	// Slugs tortos do WP: "24hs-em-sao-paulo", "com-produto-biologico-em-guarulhos",
+	// "caixa-dagua-na-zona-leste", "morumbi-sp" — extrai o token de cidade no final.
+	const embedded = extractEmbeddedCitySlug(slug);
+	if (embedded && embedded !== slug) {
+		const fromEmbedded = resolveKnownCitySlug(embedded);
+		if (fromEmbedded) return fromEmbedded;
 	}
 
 	// Fallback: nome legível do slug (fora da área)
@@ -189,6 +174,105 @@ function resolveOfficialCity(locationSlug) {
 		.join(' ');
 
 	return { cidade_detectada: label || slug, area_atendimento: false, cityId: slug };
+}
+
+/**
+ * Resolve um token de slug já “limpo” (ex.: sao-paulo, guarulhos, pinheiros, zona-sul).
+ * @returns {{ cidade_detectada: string, area_atendimento: boolean, cityId: string } | null}
+ */
+function resolveKnownCitySlug(slug) {
+	const s = String(slug ?? '')
+		.toLowerCase()
+		.replace(/^-+|-+$/g, '');
+	if (!s) return null;
+
+	if (
+		BAIRROS_SP.has(s) ||
+		/^(?:zona-(?:norte|sul|leste|oeste)|centro|moema|pinheiros|itaim|vila-)/i.test(s)
+	) {
+		return {
+			cidade_detectada: MUNICIPIOS['sao-paulo']?.nome ?? 'São Paulo',
+			area_atendimento: true,
+			cityId: 'sao-paulo',
+		};
+	}
+
+	if (MUNICIPIOS[s]) {
+		return {
+			cidade_detectada: MUNICIPIOS[s].nome,
+			area_atendimento: true,
+			cityId: s,
+		};
+	}
+
+	const aliasKey = s.replace(/-/g, ' ');
+	const aliasId = ALIASES[aliasKey] ?? ALIASES[s] ?? ALIASES[slugify(aliasKey)];
+	if (aliasId && MUNICIPIOS[aliasId]) {
+		return {
+			cidade_detectada: MUNICIPIOS[aliasId].nome,
+			area_atendimento: true,
+			cityId: aliasId,
+		};
+	}
+
+	// Sufixo -sp em bairro/cidade: morumbi-sp, pinheiros-sp
+	if (s.endsWith('-sp') && s.length > 3) {
+		const without = s.slice(0, -3);
+		const nested = resolveKnownCitySlug(without);
+		if (nested?.area_atendimento) return nested;
+		if (without === 'sao-paulo' || without === 'sao' || without === 'capital') {
+			return {
+				cidade_detectada: MUNICIPIOS['sao-paulo']?.nome ?? 'São Paulo',
+				area_atendimento: true,
+				cityId: 'sao-paulo',
+			};
+		}
+	}
+
+	return null;
+}
+
+/** Tokens oficiais conhecidos (município + aliases slugificados), mais longos primeiro. */
+const KNOWN_CITY_SLUG_TOKENS = (() => {
+	/** @type {Set<string>} */
+	const set = new Set(Object.keys(MUNICIPIOS ?? {}));
+	for (const [alias, id] of Object.entries(ALIASES ?? {})) {
+		if (id) set.add(slugify(alias));
+		if (id) set.add(id);
+	}
+	for (const b of BAIRROS_SP) set.add(b);
+	for (const z of ['zona-norte', 'zona-sul', 'zona-leste', 'zona-oeste']) set.add(z);
+	return [...set].filter(Boolean).sort((a, b) => b.length - a.length || a.localeCompare(b));
+})();
+
+/**
+ * Extrai município/bairro/zona embutido no final de um slug sujo.
+ * Ex.: "24-horas-em-guarulhos" → "guarulhos"; "em-sao-paulo" → "sao-paulo".
+ */
+function extractEmbeddedCitySlug(rawSlug) {
+	const s = String(rawSlug ?? '')
+		.toLowerCase()
+		.replace(/^-+|-+$/g, '');
+	if (!s) return null;
+
+	// ...-em|na|no|nas|nos-TOKEN
+	const prep = s.match(/(?:^|-)(?:em|na|no|nas|nos)-([a-z0-9-]+)$/);
+	if (prep) {
+		const cand = prep[1];
+		if (resolveKnownCitySlug(cand)) return cand;
+		if (cand.endsWith('-sp')) {
+			const without = cand.slice(0, -3);
+			if (resolveKnownCitySlug(without)) return without;
+		}
+	}
+
+	// Sufixo com token oficial conhecido (mais longo primeiro)
+	for (const token of KNOWN_CITY_SLUG_TOKENS) {
+		if (s === token) return token;
+		if (s.endsWith(`-${token}`)) return token;
+	}
+
+	return null;
 }
 
 const ACAO_MANTER_POST = 'MANTER - conteúdo editorial, avaliar qualidade separadamente';
@@ -766,23 +850,75 @@ function resolvePlaceNameToCity(placeName) {
 }
 
 /**
+ * Varre segmentos do path WP (ex.: /sao-sebastiao-sp/dedetizacao-de-cupins/)
+ * e resolve o primeiro que for município/bairro/zona oficial.
+ * @param {string} rawPath
+ */
+function resolveCityFromPathSegments(rawPath) {
+	const parts = String(rawPath ?? '')
+		.replace(/^\/+|\/+$/g, '')
+		.split('/')
+		.filter(Boolean);
+	for (const part of parts) {
+		const known = resolveKnownCitySlug(part);
+		if (known?.area_atendimento) return { ...known, fonte: 'path' };
+		const embedded = extractEmbeddedCitySlug(part);
+		if (embedded && embedded !== part) {
+			const fromEmbedded = resolveKnownCitySlug(embedded);
+			if (fromEmbedded?.area_atendimento) return { ...fromEmbedded, fonte: 'path' };
+		}
+	}
+	return null;
+}
+
+/**
  * Mesma lógica expandida da descoberta: slug/path OU title (prep + local).
  * Prefere slug quando já resolve área oficial.
- * Title como fallback — exceto nos 615 da baseline (não-regressão de ação).
+ * Title: permitido por opts, OU sempre que o slug/path NÃO for município oficial
+ * (evita falso REMOVER com cidade só no title / pasta pai).
  * @param {string} slug
  * @param {string} title
  * @param {{ allowTitleFallback?: boolean }} [opts]
  */
 function resolveCityExpanded(slug, title, opts = {}) {
 	const allowTitleFallback = opts.allowTitleFallback !== false;
-	const locationSlug = extractLocationSlug(String(slug ?? ''));
-	const fromSlug = resolveOfficialCity(locationSlug);
+	const rawSlug = String(slug ?? '');
+	const locationSlug = extractLocationSlug(rawSlug);
+	let fromSlug = resolveOfficialCity(locationSlug);
+	let fonte = locationSlug ? 'slug' : 'nenhuma';
 
-	if (fromSlug.area_atendimento) {
-		return { ...fromSlug, fonte: 'slug' };
+	// Se o trecho extraído não resolveu área, tenta o segmento inteiro do path/slug
+	// (ex.: limpeza-de-caixa-dagua-em-sao-paulo sem match no prefixo de serviço).
+	if (!fromSlug.area_atendimento) {
+		const segment = rawSlug.split('/').filter(Boolean).pop() || rawSlug;
+		if (segment && segment !== locationSlug) {
+			const fromSegment = resolveOfficialCity(segment);
+			if (fromSegment.area_atendimento) {
+				fromSlug = fromSegment;
+				fonte = 'slug';
+			} else if (!fromSlug.cidade_detectada && fromSegment.cidade_detectada) {
+				fromSlug = fromSegment;
+				fonte = 'slug';
+			}
+		}
 	}
 
-	if (allowTitleFallback) {
+	// Pasta pai com município: /sao-sebastiao-sp/dedetizacao-de-cupins/
+	if (!fromSlug.area_atendimento) {
+		const fromPath = resolveCityFromPathSegments(rawSlug);
+		if (fromPath?.area_atendimento) {
+			fromSlug = fromPath;
+			fonte = 'path';
+		}
+	}
+
+	if (fromSlug.area_atendimento) {
+		return { ...fromSlug, fonte };
+	}
+
+	// Title se liberado na baseline OU se o slug/path não é município (área=false)
+	const useTitle = allowTitleFallback || !fromSlug.area_atendimento;
+	if (useTitle) {
 		const titleHit = matchTitleLocation(title);
 		if (titleHit?.place) {
 			const fromTitle = resolvePlaceNameToCity(titleHit.place);
@@ -792,7 +928,7 @@ function resolveCityExpanded(slug, title, opts = {}) {
 		}
 	}
 
-	return { ...fromSlug, fonte: locationSlug ? 'slug' : 'nenhuma' };
+	return { ...fromSlug, fonte };
 }
 
 function fileLooksLikeCity(filePath, rawPreview) {
@@ -1307,6 +1443,61 @@ async function reportAuditDeltaVsPrevious(prioridadeAtual, metaByArquivo = new M
 		}
 	}
 	console.log('');
+
+	// Snapshot opcional desta correção (ex.: pré-slugfix)
+	const preSlugFix = path.join(ROOT, 'scripts', '.tmp-audit-priorizacao.pre-slugfix.csv');
+	if (await pathExists(preSlugFix)) {
+		const before = parseCsvObjects(await readFile(preSlugFix, 'utf8'));
+		/** @type {Map<string, string>} */
+		const beforeAcao = new Map();
+		for (const r of before) {
+			const arq = String(r.arquivo ?? '').replace(/\\/g, '/');
+			if (arq) beforeAcao.set(arq, String(r.acao ?? ''));
+		}
+		let changed = 0;
+		/** @type {{ arquivo: string, antes: string, depois: string, cidade: string }[]} */
+		const changedRows = [];
+		for (const [arq, acaoAntes] of beforeAcao) {
+			const curr = currByArq.get(arq);
+			if (!curr) continue;
+			if (curr.acao !== acaoAntes) {
+				changed += 1;
+				if (changedRows.length < 80) {
+					changedRows.push({
+						arquivo: arq,
+						antes: acaoAntes,
+						depois: curr.acao,
+						cidade: curr.cidade,
+					});
+				}
+			}
+		}
+		const removerAntes = before.filter((r) => String(r.acao).startsWith('REMOVER')).length;
+		const removerAgora = [...currByArq.values()].filter((r) =>
+			String(r.acao).startsWith('REMOVER'),
+		).length;
+		const spAreaTrue = prioridadeAtual.filter(
+			(r) =>
+				r.tipo_conteudo === 'pagina' &&
+				String(r.area_atendimento).toLowerCase() === 'true' &&
+				/^são\s*paulo$/i.test(String(r.cidade_detectada ?? '').trim()),
+		).length;
+		console.log('=== Delta vs pré-correção de slug (pre-slugfix) ===\n');
+		console.log(`  Páginas São Paulo (exato) com area_atendimento=true: ${spAreaTrue}`);
+		console.log(`  REMOVER antes: ${removerAntes}`);
+		console.log(`  REMOVER agora: ${removerAgora}`);
+		console.log(`  Linhas com ação alterada: ${changed}`);
+		if (changedRows.length > 0) {
+			console.log('\n  Amostras de mudanças de ação:');
+			for (const c of changedRows.slice(0, 40)) {
+				console.log(`  - ${c.arquivo}`);
+				console.log(`      cidade: ${c.cidade || '(vazia)'}`);
+				console.log(`      ${acaoBucket(c.antes)} → ${acaoBucket(c.depois)}`);
+			}
+			if (changed > 40) console.log(`  … +${changed - 40} outras`);
+		}
+		console.log('');
+	}
 }
 
 async function runAudit(cityFiles) {
@@ -1357,8 +1548,8 @@ async function runAudit(cityFiles) {
 			'(cidades-gsp.json — mesma base da home e /descupinizacao/regioes/).\n',
 	);
 	console.log(
-		`🔎 cidade_detectada via resolveCityExpanded (slug/path OU title + prep)\n` +
-			`   Title-fallback desligado nos ${baselineArquivos.size} arquivos da baseline 615 (não-regressão).\n`,
+		`🔎 cidade_detectada via resolveCityExpanded (slug/path-pai OU title + prep)\n` +
+			`   Title-fallback: sempre se slug/path não for município; senão respeita gate dos ${baselineArquivos.size} da baseline 615.\n`,
 	);
 
 	for (const file of cityFiles) {
