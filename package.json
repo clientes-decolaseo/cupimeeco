@@ -25,6 +25,8 @@
     "normalize:links:apply": "node scripts/normalize-content.mjs links-toxicos --apply",
     "normalize:marca": "node scripts/normalize-content.mjs revisao-marca",
     "normalize:marca-padroes": "node scripts/normalize-content.mjs marca-padroes",
+    "marca:aplicar": "node scripts/apply-marca-blocks.mjs",
+    "marca:aplicar:apply": "node scripts/apply-marca-blocks.mjs --apply",
     "audit:brand": "node scripts/audit-brand.mjs",
     "audit:thin": "node scripts/audit-thin-content.mjs",
     "enrich:preco-dedetizacao": "node scripts/enrich-preco-dedetizacao.mjs",
