@@ -27,9 +27,8 @@
   "/limpeza-de-caixa-de-gordura-em-sumare/": "/descupinizacao/regioes/",
   "/o-que-fazer-para-eliminar-baratas/": "/descupinizacao/regioes/",
   "_meta": {
-    "generatedAt": "2026-07-28T21:58:08.567Z",
+    "generatedAt": "2026-07-29T00:51:02.530Z",
     "destinoPadrao": "/descupinizacao/regioes/",
-    "nota": "Gerado a partir do plano 301 (.tmp-plano-remocao.csv) para merge em astro.config.mjs.",
-    "count": 27
+    "nota": "Gerado por execute-removal-plan.mjs — mesclar manualmente na policy SEO ou astro redirects. Não edita astro.config.mjs."
   }
 }
