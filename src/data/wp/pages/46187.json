@@ -18,6 +18,6 @@
     "description": "A empresa de caça vazamento em Ibiúna - SP oferece serviços especializados em detecção de vazamentos, localização de vazamento e reparos",
     "canonical": "https://cupins.eco.br/servico/",
     "ogImage": "/wp-content/uploads/2024/06/deteccao-de-vazamento-1024x512.jpg",
-    "robots": false
+    "robots": true
   }
 }

@@ -18,6 +18,6 @@
     "description": "A Limpeza de caixa de gordura em Campinas é um serviço essencial, tanto para residências quanto para estabelecimentos comerciais. As",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-em-campinas/",
     "ogImage": "/wp-content/uploads/2023/10/caixa-de-gorduras.jpg",
-    "robots": false
+    "robots": true
   }
 }

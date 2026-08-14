@@ -18,6 +18,6 @@
     "description": "Oferecemos Limpeza de Caixa de Gordura em Sumaré com equipe especializada e equipamentos modernos para garantir a eficiência do serviço",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-em-sumare/",
     "ogImage": "/wp-content/uploads/2023/10/desentupir.jpg",
-    "robots": false
+    "robots": true
   }
 }

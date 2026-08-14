@@ -18,6 +18,6 @@
     "description": "A limpeza de caixa de gordura em Paulínia é um serviço essencial para garantir o bom funcionamento da rede de esgoto e evitar problemas",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-em-paulinia/",
     "ogImage": "/wp-content/uploads/2019/10/limpeza-de-fossa-caixa-de-gordura.jpg",
-    "robots": false
+    "robots": true
   }
 }

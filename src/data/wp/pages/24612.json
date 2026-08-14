@@ -18,6 +18,6 @@
     "description": "A limpeza de caixa d'água em Osasco é uma parte crucial para garantir a qualidade da água utilizada tanto em ambientes residenciais quanto",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-dagua-em-osasco/",
     "ogImage": "/wp-content/uploads/2024/07/higienizacao-de-caixa.jpg",
-    "robots": false
+    "robots": true
   }
 }

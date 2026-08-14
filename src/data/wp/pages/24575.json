@@ -18,6 +18,6 @@
     "description": "A Limpeza de Caixa de Gordura na Zona Leste é um serviço essencial para manter o bom funcionamento das tubulações em residências, restaurante",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-na-zona-leste/",
     "ogImage": "/wp-content/uploads/2023/10/desentupir.jpg",
-    "robots": false
+    "robots": true
   }
 }

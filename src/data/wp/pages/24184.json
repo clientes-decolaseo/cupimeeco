@@ -18,6 +18,6 @@
     "description": "A Desentupidora em Indaiatuba 24 horas com orçamento grátis. Quando se trata de resolver problemas de entupimento em Indaiatuba, contar",
     "canonical": "https://cupins.eco.br/desentupidora-em-indaiatuba/",
     "ogImage": "/wp-content/uploads/2024/01/hidrojateamento-de-rede-esgoto.jpg",
-    "robots": false
+    "robots": true
   }
 }

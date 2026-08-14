@@ -18,6 +18,6 @@
     "description": "A Desentupidora em Jacareí é uma empresa especializada em serviços de limpeza e desentupimento de tubulações e esgotos. Com anos de experiên",
     "canonical": "https://cupins.eco.br/desentupidora-em-jacarei/",
     "ogImage": "/wp-content/uploads/2020/10/caminhao.jpg",
-    "robots": false
+    "robots": true
   }
 }

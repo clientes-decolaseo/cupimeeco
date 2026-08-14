@@ -18,6 +18,6 @@
     "description": "A limpeza de caixa de gordura em Monte Mor - SP é um serviço essencial para garantir o bom funcionamento das redes de esgoto, tanto em",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-em-monte-mor/",
     "ogImage": "/wp-content/uploads/2023/10/gordura.jpg",
-    "robots": false
+    "robots": true
   }
 }

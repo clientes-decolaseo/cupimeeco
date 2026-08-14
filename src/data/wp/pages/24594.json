@@ -18,6 +18,6 @@
     "description": "A limpeza de caixa de gordura em Aldeia da Serra é essencial para manter um ambiente limpo e evitar problemas de entupimento na rede de esgoto",
     "canonical": "https://cupins.eco.br/servico/",
     "ogImage": "/wp-content/uploads/2023/10/desentupir.jpg",
-    "robots": false
+    "robots": true
   }
 }

@@ -18,6 +18,6 @@
     "description": "Encontre a melhor desentupidora em São Paulo com atendimento 24h, serviços de qualidade e preços justos. Solucione entupimentos de forma rápida e eficiente.",
     "canonical": "https://cupins.eco.br/desentupidora-em-sao-paulo/",
     "ogImage": "/wp-content/uploads/2024/05/desentupidora-em-sao-paulo-imagem-destacada.jpg",
-    "robots": false
+    "robots": true
   }
 }

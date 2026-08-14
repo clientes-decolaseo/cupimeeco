@@ -18,6 +18,6 @@
     "description": "Caça Vazamento em Boituva é um serviço especializado que visa identificar e localizar vazamentos em sistemas hidráulicos de residências,",
     "canonical": "https://cupins.eco.br/servico/",
     "ogImage": "/wp-content/uploads/2024/06/deteccao-de-vazamento-1024x512.jpg",
-    "robots": false
+    "robots": true
   }
 }

@@ -18,6 +18,6 @@
     "description": "A limpeza de caixa de gordura em Cajamar é um serviço crucial para manter o bom funcionamento dos sistemas de esgoto e evitar entupimentos",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-em-cajamar/",
     "ogImage": "/wp-content/uploads/2023/10/gordura-1024x576.jpg",
-    "robots": false
+    "robots": true
   }
 }

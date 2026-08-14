@@ -18,6 +18,6 @@
     "description": "A Limpeza de Caixa de Gordura em Vinhedo é um serviço essencial para garantir o bom funcionamento dos sistemas de esgoto, tanto em residência",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-em-vinhedo/",
     "ogImage": "/wp-content/uploads/2023/10/gordura.jpg",
-    "robots": false
+    "robots": true
   }
 }

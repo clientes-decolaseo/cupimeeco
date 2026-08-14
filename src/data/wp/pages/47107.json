@@ -18,6 +18,6 @@
     "description": "Desentupidora em Ubatuba? Conte com a Cupim Eco! Atendimento 24h para desentupimento de pias, esgoto, vasos e caixa de gordura",
     "canonical": "https://cupins.eco.br/desentupidora-em-ubatuba/",
     "ogImage": "/wp-content/uploads/2025/06/caixa-1-1024x683.webp",
-    "robots": false
+    "robots": true
   }
 }

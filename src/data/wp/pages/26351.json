@@ -18,6 +18,6 @@
     "description": "O serviço de hidrojateamento em Itu é essencial para a limpeza de superfícies industriais. Empresas especializadas em hidrojateamento em",
     "canonical": "https://cupins.eco.br/hidrojateamento-em-itu/",
     "ogImage": "/wp-content/uploads/2024/09/SERVICO-DE-HIDROJATEAMENTO.jpg",
-    "robots": false
+    "robots": true
   }
 }

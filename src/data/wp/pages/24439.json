@@ -18,6 +18,6 @@
     "description": "Serviço de Caça Vazamento em Praia Grande é essencial para detectar e reparar infiltrações antes que causem grandes danos. Nossa equipe",
     "canonical": "https://cupins.eco.br/caca-vazamento-em-praia-grande/",
     "ogImage": "/wp-content/uploads/2024/06/deteccao-de-vazamento-1024x512.jpg",
-    "robots": false
+    "robots": true
   }
 }

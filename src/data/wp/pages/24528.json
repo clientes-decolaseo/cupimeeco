@@ -18,6 +18,6 @@
     "description": "Nossa desentupidora oferece serviços especializados de limpeza de caixa de gordura em Osasco. Contamos com uma equipe altamente qualificada",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-em-osasco/",
     "ogImage": "/wp-content/uploads/2023/10/desentupir.jpg",
-    "robots": false
+    "robots": true
   }
 }

@@ -18,6 +18,6 @@
     "description": "Limpeza de caixa d'água em São Paulo com licencia da limpeza da caixa d'água em São Paulo. A água é um recurso essencial para a vida e a sua",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-dagua-em-sao-paulo/",
     "ogImage": "/wp-content/uploads/2024/01/Higienizacao-de-Reservatorios.webp",
-    "robots": false
+    "robots": true
   }
 }

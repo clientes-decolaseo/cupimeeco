@@ -18,6 +18,6 @@
     "description": "Se você está em busca de serviços de hidrojateamento em Jundiaí, oferecemos atendimento 24 horas com o melhor preço do mercado. Nossos",
     "canonical": "https://cupins.eco.br/hidrojateamento-em-jundiai/",
     "ogImage": "/wp-content/uploads/2020/10/caminhao.jpg",
-    "robots": false
+    "robots": true
   }
 }

@@ -18,6 +18,6 @@
     "description": "Nossa empresa é especializada em limpeza de caixa d'água em Cotia, oferecendo um serviço de alta qualidade para garantir a saúde e a seguran",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-dagua-em-cotia/",
     "ogImage": "/wp-content/uploads/2024/07/limpeza-de-reservatorio-de-agua.jpg",
-    "robots": false
+    "robots": true
   }
 }

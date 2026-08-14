@@ -18,6 +18,6 @@
     "description": "Controle de pragas em Moema e Grande SP: dedetização, descupinização e deratização com atendimento 24h. Orçamento grátis — Cupim Eco.",
     "canonical": "https://cupins.eco.br/desentupidora-em-moema/",
     "ogImage": "/wp-content/uploads/2024/03/Hideojateamento.jpg",
-    "robots": false
+    "robots": true
   }
 }

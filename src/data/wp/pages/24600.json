@@ -18,6 +18,6 @@
     "description": "A Limpeza de Caixa de Gordura em Guarujá é uma tarefa essencial para manter a eficiência do sistema de esgoto e evitar problemas de entupime",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-em-guaruja/",
     "ogImage": "/wp-content/uploads/2023/10/desentupir.jpg",
-    "robots": false
+    "robots": true
   }
 }

@@ -18,6 +18,6 @@
     "description": "A Limpeza de Caixa d'Água em Boituva é uma medida essencial para garantir a qualidade da água que chega até sua residência ou empresa.",
     "canonical": "https://cupins.eco.br/servico/",
     "ogImage": "/wp-content/uploads/2024/07/Higienizacao-de-resevatorio-de-agua-1024x536.jpg",
-    "robots": false
+    "robots": true
   }
 }

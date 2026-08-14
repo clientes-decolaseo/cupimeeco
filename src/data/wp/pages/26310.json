@@ -18,6 +18,6 @@
     "description": "Realizamos serviços de hidrojateamento em Sorocaba com equipamentos de média, alta e ultra pressão, proporcionando uma limpeza eficaz sem",
     "canonical": "https://cupins.eco.br/hidrojateamento-em-sorocaba/",
     "ogImage": "/wp-content/uploads/2024/09/hidrojateamento.jpg",
-    "robots": false
+    "robots": true
   }
 }

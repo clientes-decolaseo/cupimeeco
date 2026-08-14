@@ -18,6 +18,6 @@
     "description": "Nossa empresa se orgulha de oferecer serviços de limpeza de caixa de gordura em Cotia com atendimento emergencial 24 horas. Sabemos que",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-em-cotia/",
     "ogImage": "/wp-content/uploads/2023/10/desentupir.jpg",
-    "robots": false
+    "robots": true
   }
 }

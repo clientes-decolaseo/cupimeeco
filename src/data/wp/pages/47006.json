@@ -18,6 +18,6 @@
     "description": "Precisa de caça vazamento em Osasco? A Cupim Eco detecta vazamentos ocultos com tecnologia de ponta, evitando desperdício de água",
     "canonical": "https://cupins.eco.br/caca-vazamento-em-osasco/",
     "ogImage": "/wp-content/uploads/2025/06/filmagem-1-1024x683.webp",
-    "robots": false
+    "robots": true
   }
 }

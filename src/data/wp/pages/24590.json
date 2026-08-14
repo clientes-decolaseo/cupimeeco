@@ -18,6 +18,6 @@
     "description": "Nossa empresa oferece serviços especializados de limpeza de caixa de gordura na Barra Funda, garantindo a remoção completa de resíduos e o",
     "canonical": "https://cupins.eco.br/servico/",
     "ogImage": "/wp-content/uploads/2023/10/desentupir.jpg",
-    "robots": false
+    "robots": true
   }
 }

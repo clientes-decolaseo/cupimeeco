@@ -18,6 +18,6 @@
     "description": "Caça Vazamento em Porto Feliz possui serviços especializados em detectar vazamentos. Solicite um orçamento gratuitamente conosco.",
     "canonical": "https://cupins.eco.br/caca-vazamento-em-porto-feliz/",
     "ogImage": "/wp-content/uploads/2024/06/deteccao-de-vazamento.jpg",
-    "robots": false
+    "robots": true
   }
 }

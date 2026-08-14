@@ -18,6 +18,6 @@
     "description": "A limpeza de caixa de gordura em Pinheiros é um serviço essencial para a manutenção da rede de esgoto residencial e comercial. Em Pinheiros",
     "canonical": "https://cupins.eco.br/servico/",
     "ogImage": "/wp-content/uploads/2023/10/desentupir.jpg",
-    "robots": false
+    "robots": true
   }
 }

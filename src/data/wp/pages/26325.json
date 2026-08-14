@@ -18,6 +18,6 @@
     "description": "Se você está em busca de limpeza de caixa de gordura em Itu, oferecemos um serviço completo, disponível 24 horas por dia, com o melhor preço",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-em-itu/",
     "ogImage": "/wp-content/uploads/2023/10/desentupir.jpg",
-    "robots": false
+    "robots": true
   }
 }

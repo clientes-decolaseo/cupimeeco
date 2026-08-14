@@ -18,6 +18,6 @@
     "description": "Desentupidora em Capela do Alto? Conte com a Cupim Eco! Atendimento 24 horas para desentupimento de esgoto, pia, ralo, fossa",
     "canonical": "https://cupins.eco.br/desentupidora-em-capela-do-alto/",
     "ogImage": "/wp-content/uploads/2025/06/Encanador-1024x683.webp",
-    "robots": false
+    "robots": true
   }
 }

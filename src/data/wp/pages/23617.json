@@ -18,6 +18,6 @@
     "description": "Hidrojateamento em Jacareí com alta pressão. O hidrojateamento é um método eficaz para limpeza de obstruções em sistemas de esgoto, telhados e",
     "canonical": "https://cupins.eco.br/hidrojateamento-em-jacarei/",
     "ogImage": "/wp-content/uploads/2020/10/caminhao.jpg",
-    "robots": false
+    "robots": true
   }
 }

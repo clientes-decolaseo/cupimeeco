@@ -18,6 +18,6 @@
     "description": "Desentupidora de pia em São Paulo oferece serviço desentupimento de Pia, Ralo, Vaso Sanitário e Esgoto. Solicite seu orçamento grátis.",
     "canonical": "https://cupins.eco.br/desentupidora-de-pia-em-sao-paulo/",
     "ogImage": "/wp-content/uploads/2024/03/desentupidora.jpg",
-    "robots": false
+    "robots": true
   }
 }

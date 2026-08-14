@@ -18,6 +18,6 @@
     "description": "A limpeza de caixa de gordura no Taboão da Serra é um serviço essencial para garantir o bom funcionamento do sistema de esgoto e evitar",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-no-taboao-da-serra/",
     "ogImage": "/wp-content/uploads/2023/10/desentupir.jpg",
-    "robots": false
+    "robots": true
   }
 }

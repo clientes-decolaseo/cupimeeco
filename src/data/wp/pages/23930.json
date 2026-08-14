@@ -18,6 +18,6 @@
     "description": "A Limpeza de caixa de gordura em Barueri é um serviço disponível 24 horas por dia, 7 dias por semana, visando atender às necessidades dos",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-em-barueri/",
     "ogImage": "/wp-content/uploads/2019/10/limpeza-de-fossa-caixa-de-gordura.jpg",
-    "robots": false
+    "robots": true
   }
 }

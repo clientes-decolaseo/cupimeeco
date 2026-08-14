@@ -18,6 +18,6 @@
     "description": "Nossa empresa se destaca como a melhor opção para limpeza de caixa de gordura em Santana de Parnaíba. Com anos de experiência e uma equipe",
     "canonical": "https://cupins.eco.br/limpeza-de-caixa-de-gordura-em-santana-de-parnaiba/",
     "ogImage": "/wp-content/uploads/2023/10/gordura-1024x576.jpg",
-    "robots": false
+    "robots": true
   }
 }
