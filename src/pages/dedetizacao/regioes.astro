@@ -3,18 +3,20 @@ import BioLayout from '../../layouts/BioLayout.astro';
 import ClusterRegioesHub from '../../components/bio/ClusterRegioesHub.astro';
 import ContatoCta from '../../components/bio/sections/ContatoCta.astro';
 import { getClusterById, getClusterPages } from '../../lib/clusters';
+import { groupPagesByCity } from '../../lib/cluster-regions';
+import { isThinHubNoindex } from '../../lib/hub-health';
 
 const cluster = getClusterById('dedetizacao')!;
 const pages = getClusterPages('dedetizacao');
 
 const pageTitle = `Dedetização por região | Grande São Paulo | Cupim Eco`;
-import { groupPagesByCity } from '../../lib/cluster-regions';
 
 const cities = groupPagesByCity(pages);
 const pageDescription = `Dedetização profissional em ${cities.length}+ cidades. Controle de baratas, formigas e pragas urbanas. Atendimento 24h: 0800 111 7272.`;
+const noindex = isThinHubNoindex(cluster.hubRegioes);
 ---
 
-<BioLayout variant="content" title={pageTitle} description={pageDescription}>
+<BioLayout variant="content" title={pageTitle} description={pageDescription} noindex={noindex}>
 	<ClusterRegioesHub cluster={cluster} pages={pages} />
 	<ContatoCta />
 </BioLayout>

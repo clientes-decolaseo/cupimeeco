@@ -10,6 +10,8 @@ import foraAreaPolicy from './src/data/seo/fora-area-policy.json';
 import duplicatesPolicy from './src/data/seo/duplicates-policy.json';
 import sanitizacaoPolicy from './src/data/seo/sanitizacao-policy.json';
 import mosquitosPolicy from './src/data/seo/mosquitos-policy.json';
+import hubThinPolicy from './src/data/seo/hub-thin-policy.json';
+import offtopicPolicy from './src/data/seo/offtopic-policy.json';
 import cidadesRedirectsJson from './scripts/redirects-cidades.json' with { type: 'json' };
 
 const policyFiles = [
@@ -20,6 +22,8 @@ const policyFiles = [
 	mosquitosPolicy,
 	foraAreaPolicy,
 	duplicatesPolicy,
+	hubThinPolicy,
+	offtopicPolicy,
 ];
 
 const redirectSources = new Set();
@@ -30,10 +34,10 @@ const clusterRedirects = {};
 
 for (const policy of policyFiles) {
 	for (const path of policy.noindex ?? []) {
-		noindexPaths.add(path);
+		noindexPaths.add(String(path).replace(/^\/+|\/+$/g, '').toLowerCase());
 	}
 
-	for (const [from, to] of Object.entries(policy.redirects)) {
+	for (const [from, to] of Object.entries(policy.redirects ?? {})) {
 		redirectSources.add(from);
 		const destination = to.replace(/\/+$/, '') || '/';
 		clusterRedirects[`/${from}`] = { status: 301, destination };

@@ -5,6 +5,9 @@ import foraAreaPolicy from '../data/seo/fora-area-policy.json';
 import duplicatesPolicy from '../data/seo/duplicates-policy.json';
 import sanitizacaoPolicy from '../data/seo/sanitizacao-policy.json';
 import mosquitosPolicy from '../data/seo/mosquitos-policy.json';
+import gsc404Policy from '../data/seo/gsc-404-policy.json';
+import hubThinPolicy from '../data/seo/hub-thin-policy.json';
+import offtopicPolicy from '../data/seo/offtopic-policy.json';
 import cidadesRedirectsJson from '../../scripts/redirects-cidades.json';
 
 export interface SeoPolicyResult {
@@ -26,6 +29,11 @@ const POLICIES: ClusterPolicyFile[] = [
 	mosquitosPolicy,
 	foraAreaPolicy,
 	duplicatesPolicy,
+	gsc404Policy,
+	// hubs finos (<3 spokes) — gerado por scripts/check-hubs.mjs --enforce
+	hubThinPolicy as ClusterPolicyFile,
+	// off-topic confirmado — gerado por scripts/apply-offtopic-noindex.mjs --apply
+	offtopicPolicy as ClusterPolicyFile,
 ];
 
 const redirects: Record<string, string> = {};
@@ -42,14 +50,14 @@ function normalizeDestination(destination: string): string {
 }
 
 for (const policy of POLICIES) {
-	for (const [from, to] of Object.entries(policy.redirects)) {
+	for (const [from, to] of Object.entries(policy.redirects ?? {})) {
 		redirects[from] = to;
 		redirectsByKey.set(normalizePathKey(from), to);
 		redirectSources.add(from);
 	}
 
 	for (const path of policy.noindex ?? []) {
-		noindexPaths.add(path);
+		noindexPaths.add(normalizePathKey(path));
 	}
 }
 
@@ -98,7 +106,7 @@ export function getRedirectDestination(itemPath: string): string | undefined {
 }
 
 export function shouldNoindexPath(itemPath: string, wpRobotsNoindex = false): boolean {
-	return wpRobotsNoindex || noindexPaths.has(itemPath);
+	return wpRobotsNoindex || noindexPaths.has(normalizePathKey(itemPath));
 }
 
 export function getSeoPolicy(itemPath: string, wpRobotsNoindex = false): SeoPolicyResult {

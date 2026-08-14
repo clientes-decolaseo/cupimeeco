@@ -3,6 +3,7 @@ import BioLayout from '../../layouts/BioLayout.astro';
 import ClusterBlogHub from '../../components/bio/ClusterBlogHub.astro';
 import ContatoCta from '../../components/bio/sections/ContatoCta.astro';
 import { getClustersWithBlogHub, getClusterByBlogTopic } from '../../lib/clusters';
+import { isThinHubNoindex } from '../../lib/hub-health';
 import { getBlogPostsSummaryForCluster } from '../../lib/wordpress';
 
 export function getStaticPaths() {
@@ -22,9 +23,11 @@ const posts = await getBlogPostsSummaryForCluster(cluster.id);
 
 const pageTitle = `${cluster.blogHubTitulo} | Blog | Cupim Eco`;
 const pageDescription = cluster.blogHubDescricao;
+// noindex via hub-thin-policy.json (check-hubs --enforce / prebuild) quando <3 spokes vivos
+const noindex = isThinHubNoindex(cluster.blogHub);
 ---
 
-<BioLayout variant="content" title={pageTitle} description={pageDescription}>
+<BioLayout variant="content" title={pageTitle} description={pageDescription} noindex={noindex}>
 	<ClusterBlogHub cluster={cluster} posts={posts} />
 	<ContatoCta />
 </BioLayout>

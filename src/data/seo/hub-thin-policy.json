@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-08-14T12:54:03.948Z",
+  "minLiveSpokes": 3,
+  "noindex": [
+    "blog/sanitizacao",
+    "blog/mosquitos"
+  ],
+  "hubs": [
+    {
+      "type": "blog",
+      "clusterId": "descupinizacao",
+      "path": "/blog/cupins",
+      "active": true,
+      "liveSpokes": 65,
+      "thin": false
+    },
+    {
+      "type": "regioes",
+      "clusterId": "descupinizacao",
+      "path": "/descupinizacao/regioes",
+      "active": true,
+      "liveSpokes": 102,
+      "thin": false
+    },
+    {
+      "type": "blog",
+      "clusterId": "dedetizacao",
+      "path": "/blog/dedetizacao",
+      "active": true,
+      "liveSpokes": 13,
+      "thin": false
+    },
+    {
+      "type": "regioes",
+      "clusterId": "dedetizacao",
+      "path": "/dedetizacao/regioes",
+      "active": true,
+      "liveSpokes": 78,
+      "thin": false
+    },
+    {
+      "type": "blog",
+      "clusterId": "deratizacao",
+      "path": "/blog/deratizacao",
+      "active": true,
+      "liveSpokes": 8,
+      "thin": false
+    },
+    {
+      "type": "regioes",
+      "clusterId": "deratizacao",
+      "path": "/deratizacao/regioes",
+      "active": true,
+      "liveSpokes": 66,
+      "thin": false
+    },
+    {
+      "type": "blog",
+      "clusterId": "sanitizacao",
+      "path": "/blog/sanitizacao",
+      "active": true,
+      "liveSpokes": 0,
+      "thin": true
+    },
+    {
+      "type": "regioes",
+      "clusterId": "sanitizacao",
+      "path": "/sanitizacao/regioes",
+      "active": false,
+      "liveSpokes": 0,
+      "thin": false,
+      "skipped": "hubRegioesAtivo=false (nao publicado como hub)"
+    },
+    {
+      "type": "blog",
+      "clusterId": "mosquitos",
+      "path": "/blog/mosquitos",
+      "active": true,
+      "liveSpokes": 0,
+      "thin": true
+    },
+    {
+      "type": "regioes",
+      "clusterId": "mosquitos",
+      "path": "/controle-de-mosquitos/regioes",
+      "active": false,
+      "liveSpokes": 0,
+      "thin": false,
+      "skipped": "hubRegioesAtivo=false (nao publicado como hub)"
+    }
+  ]
+}

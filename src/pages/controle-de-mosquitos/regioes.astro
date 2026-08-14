@@ -4,6 +4,7 @@ import ClusterRegioesHub from '../../components/bio/ClusterRegioesHub.astro';
 import ContatoCta from '../../components/bio/sections/ContatoCta.astro';
 import { getClusterById, getClusterPages, isRegionalHubActive } from '../../lib/clusters';
 import { groupPagesByCity } from '../../lib/cluster-regions';
+import { isThinHubNoindex } from '../../lib/hub-health';
 
 const cluster = getClusterById('mosquitos')!;
 
@@ -16,9 +17,10 @@ const cities = groupPagesByCity(pages);
 
 const pageTitle = `Controle de mosquitos por região | Grande São Paulo | Cupim Eco`;
 const pageDescription = `Controle de mosquitos e combate ao Aedes em ${cities.length} localidades atendidas. Atendimento 24h — Cupim Eco. Ligue 0800 111 7272.`;
+const noindex = isThinHubNoindex(cluster.hubRegioes);
 ---
 
-<BioLayout variant="content" title={pageTitle} description={pageDescription}>
+<BioLayout variant="content" title={pageTitle} description={pageDescription} noindex={noindex}>
 	<ClusterRegioesHub cluster={cluster} pages={pages} />
 	<ContatoCta />
 </BioLayout>
