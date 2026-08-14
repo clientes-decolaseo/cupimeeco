@@ -1,0 +1,920 @@
+{
+	"generatedAt": "2026-08-14T16:26:15.006Z",
+	"destination": "/areas-de-atendimento/",
+	"stats": {
+		"redirects": 338,
+		"cities": 143,
+		"regions": 7,
+		"filesToMove": 338,
+		"missingFiles": 0
+	},
+	"regions": [
+		{
+			"regiaoId": "regiao-sp",
+			"regiaoLabel": "Região de São Paulo",
+			"regiaoOrdem": 1,
+			"cities": [
+				{
+					"id": "alphaville",
+					"nome": "Barueri",
+					"serviceHref": "/sanitizacao/",
+					"serviceCluster": "sanitizacao"
+				},
+				{
+					"id": "barueri",
+					"nome": "Barueri",
+					"serviceHref": "/sanitizacao/",
+					"serviceCluster": "sanitizacao"
+				},
+				{
+					"id": "cajamar",
+					"nome": "Cajamar",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "carapicuiba",
+					"nome": "Carapicuíba",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "centro",
+					"nome": "Centro",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "centro-de-sao-paulo",
+					"nome": "Centro De Sao Paulo",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "centro-de-sp",
+					"nome": "Centro De Sp",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "centro-sp",
+					"nome": "Centro Sp",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "cotia",
+					"nome": "Cotia",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-ratos-na-zona-leste",
+					"nome": "Dedetizadora De Ratos Na Zona Leste",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "dedetizadora-de-ratos-na-zona-norte",
+					"nome": "Dedetizadora De Ratos Na Zona Norte",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "dedetizadora-de-ratos-na-zona-oeste",
+					"nome": "Dedetizadora De Ratos Na Zona Oeste",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "dedetizadora-de-ratos-na-zona-sul",
+					"nome": "Dedetizadora De Ratos Na Zona Sul",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "dedetizadora-na-zona-norte-sp",
+					"nome": "Dedetizadora Na Zona Norte Sp",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-zona-sul-sp",
+					"nome": "Dedetizadora Na Zona Sul Sp",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-no-centro-de-sp",
+					"nome": "Dedetizadora No Centro De Sp",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-no-centro-sp",
+					"nome": "Dedetizadora No Centro Sp",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "guarulhos",
+					"nome": "Guarulhos",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "itapevi",
+					"nome": "Itapevi",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "osasco",
+					"nome": "Osasco",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "santana-de-parnaiba",
+					"nome": "Santana de Parnaíba",
+					"serviceHref": "/sanitizacao/",
+					"serviceCluster": "sanitizacao"
+				},
+				{
+					"id": "sao-paulo",
+					"nome": "São Paulo",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "taboao",
+					"nome": "Taboão da Serra",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "taboao-da-serra",
+					"nome": "Taboão da Serra",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				}
+			]
+		},
+		{
+			"regiaoId": "baixada-santista",
+			"regiaoLabel": "Baixada Santista",
+			"regiaoOrdem": 2,
+			"cities": [
+				{
+					"id": "cubatao",
+					"nome": "Cubatão",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "guaruja",
+					"nome": "Guarujá",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "itanhaem",
+					"nome": "Itanhaém",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "mongagua",
+					"nome": "Mongaguá",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "peruibe",
+					"nome": "Peruíbe",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "praia-grande",
+					"nome": "Praia Grande",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "santos",
+					"nome": "Santos",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				}
+			]
+		},
+		{
+			"regiaoId": "campinas",
+			"regiaoLabel": "Região de Campinas",
+			"regiaoOrdem": 3,
+			"cities": [
+				{
+					"id": "campinas",
+					"nome": "Campinas",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "hortolandia",
+					"nome": "Hortolândia",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "indaiatuba",
+					"nome": "Indaiatuba",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "paulinia",
+					"nome": "Paulínia",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "sumare",
+					"nome": "Sumaré",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "valinhos",
+					"nome": "Valinhos",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "vinhedo",
+					"nome": "Vinhedo",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				}
+			]
+		},
+		{
+			"regiaoId": "sorocaba",
+			"regiaoLabel": "Região de Sorocaba",
+			"regiaoOrdem": 4,
+			"cities": [
+				{
+					"id": "boituva",
+					"nome": "Boituva",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "itu",
+					"nome": "Itu",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "porto-feliz",
+					"nome": "Porto Feliz",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "sorocaba",
+					"nome": "Sorocaba",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				}
+			]
+		},
+		{
+			"regiaoId": "jundiai",
+			"regiaoLabel": "Região de Jundiaí",
+			"regiaoOrdem": 5,
+			"cities": [
+				{
+					"id": "atibaia",
+					"nome": "Atibaia",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "cabreuva",
+					"nome": "Cabreúva",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "campo-limpo-paulista",
+					"nome": "Campo Limpo Paulista",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "itupeva",
+					"nome": "Itupeva",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "jarinu",
+					"nome": "Jarinu",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "jundiai",
+					"nome": "Jundiaí",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "varzea-paulista",
+					"nome": "Várzea Paulista",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				}
+			]
+		},
+		{
+			"regiaoId": "vale-paraiba",
+			"regiaoLabel": "Vale do Paraíba e Litoral Norte",
+			"regiaoOrdem": 6,
+			"cities": [
+				{
+					"id": "caraguatatuba",
+					"nome": "Caraguatatuba",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "jacarei",
+					"nome": "Jacareí",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "sao-jose-dos-campos",
+					"nome": "São José dos Campos",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				}
+			]
+		},
+		{
+			"regiaoId": "fora",
+			"regiaoLabel": "Outras localidades",
+			"regiaoOrdem": 99,
+			"cities": [
+				{
+					"id": "24-horas-em-alphaville",
+					"nome": "24 Horas Em Alphaville",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "24-horas-em-cajamar",
+					"nome": "24 Horas Em Cajamar",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "24-horas-em-carapicuiba",
+					"nome": "24 Horas Em Carapicuiba",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "24-horas-em-cotia",
+					"nome": "24 Horas Em Cotia",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "24-horas-em-guarulhos",
+					"nome": "24 Horas Em Guarulhos",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "24-horas-em-itapevi",
+					"nome": "24 Horas Em Itapevi",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "24-horas-em-jundiai",
+					"nome": "24 Horas Em Jundiai",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "24-horas-em-pinheiros",
+					"nome": "24 Horas Em Pinheiros",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "24-horas-em-pirituba",
+					"nome": "24 Horas Em Pirituba",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "24-horas-em-santana-de-parnaiba",
+					"nome": "24 Horas Em Santana De Parnaiba",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "24-horas-em-santo-amaro",
+					"nome": "24 Horas Em Santo Amaro",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "24-horas-em-taboao",
+					"nome": "24 Horas Em Taboao",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "24hs-em-carapicuiba",
+					"nome": "24hs Em Carapicuiba",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "24hs-em-sao-paulo",
+					"nome": "24hs Em Sao Paulo",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-alphaville",
+					"nome": "Dedetizadora De Carrapato Em Alphaville",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-atibaia",
+					"nome": "Dedetizadora De Carrapato Em Atibaia",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-barueri",
+					"nome": "Dedetizadora De Carrapato Em Barueri",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-boituva",
+					"nome": "Dedetizadora De Carrapato Em Boituva",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-cajamar",
+					"nome": "Dedetizadora De Carrapato Em Cajamar",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-campinas",
+					"nome": "Dedetizadora De Carrapato Em Campinas",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-cotia",
+					"nome": "Dedetizadora De Carrapato Em Cotia",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-guaruja",
+					"nome": "Dedetizadora De Carrapato Em Guaruja",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-guarulhos",
+					"nome": "Dedetizadora De Carrapato Em Guarulhos",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-hortolandia",
+					"nome": "Dedetizadora De Carrapato Em Hortolandia",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-itu",
+					"nome": "Dedetizadora De Carrapato Em Itu",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-jacarei",
+					"nome": "Dedetizadora De Carrapato Em Jacarei",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-jarinu",
+					"nome": "Dedetizadora De Carrapato Em Jarinu",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-peruibe",
+					"nome": "Dedetizadora De Carrapato Em Peruibe",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-porto-feliz",
+					"nome": "Dedetizadora De Carrapato Em Porto Feliz",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-sao-jose-dos-campos",
+					"nome": "Dedetizadora De Carrapato Em Sao Jose Dos Campos",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-sorocaba",
+					"nome": "Dedetizadora De Carrapato Em Sorocaba",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-sp",
+					"nome": "Dedetizadora De Carrapato Em Sp",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-varzea-paulista",
+					"nome": "Dedetizadora De Carrapato Em Varzea Paulista",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-em-vinhedo",
+					"nome": "Dedetizadora De Carrapato Em Vinhedo",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-no-butanta",
+					"nome": "Dedetizadora De Carrapato No Butanta",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-carrapato-no-itaim-bibi",
+					"nome": "Dedetizadora De Carrapato No Itaim Bibi",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-de-ratos-em-barueri",
+					"nome": "Dedetizadora De Ratos Em Barueri",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "dedetizadora-de-ratos-em-guarulhos",
+					"nome": "Dedetizadora De Ratos Em Guarulhos",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "dedetizadora-de-ratos-em-osasco",
+					"nome": "Dedetizadora De Ratos Em Osasco",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "dedetizadora-de-ratos-em-pinheiros",
+					"nome": "Dedetizadora De Ratos Em Pinheiros",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "dedetizadora-na-barra-funda",
+					"nome": "Dedetizadora Na Barra Funda",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-mooca",
+					"nome": "Dedetizadora Na Mooca",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-penha",
+					"nome": "Dedetizadora Na Penha",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-saude",
+					"nome": "Dedetizadora Na Saude",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-conceicao",
+					"nome": "Dedetizadora Na Vila Conceicao",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-das-merces",
+					"nome": "Dedetizadora Na Vila Das Merces",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-formosa",
+					"nome": "Dedetizadora Na Vila Formosa",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-guilherme",
+					"nome": "Dedetizadora Na Vila Guilherme",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-guilherme-sp",
+					"nome": "Dedetizadora Na Vila Guilherme Sp",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-gumercindo",
+					"nome": "Dedetizadora Na Vila Gumercindo",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-jaguara",
+					"nome": "Dedetizadora Na Vila Jaguara",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-leopoldina",
+					"nome": "Dedetizadora Na Vila Leopoldina",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-leopoldina-sp",
+					"nome": "Dedetizadora Na Vila Leopoldina Sp",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-maria",
+					"nome": "Dedetizadora Na Vila Maria",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-mascote",
+					"nome": "Dedetizadora Na Vila Mascote",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-olimpia",
+					"nome": "Dedetizadora Na Vila Olimpia",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-romana",
+					"nome": "Dedetizadora Na Vila Romana",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-santa-catarina",
+					"nome": "Dedetizadora Na Vila Santa Catarina",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-sao-francisco",
+					"nome": "Dedetizadora Na Vila Sao Francisco",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-na-vila-sonia-sp",
+					"nome": "Dedetizadora Na Vila Sonia Sp",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-no-alto-da-lapa",
+					"nome": "Dedetizadora No Alto Da Lapa",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-no-bosque-da-saude",
+					"nome": "Dedetizadora No Bosque Da Saude",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-no-bras",
+					"nome": "Dedetizadora No Bras",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-no-brooklin",
+					"nome": "Dedetizadora No Brooklin",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-no-ipiranga",
+					"nome": "Dedetizadora No Ipiranga",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-no-jabaquara",
+					"nome": "Dedetizadora No Jabaquara",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-no-morumbi",
+					"nome": "Dedetizadora No Morumbi",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-no-sumare",
+					"nome": "Dedetizadora No Sumare",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "dedetizadora-no-tatuape",
+					"nome": "Dedetizadora No Tatuape",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "empresa-de-controle-de-pragas-em-barueri",
+					"nome": "Empresa De Controle De Pragas Em Barueri",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "empresa-de-controle-de-pragas-em-cotia",
+					"nome": "Empresa De Controle De Pragas Em Cotia",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "empresa-de-controle-de-pragas-em-osasco",
+					"nome": "Empresa De Controle De Pragas Em Osasco",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "empresa-especializada-em-controle-de-cupins",
+					"nome": "Empresa Especializada Em Controle De Cupins",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "empresa-especializada-em-cupim",
+					"nome": "Empresa Especializada Em Cupim",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "empresa-especializada-em-descupinizacao",
+					"nome": "Empresa Especializada Em Descupinizacao",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "itaim-paulista",
+					"nome": "Itaim Paulista",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "matar-cupins-em-osasco",
+					"nome": "Matar Cupins Em Osasco",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "matar-cupins-em-sao-paulo",
+					"nome": "Matar Cupins Em Sao Paulo",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "matar-ratos-em-barueri",
+					"nome": "Matar Ratos Em Barueri",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "matar-ratos-em-cotia",
+					"nome": "Matar Ratos Em Cotia",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "matar-ratos-em-guarulhos",
+					"nome": "Matar Ratos Em Guarulhos",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "matar-ratos-em-osasco",
+					"nome": "Matar Ratos Em Osasco",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "matar-ratos-em-osasco-2",
+					"nome": "Matar Ratos Em Osasco 2",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "moema-sp",
+					"nome": "Moema Sp",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "pinheiros-sp",
+					"nome": "Pinheiros Sp",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "vila-carrao",
+					"nome": "Vila Carrao",
+					"serviceHref": "/deratizacao/",
+					"serviceCluster": "deratizacao"
+				},
+				{
+					"id": "vila-jaguara",
+					"nome": "Vila Jaguara",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "vila-leopoldina",
+					"nome": "Vila Leopoldina",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "vila-maria",
+					"nome": "Vila Maria",
+					"serviceHref": "/dedetizacao/",
+					"serviceCluster": "dedetizacao"
+				},
+				{
+					"id": "vila-olimpia",
+					"nome": "Vila Olimpia",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				},
+				{
+					"id": "vila-sonia",
+					"nome": "Vila Sonia",
+					"serviceHref": "/descupinizacao/",
+					"serviceCluster": "descupinizacao"
+				}
+			]
+		}
+	]
+}

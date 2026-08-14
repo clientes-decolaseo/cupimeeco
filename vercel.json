@@ -252,7 +252,12 @@
 		},
 		{
 			"source": "/controle-de-cupim-de-solo/",
-			"destination": "/controle-de-cupim-em-cotia/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/controle-de-cupim-em-cotia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -327,17 +332,17 @@
 		},
 		{
 			"source": "/dedetizacao-de-cupim-em-mongagua/",
-			"destination": "/descupinizacao-em-mongagua/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizacao-de-cupim-na-zona-norte/",
-			"destination": "/dedetizadora-de-cupim-na-mooca/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizacao-de-cupim-na-zona-sul/",
-			"destination": "/dedetizadora-de-cupim-na-mooca/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -363,6 +368,16 @@
 		{
 			"source": "/dedetizacao-de-ratos/",
 			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-em-cotia/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-em-osasco/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -397,27 +412,27 @@
 		},
 		{
 			"source": "/dedetizadora-de-barata-em-alphaville/",
-			"destination": "/dedetizadora-em-alphaville/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-barata-em-carapicuiba/",
-			"destination": "/dedetizadora-em-carapicuiba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-barata-em-cotia/",
-			"destination": "/dedetizadora-em-cotia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-barata-em-guarulhos/",
-			"destination": "/dedetizadora-em-guarulhos/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-barata-em-itapevi/",
-			"destination": "/dedetizadora-de-barata-na-zona-sul/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -427,17 +442,37 @@
 		},
 		{
 			"source": "/dedetizadora-de-barata-em-osasco/",
-			"destination": "/dedetizadora-em-osasco/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-barata-em-sorocaba/",
-			"destination": "/dedetizadora-em-sorocaba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-barata-na-vila-maria/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-na-vila-mariana/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-na-zona-norte/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-na-zona-oeste/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-barata-na-zona-sul/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -462,7 +497,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-alphaville/",
-			"destination": "/dedetizadora-em-alphaville/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -472,27 +507,32 @@
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-atibaia/",
-			"destination": "/dedetizadora-em-atibaia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-barueri/",
-			"destination": "/dedetizadora-em-barueri/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-boituva/",
-			"destination": "/dedetizadora-em-boituva/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-cajamar/",
-			"destination": "/dedetizadora-em-cajamar/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-campinas/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-cotia/",
-			"destination": "/dedetizadora-em-cotia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -507,22 +547,22 @@
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-guaruja/",
-			"destination": "/dedetizadora-em-guaruja/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-guarulhos/",
-			"destination": "/dedetizadora-em-guarulhos/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-hortolandia/",
-			"destination": "/dedetizadora-em-hortolandia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-itu/",
-			"destination": "/dedetizadora-em-itu/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -532,7 +572,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-jacarei/",
-			"destination": "/dedetizadora-em-jacarei/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapato-em-jarinu/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -547,12 +592,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-osasco/",
-			"destination": "/dedetizadora-em-osasco/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-peruibe/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -562,7 +607,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-porto-feliz/",
-			"destination": "/dedetizadora-em-porto-feliz/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -592,7 +637,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-sao-jose-dos-campos/",
-			"destination": "/dedetizadora-em-sao-jose-dos-campos/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -602,12 +647,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-sorocaba/",
-			"destination": "/dedetizadora-em-sorocaba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-sp/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -617,12 +662,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-varzea-paulista/",
-			"destination": "/dedetizadora-em-varzea-paulista/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-em-vinhedo/",
-			"destination": "/dedetizadora-em-vinhedo/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -632,12 +677,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-no-butanta/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-carrapato-no-itaim-bibi/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -671,13 +716,33 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-cupim-em-aclimacao/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-cupim-em-agua-fria/",
 			"destination": "/descupinizacao/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-alphaville/",
-			"destination": "/descupinizacao-em-alphaville/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-alto-da-boa-vista/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-alto-da-lapa/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-alto-da-mooca/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -697,7 +762,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-anhanguera/",
-			"destination": "/descupinizadora-em-anhanguera/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -713,6 +778,11 @@
 		{
 			"source": "/dedetizadora-de-cupim-em-aruja/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-atibaia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -732,17 +802,27 @@
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-barra-funda/",
-			"destination": "/descupinizacao-na-barra-funda/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-barro-branco/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-bela-alianca/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-bela-vista/",
-			"destination": "/descupinizacao-em-bela-vista/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-bosque-da-saude/",
-			"destination": "/descupinizacao-no-bosque-da-saude/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -751,13 +831,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-cupim-em-bras/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-cupim-em-brooklin-novo/",
-			"destination": "/descupinizacao-no-brooklin-novo/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-butanta/",
-			"destination": "/descupinizacao-no-butanta/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -767,12 +852,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-cajamar/",
-			"destination": "/descupinizacao-em-cajamar/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-cambuci/",
-			"destination": "/descupinizacao-em-cambuci/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -792,12 +877,27 @@
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-campos-eliseos/",
-			"destination": "/descupinizacao-em-campos-eliseos/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-cangaiba/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-caninde/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-caraguatatuba/",
-			"destination": "/descupinizacao-em-caraguatatuba/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-carandiru/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -812,7 +912,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-guarulhos/",
-			"destination": "/descupinizacao-em-guarulhos/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-hortolandia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -826,8 +931,23 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-cupim-em-indaiatuba/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-itanhaem/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-cupim-em-itaquaquecetuba/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-em-jacarei/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -862,7 +982,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-mongagua/",
-			"destination": "/descupinizacao-em-mongagua/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -886,8 +1006,13 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-cupim-em-peruibe/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-cupim-em-pinheiros/",
-			"destination": "/descupinizacao-em-pinheiros/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -897,7 +1022,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-pirituba/",
-			"destination": "/descupinizacao-em-pirituba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -912,7 +1037,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-praia-grande/",
-			"destination": "/descupinizacao-em-praia-grande/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -937,7 +1062,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-santos/",
-			"destination": "/descupinizacao-em-santos/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -956,6 +1081,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-cupim-em-sao-jose-dos-campos/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-cupim-em-sao-paulo/",
 			"destination": "/descupinizacao/",
 			"permanent": true
@@ -971,13 +1101,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-cupim-em-sumare/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-cupim-em-suzano/",
 			"destination": "/descupinizacao/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-em-taboao-da-serra/",
-			"destination": "/descupinizacao-em-taboao-da-serra/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -986,18 +1121,43 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-cupim-em-valinhos/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-cupim-em-vargem-grande-paulista/",
 			"destination": "/descupinizacao/",
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-cupim-em-varzea-paulista/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-cupim-em-vinhedo/",
-			"destination": "/descupinizacao-em-vinhedo/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-itupeva/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-na-baixada-santista/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-na-lapa-sp/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupim-na-mooca/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1007,32 +1167,32 @@
 		},
 		{
 			"source": "/dedetizadora-de-cupim-na-vila-maria/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-na-zona-norte/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-na-zona-norte-sp/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-na-zona-oeste-sp/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-na-zona-sul/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-na-zona-sul-sp/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1067,12 +1227,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-cupim-sao-paulo/",
-			"destination": "/descupinizacao-em-sao-paulo/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-cupim-sp/",
-			"destination": "/descupinizacao-em-sp/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1277,32 +1437,32 @@
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-atibaia/",
-			"destination": "/dedetizadora-em-atibaia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-barueri/",
-			"destination": "/dedetizadora-em-barueri/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-boituva/",
-			"destination": "/dedetizadora-em-boituva/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-cabreuva/",
-			"destination": "/dedetizadora-em-cabreuva/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-cajamar/",
-			"destination": "/dedetizadora-em-cajamar/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-campinas/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1317,12 +1477,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-carapicuiba/",
-			"destination": "/dedetizadora-em-carapicuiba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-cotia/",
-			"destination": "/dedetizadora-em-cotia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1337,12 +1497,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-guarulhos/",
-			"destination": "/dedetizadora-em-guarulhos/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-hortolandia/",
-			"destination": "/dedetizadora-em-hortolandia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1357,7 +1517,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-itapevi/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1367,17 +1527,17 @@
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-itu/",
-			"destination": "/dedetizadora-em-itu/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-itupeva/",
-			"destination": "/dedetizadora-em-itupeva/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-jacarei/",
-			"destination": "/dedetizadora-em-jacarei/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1387,12 +1547,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-jarinu/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-jundiai/",
-			"destination": "/dedetizadora-em-jundiai/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1412,17 +1572,17 @@
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-osasco/",
-			"destination": "/dedetizadora-em-osasco/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-paulinia/",
-			"destination": "/dedetizadora-em-paulinia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-peruibe/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1432,7 +1592,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-porto-feliz/",
-			"destination": "/dedetizadora-em-porto-feliz/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1452,7 +1612,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-santana-de-parnaiba/",
-			"destination": "/dedetizadora-em-santana-de-parnaiba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1472,22 +1632,22 @@
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-sao-jose-dos-campos/",
-			"destination": "/dedetizadora-em-sao-jose-dos-campos/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-sorocaba/",
-			"destination": "/dedetizadora-em-sorocaba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-sp/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-sumare/",
-			"destination": "/dedetizadora-em-sumare/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1496,13 +1656,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-escorpiao-em-taboao-da-serra/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-escorpiao-em-varzea-paulista/",
-			"destination": "/dedetizadora-em-varzea-paulista/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-em-vinhedo/",
-			"destination": "/dedetizadora-em-vinhedo/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1512,7 +1677,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-na-barra-funda/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1526,13 +1691,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-escorpiao-no-bela-vista/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-escorpiao-no-butanta/",
-			"destination": "/dedetizadora-de-escorpiao-no-bela-vista/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-escorpiao-no-morumbi/",
-			"destination": "/dedetizadora-em-morumbi/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1622,12 +1792,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-pulga-em-cajamar/",
-			"destination": "/dedetizadora-em-cajamar/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-em-cotia/",
-			"destination": "/dedetizadora-em-cotia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1651,28 +1821,33 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-pulga-em-itapevi/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-pulga-em-itaquera/",
 			"destination": "/dedetizacao/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-em-jundiai/",
-			"destination": "/dedetizadora-em-jundiai/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-em-osasco/",
-			"destination": "/dedetizadora-em-osasco/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-em-pinheiros/",
-			"destination": "/dedetizadora-em-pinheiros/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-em-porto-feliz/",
-			"destination": "/dedetizadora-em-porto-feliz/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1692,17 +1867,22 @@
 		},
 		{
 			"source": "/dedetizadora-de-pulga-em-sorocaba/",
-			"destination": "/dedetizadora-em-sorocaba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-em-sp/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-em-suzano/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-em-taboao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1712,47 +1892,57 @@
 		},
 		{
 			"source": "/dedetizadora-de-pulga-na-vila-jaguara/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-na-vila-leopoldina/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-na-vila-maria/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-na-vila-mariana/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-na-vila-sonia/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-na-zona-leste/",
-			"destination": "/dedetizadora-na-zona-leste/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-na-zona-norte/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-na-zona-oeste/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-pulga-na-zona-sul/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-no-butanta/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulga-no-itaim-bibi/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1767,7 +1957,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-pulga-no-morumbi/",
-			"destination": "/dedetizadora-em-morumbi/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1812,7 +2002,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-pulgas-em-itu/",
-			"destination": "/dedetizadora-em-itu/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1942,7 +2132,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-rato-em-alphaville/",
-			"destination": "/desratizacao-em-alphaville/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1956,13 +2146,23 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-rato-em-artur-alvim/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-rato-em-aruja/",
 			"destination": "/deratizacao/",
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-rato-em-atibaia/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-rato-em-barueri/",
-			"destination": "/desratizacao-em-barueri/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1971,13 +2171,23 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-rato-em-cabreuva/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-rato-em-cajamar/",
-			"destination": "/desratizacao-em-cajamar/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-campinas/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-rato-em-campo-limpo-paulista/",
-			"destination": "/desratizacao-em-campo-limpo-paulista/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -1987,12 +2197,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-rato-em-carapicuiba/",
-			"destination": "/desratizacao-em-carapicuiba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-rato-em-cotia/",
-			"destination": "/desratizacao-em-cotia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2016,13 +2226,23 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-rato-em-guaruja/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-rato-em-guarulhos/",
-			"destination": "/desratizacao-em-guarulhos/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-rato-em-ibiuna/",
 			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-itapevi/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2032,12 +2252,32 @@
 		},
 		{
 			"source": "/dedetizadora-de-rato-em-itu/",
-			"destination": "/desratizacao-em-itu/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-itupeva/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-jacarei/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-rato-em-jandira/",
 			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-jarinu/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-jundiai/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2056,13 +2296,33 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-rato-em-mongagua/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-rato-em-nazare-paulista/",
 			"destination": "/deratizacao/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-rato-em-osasco/",
-			"destination": "/desratizacao-em-osasco/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-paulinia/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-perdizes/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-peruibe/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2073,6 +2333,16 @@
 		{
 			"source": "/dedetizadora-de-rato-em-pirituba/",
 			"destination": "/desratizacao-em-pirituba/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-porto-feliz/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-praia-grande/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2096,6 +2366,16 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-rato-em-santana/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-santo-amaro/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-rato-em-santo-andre/",
 			"destination": "/deratizacao/",
 			"permanent": true
@@ -2108,6 +2388,11 @@
 		{
 			"source": "/dedetizadora-de-rato-em-sao-caitano-do-sul/",
 			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-sao-jose-dos-campos/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2127,12 +2412,17 @@
 		},
 		{
 			"source": "/dedetizadora-de-rato-em-sorocaba/",
-			"destination": "/desratizacao-em-sorocaba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-rato-em-sp/",
-			"destination": "/desratizacao-em-sp/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-sumare/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2142,7 +2432,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-rato-em-taboao-da-serra/",
-			"destination": "/desratizacao-em-taboao-da-serra/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-em-varzea-paulista/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2152,12 +2447,17 @@
 		},
 		{
 			"source": "/dedetizadora-de-rato-na-barra-funda/",
-			"destination": "/desratizacao-na-barra-funda/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-rato-na-cachoeirinha/",
 			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-cangaiba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2177,7 +2477,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-rato-na-consolacao/",
-			"destination": "/desratizacao-na-consolacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2192,7 +2492,7 @@
 		},
 		{
 			"source": "/dedetizadora-de-rato-na-lapa/",
-			"destination": "/desratizacao-na-lapa/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2202,7 +2502,12 @@
 		},
 		{
 			"source": "/dedetizadora-de-rato-na-mooca/",
-			"destination": "/desratizacao-na-mooca/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-penha/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2227,22 +2532,27 @@
 		},
 		{
 			"source": "/dedetizadora-de-rato-na-vila-carrao/",
-			"destination": "/deratizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-rato-na-vila-jaguara/",
-			"destination": "/deratizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-rato-na-vila-maria/",
-			"destination": "/deratizacao/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-rato-na-vila-mariana/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-rato-na-vila-sonia/",
-			"destination": "/deratizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2256,13 +2566,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-rato-no-bela-vista/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-rato-no-butanta/",
-			"destination": "/desratizacao-no-butanta/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-rato-no-guarulhos/",
-			"destination": "/desratizacao-em-guarulhos/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2281,6 +2596,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-rato-no-morumbi/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-rato-no-rio-de-janeiro/",
 			"destination": "/deratizacao/",
 			"permanent": true
@@ -2292,12 +2612,17 @@
 		},
 		{
 			"source": "/dedetizadora-de-rato-sp/",
-			"destination": "/desratizacao-em-sp/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-de-ratos/",
 			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-ratos-em-barueri/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2311,8 +2636,38 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-ratos-em-guarulhos/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-ratos-em-osasco/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-ratos-em-pinheiros/",
-			"destination": "/deratizacao/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-ratos-na-zona-leste/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-ratos-na-zona-norte/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-ratos-na-zona-oeste/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-ratos-na-zona-sul/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2376,6 +2731,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-em-cabreuva/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-em-cachoeirinha/",
 			"destination": "/dedetizacao/",
 			"permanent": true
@@ -2383,6 +2743,11 @@
 		{
 			"source": "/dedetizadora-em-campo-belo-sp/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-cubatao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2466,8 +2831,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-em-itu/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-em-jacana/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-jacarei/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2551,8 +2926,13 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-em-moema/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-em-moema-sp/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2561,13 +2941,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-em-mongagua/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-em-mongagua-2/",
-			"destination": "/dedetizadora-em-mongagua/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-morumbi/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-em-nazare-paulista/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-osasco/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2581,13 +2976,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-em-paulinia/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-perdizes/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-em-perdizes-sp/",
 			"destination": "/dedetizacao/",
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-em-pinheiros/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-em-pinheiros-sp/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2601,8 +3011,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-em-pirituba/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-em-pirituba-sp/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-porto-feliz/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2626,13 +3046,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-em-santana/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-em-santana-sp/",
 			"destination": "/dedetizacao/",
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-em-santo-amaro/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-em-santo-andre/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-santos-2/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2662,7 +3097,12 @@
 		},
 		{
 			"source": "/dedetizadora-em-sp/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-em-sumare/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2717,7 +3157,7 @@
 		},
 		{
 			"source": "/dedetizadora-na-barra-funda/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2792,7 +3232,7 @@
 		},
 		{
 			"source": "/dedetizadora-na-mooca/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2802,7 +3242,7 @@
 		},
 		{
 			"source": "/dedetizadora-na-penha/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2837,7 +3277,7 @@
 		},
 		{
 			"source": "/dedetizadora-na-saude/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2847,52 +3287,52 @@
 		},
 		{
 			"source": "/dedetizadora-na-vila-conceicao/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-das-merces/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-formosa/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-guilherme/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-guilherme-sp/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-gumercindo/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-jaguara/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-leopoldina/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-leopoldina-sp/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-maria/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2902,32 +3342,32 @@
 		},
 		{
 			"source": "/dedetizadora-na-vila-mascote/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-olimpia/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-romana/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-santa-catarina/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-sao-francisco/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-na-vila-sonia-sp/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2937,7 +3377,7 @@
 		},
 		{
 			"source": "/dedetizadora-na-zona-norte-sp/",
-			"destination": "/dedetizadora-de-barata-na-zona-norte-sp/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2951,13 +3391,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-na-zona-sul-sp/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-no-aeroporto/",
 			"destination": "/dedetizacao/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-no-alto-da-lapa/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -2997,17 +3442,17 @@
 		},
 		{
 			"source": "/dedetizadora-no-bosque-da-saude/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-no-bras/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-no-brooklin/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3022,12 +3467,12 @@
 		},
 		{
 			"source": "/dedetizadora-no-centro-de-sp/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-no-centro-sp/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3062,12 +3507,12 @@
 		},
 		{
 			"source": "/dedetizadora-no-ipiranga/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-no-jabaquara/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3092,7 +3537,7 @@
 		},
 		{
 			"source": "/dedetizadora-no-morumbi/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3142,17 +3587,17 @@
 		},
 		{
 			"source": "/dedetizadora-no-sumare/",
-			"destination": "/dedetizadora-em-sumare/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-no-taboao-da-serra/",
-			"destination": "/dedetizadora-de-escorpiao-em-taboao-da-serra/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/dedetizadora-no-tatuape/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3176,13 +3621,33 @@
 			"permanent": true
 		},
 		{
+			"source": "/descupinizacao-em-alphaville/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizacao-em-aruja/",
 			"destination": "/descupinizacao/",
 			"permanent": true
 		},
 		{
+			"source": "/descupinizacao-em-cajamar/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-cambuci/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizacao-em-campo-belo/",
 			"destination": "/descupinizacao-no-campo-belo/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-campos-eliseos/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3192,7 +3657,17 @@
 		},
 		{
 			"source": "/descupinizacao-em-centro-sp/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-cotia/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-cubatao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3203,6 +3678,11 @@
 		{
 			"source": "/descupinizacao-em-guaruja-sp/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-guarulhos/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3217,12 +3697,12 @@
 		},
 		{
 			"source": "/descupinizacao-em-itaim-bibi-2/",
-			"destination": "/descupinizacao-em-itaim-bibi/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/descupinizacao-em-itaim-paulista/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3231,8 +3711,13 @@
 			"permanent": true
 		},
 		{
+			"source": "/descupinizacao-em-jabaquara/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizacao-em-jabaquara-2/",
-			"destination": "/descupinizacao-em-jabaquara/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3271,13 +3756,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/descupinizacao-em-jundiai/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizacao-em-mairinque/",
 			"destination": "/descupinizacao/",
 			"permanent": true
 		},
 		{
+			"source": "/descupinizacao-em-moema/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-mongagua/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizacao-em-morumbi/",
-			"destination": "/descupinizacao-no-morumbi/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3291,18 +3791,48 @@
 			"permanent": true
 		},
 		{
+			"source": "/descupinizacao-em-perdizes/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizacao-em-perdizes-2/",
-			"destination": "/descupinizacao-em-perdizes/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-pinheiros/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-pirituba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/descupinizacao-em-pirituba-2/",
-			"destination": "/descupinizacao-em-pirituba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/descupinizacao-em-praia-da-enseada/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-praia-grande/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-santana-2/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-santana-de-parnaiba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3326,8 +3856,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/descupinizacao-em-sp/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-tatuape/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-vila-mariana/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizacao-em-vila-olimpia/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-em-zona-sul/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3336,8 +3886,23 @@
 			"permanent": true
 		},
 		{
+			"source": "/descupinizacao-na-avenida-faria-lima/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-avenida-paulista/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizacao-na-avenida-paulista-2/",
-			"destination": "/descupinizacao-na-avenida-paulista/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-na-barra-funda/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3356,13 +3921,23 @@
 			"permanent": true
 		},
 		{
+			"source": "/descupinizacao-na-consolacao/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizacao-na-granja-julieta/",
 			"destination": "/descupinizacao/",
 			"permanent": true
 		},
 		{
+			"source": "/descupinizacao-na-lapa/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizacao-na-lapa-2/",
-			"destination": "/descupinizacao-na-lapa/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3377,7 +3952,7 @@
 		},
 		{
 			"source": "/descupinizacao-na-vila-leopoldina/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3387,7 +3962,7 @@
 		},
 		{
 			"source": "/descupinizacao-na-vila-sonia/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3406,13 +3981,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/descupinizacao-no-bosque-da-saude/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-brooklin-novo/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizacao-no-butanta/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizacao-no-centro-de-sao-paulo/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/descupinizacao-no-centro-de-sp/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3482,7 +4072,12 @@
 		},
 		{
 			"source": "/descupinizadora-de-sp/",
-			"destination": "/descupinizacao-em-sp/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-em-anhanguera/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3492,7 +4087,7 @@
 		},
 		{
 			"source": "/descupinizadora-em-carapicuiba/",
-			"destination": "/descupinizacao-em-carapicuiba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3507,7 +4102,7 @@
 		},
 		{
 			"source": "/descupinizadora-em-jundiai/",
-			"destination": "/descupinizacao-em-jundiai/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3517,12 +4112,12 @@
 		},
 		{
 			"source": "/descupinizadora-em-sao-paulo/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/descupinizadora-em-sp/",
-			"destination": "/descupinizacao-em-sp/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3531,8 +4126,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/descupinizadora-na-zona-norte/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/descupinizadora-na-zona-oeste/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizadora-na-zona-sul/",
-			"destination": "/descupinizacao-em-zona-sul/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3611,8 +4216,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/desentupidora-em-osasco/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/desentupidora-em-paranapanema/",
 			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/desentupidora-em-pinheiros/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3653,6 +4268,11 @@
 		{
 			"source": "/desratizacao-em-chacara-flora/",
 			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-cotia/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3711,6 +4331,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/desratizacao-em-osasco/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/desratizacao-em-pacaembu/",
 			"destination": "/deratizacao/",
 			"permanent": true
@@ -3728,6 +4353,16 @@
 		{
 			"source": "/desratizacao-em-sao-paulo/",
 			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-sp/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/desratizacao-em-taboao-da-serra/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3797,7 +4432,7 @@
 		},
 		{
 			"source": "/desratizacao-no-centro/",
-			"destination": "/deratizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3846,8 +4481,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/empresa-de-controle-de-pragas-em-barueri/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-controle-de-pragas-em-cotia/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-controle-de-pragas-em-osasco/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/empresa-de-dedetizacao/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-alphaville/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3856,8 +4511,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-cajamar/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-carapicuiba/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-cotia/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/empresa-de-dedetizacao-24-horas-em-embu/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-guarulhos/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3866,23 +4541,38 @@
 			"permanent": true
 		},
 		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-itapevi/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/empresa-de-dedetizacao-24-horas-em-jandira/",
 			"destination": "/dedetizacao/",
 			"permanent": true
 		},
 		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-jundiai/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/empresa-de-dedetizacao-24-horas-em-pinheiros/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/empresa-de-dedetizacao-24-horas-em-pirituba/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-santana-de-parnaiba/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/empresa-de-dedetizacao-24-horas-em-santo-amaro/",
-			"destination": "/dedetizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3891,8 +4581,13 @@
 			"permanent": true
 		},
 		{
+			"source": "/empresa-de-dedetizacao-24-horas-em-taboao/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/empresa-de-dedetizacao-em-osasco/",
-			"destination": "/dedetizadora-em-osasco/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3906,23 +4601,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/empresa-de-descupinizacao-24hs-em-carapicuiba/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/empresa-de-descupinizacao-24hs-em-sao-paulo/",
-			"destination": "/descupinizacao-em-sao-paulo/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/empresa-de-descupinizacao-em-guaruja/",
-			"destination": "/descupinizacao-em-guaruja/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/empresa-de-descupinizacao-em-sao-paulo/",
-			"destination": "/descupinizacao-em-sao-paulo/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/empresa-especializada-em-controle-de-cupins/",
-			"destination": "/servico/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -3932,12 +4632,12 @@
 		},
 		{
 			"source": "/empresa-especializada-em-cupim/",
-			"destination": "/descupinizacao/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/empresa-especializada-em-descupinizacao/",
-			"destination": "/servico/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -4086,18 +4786,53 @@
 			"permanent": true
 		},
 		{
+			"source": "/matar-cupins-em-osasco/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-cupins-em-sao-paulo/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-ratos-em-barueri/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-ratos-em-cotia/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-ratos-em-guarulhos/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-ratos-em-osasco/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/matar-ratos-em-osasco-2/",
-			"destination": "/matar-ratos-em-osasco/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/melhor-veneno-para-cupim/",
-			"destination": "/melhor-veneno-para-cupim-em-sp/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
 			"source": "/melhor-veneno-para-cupim-de-madeira/",
-			"destination": "/melhor-veneno-para-cupim-em-campinas/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/melhor-veneno-para-cupim-em-campinas/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -4121,8 +4856,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/melhor-veneno-para-cupim-em-sorocaba/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/melhor-veneno-para-cupim-em-sp/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/melhor-veneno-para-cupim-maceio/",
-			"destination": "/melhor-veneno-para-cupim-em-sp/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -4132,7 +4877,7 @@
 		},
 		{
 			"source": "/melhor-veneno-para-cupim-salvador/",
-			"destination": "/melhor-veneno-para-cupim-em-sp/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -4206,8 +4951,48 @@
 			"permanent": true
 		},
 		{
+			"source": "/sanitizacao-em-alphaville/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/sanitizacao-em-barueri/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/sanitizacao-em-cotia/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/sanitizacao-em-guarulhos/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/sanitizacao-em-jandira/",
 			"destination": "/sanitizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/sanitizacao-em-jundiai/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/sanitizacao-em-osasco/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/sanitizacao-em-santana-de-parnaiba/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/sanitizacao-em-sao-paulo/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{

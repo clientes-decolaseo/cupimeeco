@@ -8,6 +8,7 @@ import mosquitosPolicy from '../data/seo/mosquitos-policy.json';
 import gsc404Policy from '../data/seo/gsc-404-policy.json';
 import hubThinPolicy from '../data/seo/hub-thin-policy.json';
 import offtopicPolicy from '../data/seo/offtopic-policy.json';
+import cityConsolidatePolicy from '../data/seo/city-consolidate-policy.json';
 import cidadesRedirectsJson from '../../scripts/redirects-cidades.json';
 
 export interface SeoPolicyResult {
@@ -29,11 +30,13 @@ const POLICIES: ClusterPolicyFile[] = [
 	mosquitosPolicy,
 	foraAreaPolicy,
 	duplicatesPolicy,
-	gsc404Policy,
 	// hubs finos (<3 spokes) — gerado por scripts/check-hubs.mjs --enforce
 	hubThinPolicy as ClusterPolicyFile,
 	// off-topic confirmado — gerado por scripts/apply-offtopic-noindex.mjs --apply
 	offtopicPolicy as ClusterPolicyFile,
+	gsc404Policy,
+	// city pages consolidadas → /areas-de-atendimento/ (por último)
+	cityConsolidatePolicy as ClusterPolicyFile,
 ];
 
 const redirects: Record<string, string> = {};

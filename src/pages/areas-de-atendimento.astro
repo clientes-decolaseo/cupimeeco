@@ -1,0 +1,152 @@
+---
+import BioLayout from '../layouts/BioLayout.astro';
+import ContatoCta from '../components/bio/sections/ContatoCta.astro';
+import directory from '../data/seo/city-consolidate-directory.json';
+
+const pageTitle = 'Áreas de atendimento | Grande São Paulo e região | Cupim Eco';
+const cityCount = directory.stats?.cities ?? 0;
+const pageDescription = `Atendimento Cupim Eco em ${cityCount}+ cidades e bairros da Grande São Paulo, Baixada Santista, Campinas e região. Escolha sua localidade e solicite orçamento 24h.`;
+
+const regions = Array.isArray(directory.regions) ? directory.regions : [];
+---
+
+<BioLayout variant="content" title={pageTitle} description={pageDescription}>
+	<main class="areas-hub">
+		<header class="areas-hub__header">
+			<p class="bio-section-label">Cupim Eco</p>
+			<h1 class="areas-hub__titulo">Áreas de atendimento</h1>
+			<p class="areas-hub__descricao">
+				Atendemos {cityCount} localidades na Região de São Paulo, Baixada Santista, Campinas,
+				Sorocaba, Jundiaí e Vale do Paraíba. Escolha sua cidade e acesse o serviço principal
+				mais adequado — ou fale com a central 24h no 0800 111 7272.
+			</p>
+		</header>
+
+		{
+			regions.length > 0 ? (
+				<nav class="areas-hub__indice" aria-label="Índice de regiões">
+					<h2 class="areas-hub__indice-titulo">Ir para a região</h2>
+					<ul>
+						{regions.map((region) => (
+							<li>
+								<a href={`#regiao-${region.regiaoId}`}>
+									{region.regiaoLabel}
+									<span class="areas-hub__count">{region.cities.length}</span>
+								</a>
+							</li>
+						))}
+					</ul>
+				</nav>
+			) : null
+		}
+
+		{
+			regions.map((region) => (
+				<section
+					class="areas-hub__regiao"
+					aria-labelledby={`regiao-${region.regiaoId}`}
+					id={`regiao-${region.regiaoId}`}
+				>
+					<h2 class="areas-hub__regiao-titulo" id={`titulo-${region.regiaoId}`}>
+						{region.regiaoLabel}
+					</h2>
+					<ul class="areas-hub__lista">
+						{region.cities.map((city) => (
+							<li>
+								<a href={city.serviceHref}>{city.nome}</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			))
+		}
+	</main>
+
+	<ContatoCta />
+</BioLayout>
+
+<style>
+	.areas-hub {
+		max-width: 52rem;
+		margin: 0 auto;
+		padding: 2.5rem 1.25rem 3rem;
+	}
+
+	.areas-hub__header {
+		margin-bottom: 2.5rem;
+	}
+
+	.areas-hub__titulo {
+		font-size: clamp(1.75rem, 4vw, 2.35rem);
+		line-height: 1.15;
+		margin: 0.35rem 0 0.85rem;
+		color: var(--bio-ink, #1a1a1a);
+	}
+
+	.areas-hub__descricao {
+		margin: 0;
+		font-size: 1.05rem;
+		line-height: 1.55;
+		color: var(--bio-muted, #444);
+		max-width: 40rem;
+	}
+
+	.areas-hub__indice {
+		margin-bottom: 2.75rem;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid color-mix(in srgb, var(--bio-ink, #1a1a1a) 12%, transparent);
+	}
+
+	.areas-hub__indice-titulo {
+		font-size: 1rem;
+		margin: 0 0 0.75rem;
+	}
+
+	.areas-hub__indice ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1rem;
+	}
+
+	.areas-hub__indice a {
+		text-decoration: underline;
+		text-underline-offset: 0.15em;
+	}
+
+	.areas-hub__count {
+		margin-left: 0.35rem;
+		font-size: 0.85em;
+		opacity: 0.65;
+	}
+
+	.areas-hub__regiao {
+		margin-bottom: 2.25rem;
+	}
+
+	.areas-hub__regiao-titulo {
+		font-size: 1.35rem;
+		margin: 0 0 0.85rem;
+	}
+
+	.areas-hub__lista {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+		gap: 0.45rem 1rem;
+	}
+
+	.areas-hub__lista a {
+		text-decoration: none;
+		border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+	}
+
+	.areas-hub__lista a:hover,
+	.areas-hub__lista a:focus-visible {
+		border-bottom-color: currentColor;
+	}
+</style>

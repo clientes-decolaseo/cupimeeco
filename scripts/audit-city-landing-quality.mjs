@@ -171,14 +171,83 @@ const PRICE_AMOUNT_RE =
 	/R\$\s*\d{1,3}(?:\.\d{3})*(?:,\d{2})?\s*(?:\/\s*(?:m2|m²|visita|ponto))?|\b\d{2,4}\s*reais\b/i;
 const TESTIMONIAL_RE =
 	/\b(?:depoimento\s+d[eo]|cliente\s+[A-ZÀ-Ú][a-zà-ú]{2,}\s*:|avaliou[- ]nos|"[^"]{25,100}"\s*[-—–]\s*[A-ZÀ-Ú][a-zà-ú]+)/i;
+/** Candidatos a menção de bairro — ainda precisam passar pelo filtro de nome real. */
 const BAIRRO_HINT_RE =
-	/\b(?:no\s+bairro\s+[A-ZÀ-Ú][A-Za-zÀ-ú\s]{2,40}|bairro\s+[A-ZÀ-Ú][A-Za-zÀ-ú\s]{2,30}\s+em\s+)/i;
+	/\b(?:no\s+bairro\s+[A-Za-zÀ-ú][A-Za-zÀ-ú\s,]{2,60}|bairro\s+[A-Za-zÀ-ú][A-Za-zÀ-ú\s,]{2,40}\s+em\s+)/gi;
+
+/** Frase-template que a regex antiga capturava como “bairro” (falso positivo). */
+const TEMPLATE_BAIRRO_CORE = 'no bairro ou seja todo que tem cupins nao tem valor';
+
+/** Nomes de bairro reais (mesma lista de area-atendida.ts / cidades-gsp). */
+const KNOWN_BAIRRO_NAMES = [...new Set(cidadesGsp.bairrosSaoPaulo ?? [])]
+	.map((slug) =>
+		String(slug)
+			.split('-')
+			.filter(Boolean)
+			.map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+			.join(' '),
+	)
+	.filter((n) => n.length >= 3)
+	.sort((a, b) => b.length - a.length);
+
+function normalizeSignalText(value = '') {
+	return String(value)
+		.toLowerCase()
+		.normalize('NFD')
+		.replace(/\p{M}/gu, '')
+		.replace(/[^\p{L}\p{N}]+/gu, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+}
+
+function isTemplateBairroPhrase(snippet = '') {
+	const n = normalizeSignalText(snippet);
+	if (!n) return false;
+	if (n.includes('no bairro ou seja')) return true;
+	if (n.includes('bairro ou seja') && (n.includes('cupins') || n.includes('valor'))) return true;
+	// comparação por substring normalizada da frase completa
+	const core = normalizeSignalText(TEMPLATE_BAIRRO_CORE);
+	if (n.includes(core)) return true;
+	// variação truncada comum
+	if (n.includes('no bairro ou seja todo que tem cupins')) return true;
+	return false;
+}
+
+function contextHasKnownBairro(snippet = '') {
+	const raw = String(snippet);
+	const norm = normalizeSignalText(raw);
+	for (const name of KNOWN_BAIRRO_NAMES) {
+		const nameRe = new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+		if (nameRe.test(raw)) return true;
+		const nameNorm = normalizeSignalText(name);
+		if (nameNorm.length >= 3 && norm.includes(nameNorm)) return true;
+	}
+	return false;
+}
+
+/**
+ * Sinal de bairro só conta se o trecho NÃO for a frase-template e
+ * contiver um nome real da lista de bairros (cidades-gsp / area-atendida).
+ */
+function hasRealBairroTalk(plainText) {
+	const plain = String(plainText ?? '');
+	BAIRRO_HINT_RE.lastIndex = 0;
+	for (const m of plain.matchAll(BAIRRO_HINT_RE)) {
+		const snip = m[0];
+		const start = Math.max(0, m.index - 24);
+		const end = Math.min(plain.length, m.index + snip.length + 48);
+		const ctx = plain.slice(start, end);
+		if (isTemplateBairroPhrase(snip) || isTemplateBairroPhrase(ctx)) continue;
+		if (contextHasKnownBairro(snip) || contextHasKnownBairro(ctx)) return true;
+	}
+	return false;
+}
 
 /**
  * Conteúdo único além de trocar só o nome da cidade?
  * Telefone oficial 0800 compartilhado NÃO conta como único.
  */
-function detectUniqueSignals(plainText) {
+export function detectUniqueSignals(plainText) {
 	const phones = [...String(plainText).matchAll(PHONE_RE)].map((m) => m[0]);
 	const nonOfficialPhone = phones.some((p) => {
 		const digits = p.replace(/\D/g, '');
@@ -189,7 +258,7 @@ function detectUniqueSignals(plainText) {
 	});
 	const hasPrice = PRICE_AMOUNT_RE.test(plainText);
 	const hasTestimonial = TESTIMONIAL_RE.test(plainText);
-	const hasBairroTalk = BAIRRO_HINT_RE.test(plainText);
+	const hasBairroTalk = hasRealBairroTalk(plainText);
 	return {
 		hasPhone: nonOfficialPhone,
 		hasPrice,
@@ -497,7 +566,68 @@ async function main() {
 	);
 }
 
-main().catch((err) => {
+async function smokeFakeBairroUrls() {
+	const reportPath = path.join(ROOT, 'fake-unique-signal-report.csv');
+	const raw = await readFile(reportPath, 'utf8');
+	const lines = raw.trim().split(/\r?\n/);
+	const urls = lines
+		.slice(1)
+		.map((line) => line.split(','))
+		.filter((cols) => cols[2] === 'true' && cols[3] === 'false')
+		.map((cols) => cols[0]);
+
+	console.log(`smoke-fake-bairro — ${urls.length} URLs do relatório\n`);
+
+	/** @type {Map<string, string>} */
+	const byPath = new Map();
+	for (const name of await readdir(WP_PAGES_DIR)) {
+		if (!name.endsWith('.json')) continue;
+		const abs = path.join(WP_PAGES_DIR, name);
+		let data;
+		try {
+			data = JSON.parse(await readFile(abs, 'utf8'));
+		} catch {
+			continue;
+		}
+		const key = normalizePathSlug(data.path || data.slug || '');
+		if (key) byPath.set(key, abs);
+	}
+
+	let ok = 0;
+	let fail = 0;
+	for (const url of urls) {
+		const key = normalizePathSlug(url);
+		const abs = byPath.get(key);
+		if (!abs) {
+			console.log(`  FAIL  ${url}  (arquivo não encontrado)`);
+			fail += 1;
+			continue;
+		}
+		const data = JSON.parse(await readFile(abs, 'utf8'));
+		const plain = stripBoilerplateHtml([data.content, data.excerpt].filter(Boolean).join('\n'));
+		const signals = detectUniqueSignals(plain);
+		const temUnicoPorSinal = signals.signalCount >= 1;
+		const pass = !temUnicoPorSinal && !signals.hasBairroTalk;
+		if (pass) {
+			ok += 1;
+			console.log(
+				`  OK    ${url}  signalCount=${signals.signalCount} bairro=${signals.hasBairroTalk} phone=${signals.hasPhone} price=${signals.hasPrice} depoimento=${signals.hasTestimonial}`,
+			);
+		} else {
+			fail += 1;
+			console.log(
+				`  FAIL  ${url}  signalCount=${signals.signalCount} bairro=${signals.hasBairroTalk} phone=${signals.hasPhone} price=${signals.hasPrice} depoimento=${signals.hasTestimonial}`,
+			);
+		}
+	}
+
+	console.log(`\nResultado: ${ok} OK / ${fail} FAIL (de ${urls.length})`);
+	if (fail > 0) process.exitCode = 1;
+}
+
+const smoke = process.argv.includes('--smoke-fake-bairro');
+const run = smoke ? smokeFakeBairroUrls : main;
+run().catch((err) => {
 	console.error(err);
 	process.exit(1);
 });

@@ -8,6 +8,7 @@ import duplicatesPolicy from '../../src/data/seo/duplicates-policy.json' with { 
 import gsc404Policy from '../../src/data/seo/gsc-404-policy.json' with { type: 'json' };
 import hubThinPolicy from '../../src/data/seo/hub-thin-policy.json' with { type: 'json' };
 import offtopicPolicy from '../../src/data/seo/offtopic-policy.json' with { type: 'json' };
+import cityConsolidatePolicy from '../../src/data/seo/city-consolidate-policy.json' with { type: 'json' };
 
 const POLICY_FILES = [
 	cupimPolicy,
@@ -19,7 +20,8 @@ const POLICY_FILES = [
 	duplicatesPolicy,
 	hubThinPolicy,
 	offtopicPolicy,
-	gsc404Policy, // por último — overrides GSC 404 revisados manualmente
+	gsc404Policy,
+	cityConsolidatePolicy, // por último — consolida city pages (inclui colapso de cadeias)
 ];
 
 /** Redirects estáticos do astro.config.mjs (fora dos JSON de cluster) */
