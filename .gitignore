@@ -35,3 +35,18 @@ scripts/.tmp-audit-cidades.csv
 scripts/.tmp-audit-priorizacao.csv
 scripts/.tmp-plano-remocao.csv
 .tmp-*
+
+# relatórios de auditoria SEO (artefatos locais, não fazem parte do site)
+urls-404.txt
+urls-410.txt
+404-matching-report.csv
+404-matching-review-risky.csv
+audit-404-report.csv
+city-pages-audit.csv
+city-pages-review-manual.csv
+off-topic-content-report.csv
+off-topic-context-review.md
+pest-type-mismatch-report.csv
+redirect-loops-report.csv
+redirect-quality-review.md
+rematch-same-category-report.csv
