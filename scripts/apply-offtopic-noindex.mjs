@@ -6,7 +6,9 @@
  * off-topic-context-review.md.
  *
  * Para linhas com confirmado_offtopic=sim e tem_noindex=false:
- *   1) seo.robots=true (WP JSON) ou frontmatter noindex (astro/md/mdx)
+ *   0) Se a URL já é origem em duplicates / gsc-404 / city-consolidate /
+ *      hub-thin → PULA noindex (redirect já resolve; gera overlap CSV)
+ *   1) Caso contrário: seo.robots=true (WP JSON) ou frontmatter noindex
  *   2) path entra em src/data/seo/offtopic-policy.json → noindex
  *      (mesmo mecanismo dos hubs finos em seo-policy.ts / sitemap)
  *
@@ -25,6 +27,16 @@ import path from 'node:path';
 const ROOT = path.resolve('.');
 const DEFAULT_CSV = path.join(ROOT, 'off-topic-content-report.csv');
 const POLICY_PATH = path.join(ROOT, 'src', 'data', 'seo', 'offtopic-policy.json');
+const OVERLAP_CSV = path.join(ROOT, 'offtopic-redirect-overlap.csv');
+const SEO_DIR = path.join(ROOT, 'src', 'data', 'seo');
+
+/** Policies checadas como origem de redirect (antes de aplicar noindex). */
+const REDIRECT_OVERLAP_POLICIES = [
+	{ file: 'duplicates-policy.json', label: 'duplicates-policy' },
+	{ file: 'gsc-404-policy.json', label: 'gsc-404-policy' },
+	{ file: 'city-consolidate-policy.json', label: 'city-consolidate-policy' },
+	{ file: 'hub-thin-policy.json', label: 'hub-thin-policy' },
+];
 
 const SITEMAP_DIRS = [
 	path.join(ROOT, 'dist'),
@@ -146,6 +158,77 @@ function normalizePathKey(raw) {
 		/* keep */
 	}
 	return s.replace(/^\/+|\/+$/g, '').toLowerCase();
+}
+
+function csvEscape(v) {
+	const s = String(v ?? '');
+	if (/[",\r\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+	return s;
+}
+
+/**
+ * Indexa origem → { destination, policy } nas 4 policies de overlap.
+ * Em colisão, a última policy da lista vence (city-consolidate por último
+ * entre as relevantes; hub-thin tipicamente sem redirects).
+ * @returns {Promise<Map<string, { destination: string, policy: string }>>}
+ */
+async function loadRedirectOverlapIndex() {
+	/** @type {Map<string, { destination: string, policy: string }>} */
+	const index = new Map();
+
+	for (const { file, label } of REDIRECT_OVERLAP_POLICIES) {
+		const abs = path.join(SEO_DIR, file);
+		if (!(await pathExists(abs))) {
+			console.warn(`⚠ policy ausente (overlap): ${file}`);
+			continue;
+		}
+		let data;
+		try {
+			data = JSON.parse(await readFile(abs, 'utf8'));
+		} catch (err) {
+			console.warn(`⚠ falha ao ler ${file}: ${err.message}`);
+			continue;
+		}
+		for (const [from, to] of Object.entries(data.redirects ?? {})) {
+			const key = normalizePathKey(from);
+			if (!key) continue;
+			index.set(key, {
+				destination: String(to ?? ''),
+				policy: label,
+			});
+		}
+	}
+
+	return index;
+}
+
+/**
+ * Gera offtopic-redirect-overlap.csv para linhas confirmado=sim.
+ * @returns {Promise<{ withRedirect: number, withoutRedirect: number }>}
+ */
+async function writeOverlapCsv(rows, redirectIndex) {
+	const headers = ['url', 'ja_tem_redirect', 'destino_redirect', 'policy_origem'];
+	const lines = [headers.join(',')];
+	let withRedirect = 0;
+	let withoutRedirect = 0;
+
+	for (const row of rows) {
+		const url = String(row.url_path || '').trim();
+		const key = normalizePathKey(url);
+		const hit = key ? redirectIndex.get(key) : undefined;
+		if (hit) {
+			withRedirect++;
+			lines.push(
+				[url, 'true', hit.destination, hit.policy].map(csvEscape).join(','),
+			);
+		} else {
+			withoutRedirect++;
+			lines.push([url, 'false', '', ''].map(csvEscape).join(','));
+		}
+	}
+
+	await writeFile(OVERLAP_CSV, `${lines.join('\n')}\n`, 'utf8');
+	return { withRedirect, withoutRedirect };
 }
 
 function normalizeConfirmado(value) {
@@ -324,7 +407,9 @@ async function main() {
 			'Uso:\n' +
 				'  node scripts/apply-offtopic-noindex.mjs [--dry-run|--apply] [--skip-build]\n\n' +
 				'Exige coluna confirmado_offtopic (sim|nao) no CSV.\n' +
-				'Dry-run padrão. --apply grava noindex + offtopic-policy.json e regenera sitemap.\n' +
+				'Dry-run padrão. Gera offtopic-redirect-overlap.csv.\n' +
+				'URLs já origem de redirect (duplicates/gsc-404/city-consolidate/hub-thin) pulam noindex.\n' +
+				'--apply grava noindex + offtopic-policy.json e regenera sitemap.\n' +
 				'Nunca deleta nem renomeia arquivos.',
 		);
 		return;
@@ -360,6 +445,7 @@ async function main() {
 	const counts = {
 		sim_pendente: 0,
 		sim_ja_noindex: 0,
+		sim_ja_redirect: 0,
 		nao: 0,
 		vazio: 0,
 		invalido: 0,
@@ -374,6 +460,23 @@ async function main() {
 	const already = [];
 	/** @type {string[]} */
 	const missing = [];
+	/** @type {{ url: string, destination: string, policy: string }[]} */
+	const skippedRedirect = [];
+
+	const redirectIndex = await loadRedirectOverlapIndex();
+
+	/** Linhas confirmado=sim (base do overlap CSV e do planejamento). */
+	const confirmedSim = [];
+	for (const row of objects) {
+		const confirmado = normalizeConfirmado(row.confirmado_offtopic);
+		if (confirmado === 'sim') confirmedSim.push(row);
+	}
+
+	const overlapStats = await writeOverlapCsv(confirmedSim, redirectIndex);
+	console.log(
+		`Overlap CSV: ${path.relative(ROOT, OVERLAP_CSV)}` +
+			` (${overlapStats.withRedirect} com redirect, ${overlapStats.withoutRedirect} sem)\n`,
+	);
 
 	for (const row of objects) {
 		const confirmado = normalizeConfirmado(row.confirmado_offtopic);
@@ -392,16 +495,28 @@ async function main() {
 			continue;
 		}
 
+		const pathKey = normalizePathKey(row.url_path);
+		const redirectHit = pathKey ? redirectIndex.get(pathKey) : undefined;
+
+		if (redirectHit) {
+			counts.sim_ja_redirect++;
+			skippedRedirect.push({
+				url: String(row.url_path || '').trim() || `/${pathKey}/`,
+				destination: redirectHit.destination,
+				policy: redirectHit.policy,
+			});
+			// Redirect já resolve a URL — não aplica noindex nem entra na policy.
+			continue;
+		}
+
 		if (!isTemNoindexFalse(row.tem_noindex)) {
 			counts.sim_ja_noindex++;
-			const pk = normalizePathKey(row.url_path);
-			if (pk) policyPaths.push(pk);
+			if (pathKey) policyPaths.push(pathKey);
 			continue;
 		}
 
 		counts.sim_pendente++;
 		const rel = String(row.arquivo || '').replace(/\\/g, '/').trim();
-		const pathKey = normalizePathKey(row.url_path);
 		if (!rel || !pathKey) {
 			missing.push(rel || row.url_path || '(linha sem arquivo/url)');
 			counts.missing_file++;
@@ -437,15 +552,24 @@ async function main() {
 	const uniquePolicyPaths = [...new Set(policyPaths)];
 
 	console.log('=== Planejamento ===\n');
-	console.log(`confirmado=sim + tem_noindex=false (alvo): ${counts.sim_pendente}`);
-	console.log(`  → arquivos a alterar:                 ${toChange.length}`);
-	console.log(`  → já noindex no arquivo:              ${already.length}`);
-	console.log(`  → arquivo ausente:                    ${counts.missing_file}`);
-	console.log(`confirmado=sim + já tem_noindex=true:   ${counts.sim_ja_noindex}`);
-	console.log(`confirmado=nao (noop):                  ${counts.nao}`);
-	console.log(`confirmado vazio:                       ${counts.vazio}`);
-	console.log(`confirmado inválido:                    ${counts.invalido}`);
-	console.log(`paths p/ offtopic-policy.noindex:       ${uniquePolicyPaths.length}`);
+	console.log(`confirmado=sim (total):                     ${confirmedSim.length}`);
+	console.log(`  → já têm redirect (pulam noindex):        ${counts.sim_ja_redirect}`);
+	console.log(`  → recebem noindex de fato (alvo):         ${counts.sim_pendente}`);
+	console.log(`  → arquivos a alterar:                     ${toChange.length}`);
+	console.log(`  → já noindex no arquivo:                  ${already.length}`);
+	console.log(`  → arquivo ausente:                        ${counts.missing_file}`);
+	console.log(`confirmado=sim + já tem_noindex=true:       ${counts.sim_ja_noindex}`);
+	console.log(`confirmado=nao (noop):                      ${counts.nao}`);
+	console.log(`confirmado vazio:                           ${counts.vazio}`);
+	console.log(`confirmado inválido:                        ${counts.invalido}`);
+	console.log(`paths p/ offtopic-policy.noindex:           ${uniquePolicyPaths.length}`);
+
+	if (skippedRedirect.length) {
+		console.log('\nURLs com redirect existente (noindex pulado):');
+		for (const s of skippedRedirect) {
+			console.log(`  · ${s.url} → ${s.destination}  [${s.policy}]`);
+		}
+	}
 
 	if (missing.length) {
 		console.log('\nArquivos ausentes (até 20):');
@@ -477,8 +601,8 @@ async function main() {
 	}
 
 	if (!args.apply) {
-		console.log('\nDry-run: nenhum arquivo escrito. Use --apply para gravar.');
-		console.log('Nenhum arquivo foi deletado ou renomeado.\n');
+		console.log('\nDry-run: nenhum arquivo fonte escrito (overlap CSV sempre gerado).');
+		console.log('Use --apply para gravar noindex. Nenhum arquivo foi deletado ou renomeado.\n');
 		return;
 	}
 

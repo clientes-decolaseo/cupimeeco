@@ -46,6 +46,7 @@ city-pages-audit.csv
 city-pages-review-manual.csv
 off-topic-content-report.csv
 off-topic-context-review.md
+offtopic-redirect-overlap.csv
 pest-type-mismatch-report.csv
 redirect-loops-report.csv
 redirect-quality-review.md
