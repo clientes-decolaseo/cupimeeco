@@ -21,7 +21,7 @@ interface Props {
 const { content: rawContent } = Astro.props;
 const content = normalizeWpContent(rawContent);
 
-const seoPolicy = getSeoPolicy(content.path, content.seo.robots);
+const seoPolicy = getSeoPolicy(content.path, content.seo.robots, content.content);
 
 const pageTitle = content.seo.title || content.title;
 const description = content.seo.description || content.excerpt;

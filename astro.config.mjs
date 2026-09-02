@@ -13,6 +13,7 @@ import mosquitosPolicy from './src/data/seo/mosquitos-policy.json';
 import hubThinPolicy from './src/data/seo/hub-thin-policy.json';
 import offtopicPolicy from './src/data/seo/offtopic-policy.json';
 import cityConsolidatePolicy from './src/data/seo/city-consolidate-policy.json';
+import cityQualityGate from './src/data/seo/city-quality-gate.json';
 import cidadesRedirectsJson from './scripts/redirects-cidades.json' with { type: 'json' };
 
 const policyFiles = [
@@ -26,6 +27,7 @@ const policyFiles = [
 	hubThinPolicy,
 	offtopicPolicy,
 	cityConsolidatePolicy,
+	cityQualityGate,
 ];
 
 const redirectSources = new Set();

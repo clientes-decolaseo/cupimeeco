@@ -10,6 +10,7 @@ import hubThinPolicy from '../data/seo/hub-thin-policy.json';
 import offtopicPolicy from '../data/seo/offtopic-policy.json';
 import cityConsolidatePolicy from '../data/seo/city-consolidate-policy.json';
 import cidadesRedirectsJson from '../../scripts/redirects-cidades.json';
+import { shouldNoindexCityQualityGate } from './city-quality-gate';
 
 export interface SeoPolicyResult {
 	redirectTo?: string;
@@ -37,6 +38,7 @@ const POLICIES: ClusterPolicyFile[] = [
 	gsc404Policy,
 	// city pages consolidadas → /areas-de-atendimento/ (por último)
 	cityConsolidatePolicy as ClusterPolicyFile,
+	// city-quality-gate NÃO entra aqui: noindex é condicional via evaluateCityQualityGate
 ];
 
 const redirects: Record<string, string> = {};
@@ -112,12 +114,17 @@ export function shouldNoindexPath(itemPath: string, wpRobotsNoindex = false): bo
 	return wpRobotsNoindex || noindexPaths.has(normalizePathKey(itemPath));
 }
 
-export function getSeoPolicy(itemPath: string, wpRobotsNoindex = false): SeoPolicyResult {
+export function getSeoPolicy(
+	itemPath: string,
+	wpRobotsNoindex = false,
+	html = '',
+): SeoPolicyResult {
 	const redirectTo = getRedirectDestination(itemPath);
+	const qualityGateNoindex = shouldNoindexCityQualityGate(itemPath, html);
 
 	return {
 		redirectTo,
-		noindex: !redirectTo && shouldNoindexPath(itemPath, wpRobotsNoindex),
+		noindex: !redirectTo && (shouldNoindexPath(itemPath, wpRobotsNoindex) || qualityGateNoindex),
 	};
 }
 

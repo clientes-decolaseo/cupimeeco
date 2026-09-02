@@ -1,0 +1,70 @@
+{
+	"generatedAt": "2026-09-02T17:52:00.000Z",
+	"redirects": {},
+	"minUniqueWords": 300,
+	"criteria": ["bairrosReais", "prazoReal", "especieRegional"],
+	"gated": [
+		"dedetizadora-em-taubate",
+		"sanitizacao-em-jundiai",
+		"descupinizacao-em-sao-vicente"
+	],
+	"noindex": [
+		"dedetizadora-em-taubate",
+		"sanitizacao-em-jundiai",
+		"descupinizacao-em-sao-vicente"
+	],
+	"notes": {
+		"sanitizacao-em-jundiai": "Já é 301 para /areas-de-atendimento/ (city-consolidate). O gate vale se o redirect for removido e a página restaurada. Não reindexar até conteúdo único ≥300 palavras."
+	},
+	"bairrosPorPraca": {
+		"dedetizadora-em-taubate": [
+			"Jardim das Nações",
+			"Independência",
+			"Esplanada",
+			"Quiririm",
+			"Belém",
+			"Chácara do Visconde",
+			"Jardim Santa Cruz",
+			"Estiva",
+			"Barranco"
+		],
+		"sanitizacao-em-jundiai": [
+			"Vila Arens",
+			"Vila Hortolândia",
+			"Jardim do Lago",
+			"Anhangabaú",
+			"Eloy Chaves",
+			"Jundiaí-Mirim",
+			"Vila Municipal",
+			"Ponte São João",
+			"Vila Rio Branco"
+		],
+		"descupinizacao-em-sao-vicente": [
+			"Gonzaguinha",
+			"Itararé",
+			"Japuí",
+			"Vila Valença",
+			"Cidade Náutica",
+			"Jockey Clube",
+			"Parque Bitaru",
+			"Vila Margarida",
+			"Humaitá"
+		]
+	},
+	"especiesRegionais": {
+		"dedetizadora-em-taubate": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		],
+		"sanitizacao-em-jundiai": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis"
+		],
+		"descupinizacao-em-sao-vicente": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		]
+	}
+}
