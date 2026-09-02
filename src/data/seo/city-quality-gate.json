@@ -7,7 +7,6 @@
 		"dedetizadora-em-taubate",
 		"sanitizacao-em-jundiai",
 		"descupinizacao-em-sao-vicente",
-		"descupinizacao-em-taubate",
 		"dedetizadora-de-cupim-em-agua-funda",
 		"desratizacao-na-zona-sul",
 		"dedetizadora-em-ubatuba",
@@ -27,7 +26,6 @@
 		"dedetizadora-em-taubate",
 		"sanitizacao-em-jundiai",
 		"descupinizacao-em-sao-vicente",
-		"descupinizacao-em-taubate",
 		"dedetizadora-de-cupim-em-agua-funda",
 		"desratizacao-na-zona-sul",
 		"dedetizadora-em-ubatuba",
@@ -49,7 +47,8 @@
 		"sanitizacao-em-guarulhos": "301 para /areas-de-atendimento/ — não entra no gate.",
 		"sanitizacao-em-osasco": "301 para /areas-de-atendimento/ — não entra no gate.",
 		"descupinizacao-em-santos": "Aprovado no Lote 3 — não entra no gate.",
-		"descupinizacao-em-sao-paulo": "Hub da capital, não praça. Noindex via hub-rewrite-queue.json (brief separado) — não entra neste gate."
+		"descupinizacao-em-sao-paulo": "Hub da capital, não praça. Noindex via hub-rewrite-queue.json (brief separado) — não entra neste gate.",
+		"descupinizacao-em-taubate": "Aprovado após inclusão de garantia de 12 meses (2026-09-02). Removido de gated/noindex."
 	},
 	"bairrosPorPraca": {
 		"dedetizadora-em-taubate": [
