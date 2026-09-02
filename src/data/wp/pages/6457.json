@@ -18,6 +18,6 @@
     "description": "A descupinização em São Paulo tornou-se uma necessidade essencial para quem deseja proteger sua residência, empresa ou patrimônio histórico",
     "canonical": "https://cupins.eco.br/descupinizacao-em-sao-paulo/",
     "ogImage": "/wp-content/uploads/2018/08/termite-control-san-diego-bg-scaled.jpg",
-    "robots": false
+    "robots": true
   }
 }

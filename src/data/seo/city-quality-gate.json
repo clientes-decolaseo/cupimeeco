@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-09-02T18:13:00.000Z",
+	"generatedAt": "2026-09-02T18:25:00.000Z",
 	"redirects": {},
 	"minUniqueWords": 300,
 	"criteria": ["bairrosReais", "prazoReal", "especieRegional"],
@@ -13,7 +13,15 @@
 		"dedetizadora-em-ubatuba",
 		"dedetizadora-em-cajamar",
 		"desratizacao-na-lapa",
-		"dedetizadora-em-guaratingueta"
+		"dedetizadora-em-guaratingueta",
+		"descupinizacao-em-itaim-bibi",
+		"dedetizadora-de-cupim-em-santo-amaro",
+		"dedetizadora-de-cupim-em-brooklin-paulista",
+		"dedetizadora-em-cotia",
+		"dedetizadora-em-carapicuiba",
+		"dedetizadora-em-guarulhos",
+		"desratizacao-na-mooca",
+		"desratizacao-na-consolacao"
 	],
 	"noindex": [
 		"dedetizadora-em-taubate",
@@ -25,13 +33,23 @@
 		"dedetizadora-em-ubatuba",
 		"dedetizadora-em-cajamar",
 		"desratizacao-na-lapa",
-		"dedetizadora-em-guaratingueta"
+		"dedetizadora-em-guaratingueta",
+		"descupinizacao-em-itaim-bibi",
+		"dedetizadora-de-cupim-em-santo-amaro",
+		"dedetizadora-de-cupim-em-brooklin-paulista",
+		"dedetizadora-em-cotia",
+		"dedetizadora-em-carapicuiba",
+		"dedetizadora-em-guarulhos",
+		"desratizacao-na-mooca",
+		"desratizacao-na-consolacao"
 	],
 	"notes": {
 		"sanitizacao-em-jundiai": "Já é 301 para /areas-de-atendimento/ (city-consolidate). O gate vale se o redirect for removido e a página restaurada. Não reindexar até conteúdo único ≥300 palavras.",
 		"sanitizacao-em-barueri": "301 para /areas-de-atendimento/ — não entra no gate.",
 		"sanitizacao-em-guarulhos": "301 para /areas-de-atendimento/ — não entra no gate.",
-		"sanitizacao-em-osasco": "301 para /areas-de-atendimento/ — não entra no gate."
+		"sanitizacao-em-osasco": "301 para /areas-de-atendimento/ — não entra no gate.",
+		"descupinizacao-em-santos": "Aprovado no Lote 3 — não entra no gate.",
+		"descupinizacao-em-sao-paulo": "Hub da capital, não praça. Noindex via hub-rewrite-queue.json (brief separado) — não entra neste gate."
 	},
 	"bairrosPorPraca": {
 		"dedetizadora-em-taubate": [
@@ -128,6 +146,84 @@
 			"Campo do Galvão",
 			"Vila São José",
 			"Engenheiro Neiva"
+		],
+		"descupinizacao-em-itaim-bibi": [
+			"Vila Olímpia",
+			"Jardim Paulista",
+			"Pinheiros",
+			"Brooklin",
+			"Moema",
+			"Cidade Jardim",
+			"Jardim Europa",
+			"Vila Nova Conceição"
+		],
+		"dedetizadora-de-cupim-em-santo-amaro": [
+			"Brooklin",
+			"Campo Belo",
+			"Socorro",
+			"Campo Grande",
+			"Chácara Santo Antônio",
+			"Granja Julieta",
+			"Alto da Boa Vista",
+			"Vila Sofia",
+			"Jardim São Luís"
+		],
+		"dedetizadora-de-cupim-em-brooklin-paulista": [
+			"Campo Belo",
+			"Vila Olímpia",
+			"Moema",
+			"Santo Amaro",
+			"Chácara Santo Antônio",
+			"Brooklin Novo"
+		],
+		"dedetizadora-em-cotia": [
+			"Granja Viana",
+			"Jardim Isis",
+			"Caucaia do Alto",
+			"São Paulo II",
+			"Jardim Barbacena",
+			"Parque Rincão"
+		],
+		"dedetizadora-em-carapicuiba": [
+			"Vila Dirce",
+			"Cohab",
+			"Ariston",
+			"Golf Gardens",
+			"Santa Tereza",
+			"Vila Sul Americana",
+			"Jardim Planalto",
+			"Aldeia da Fazendinha"
+		],
+		"dedetizadora-em-guarulhos": [
+			"Macedo",
+			"Vila Galvão",
+			"Picanço",
+			"Cumbica",
+			"Pimentas",
+			"Bonsucesso",
+			"Jardim Presidente Dutra",
+			"Taboão",
+			"Vila Augusta"
+		],
+		"desratizacao-na-mooca": [
+			"Brás",
+			"Belenzinho",
+			"Tatuapé",
+			"Água Rasa",
+			"Alto da Mooca",
+			"Parque da Mooca",
+			"Hipódromo",
+			"Cambuci"
+		],
+		"desratizacao-na-consolacao": [
+			"Higienópolis",
+			"Bela Vista",
+			"República",
+			"Jardins",
+			"Cerqueira César",
+			"Vila Buarque",
+			"Pacaembu",
+			"Santa Cecília"
 		]
 	},
 	"especiesRegionais": {
@@ -179,6 +275,46 @@
 			"Coptotermes gestroi",
 			"Cryptotermes brevis",
 			"Nasutitermes"
+		],
+		"descupinizacao-em-itaim-bibi": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		],
+		"dedetizadora-de-cupim-em-santo-amaro": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		],
+		"dedetizadora-de-cupim-em-brooklin-paulista": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		],
+		"dedetizadora-em-cotia": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		],
+		"dedetizadora-em-carapicuiba": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		],
+		"dedetizadora-em-guarulhos": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		],
+		"desratizacao-na-mooca": [
+			"Rattus norvegicus",
+			"Rattus rattus",
+			"Mus musculus"
+		],
+		"desratizacao-na-consolacao": [
+			"Rattus norvegicus",
+			"Rattus rattus",
+			"Mus musculus"
 		]
 	}
 }

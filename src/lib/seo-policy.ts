@@ -9,6 +9,7 @@ import gsc404Policy from '../data/seo/gsc-404-policy.json';
 import hubThinPolicy from '../data/seo/hub-thin-policy.json';
 import offtopicPolicy from '../data/seo/offtopic-policy.json';
 import cityConsolidatePolicy from '../data/seo/city-consolidate-policy.json';
+import hubRewriteQueue from '../data/seo/hub-rewrite-queue.json';
 import cidadesRedirectsJson from '../../scripts/redirects-cidades.json';
 import { shouldNoindexCityQualityGate } from './city-quality-gate';
 
@@ -36,6 +37,8 @@ const POLICIES: ClusterPolicyFile[] = [
 	// off-topic confirmado — gerado por scripts/apply-offtopic-noindex.mjs --apply
 	offtopicPolicy as ClusterPolicyFile,
 	gsc404Policy,
+	// hubs de cidade aguardando reescrita — ver hub-rewrite-queue.json
+	hubRewriteQueue as ClusterPolicyFile,
 	// city pages consolidadas → /areas-de-atendimento/ (por último)
 	cityConsolidatePolicy as ClusterPolicyFile,
 	// city-quality-gate NÃO entra aqui: noindex é condicional via evaluateCityQualityGate

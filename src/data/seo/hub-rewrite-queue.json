@@ -1,0 +1,14 @@
+{
+	"generatedAt": "2026-09-02T18:25:00.000Z",
+	"cluster": "hub-rewrite",
+	"notes": "Hubs de cidade (não praça). O city-quality-gate não se aplica. Reescrita em brief separado.",
+	"redirects": {},
+	"noindex": ["descupinizacao-em-sao-paulo"],
+	"items": [
+		{
+			"path": "descupinizacao-em-sao-paulo",
+			"status": "noindex",
+			"reason": "hub aguardando reescrita — ver brief separado"
+		}
+	]
+}

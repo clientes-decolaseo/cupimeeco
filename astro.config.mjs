@@ -14,6 +14,7 @@ import hubThinPolicy from './src/data/seo/hub-thin-policy.json';
 import offtopicPolicy from './src/data/seo/offtopic-policy.json';
 import cityConsolidatePolicy from './src/data/seo/city-consolidate-policy.json';
 import cityQualityGate from './src/data/seo/city-quality-gate.json';
+import hubRewriteQueue from './src/data/seo/hub-rewrite-queue.json';
 import cidadesRedirectsJson from './scripts/redirects-cidades.json' with { type: 'json' };
 
 const policyFiles = [
@@ -28,6 +29,7 @@ const policyFiles = [
 	offtopicPolicy,
 	cityConsolidatePolicy,
 	cityQualityGate,
+	hubRewriteQueue,
 ];
 
 const redirectSources = new Set();
