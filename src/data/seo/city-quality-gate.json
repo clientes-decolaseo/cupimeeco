@@ -1,20 +1,37 @@
 {
-	"generatedAt": "2026-09-02T17:52:00.000Z",
+	"generatedAt": "2026-09-02T18:13:00.000Z",
 	"redirects": {},
 	"minUniqueWords": 300,
 	"criteria": ["bairrosReais", "prazoReal", "especieRegional"],
 	"gated": [
 		"dedetizadora-em-taubate",
 		"sanitizacao-em-jundiai",
-		"descupinizacao-em-sao-vicente"
+		"descupinizacao-em-sao-vicente",
+		"descupinizacao-em-taubate",
+		"dedetizadora-de-cupim-em-agua-funda",
+		"desratizacao-na-zona-sul",
+		"dedetizadora-em-ubatuba",
+		"dedetizadora-em-cajamar",
+		"desratizacao-na-lapa",
+		"dedetizadora-em-guaratingueta"
 	],
 	"noindex": [
 		"dedetizadora-em-taubate",
 		"sanitizacao-em-jundiai",
-		"descupinizacao-em-sao-vicente"
+		"descupinizacao-em-sao-vicente",
+		"descupinizacao-em-taubate",
+		"dedetizadora-de-cupim-em-agua-funda",
+		"desratizacao-na-zona-sul",
+		"dedetizadora-em-ubatuba",
+		"dedetizadora-em-cajamar",
+		"desratizacao-na-lapa",
+		"dedetizadora-em-guaratingueta"
 	],
 	"notes": {
-		"sanitizacao-em-jundiai": "Já é 301 para /areas-de-atendimento/ (city-consolidate). O gate vale se o redirect for removido e a página restaurada. Não reindexar até conteúdo único ≥300 palavras."
+		"sanitizacao-em-jundiai": "Já é 301 para /areas-de-atendimento/ (city-consolidate). O gate vale se o redirect for removido e a página restaurada. Não reindexar até conteúdo único ≥300 palavras.",
+		"sanitizacao-em-barueri": "301 para /areas-de-atendimento/ — não entra no gate.",
+		"sanitizacao-em-guarulhos": "301 para /areas-de-atendimento/ — não entra no gate.",
+		"sanitizacao-em-osasco": "301 para /areas-de-atendimento/ — não entra no gate."
 	},
 	"bairrosPorPraca": {
 		"dedetizadora-em-taubate": [
@@ -49,6 +66,68 @@
 			"Parque Bitaru",
 			"Vila Margarida",
 			"Humaitá"
+		],
+		"descupinizacao-em-taubate": [
+			"Jardim das Nações",
+			"Independência",
+			"Esplanada",
+			"Quiririm",
+			"Belém",
+			"Chácara do Visconde",
+			"Jardim Santa Cruz",
+			"Estiva",
+			"Barranco"
+		],
+		"dedetizadora-de-cupim-em-agua-funda": [
+			"Ipiranga",
+			"Jabaquara",
+			"Cursino",
+			"Vila da Saúde",
+			"Sacomã"
+		],
+		"desratizacao-na-zona-sul": [
+			"Santo Amaro",
+			"Campo Belo",
+			"Moema",
+			"Itaim Bibi",
+			"Vila Mariana",
+			"Jabaquara",
+			"Brooklin",
+			"Campo Grande",
+			"Cidade Ademar",
+			"Cidade Dutra",
+			"Socorro",
+			"Pedreira"
+		],
+		"dedetizadora-em-ubatuba": [
+			"Itaguá",
+			"Praia Grande",
+			"Toninhas",
+			"Perequê-Açu",
+			"Enseada",
+			"Lázaro",
+			"Promirim",
+			"Itamambuca"
+		],
+		"dedetizadora-em-cajamar": [
+			"Jordanésia",
+			"Polvilho",
+			"Portal dos Ipês"
+		],
+		"desratizacao-na-lapa": [
+			"Vila Romana",
+			"Vila Leopoldina",
+			"Água Branca",
+			"Alto da Lapa",
+			"Vila Anastácio",
+			"Vila Jaguara"
+		],
+		"dedetizadora-em-guaratingueta": [
+			"Pedregulho",
+			"Tamandaré",
+			"Campo do Galvão",
+			"Vila São José",
+			"Engenheiro Neiva"
 		]
 	},
 	"especiesRegionais": {
@@ -62,6 +141,41 @@
 			"Cryptotermes brevis"
 		],
 		"descupinizacao-em-sao-vicente": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		],
+		"descupinizacao-em-taubate": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		],
+		"dedetizadora-de-cupim-em-agua-funda": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		],
+		"desratizacao-na-zona-sul": [
+			"Rattus norvegicus",
+			"Rattus rattus",
+			"Mus musculus"
+		],
+		"dedetizadora-em-ubatuba": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		],
+		"dedetizadora-em-cajamar": [
+			"Coptotermes gestroi",
+			"Cryptotermes brevis",
+			"Nasutitermes"
+		],
+		"desratizacao-na-lapa": [
+			"Rattus norvegicus",
+			"Rattus rattus",
+			"Mus musculus"
+		],
+		"dedetizadora-em-guaratingueta": [
 			"Coptotermes gestroi",
 			"Cryptotermes brevis",
 			"Nasutitermes"
