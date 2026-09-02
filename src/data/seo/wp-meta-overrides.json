@@ -4,8 +4,8 @@
     "description": "Artigos e guias sobre cupins, dedetização, descupinização e controle de pragas urbanas. Conteúdo especializado da Cupim Eco."
   },
   "contato": {
-    "title": "Contato e Orçamento Grátis 24h | Cupim Eco",
-    "description": "Fale com a Cupim Eco: telefone 0800 111 7272, WhatsApp e e-mail. Atendimento 24h em São Paulo, Baixada, Campinas, Sorocaba, Jundiaí e Vale do Paraíba."
+    "title": "Orçamento grátis em 24h | Cupim Eco",
+    "description": "Peça orçamento grátis no 0800 111 7272 ou WhatsApp. Atendimento 24h em SP. Garantia por escrito de 12 meses."
   },
   "servico": {
     "title": "Serviços de Dedetização e Controle de Pragas | Cupim Eco",
@@ -51,5 +51,17 @@
   "blog/acabar-com-cupim-na-madeira": {
     "title": "Casa de cupim: como identificar o ninho | Cupim Eco",
     "description": "Como identificar a casa de cupim em rodapés, forros e paredes, reconhecer sinais do ninho e diferenciar infestação do ninho principal. Guia 2026."
+  },
+  "blog/veneno-para-cupim-de-solo": {
+    "title": "Acabe com cupim de solo na origem | Cupim Eco",
+    "description": "Qual tratamento atinge a colônia no solo. Orçamento grátis 24h e garantia por escrito de 12 meses. Ligue 0800 111 7272."
+  },
+  "blog/cupim-no-guarda-roupa": {
+    "title": "Cupim no guarda-roupa: salve o móvel | Cupim Eco",
+    "description": "Pó ou furos no guarda-roupa? Identifique o cupim e salve o móvel. Avaliação 24h e garantia por escrito de 12 meses. 0800 111 7272."
+  },
+  "rainhas-de-cupins": {
+    "title": "Rainha do cupim: por que só matar falha | Cupim Eco",
+    "description": "A rainha mantém a colônia viva: só matar operários não resolve. Descupinização 24h com garantia por escrito de 12 meses. 0800 111 7272."
   }
 }
