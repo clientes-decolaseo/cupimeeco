@@ -12,6 +12,7 @@ import sanitizacaoPolicy from './src/data/seo/sanitizacao-policy.json';
 import mosquitosPolicy from './src/data/seo/mosquitos-policy.json';
 import hubThinPolicy from './src/data/seo/hub-thin-policy.json';
 import offtopicPolicy from './src/data/seo/offtopic-policy.json';
+import gsc404Policy from './src/data/seo/gsc-404-policy.json';
 import cityConsolidatePolicy from './src/data/seo/city-consolidate-policy.json';
 import cityQualityGate from './src/data/seo/city-quality-gate.json';
 import hubRewriteQueue from './src/data/seo/hub-rewrite-queue.json';
@@ -27,6 +28,7 @@ const policyFiles = [
 	duplicatesPolicy,
 	hubThinPolicy,
 	offtopicPolicy,
+	gsc404Policy,
 	cityConsolidatePolicy,
 	cityQualityGate,
 	hubRewriteQueue,
@@ -99,7 +101,9 @@ const sitemapBlocklist = new Set(['sitemap', 'busca']);
 export default defineConfig({
 	site: 'https://cupins.eco.br',
 	output: 'static',
-	adapter: vercel(),
+	adapter: vercel({
+		edgeMiddleware: true,
+	}),
 	trailingSlash: 'always',
 	build: {
 		inlineStylesheets: 'always',

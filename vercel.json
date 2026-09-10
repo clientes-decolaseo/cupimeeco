@@ -201,6 +201,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/como-acabar-com-rato/",
+			"destination": "/deratizacao/",
+			"permanent": true
+		},
+		{
 			"source": "/como-acabar-ratos-em-casa/",
 			"destination": "/servico/",
 			"permanent": true
@@ -233,6 +238,11 @@
 		{
 			"source": "/como-matar-cupim-em-arvore/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/como-matar-rato/",
+			"destination": "/deratizacao/",
 			"permanent": true
 		},
 		{
@@ -331,6 +341,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizacao-de-baratas-em-sp/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizacao-de-cupim-em-mongagua/",
 			"destination": "/areas-de-atendimento/",
 			"permanent": true
@@ -366,8 +381,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizacao-de-pulgas-em-alphaville/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-pulgas-em-cotia/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-rato-em-alphaville/",
+			"destination": "/deratizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizacao-de-ratos/",
 			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-ratos-em-barueri/",
+			"destination": "/deratizacao/regioes/",
 			"permanent": true
 		},
 		{
@@ -1246,6 +1281,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-cupins-em-barueri/",
+			"destination": "/descupinizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-cupins-em-bertioga/",
 			"destination": "/dedetizacao/",
 			"permanent": true
@@ -1258,6 +1298,11 @@
 		{
 			"source": "/dedetizadora-de-cupins-em-condominio/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-cotia/",
+			"destination": "/descupinizacao/regioes/",
 			"permanent": true
 		},
 		{
@@ -1281,6 +1326,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-cupins-em-guaruja/",
+			"destination": "/descupinizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-cupins-em-ibiuna/",
 			"destination": "/dedetizacao/",
 			"permanent": true
@@ -1291,8 +1341,23 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-cupins-em-itupeva/",
+			"destination": "/descupinizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-cupins-em-joinville/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-jundiai/",
+			"destination": "/descupinizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-osasco/",
+			"destination": "/descupinizacao/regioes/",
 			"permanent": true
 		},
 		{
@@ -1311,8 +1376,33 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-cupins-em-santana-de-parnaiba/",
+			"destination": "/descupinizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-cupins-em-santo-amaro/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-santos/",
+			"destination": "/descupinizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-sorocaba/",
+			"destination": "/descupinizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-sp/",
+			"destination": "/descupinizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-em-taboao-da-serra/",
+			"destination": "/descupinizacao/regioes/",
 			"permanent": true
 		},
 		{
@@ -1358,6 +1448,16 @@
 		{
 			"source": "/dedetizadora-de-cupins-na-zona-leste/",
 			"destination": "/blog/cupins-na-zona-leste/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-na-zona-norte/",
+			"destination": "/descupinizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-na-zona-oeste/",
+			"destination": "/descupinizacao/regioes/",
 			"permanent": true
 		},
 		{
@@ -1418,6 +1518,11 @@
 		{
 			"source": "/dedetizadora-de-cupins-no-rio-de-janeiro/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-cupins-preco-baixo-em-sp/",
+			"destination": "/descupinizacao/regioes/",
 			"permanent": true
 		},
 		{
@@ -1716,6 +1821,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-formigas-em-cotia/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-formigas-sp/",
 			"destination": "/dedetizacao/",
 			"permanent": true
@@ -1746,6 +1856,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-mosquitos-em-sao-paulo/",
+			"destination": "/controle-de-mosquitos/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-osasco/",
 			"destination": "/dedetizacao/",
 			"permanent": true
@@ -1768,6 +1883,11 @@
 		{
 			"source": "/dedetizadora-de-pombos-em-osasco/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pombos-em-praia-grande/",
+			"destination": "/dedetizacao/regioes/",
 			"permanent": true
 		},
 		{
@@ -1976,8 +2096,43 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-pulgas-em-atibaia/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-barueri/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-boituva/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-cabreuva/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-campo-limpo-paulista/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-pulgas-em-campos-do-jordao/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-carapicuiba/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-cotia/",
+			"destination": "/dedetizacao/regioes/",
 			"permanent": true
 		},
 		{
@@ -1996,6 +2151,21 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-pulgas-em-guarulhos/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-hortolandia/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-itapevi/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-pulgas-em-itaquaquecetuba/",
 			"destination": "/dedetizacao/",
 			"permanent": true
@@ -2006,13 +2176,33 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-pulgas-em-itupeva/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-jacarei/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-pulgas-em-jandira/",
 			"destination": "/dedetizacao/",
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-pulgas-em-jarinu/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-pulgas-em-joinville/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-jundiai/",
+			"destination": "/dedetizacao/regioes/",
 			"permanent": true
 		},
 		{
@@ -2031,6 +2221,16 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-pulgas-em-osasco/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-paulinia/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-pulgas-em-pirituba/",
 			"destination": "/dedetizacao/",
 			"permanent": true
@@ -2043,6 +2243,11 @@
 		{
 			"source": "/dedetizadora-de-pulgas-em-santana/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-santana-de-parnaiba/",
+			"destination": "/dedetizacao/regioes/",
 			"permanent": true
 		},
 		{
@@ -2061,8 +2266,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-pulgas-em-sorocaba/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-pulgas-em-sp/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-sumare/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-taboao-da-serra/",
+			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-varzea-paulista/",
+			"destination": "/dedetizacao/regioes/",
 			"permanent": true
 		},
 		{
@@ -2118,6 +2343,11 @@
 		{
 			"source": "/dedetizadora-de-pulgas-no-rio-de-janeiro/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-no-taboao-da-serra/",
+			"destination": "/dedetizacao/regioes/",
 			"permanent": true
 		},
 		{
