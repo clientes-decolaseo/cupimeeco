@@ -24,7 +24,7 @@ const postModules = import.meta.glob<{ default: WpContent }>('../data/wp/posts/*
 export const BLOG_POSTS_PER_PAGE = 12;
 
 /** true se o JSON ainda existe em pages/posts (não arquivado em archive/removed-wp-pages/). */
-function hasWpContentModule(type: 'page' | 'post', id: number): boolean {
+export function hasWpContentModule(type: 'page' | 'post', id: number): boolean {
 	const folder = type === 'page' ? 'pages' : 'posts';
 	const key = `../data/wp/${folder}/${id}.json`;
 	const modules = type === 'page' ? pageModules : postModules;
@@ -152,6 +152,7 @@ export async function getRelatedContent(
 				...data.posts.filter(
 					(entry) =>
 						entry.path !== currentPath &&
+						hasWpContentModule('post', entry.id) &&
 						!isRedirectedPath(entry.path) &&
 						postBelongsToCluster(entry.path, cluster),
 				),
@@ -164,6 +165,7 @@ export async function getRelatedContent(
 						(entry) =>
 							entry.path !== currentPath &&
 							entry.path.length > 0 &&
+							hasWpContentModule('page', entry.id) &&
 							!isRedirectedPath(entry.path) &&
 							pageBelongsToCluster(entry.path, cluster),
 					)
@@ -176,6 +178,7 @@ export async function getRelatedContent(
 		candidates.push(
 			...data.posts.filter((entry) => {
 				if (entry.path === currentPath) return false;
+				if (!hasWpContentModule('post', entry.id)) return false;
 				return entry.path.includes(slugPart.slice(0, 8));
 			}),
 		);

@@ -5,7 +5,7 @@ import { isPageInServiceArea } from './area-atendida';
 import { matchesPagePath } from './cluster-page-match';
 import { isRedirectedPath } from './seo-policy';
 import { getEditorialManifestEntries } from './editorial-posts';
-import { getManifest } from './wordpress';
+import { getManifest, hasWpContentModule } from './wordpress';
 
 const clusters = clustersData.clusters as ClusterConfig[];
 
@@ -76,6 +76,7 @@ export function getClusterPages(clusterId: string): ClusterManifestEntry[] {
 		.pages.filter(
 			(entry) =>
 				entry.path &&
+				hasWpContentModule('page', entry.id) &&
 				!isRedirectedPath(entry.path) &&
 				pageBelongsToCluster(entry.path, cluster) &&
 				isPageInServiceArea({ path: entry.path, title: entry.title }),
@@ -93,7 +94,10 @@ export function getClusterPosts(clusterId: string): WpManifestEntry[] {
 	const cluster = getClusterById(clusterId);
 	if (!cluster) return [];
 
-	return [...getManifest().posts, ...getEditorialManifestEntries()]
+	return [
+		...getManifest().posts.filter((entry) => hasWpContentModule('post', entry.id)),
+		...getEditorialManifestEntries(),
+	]
 		.filter((entry) => postBelongsToCluster(entry.path, cluster))
 		.sort((a, b) => new Date(b.modified).getTime() - new Date(a.modified).getTime());
 }
