@@ -39,6 +39,7 @@ export const REDIRECTED_WP_PATHS = new Set([
 	'glossario-tudo-sobre-descupinizacao',
 	'dedetizacao-de-cupins',
 	'dedetizadora-de-cupim',
+	'sitemap',
 ]);
 
 export function isExcludedFromWpCatchAll(itemPath: string): boolean {

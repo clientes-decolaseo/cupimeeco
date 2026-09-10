@@ -18,6 +18,6 @@
     "description": "Mapa do site Cupim Eco: dedetização, descupinização, deratização, sanitização, blog e centenas de páginas por cidade na Grande São Paulo.",
     "canonical": "https://cupins.eco.br/sitemap/",
     "ogImage": "",
-    "robots": false
+    "robots": true
   }
 }

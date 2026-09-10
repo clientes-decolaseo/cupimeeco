@@ -68,6 +68,7 @@ const existingRedirectKeys = new Set(
 		'/controle-de-mosquitos/regioes',
 		'/dedetizacao-de-cupins',
 		'/dedetizadora-de-cupim',
+		'/sitemap',
 		...Object.keys(clusterRedirects),
 	].map(normalizeRedirectKey),
 );
@@ -122,6 +123,10 @@ export default defineConfig({
 		// já existentes abaixo têm prioridade e não são sobrescritas.
 		...cidadesRedirects,
 		'/sitemap.xml': {
+			status: 301,
+			destination: '/sitemap-index.xml',
+		},
+		'/sitemap': {
 			status: 301,
 			destination: '/sitemap-index.xml',
 		},

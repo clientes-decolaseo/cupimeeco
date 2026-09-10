@@ -5031,6 +5031,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/sitemap/",
+			"destination": "/sitemap-index.xml",
+			"permanent": true
+		},
+		{
 			"source": "/tubos-de-lama-de-cupim/",
 			"destination": "/descupinizacao/",
 			"permanent": true

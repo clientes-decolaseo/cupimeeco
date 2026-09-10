@@ -33,6 +33,7 @@ const STATIC_REDIRECTS = {
 	'dedetizacao-de-cupins': '/descupinizacao/',
 	'dedetizadora-de-cupim': '/descupinizacao/',
 	'sanitizacao/regioes': '/sanitizacao/',
+	sitemap: '/sitemap-index.xml',
 };
 
 export function normalizePathKey(itemPath = '') {
