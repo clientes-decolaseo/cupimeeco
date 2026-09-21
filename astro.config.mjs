@@ -158,7 +158,10 @@ export default defineConfig({
 			status: 301,
 			destination: '/blog/',
 		},
-		...clusterRedirects,
+		// Policies (gsc-404, city-consolidate, …) NÃO entram aqui.
+		// Já são gravadas em vercel.json pelo sync-vercel-redirects. Duplicá-las
+		// no Build Output API estoura o limite de 2048 rotas da Vercel
+		// (1045 + 1072 = 2117 no deploy 0ea042a / dpl_HUqo6AhuxEnHfFo5LwYB74BmwCdX).
 		'/sanitizacao/regioes': {
 			status: 301,
 			destination: '/sanitizacao',
