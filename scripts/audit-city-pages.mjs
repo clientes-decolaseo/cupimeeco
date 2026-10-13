@@ -10,7 +10,7 @@
  */
 import { readdir, readFile, writeFile, access, mkdir, stat } from 'node:fs/promises';
 import path from 'node:path';
-import { extractLocationFromPath } from './lib/resolve-city.mjs';
+import { extractLocationFromPath, SERVICE_PEST_CITY_RE } from './lib/resolve-city.mjs';
 import cidadesGsp from '../src/data/cidades-gsp.json' with { type: 'json' };
 
 const ROOT = path.resolve('.');
@@ -102,10 +102,10 @@ const WRONG_BRAND_RE =
 	/\b(?:Universo(?:\s+Ambiental)?|OESTE\s*PRAGAS|Oeste\s*Pragas|Bio[\s-]*Solu[cç][oõ]es|biosolucoes|bio-solucoes|Combate\s+Ambiental|Cicero\s+Desentupidora)\b/gi;
 
 const CITY_SLUG_RE =
-	/^(?:dedetizadora-de-cupim|dedetizadora-de-ratos?|dedetizadora-de-barata|dedetizadora-de-formiga|dedetizadora-de-pulga|dedetizadora-de-carrapato|dedetizadora-de-escorpiao|dedetizadora-em|dedetizadora|descupinizacao|descupinizadora|empresa-de-descupinizacao|empresa-de-dedetizacao|empresa-de|desratizacao|desratizadora|sanitizacao|desinsetizacao)(?:-em|-no|-na|-de)?-.+/i;
+	/^(?:(?:dedetizadora|dedetizacao)-de-(?:escorpioes|escorpiao|carrapatos?|pulgas?|pombos?|mosquitos?|formigas?|baratas?|cupins?|ratos?)-(?:em|na|no|nas|nos)-.+|(?:dedetizadora-de-cupim|dedetizadora-de-ratos?|dedetizadora-de-barata|dedetizadora-de-formiga|dedetizadora-de-pulga|dedetizadora-de-carrapato|dedetizadora-de-escorpiao|dedetizadora-em|dedetizadora|descupinizacao|descupinizadora|empresa-de-descupinizacao|empresa-de-dedetizacao|empresa-de|desratizacao|desratizadora|sanitizacao|desinsetizacao)(?:-em|-no|-na|-de)?-.+)/i;
 
 const CITY_CONTENT_HINT_RE =
-	/(?:dedetizadora-de-cupim-em-|dedetizadora-de-(?:ratos?|barata|formiga|pulga|carrapato|escorpiao)-|dedetizadora-em-|descupinizacao-em-|descupinizadora-|sanitizacao-em-|desratizacao-|empresa-de-)/i;
+	/(?:(?:dedetizadora|dedetizacao)-de-(?:escorpioes|escorpiao|carrapatos?|pulgas?|pombos?|mosquitos?|formigas?|baratas?|cupins?|ratos?)-|dedetizadora-de-cupim-em-|dedetizadora-de-(?:ratos?|barata|formiga|pulga|carrapato|escorpiao)-|dedetizadora-em-|descupinizacao-em-|descupinizadora-|sanitizacao-em-|desratizacao-|empresa-de-)/i;
 
 /**
  * Telefones BR:
@@ -139,12 +139,15 @@ function slugify(text) {
  * Extrai slug de localidade do path (padrão amplo de páginas de cidade).
  */
 function extractLocationSlug(itemPath) {
+	const segment = itemPath.split('/').pop() ?? itemPath;
+	const specific = segment.match(SERVICE_PEST_CITY_RE);
+	if (specific) return specific[1].replace(/-\d+$/, '');
+
 	const fromLib = extractLocationFromPath(itemPath);
 	if (fromLib) return fromLib;
 
-	const segment = itemPath.split('/').pop() ?? itemPath;
 	const match = segment.match(
-		/(?:dedetizadora-de-cupim|dedetizadora-de-ratos?|dedetizadora-de-barata|dedetizadora-de-formiga|dedetizadora-de-pulga|dedetizadora-de-carrapato|dedetizadora-de-escorpiao|dedetizadora-em|dedetizadora|descupinizacao|descupinizadora|empresa-de-descupinizacao|empresa-de-dedetizacao|empresa-de|desratizacao|desratizadora|sanitizacao|desinsetizacao|dedetizacao)(?:-em|-no|-na|-de)?-(.+)$/i,
+		/(?:dedetizadora-de-cupins?|dedetizacao-de-cupins?|dedetizadora-de-ratos?|dedetizacao-de-ratos?|dedetizadora-de-baratas?|dedetizacao-de-baratas?|dedetizadora-de-formigas?|dedetizacao-de-formigas?|dedetizadora-de-pulgas?|dedetizacao-de-pulgas?|dedetizadora-de-carrapatos?|dedetizacao-de-carrapatos?|dedetizadora-de-escorpioes|dedetizacao-de-escorpioes|dedetizadora-de-escorpiao|dedetizacao-de-escorpiao|dedetizadora-de-pombos?|dedetizacao-de-pombos?|dedetizadora-em|dedetizadora|descupinizacao|descupinizadora|empresa-de-descupinizacao|empresa-de-dedetizacao|empresa-de|desratizacao|desratizadora|sanitizacao|desinsetizacao|dedetizacao)(?:-em|-no|-na|-de)?-(.+)$/i,
 	);
 	return match ? match[1].replace(/-\d+$/, '') : null;
 }
@@ -691,6 +694,7 @@ async function listImmediateSubdirs(dir) {
 function isCitySlug(slugOrPath) {
 	const segment = (slugOrPath ?? '').replace(/^\/+|\/+$/g, '').split('/').pop() ?? '';
 	if (!segment) return false;
+	if (SERVICE_PEST_CITY_RE.test(segment)) return true;
 	if (CITY_SLUG_RE.test(segment)) return true;
 	if (CITY_CONTENT_HINT_RE.test(segment)) return true;
 	return Boolean(extractLocationFromPath(segment));

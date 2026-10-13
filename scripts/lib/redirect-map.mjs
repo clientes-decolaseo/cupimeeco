@@ -9,6 +9,7 @@ import gsc404Policy from '../../src/data/seo/gsc-404-policy.json' with { type: '
 import hubThinPolicy from '../../src/data/seo/hub-thin-policy.json' with { type: 'json' };
 import offtopicPolicy from '../../src/data/seo/offtopic-policy.json' with { type: 'json' };
 import cityConsolidatePolicy from '../../src/data/seo/city-consolidate-policy.json' with { type: 'json' };
+import cidadesRedirectsJson from '../redirects-cidades.json' with { type: 'json' };
 
 const POLICY_FILES = [
 	cupimPolicy,
@@ -105,6 +106,17 @@ export function buildRedirectMap() {
 			const destination = normalizeRedirectDestination(to);
 			map.set(key, destination);
 		}
+	}
+
+	// redirects-cidades.json não entra nas policies. Sem este merge o sync
+	// nunca grava esses 301 no vercel.json e a página some (isRedirectedPath
+	// suprime a geração). Policy já existente ganha — não sobrescreve.
+	for (const [from, to] of Object.entries(cidadesRedirectsJson)) {
+		if (from === '_meta' || from.startsWith('_')) continue;
+		if (typeof to !== 'string') continue;
+		const key = normalizePathKey(from);
+		if (!key || map.has(key)) continue;
+		map.set(key, normalizeRedirectDestination(to));
 	}
 
 	// STATIC por último — prioridade sobre policies em caso de colisão

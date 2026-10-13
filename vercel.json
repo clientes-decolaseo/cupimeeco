@@ -336,6 +336,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizacao-com-produto-biologico-em-sao-paulo/",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizacao-cupim-sp-preco/",
 			"destination": "/descupinizacao/",
 			"permanent": true
@@ -373,6 +378,16 @@
 		{
 			"source": "/dedetizacao-de-escolas/",
 			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-escorpiao-em-sao-paulo/",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizacao-de-escorpioes-em-sao-paulo/",
+			"destination": "/dedetizacao/",
 			"permanent": true
 		},
 		{
@@ -732,6 +747,11 @@
 		},
 		{
 			"source": "/dedetizadora-de-carrapatos/",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-carrapatos-em-sao-paulo/",
 			"destination": "/dedetizacao/",
 			"permanent": true
 		},
@@ -1871,8 +1891,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-pombos-em-cajamar/",
+			"destination": "/controle-de-pombos/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-pombos-em-cotia/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pombos-em-guarulhos/",
+			"destination": "/controle-de-pombos/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pombos-em-indaiatuba/",
+			"destination": "/controle-de-pombos/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pombos-em-itu/",
+			"destination": "/controle-de-pombos/",
 			"permanent": true
 		},
 		{
@@ -1896,8 +1936,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/dedetizadora-de-pombos-em-santos/",
+			"destination": "/controle-de-pombos/",
+			"permanent": true
+		},
+		{
 			"source": "/dedetizadora-de-pombos-em-sao-bernardo-do-campo/",
 			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pombos-em-sorocaba/",
+			"destination": "/controle-de-pombos/",
 			"permanent": true
 		},
 		{
@@ -2262,6 +2312,11 @@
 		},
 		{
 			"source": "/dedetizadora-de-pulgas-em-sao-caitano-do-sul/",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dedetizadora-de-pulgas-em-sao-paulo/",
 			"destination": "/dedetizacao/",
 			"permanent": true
 		},
@@ -4381,6 +4436,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/desentupidora-de-pia-em-sao-paulo/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/desentupidora-em-aparecida/",
 			"destination": "/servico/",
 			"permanent": true
@@ -4946,6 +5006,16 @@
 			"permanent": true
 		},
 		{
+			"source": "/limpeza-de-caixa-de-gordura-em-cajamar/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-de-gordura-em-guarulhos/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/limpeza-de-caixa-de-gordura-em-jandira/",
 			"destination": "/servico/",
 			"permanent": true
@@ -4956,13 +5026,43 @@
 			"permanent": true
 		},
 		{
+			"source": "/limpeza-de-caixa-de-gordura-em-osasco/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-de-gordura-em-paulinia/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/limpeza-de-caixa-de-gordura-em-pinheiros/",
 			"destination": "/servico/",
 			"permanent": true
 		},
 		{
+			"source": "/limpeza-de-caixa-de-gordura-em-santana-de-parnaiba/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
 			"source": "/limpeza-de-caixa-de-gordura-em-sao-bernardo-do-campo/",
 			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-de-gordura-em-sao-paulo/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-de-gordura-em-sumare/",
+			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/limpeza-de-caixa-de-gordura-em-vinhedo/",
+			"destination": "/areas-de-atendimento/",
 			"permanent": true
 		},
 		{
@@ -5133,6 +5233,11 @@
 		{
 			"source": "/o-que-fazer-para-acabar-com-cupim-de-madeira/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/o-que-fazer-para-eliminar-baratas/",
+			"destination": "/descupinizacao/regioes/",
 			"permanent": true
 		},
 		{

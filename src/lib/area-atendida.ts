@@ -78,8 +78,20 @@ function slugify(text: string): string {
 		.replace(/^-+|-+$/g, '');
 }
 
+/**
+ * Alinhado a scripts/lib/resolve-city.mjs (SERVICE_PEST_CITY_RE).
+ * Casa plural (pulgas, carrapatos, escorpioes) e os dois prefixos
+ * dedetizadora-de- / dedetizacao-de- antes do fallback genérico,
+ * para a cidade não ser engolida junto com a praga.
+ */
+const SERVICE_PEST_CITY_RE =
+	/^(?:dedetizadora|dedetizacao)-de-(?:escorpioes|escorpiao|carrapatos?|pulgas?|pombos?|mosquitos?|formigas?|baratas?|cupins?|ratos?)-(?:em|na|no|nas|nos)-(.+)$/i;
+
 export function extractLocationFromPath(path: string): string | null {
 	const segment = path.split('/').pop() ?? path;
+	const specific = segment.match(SERVICE_PEST_CITY_RE);
+	if (specific) return specific[1].replace(/-\d+$/, '');
+
 	const match = segment.match(
 		/(?:descupinizacao|descupinizadora|dedetizacao|desinsetizacao|dedetizadora-de-cupim|dedetizadora-de-rato|dedetizadora-de-mosquito|dedetizadora-em|dedetizadora-de-barata|dedetizadora-de-formiga|dedetizadora-de-pulga|dedetizadora-de-escorpiao|desratizacao|desratizadora|sanitizacao|controle-de-mosquito|empresa-de-descupinizacao|empresa-de-dedetizacao|limpeza|desentupidora|hidrojateamento)(?:-em|-no|-na|-de)?-(.+)$/i,
 	);

@@ -1,6 +1,7 @@
 {
-	"generatedAt": "2026-09-10T12:50:00.000Z",
+	"generatedAt": "2026-10-13T16:00:00.000Z",
 	"cluster": "gone-410",
+	"note": "Lista do que deve responder 410 quando houver rota estática (o middleware não vira Edge Function com output static). desentupidora-de-pia-em-osasco e desentupidora-de-pia-em-sorocaba saíram: não aparecem como 404 no GSC. Entraram desentupidora-de-pia-em-sao-paulo e limpeza-de-caixa-de-gordura-em-sumare, que aparecem. Sumaré e desentupidora-de-pia-em-sao-paulo também estão em gsc-404-policy.temporary com 301 para /areas-de-atendimento/ até o 410 existir.",
 	"stats": {
 		"gone": 9
 	},
@@ -11,8 +12,8 @@
 		"desentupidora-de-esgoto-em-jacarei",
 		"desentupidora-de-pia-em-guarulhos",
 		"desentupidora-de-pia-em-itu",
-		"desentupidora-de-pia-em-osasco",
-		"desentupidora-de-pia-em-sorocaba",
-		"desentupidora-de-vaso-sanitario-em-itu"
+		"desentupidora-de-pia-em-sao-paulo",
+		"desentupidora-de-vaso-sanitario-em-itu",
+		"limpeza-de-caixa-de-gordura-em-sumare"
 	]
 }

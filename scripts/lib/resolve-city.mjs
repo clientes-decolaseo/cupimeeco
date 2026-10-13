@@ -20,8 +20,24 @@ function slugify(text) {
 		.replace(/^-+|-+$/g, '');
 }
 
+/**
+ * Plural explícito. `escorpioes` não é `escorpiao` + s.
+ * Ordem: forma mais longa primeiro.
+ */
+const PEST_SLUG =
+	'escorpioes|escorpiao|carrapatos?|pulgas?|pombos?|mosquitos?|formigas?|baratas?|cupins?|ratos?';
+
+/** dedetizadora-de- / dedetizacao-de- + praga + em|na|no + cidade */
+export const SERVICE_PEST_CITY_RE = new RegExp(
+	`^(?:dedetizadora|dedetizacao)-de-(?:${PEST_SLUG})-(?:em|na|no|nas|nos)-(.+)$`,
+	'i',
+);
+
 export function extractLocationFromPath(path) {
 	const segment = path.split('/').pop() ?? path;
+	const specific = segment.match(SERVICE_PEST_CITY_RE);
+	if (specific) return specific[1].replace(/-\d+$/, '');
+
 	const match = segment.match(
 		/(?:descupinizacao|descupinizadora|dedetizacao|desinsetizacao|dedetizadora-de-cupim|dedetizadora-de-rato|dedetizadora-em|dedetizadora-de-barata|dedetizadora-de-formiga|dedetizadora-de-pulga|dedetizadora-de-escorpiao|desratizacao|desratizadora|empresa-de-descupinizacao|empresa-de-dedetizacao|limpeza|desentupidora|hidrojateamento)(?:-em|-no|-na|-de)?-(.+)$/i,
 	);

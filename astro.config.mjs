@@ -75,15 +75,16 @@ const existingRedirectKeys = new Set(
 	].map(normalizeRedirectKey),
 );
 
-/** @type {Record<string, string>} */
-const cidadesRedirects = {};
+// 301 de redirects-cidades.json vão para vercel.json via sync-vercel-redirects.
+// Não entram no `redirects` do Astro: duplicar com o vercel.json estoura o
+// limite de rotas do Build Output API. Aqui só saem do sitemap.
 for (const [from, to] of Object.entries(cidadesRedirectsJson)) {
 	if (from === '_meta' || from.startsWith('_')) continue;
-	if (existingRedirectKeys.has(normalizeRedirectKey(from))) continue;
-	cidadesRedirects[from] = typeof to === 'string' ? to : String(to?.destination ?? to);
-	existingRedirectKeys.add(normalizeRedirectKey(from));
-	// sitemap: não listar URLs que só redirecionam
-	redirectSources.add(normalizeRedirectKey(from));
+	if (typeof to !== 'string') continue;
+	const key = normalizeRedirectKey(from);
+	if (!key || existingRedirectKeys.has(key)) continue;
+	existingRedirectKeys.add(key);
+	redirectSources.add(key);
 }
 
 function pathnameFromSitemapUrl(url) {
@@ -123,9 +124,6 @@ export default defineConfig({
 		}),
 	],
 	redirects: {
-		// Cidades fora da área (scripts/redirects-cidades.json) — entradas
-		// já existentes abaixo têm prioridade e não são sobrescritas.
-		...cidadesRedirects,
 		'/sitemap.xml': {
 			status: 301,
 			destination: '/sitemap-index.xml',

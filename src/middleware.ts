@@ -1,8 +1,14 @@
 import { defineMiddleware } from 'astro:middleware';
 import gonePolicy from './data/seo/gone-410-policy.json';
+import gsc404Policy from './data/seo/gsc-404-policy.json';
 
 const goneKeys = new Set(
 	(gonePolicy.gone ?? []).map((item) => String(item).replace(/^\/+|\/+$/g, '').toLowerCase()),
+);
+
+/** 301 stopgap. Enquanto estiver aqui, não responde 410. */
+const temporaryRedirectKeys = new Set(
+	(gsc404Policy.temporary ?? []).map((item) => String(item).replace(/^\/+|\/+$/g, '').toLowerCase()),
 );
 
 const GONE_HTML = `<!doctype html>
@@ -26,7 +32,7 @@ const GONE_HTML = `<!doctype html>
 export const onRequest = defineMiddleware(async (context, next) => {
 	const key = context.url.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
 
-	if (key && goneKeys.has(key)) {
+	if (key && goneKeys.has(key) && !temporaryRedirectKeys.has(key)) {
 		return new Response(GONE_HTML, {
 			status: 410,
 			headers: {

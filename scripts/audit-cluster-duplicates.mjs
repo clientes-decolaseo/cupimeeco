@@ -53,7 +53,7 @@ const CLUSTER_CONFIGS = [
 		hubRegioes: '/dedetizacao/regioes',
 		isPage: (p) => pageBelongsToClusterId(p, 'dedetizacao'),
 		locationPattern:
-			/^(?:dedetizadora-em|dedetizadora-de-barata|dedetizadora-de-formiga|dedetizadora-de-pulga|dedetizadora-de-carrapato|dedetizadora-de-escorpiao|empresa-de-dedetizacao|dedetizadora)(?:-em|-na|-no|-de)?-(.+)$/i,
+			/^(?:(?:dedetizadora|dedetizacao)-de-(?:escorpioes|escorpiao|carrapatos?|pulgas?|pombos?|formigas?|baratas?)-(?:em|na|no|nas|nos)-(.+)|(?:dedetizadora-em|dedetizadora-de-barata|dedetizadora-de-formiga|dedetizadora-de-pulga|dedetizadora-de-carrapato|dedetizadora-de-escorpiao|empresa-de-dedetizacao|dedetizadora)(?:-em|-na|-no|-de)?-(.+))$/i,
 		preferPath: (p) => getClusterPreferPathScore('dedetizacao', p),
 		redirectToPilar: new Set([
 			'dedetizadora-em-sao-paulo',
@@ -149,7 +149,9 @@ function pickCanonicalPage(entries, config) {
 function extractLocationSlug(itemPath, pattern) {
 	const base = itemPath.split('/').pop() ?? itemPath;
 	const match = base.match(pattern);
-	return match ? match[1].replace(/-\d+$/, '') : null;
+	if (!match) return null;
+	const captured = match.slice(1).find((group) => group);
+	return captured ? captured.replace(/-\d+$/, '') : null;
 }
 
 function auditCluster(config) {

@@ -2,7 +2,8 @@
 	"generatedAt": "2026-09-10T12:50:00.000Z",
 	"cluster": "gsc-404",
 	"stats": {
-		"redirects": 90
+		"redirects": 110,
+		"temporary": 9
 	},
 	"redirects": {
 		"como-acabar-com-rato": "/deratizacao/",
@@ -94,7 +95,39 @@
 		"ovos-de-cupim": "/blog/tipos-de-cupim/",
 		"sanitizacao/regioes": "/controle-de-mosquitos/regioes/",
 		"veneno-para-cupim": "/blog/veneno-para-cupim-de-solo/",
-		"veneno-para-cupim-de-madeira": "/blog/veneno-para-cupim-de-solo/"
+		"veneno-para-cupim-de-madeira": "/blog/veneno-para-cupim-de-solo/",
+		"dedetizacao-de-escorpiao-em-sao-paulo": "/dedetizacao/",
+		"dedetizacao-de-escorpioes-em-sao-paulo": "/dedetizacao/",
+		"dedetizadora-de-carrapatos-em-sao-paulo": "/dedetizacao/",
+		"dedetizadora-de-pulgas-em-sao-paulo": "/dedetizacao/",
+		"dedetizacao-com-produto-biologico-em-sao-paulo": "/dedetizacao/",
+		"dedetizadora-de-pombos-em-cajamar": "/controle-de-pombos/",
+		"dedetizadora-de-pombos-em-guarulhos": "/controle-de-pombos/",
+		"dedetizadora-de-pombos-em-indaiatuba": "/controle-de-pombos/",
+		"dedetizadora-de-pombos-em-itu": "/controle-de-pombos/",
+		"dedetizadora-de-pombos-em-santos": "/controle-de-pombos/",
+		"dedetizadora-de-pombos-em-sorocaba": "/controle-de-pombos/",
+		"limpeza-de-caixa-de-gordura-em-cajamar": "/areas-de-atendimento/",
+		"limpeza-de-caixa-de-gordura-em-guarulhos": "/areas-de-atendimento/",
+		"limpeza-de-caixa-de-gordura-em-osasco": "/areas-de-atendimento/",
+		"limpeza-de-caixa-de-gordura-em-paulinia": "/areas-de-atendimento/",
+		"limpeza-de-caixa-de-gordura-em-santana-de-parnaiba": "/areas-de-atendimento/",
+		"limpeza-de-caixa-de-gordura-em-sao-paulo": "/areas-de-atendimento/",
+		"limpeza-de-caixa-de-gordura-em-sumare": "/areas-de-atendimento/",
+		"limpeza-de-caixa-de-gordura-em-vinhedo": "/areas-de-atendimento/",
+		"desentupidora-de-pia-em-sao-paulo": "/areas-de-atendimento/"
 	},
-	"noindex": []
+	"noindex": [],
+	"temporary": [
+		"limpeza-de-caixa-de-gordura-em-cajamar",
+		"limpeza-de-caixa-de-gordura-em-guarulhos",
+		"limpeza-de-caixa-de-gordura-em-osasco",
+		"limpeza-de-caixa-de-gordura-em-paulinia",
+		"limpeza-de-caixa-de-gordura-em-santana-de-parnaiba",
+		"limpeza-de-caixa-de-gordura-em-sao-paulo",
+		"limpeza-de-caixa-de-gordura-em-sumare",
+		"limpeza-de-caixa-de-gordura-em-vinhedo",
+		"desentupidora-de-pia-em-sao-paulo"
+	],
+	"temporaryNote": "301 stopgap para /areas-de-atendimento/ enquanto não existe resposta 410 em rota estática. Quando o 410 existir, remover estes redirects e esta lista. O middleware não emite 410 para paths listados aqui."
 }
