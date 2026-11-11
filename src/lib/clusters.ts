@@ -98,7 +98,7 @@ export function getClusterPosts(clusterId: string): WpManifestEntry[] {
 		...getManifest().posts.filter((entry) => hasWpContentModule('post', entry.id)),
 		...getEditorialManifestEntries(),
 	]
-		.filter((entry) => postBelongsToCluster(entry.path, cluster))
+		.filter((entry) => !isRedirectedPath(entry.path) && postBelongsToCluster(entry.path, cluster))
 		.sort((a, b) => new Date(b.modified).getTime() - new Date(a.modified).getTime());
 }
 
