@@ -71,6 +71,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/7-dicas-para-acabar-com-cupins/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
+			"permanent": true
+		},
+		{
 			"source": "/751775195.shtml",
 			"destination": "/",
 			"permanent": true
@@ -88,6 +93,16 @@
 		{
 			"source": "/acabar-com-cupim-de-solo/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/acabar-com-cupins/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/acabar-com-rato/",
+			"destination": "/blog/acabar-com-ratos/",
 			"permanent": true
 		},
 		{
@@ -111,8 +126,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/blog/como-acabar-com-cupim/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
+			"permanent": true
+		},
+		{
 			"source": "/blog/riscos-e-danos-causados-por-cupins/",
 			"destination": "/blog/riscos-e-danos-causados-por-cupins-como-proteger-seu-imovel-e-negocio/",
+			"permanent": true
+		},
+		{
+			"source": "/brocas/",
+			"destination": "/blog/broca-de-madeira-vs-cupim/",
 			"permanent": true
 		},
 		{
@@ -156,23 +181,28 @@
 			"permanent": true
 		},
 		{
+			"source": "/ciclo-de-vida-de-cupins/",
+			"destination": "/blog/ciclo-de-vida-do-cupim-guia/",
+			"permanent": true
+		},
+		{
 			"source": "/coco-de-cupim/",
 			"destination": "/blog/tipos-de-cupim/",
 			"permanent": true
 		},
 		{
 			"source": "/como-acabar-com-cupim/",
-			"destination": "/blog/como-acabar-com-cupim/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
 			"permanent": true
 		},
 		{
 			"source": "/como-acabar-com-cupim-de-madeira/",
-			"destination": "/blog/como-acabar-com-cupim/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
 			"permanent": true
 		},
 		{
 			"source": "/como-acabar-com-cupim-de-solo/",
-			"destination": "/blog/como-acabar-com-cupim/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
 			"permanent": true
 		},
 		{
@@ -187,12 +217,12 @@
 		},
 		{
 			"source": "/como-acabar-com-cupim-subterraneo/",
-			"destination": "/blog/como-acabar-com-cupim/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
 			"permanent": true
 		},
 		{
 			"source": "/como-acabar-com-o-cupim-subterraneo/",
-			"destination": "/blog/como-acabar-com-cupim/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
 			"permanent": true
 		},
 		{
@@ -226,8 +256,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/como-eliminar-cupins/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/como-eliminar-rato/",
+			"destination": "/blog/acabar-com-ratos/",
+			"permanent": true
+		},
+		{
 			"source": "/como-matar-cupim/",
-			"destination": "/como-matar-cupins/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
 			"permanent": true
 		},
 		{
@@ -241,13 +281,48 @@
 			"permanent": true
 		},
 		{
+			"source": "/como-matar-cupins/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
+			"permanent": true
+		},
+		{
 			"source": "/como-matar-rato/",
 			"destination": "/deratizacao/",
 			"permanent": true
 		},
 		{
+			"source": "/como-matar-ratos/",
+			"destination": "/blog/acabar-com-ratos/",
+			"permanent": true
+		},
+		{
+			"source": "/como-os-cupins-comem-madeira-rapida/",
+			"destination": "/por-que-os-cupins-comem-madeira/",
+			"permanent": true
+		},
+		{
+			"source": "/como-os-cupins-encontram-madeira/",
+			"destination": "/blog/como-os-cupins-agem/",
+			"permanent": true
+		},
+		{
+			"source": "/como-os-cupins-veem/",
+			"destination": "/blog/como-os-cupins-agem/",
+			"permanent": true
+		},
+		{
+			"source": "/como-se-livrar-de-cupins/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/como-voce-sabe-se-voce-tem-cupins/",
+			"destination": "/blog/sinais-de-infestacao-de-cupins/",
+			"permanent": true
+		},
+		{
 			"source": "/como-voce-sabe-se-voce-tem-cupins-2/",
-			"destination": "/como-voce-sabe-se-voce-tem-cupins/",
+			"destination": "/blog/sinais-de-infestacao-de-cupins/",
 			"permanent": true
 		},
 		{
@@ -271,8 +346,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/controle-de-cupins/",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
 			"source": "/controle-de-mosquitos/regioes/",
 			"destination": "/dedetizacao/regioes/",
+			"permanent": true
+		},
+		{
+			"source": "/controle-de-pragas-pombos/",
+			"destination": "/controle-de-pombos/",
 			"permanent": true
 		},
 		{
@@ -306,6 +391,16 @@
 			"permanent": true
 		},
 		{
+			"source": "/cupins-de-madeira-seca-do-sudeste/",
+			"destination": "/cupins-de-madeira-seca/",
+			"permanent": true
+		},
+		{
+			"source": "/cupins-do-pacifico-de-madeira-seca/",
+			"destination": "/cupins-de-madeira-seca/",
+			"permanent": true
+		},
+		{
 			"source": "/cupins-em-tapetes/",
 			"destination": "/servico/",
 			"permanent": true
@@ -316,8 +411,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/cupins-reprodutivos/",
+			"destination": "/blog/a-rainha-dos-cupins/",
+			"permanent": true
+		},
+		{
 			"source": "/dano-da-fundacao-cupim/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/dano-de-madeira-por-cupins/",
+			"destination": "/blog/como-os-cupins-causam-danos/",
 			"permanent": true
 		},
 		{
@@ -3901,6 +4006,26 @@
 			"permanent": true
 		},
 		{
+			"source": "/desalogamento-de-pombos-em-guarulhos/",
+			"destination": "/controle-de-pombos/",
+			"permanent": true
+		},
+		{
+			"source": "/desalojamento-de-pombo-2/",
+			"destination": "/controle-de-pombos/",
+			"permanent": true
+		},
+		{
+			"source": "/desalojamento-de-pombo-em-barueri/",
+			"destination": "/controle-de-pombos/",
+			"permanent": true
+		},
+		{
+			"source": "/desalojamento-de-pombos-em-sao-paulo/",
+			"destination": "/controle-de-pombos/",
+			"permanent": true
+		},
+		{
 			"source": "/descupinizacao-como-funciona/",
 			"destination": "/descupinizacao/",
 			"permanent": true
@@ -4761,6 +4886,16 @@
 			"permanent": true
 		},
 		{
+			"source": "/eliminar-colonia-de-cupins/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/eliminar-colonia-de-cupins-em-sao-paulo/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
+			"permanent": true
+		},
+		{
 			"source": "/eliminar-cupim/",
 			"destination": "/descupinizacao/",
 			"permanent": true
@@ -4768,6 +4903,31 @@
 		{
 			"source": "/eliminar-cupim-sp/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/eliminar-cupins/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/eliminar-ninho-de-pombos/",
+			"destination": "/controle-de-pombos/",
+			"permanent": true
+		},
+		{
+			"source": "/eliminar-pulga-em-sp/",
+			"destination": "/matar-pulga-em-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/eliminar-rato/",
+			"destination": "/blog/acabar-com-ratos/",
+			"permanent": true
+		},
+		{
+			"source": "/eliminar-rato-em-sp/",
+			"destination": "/blog/acabar-com-ratos/",
 			"permanent": true
 		},
 		{
@@ -4911,6 +5071,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/empresa-de-desratizacao-em-barueri/",
+			"destination": "/deratizacao/regioes/",
+			"permanent": true
+		},
+		{
 			"source": "/empresa-especializada-em-controle-de-cupins/",
 			"destination": "/areas-de-atendimento/",
 			"permanent": true
@@ -4933,6 +5098,11 @@
 		{
 			"source": "/empresa-especializada-em-matar-rato/",
 			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/enxame-de-cupins/",
+			"destination": "/blog/cupim-ou-formiga-de-asa/",
 			"permanent": true
 		},
 		{
@@ -4973,6 +5143,11 @@
 		{
 			"source": "/infestacao-de-cupins-na-madeira/",
 			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/isca-para-cupins/",
+			"destination": "/blog/veneno-matar-cupins/",
 			"permanent": true
 		},
 		{
@@ -5091,6 +5266,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/limpeza-de-calhas-em-sao-paulo/",
+			"destination": "/limpeza-de-calha-em-sao-paulo/",
+			"permanent": true
+		},
+		{
 			"source": "/limpeza-de-calhas-em-sao-roque/",
 			"destination": "/servico/",
 			"permanent": true
@@ -5111,8 +5291,33 @@
 			"permanent": true
 		},
 		{
+			"source": "/manejo-de-pombos/",
+			"destination": "/controle-de-pombos/",
+			"permanent": true
+		},
+		{
+			"source": "/manejo-de-pombos-sp/",
+			"destination": "/controle-de-pombos/",
+			"permanent": true
+		},
+		{
 			"source": "/matar-cupim/",
-			"destination": "/matar-cupim-em-sp/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-cupim-em-sp/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-cupins/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-cupins-de-solo-e-madeira/",
+			"destination": "/blog/como-acabar-com-os-cupins/",
 			"permanent": true
 		},
 		{
@@ -5123,6 +5328,21 @@
 		{
 			"source": "/matar-cupins-em-sao-paulo/",
 			"destination": "/areas-de-atendimento/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-pulgas-sp/",
+			"destination": "/matar-pulga-em-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-rato-sp/",
+			"destination": "/blog/acabar-com-ratos/",
+			"permanent": true
+		},
+		{
+			"source": "/matar-ratos/",
+			"destination": "/blog/acabar-com-ratos/",
 			"permanent": true
 		},
 		{
@@ -5221,6 +5441,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/o-que-causa-cupins/",
+			"destination": "/de-onde-vem-os-cupins/",
+			"permanent": true
+		},
+		{
 			"source": "/o-que-e-bom-para-acabar-com-cupim/",
 			"destination": "/descupinizacao/",
 			"permanent": true
@@ -5241,8 +5466,23 @@
 			"permanent": true
 		},
 		{
+			"source": "/o-que-fazer-quando-voce-encontra-cupins/",
+			"destination": "/como-lidar-com-uma-infestacao-de-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/o-que-sao-cupins/",
+			"destination": "/blog/os-cupins/",
+			"permanent": true
+		},
+		{
 			"source": "/o-tipo-de-cupim-que-causa-mais-danos-no-brasil/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/os-cupins-voadoras-sao-atraidas-pela-luz/",
+			"destination": "/os-cupins-voadores-sao-atraidos-pela-luz/",
 			"permanent": true
 		},
 		{
@@ -5266,6 +5506,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/pulgas-dedetizadora-de-pulgas-sp/",
+			"destination": "/matar-pulga-em-sp/",
+			"permanent": true
+		},
+		{
 			"source": "/qualidade-em-controle-de-pombos/",
 			"destination": "/servico/",
 			"permanent": true
@@ -5276,6 +5521,11 @@
 			"permanent": true
 		},
 		{
+			"source": "/quanto-custa-uma-dedetizacao/",
+			"destination": "/preco-de-dedetizacao-em-sp/",
+			"permanent": true
+		},
+		{
 			"source": "/quanto-custa-uma-dedetizacao-de-cupim/",
 			"destination": "/descupinizacao/",
 			"permanent": true
@@ -5283,6 +5533,21 @@
 		{
 			"source": "/quanto-custa-uma-dedetizacao-de-pulga/",
 			"destination": "/servico/",
+			"permanent": true
+		},
+		{
+			"source": "/quanto-tempo-dura-um-cupins/",
+			"destination": "/blog/ciclo-de-vida-do-cupim-guia/",
+			"permanent": true
+		},
+		{
+			"source": "/que-os-cupins-parecem/",
+			"destination": "/o-que-os-cupins-parecem/",
+			"permanent": true
+		},
+		{
+			"source": "/reparando-o-dano-de-cupins/",
+			"destination": "/blog/como-os-cupins-causam-danos/",
 			"permanent": true
 		},
 		{
@@ -5356,8 +5621,18 @@
 			"permanent": true
 		},
 		{
+			"source": "/servicos-de-controle-de-pragas-de-emergencia/",
+			"destination": "/dedetizacao/",
+			"permanent": true
+		},
+		{
 			"source": "/servicos-de-dedetizacao-de-cupins/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/sinais-de-danos-de-cupins/",
+			"destination": "/blog/como-os-cupins-causam-danos/",
 			"permanent": true
 		},
 		{
@@ -5371,8 +5646,48 @@
 			"permanent": true
 		},
 		{
+			"source": "/tabela-de-preco-de-dedetizacao/",
+			"destination": "/preco-de-dedetizacao-em-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/tratamento-de-cupins/",
+			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
 			"source": "/tubos-de-lama-de-cupim/",
 			"destination": "/descupinizacao/",
+			"permanent": true
+		},
+		{
+			"source": "/venena-para-matar-ratos/",
+			"destination": "/veneno-para-matar-rato/",
+			"permanent": true
+		},
+		{
+			"source": "/veneno-de-matar-rato/",
+			"destination": "/veneno-para-matar-rato/",
+			"permanent": true
+		},
+		{
+			"source": "/veneno-para-acabar-com-carrapato-sp/",
+			"destination": "/remedios-para-carrapatos/",
+			"permanent": true
+		},
+		{
+			"source": "/veneno-para-acabar-com-pulga-sp/",
+			"destination": "/matar-pulga-em-sp/",
+			"permanent": true
+		},
+		{
+			"source": "/veneno-para-acabar-com-rato-sp/",
+			"destination": "/veneno-para-matar-rato/",
+			"permanent": true
+		},
+		{
+			"source": "/veneno-para-acabar-rato/",
+			"destination": "/veneno-para-matar-rato/",
 			"permanent": true
 		},
 		{
@@ -5383,6 +5698,31 @@
 		{
 			"source": "/veneno-para-cupim-de-madeira/",
 			"destination": "/blog/veneno-para-cupim-de-solo/",
+			"permanent": true
+		},
+		{
+			"source": "/veneno-para-cupins/",
+			"destination": "/blog/veneno-matar-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/veneno-para-eliminar-rato/",
+			"destination": "/veneno-para-matar-rato/",
+			"permanent": true
+		},
+		{
+			"source": "/veneno-para-matar-cupim-em-sp/",
+			"destination": "/blog/veneno-matar-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/veneno-para-matar-cupins/",
+			"destination": "/blog/veneno-matar-cupins/",
+			"permanent": true
+		},
+		{
+			"source": "/veneno-para-pulga-em-sp/",
+			"destination": "/matar-pulga-em-sp/",
 			"permanent": true
 		}
 	]

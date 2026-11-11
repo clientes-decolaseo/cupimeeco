@@ -98,9 +98,9 @@ export function getAllContentPaths(): string[] {
 
 export function getBlogPosts(): WpManifestEntry[] {
 	const livePosts = getManifest().posts.filter((entry) => hasWpContentModule('post', entry.id));
-	return [...livePosts, ...getEditorialManifestEntries()].sort(
-		(a, b) => new Date(b.modified).getTime() - new Date(a.modified).getTime(),
-	);
+	return [...livePosts, ...getEditorialManifestEntries()]
+		.filter((entry) => !isRedirectedPath(entry.path))
+		.sort((a, b) => new Date(b.modified).getTime() - new Date(a.modified).getTime());
 }
 
 export function postUrl(path: string): string {
