@@ -54,14 +54,12 @@ function resolveCanonicalUrl(url: URL, override?: string): string {
 		const absolute = normalized.startsWith('http')
 			? new URL(normalized)
 			: new URL(normalized.startsWith('/') ? normalized : `/${normalized}`, url.origin);
-		const path =
-			absolute.pathname === '/' ? '/' : absolute.pathname.replace(/\/+$/, '');
+		const path = absolute.pathname.replace(/\/+$/, '');
 
 		return `${absolute.origin}${path}/`;
 	}
 
-	const pathname =
-		url.pathname === '/' ? '/' : url.pathname.replace(/\/+$/, '');
+	const pathname = url.pathname.replace(/\/+$/, '');
 
 	return `${url.origin}${pathname}/`;
 }
